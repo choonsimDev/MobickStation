@@ -2,14 +2,14 @@ import styled from "styled-components";
 import React, { useState } from "react";
 
 const StyledBanner = styled.div`
+  width: 100%;
+  height: 421px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: gray;
   text-align: center;
-  width: 1200px;
-  height: 500px;
 `;
 
 const MainCategory = styled.div`
@@ -18,20 +18,21 @@ const MainCategory = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: left;
   padding: 20px 0;
   background-color: red;
 `;
 
 const MainCategoryItem = styled.div`
   margin: 5px 0;
+  margin-left: 10px;
   text-align: left;
 `;
 
 const DetailCategory = styled.div`
-  background-color: green;
   width: 10%;
   height: 100%;
+  background-color: green;
 `;
 
 const DetailCategoryItem = styled.div`
