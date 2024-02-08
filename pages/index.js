@@ -4,13 +4,13 @@ import styled from "styled-components";
 
 import Header from "@/components/Header";
 import LogoAndSearch from "@/components/LogoAndSearch";
+import Banner from "@/components/Banner";
 
 const StyledDiv = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-
 
 export default function Home() {
   return (
@@ -24,6 +24,7 @@ export default function Home() {
       <Header />
       <Center>
         <LogoAndSearch />
+        <Banner />
       </Center>
     </>
   );

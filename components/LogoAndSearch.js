@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from "styled-components";
 
 const StyledDiv = Styled.div`
     display: flex;
@@ -21,10 +21,10 @@ const StyledSearch = Styled.div`
 `;
 
 export default function LogoAndSearch() {
-    return (
-        <StyledDiv>
-            <StyledLogo>로고</StyledLogo>
-            <StyledSearch>검색</StyledSearch>
-        </StyledDiv>
-    );
+  return (
+    <StyledDiv>
+      <StyledLogo>로고</StyledLogo>
+      <StyledSearch>검색</StyledSearch>
+    </StyledDiv>
+  );
 }
