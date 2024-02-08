@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Header from "@/components/Header";
 import LogoAndSearch from "@/components/LogoAndSearch";
 import Banner from "@/components/Banner";
+import TodayItem from "@/components/TodayItem";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ export default function Home() {
       <Center>
         <LogoAndSearch />
         <Banner />
+        <TodayItem/>
       </Center>
     </>
   );
