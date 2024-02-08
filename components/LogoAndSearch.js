@@ -1,11 +1,11 @@
 import Styled from "styled-components";
 
 const StyledDiv = Styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
     text-align: center;
 
 `;
