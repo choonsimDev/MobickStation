@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 26rem;
     background-color: gray;
-    padding: 1rem;
     text-align: center;
     & > div {
         display: flex;

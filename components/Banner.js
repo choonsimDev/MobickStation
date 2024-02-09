@@ -14,30 +14,35 @@ const StyledBannerWrapper = styled.div`
 `;
 
 const MainCategory = styled.div`
-  width: 10%;
+  width: 120px;
   height: 100%;
+  padding-top: 30px;
+  padding-left: 6px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: left;
-  padding: 20px 0;
+  gap: 1.5rem;
+  font-size: 0.9rem;
   background-color: lightpink;
 `;
 
 const MainCategoryItem = styled.div`
-  margin: 5px 0;
+  margin: 2px 0;
   margin-left: 10px;
   text-align: left;
 `;
 
 const DetailCategory = styled.div`
-  width: 10%;
+  width: 120px;
   height: 100%;
+  padding-top: 30px;
+  font-size: 0.8rem;
   background-color: lightgray;
 `;
 
 const DetailCategoryItem = styled.div`
-  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 20px;
   text-align: left;
 `;

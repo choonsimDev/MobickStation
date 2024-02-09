@@ -29,6 +29,9 @@ const StyledNewsContents = styled.div`
         align-items: center;
         background-color: lightyellow;
     }
+    & > div:nth-child(2) {
+       background-color: lightblue;
+    }
 `;
 
 
