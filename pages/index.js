@@ -10,11 +10,12 @@ import NowBooks from "@/components/NowBooks";
 
 import MultiSection from "@/components/MultiSection";
 import Youtube from "@/components/Youtube";
-import Card from "@/components/Card";
 import AdArea from "@/components/AdArea";
-import BottomSkin from "@/components/BottomSkin";
 import PopularBooks from "@/components/PopularBooks";
 import MultiSectionOTC from "@/components/MultiSectionOTC";
+import Market from "@/components/Market";
+import NewsSection from "@/components/NewsSection";
+import VerificationSection from "@/components/VerificationSection";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -41,9 +42,10 @@ export default function Home() {
         <MultiSection />
         <MultiSectionOTC />
         <Youtube />
-        <Card />
+        <Market />
+        <NewsSection />
         <AdArea />
-        <BottomSkin />
+        <VerificationSection />
       </Center>
     </>
   );
