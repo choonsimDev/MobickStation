@@ -37,7 +37,6 @@ export default function Home() {
         <TodayItem />
         <TopMid />
         <TopMidSecond />
-        <TopMidBot />
         <MultiSection />
         <Youtube />
         <Card />
