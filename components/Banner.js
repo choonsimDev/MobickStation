@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 
-const StyledBanner = styled.div`
+const StyledBannerWrapper = styled.div`
   width: 1200px;
   height: 421px;
   margin-top: 20px;
@@ -21,7 +21,7 @@ const MainCategory = styled.div`
   justify-content: space-around;
   align-items: left;
   padding: 20px 0;
-  background-color: red;
+  background-color: lightpink;
 `;
 
 const MainCategoryItem = styled.div`
@@ -33,7 +33,7 @@ const MainCategoryItem = styled.div`
 const DetailCategory = styled.div`
   width: 10%;
   height: 100%;
-  background-color: green;
+  background-color: lightgray;
 `;
 
 const DetailCategoryItem = styled.div`
@@ -50,11 +50,11 @@ const MainBanner = styled.div`
 
 const MainBannerImgBox = styled.div`
   height: 80%;
-  background-color: aqua;
+  background-color: lightblue;
 `;
 const MainBannerImgButton = styled.div`
   height: 20%;
-  background-color: orange;
+  background-color: lightpink;
 `;
 
 const detailCategories = {
@@ -102,7 +102,7 @@ export default function Banner() {
   const [selectedCategory, setSelectedCategory] = useState("강연 및 서적");
 
   return (
-    <StyledBanner>
+    <StyledBannerWrapper>
       <MainCategory>
         {Object.keys(detailCategories).map((category) => (
           <MainCategoryItem
@@ -124,6 +124,6 @@ export default function Banner() {
         <MainBannerImgBox></MainBannerImgBox>
         <MainBannerImgButton></MainBannerImgButton>
       </MainBanner>
-    </StyledBanner>
+    </StyledBannerWrapper>
   );
 }

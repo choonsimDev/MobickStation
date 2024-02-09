@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledRecommend = styled.header`
+const StyledRecommendWrapper = styled.header`
     width: 1200px;
     margin-top: 20px;
     display: flex;
@@ -11,140 +11,165 @@ const StyledRecommend = styled.header`
     text-align: center;
 `;
 
-const Recommend1 = styled.div`
-    width: 15%;
+const RecommendFirst = styled.div`
+    width: 200px;
     height: 300px;
-    background-color: skyblue;
     display: flex;
     flex-direction: column;
-    `;
-const Recommend2 = styled.div`
-    width: 70%;
+    justify-content: center;
+    align-items: center;
+`;
+const RecommendSecond = styled.div`
+    width: 800px;
     height: 300px;
-    background-color: pink;
     display: flex;
     flex-direction: row;
     
-    `;
-const Recommend3 = styled.div`    
-    width: 15%;
-    height: 300px;
-    background-color: black;
-    
-    `;
+`;
+const RecommendThird = styled.div`    
+    width:200px ;
+    height: 300px;  
+`;
 
-const Recommend1_1 = styled.div`
+const RecommendFirstTitle = styled.div`
     width: 100%;
     height: 10%;
-    background-color: gray;
-    `;
-const Recommend1_2 = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+`;
+const RecommendFirstImage = styled.div`
     width: 100%;
     height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: palegoldenrod;
 `;
-const Recommend1_3 = styled.div`
+const RecommendFirstDescription = styled.div`
     width: 100%;
     height: 35%;
-    background-color: gray;
-`;
-
-const Recommend2_1 = styled.div`
-    width: 30%;
-    height: 100%;
-    background-color: green;
-    `;
-const Recommend2_2 = styled.div`
-    width: 70%;
-    height: 100%;
-    background-color: saddlebrown;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background-color: lightgray;
 `;
 
-const Recommend2_2_1 = styled.div`
+const RecommendSecondImage = styled.div`
+    width: 240px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;
+`;
+const RecommendSecondMenu = styled.div`
+    width: 560px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: saddlebrown;
+`;
+
+const RecommendSecondTitle = styled.div`
     width: 100%;
     height: 10%;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
 `;
-const Recommend2_2_2 = styled.div`
+const RecommendSecondItemDescription = styled.div`
     width: 100%;
     height: 70%;
-    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightpink;
 `;
-const Recommend2_2_3 = styled.div`
+const RecommendSecondItemImageBox = styled.div`
     width: 100%;
     height: 20%;
-    background-color: yellow;
     display: flex;
     flex-direction :row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: yellow;
+ 
 `;
-
-const Recommend2_2_3_Pic = styled.div`
-    width: 18%;
-    height: 100%;
-    background-color: violet;
+const RecommendSecondItemImage = styled.div`
+    width: 100px;
+    height: 90%;
+    background-color: lightgray;
     margin-left: 10px;
 `;
 
-const Recommend3_1 = styled.div`
+const RecommendThirdNavi = styled.div`
     width: 100%;
     height: 10%;
-    background-color: gray;
     display: flex;
     flex: row;
-
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightgray;
+    & > li {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    & > li:first-child {
+        background-color: lightgreen;
+    }
+    & > li:nth-child(2) {
+        background-color: lightyellow;
+    }
 `;
-
-const Recommend3_1_1 = styled.div`
-    width: 50%;
-    height: 100%;
-    background-color: skyblue;
-`;
-
-const Recommend3_1_2 = styled.div`
-    width: 50%;
-    height: 100%;
-    background-color: salmon;
-`;
-
-const Recommend3_2 = styled.div`
+const RecommendThirdList = styled.div`
     width: 100%;
     height: 90%;
-    background-color: palegoldenrod;
+    background-color: lightgreen;
 `;
 
 
 export default function TodayItem() {
     return (
-        <StyledRecommend>
-            <Recommend1>
-                <Recommend1_1></Recommend1_1>
-                <Recommend1_2></Recommend1_2>
-                <Recommend1_3></Recommend1_3>
-            </Recommend1>
-            <Recommend2>
-                <Recommend2_1></Recommend2_1>
-                <Recommend2_2>
-                    <Recommend2_2_1></Recommend2_2_1>
-                    <Recommend2_2_2></Recommend2_2_2>
-                    <Recommend2_2_3>
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
-                    </Recommend2_2_3>
-                </Recommend2_2>
-            </Recommend2>
-            <Recommend3>
-                <Recommend3_1>
-                    <Recommend3_1_1></Recommend3_1_1>
-                    <Recommend3_1_2></Recommend3_1_2>
-                </Recommend3_1>
-                <Recommend3_2></Recommend3_2>
-            </Recommend3>
-
-        </StyledRecommend>
+        <StyledRecommendWrapper>
+            <RecommendFirst>
+                <RecommendFirstTitle>category</RecommendFirstTitle>
+                <RecommendFirstImage>image</RecommendFirstImage>
+                <RecommendFirstDescription>
+                    <div>상품명</div>
+                    <div>가격</div>
+                </RecommendFirstDescription>
+            </RecommendFirst>
+            <RecommendSecond>
+                <RecommendSecondImage>recommand Image</RecommendSecondImage>
+                <RecommendSecondMenu>
+                    <RecommendSecondTitle>오늘의 상품</RecommendSecondTitle>
+                    <RecommendSecondItemDescription>
+                        <div>상품명</div>
+                        <div>가격</div>
+                        <div>상품설명</div>
+                    </RecommendSecondItemDescription>
+                    <RecommendSecondItemImageBox>
+                        <RecommendSecondItemImage></RecommendSecondItemImage>
+                        <RecommendSecondItemImage></RecommendSecondItemImage>
+                        <RecommendSecondItemImage></RecommendSecondItemImage>
+                        <RecommendSecondItemImage></RecommendSecondItemImage>
+                        <RecommendSecondItemImage></RecommendSecondItemImage>
+                    </RecommendSecondItemImageBox>
+                </RecommendSecondMenu>
+            </RecommendSecond>
+            <RecommendThird>
+                <RecommendThirdNavi>
+                    <li>인기상품</li>
+                    <li>인기검색어</li>
+                </RecommendThirdNavi>
+                <RecommendThirdList></RecommendThirdList>
+            </RecommendThird>
+        </StyledRecommendWrapper>
     );
 }
