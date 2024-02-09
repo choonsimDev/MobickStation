@@ -10,12 +10,11 @@ const StyledTopMidWraper = styled.div`
 `;
 const StyledNewsSection = styled.div`
     width: 800px;
-
     padding-left: 30px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: lightpink;
+    background-color: lightyellow;
 `;
 const StyledNewsContents = styled.div`
     width: 400px;
@@ -27,7 +26,7 @@ const StyledNewsContents = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: lightyellow;
+        background-color: lightpink;
     }
 `;
 

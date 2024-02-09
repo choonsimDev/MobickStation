@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledRecommend = styled.header`
+    width: 1200px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;

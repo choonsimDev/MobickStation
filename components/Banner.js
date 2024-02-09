@@ -2,8 +2,9 @@ import styled from "styled-components";
 import React, { useState } from "react";
 
 const StyledBanner = styled.div`
-  width: 100%;
+  width: 1200px;
   height: 421px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
