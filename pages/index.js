@@ -6,6 +6,14 @@ import Header from "@/components/Header";
 import LogoAndSearch from "@/components/LogoAndSearch";
 import Banner from "@/components/Banner";
 import TodayItem from "@/components/TodayItem";
+import TopMid from "@/components/TopMid";
+import TopMidSecond from "@/components/TopMidSecond";
+import TopMidBot from "@/components/TopMidBot";
+import MultiSection from "@/components/MultiSection";
+import Youtube from "@/components/Youtube";
+import Card from "@/components/Card";
+import AdArea from "@/components/AdArea";
+import BottomSkin from "@/components/BottomSkin";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -26,7 +34,15 @@ export default function Home() {
       <Center>
         <LogoAndSearch />
         <Banner />
-        <TodayItem/>
+        <TodayItem />
+        <TopMid />
+        <TopMidSecond />
+        <TopMidBot />
+        <MultiSection />
+        <Youtube />
+        <Card />
+        <AdArea />
+        <BottomSkin />
       </Center>
     </>
   );

@@ -98,7 +98,7 @@ const detailCategories = {
 };
 
 export default function Banner() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("강연 및 서적");
 
   return (
     <StyledBanner>

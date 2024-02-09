@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 const StyledRecommend = styled.header`
     display: flex;
     flex-direction: row;
@@ -17,7 +15,7 @@ const Recommend1 = styled.div`
     background-color: skyblue;
     display: flex;
     flex-direction: column;
-    `;    
+    `;
 const Recommend2 = styled.div`
     width: 70%;
     height: 300px;
@@ -114,7 +112,7 @@ const Recommend3_2 = styled.div`
     background-color: palegoldenrod;
 `;
 
-    
+
 export default function TodayItem() {
     return (
         <StyledRecommend>
@@ -129,12 +127,12 @@ export default function TodayItem() {
                     <Recommend2_2_1></Recommend2_2_1>
                     <Recommend2_2_2></Recommend2_2_2>
                     <Recommend2_2_3>
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>    
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>    
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>    
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>    
-                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>    
-                        </Recommend2_2_3>
+                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
+                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
+                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
+                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
+                        <Recommend2_2_3_Pic></Recommend2_2_3_Pic>
+                    </Recommend2_2_3>
                 </Recommend2_2>
             </Recommend2>
             <Recommend3>
@@ -144,7 +142,7 @@ export default function TodayItem() {
                 </Recommend3_1>
                 <Recommend3_2></Recommend3_2>
             </Recommend3>
-            
+
         </StyledRecommend>
     );
 }
