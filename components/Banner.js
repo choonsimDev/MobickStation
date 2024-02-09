@@ -88,7 +88,7 @@ const detailCategories = {
   "커뮤니티 ": [
     "모빅당근",
     "춘심 OTC",
-    "모빅회관",
+    // "모빅회관",
     "위조검증",
     "공지사항",
     "모빅회관",
@@ -104,9 +104,9 @@ export default function Banner() {
   return (
     <StyledBannerWrapper>
       <MainCategory>
-        {Object.keys(detailCategories).map((category) => (
+        {Object.keys(detailCategories).map((category, idx) => (
           <MainCategoryItem
-            key={category}
+            key={idx}
             onMouseEnter={() => setSelectedCategory(category)}
           // onMouseLeave={() => setSelectedCategory(null)}
           >

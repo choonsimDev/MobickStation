@@ -100,7 +100,7 @@ const RecommendSecondItemImageBox = styled.div`
 `;
 const RecommendSecondItemImage = styled.div`
     width: 100px;
-    height: 90%;
+    height: 80%;
     background-color: lightgray;
     margin-left: 10px;
 `;
