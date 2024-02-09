@@ -108,7 +108,7 @@ export default function Banner() {
           <MainCategoryItem
             key={category}
             onMouseEnter={() => setSelectedCategory(category)}
-            onMouseLeave={() => setSelectedCategory(null)}
+          // onMouseLeave={() => setSelectedCategory(null)}
           >
             {category}
           </MainCategoryItem>
