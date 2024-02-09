@@ -24,15 +24,16 @@ const StyledMultiSectionContents = styled.div`
         background-color: lightgray;
     }
     & > div:first-child {
-        background-color: lightgreen;
+ 
+        background-color: lightblue;
     }
     & > div:last-child {
-        background-color: lightblue;
+        background-color: lightgreen;
     }
 `;
 
 
-export default function MultiSection() {
+export default function MultiSectionOTC() {
     return (
         <StyledTopMidWraper>
             <StyledNoticeTitle>NOTICE</StyledNoticeTitle>
