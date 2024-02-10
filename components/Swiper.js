@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 
 export default function SwiperBanner() {
@@ -14,7 +14,11 @@ export default function SwiperBanner() {
                     clickable: true,
                 }}
                 navigation={true}
-                modules={[Pagination, Navigation]}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                modules={[Pagination, Navigation, Autoplay]}
                 className="mySwiper"// 모듈 스타일 적용
             >
                 <SwiperSlide>Slide 1</SwiperSlide>

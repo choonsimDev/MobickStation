@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SwiperBanner from "./Swiper";
 
 const StyledTopMidWraper = styled.div`
     width: 1200px;
@@ -40,11 +41,14 @@ const StyledPubBook = styled.div`
 export default function PopularBooks() {
     return (
         <StyledTopMidWraper>
+            <StyledPubBook>PopBook</StyledPubBook>
             <StyledNowBook>
                 <StyledNowBookTitle>PopularBooks</StyledNowBookTitle>
-                <StyledNowBookList></StyledNowBookList>
+                <StyledNowBookList>
+                    <SwiperBanner />
+                </StyledNowBookList>
             </StyledNowBook>
-            <StyledPubBook>PopBook</StyledPubBook>
+
         </StyledTopMidWraper>
     );
 }
