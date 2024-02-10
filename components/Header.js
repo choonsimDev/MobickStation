@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
     justify-content: center;
     align-items: center;
     gap: 26rem;
-    background-color: gray;
+    background-color: dodgerblue;
     text-align: center;
     & > div {
         display: flex;
