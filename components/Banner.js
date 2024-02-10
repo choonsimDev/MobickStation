@@ -10,8 +10,8 @@ const StyledBannerWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: gray;
   text-align: center;
+  border: 1px solid lightgray;
 `;
 
 const MainCategory = styled.div`
@@ -25,7 +25,7 @@ const MainCategory = styled.div`
   align-items: left;
   gap: 1.5rem;
   font-size: 0.9rem;
-  background-color: lightpink;
+  border-right: 1px solid lightgray;
 `;
 
 const MainCategoryItem = styled.div`
@@ -39,7 +39,7 @@ const DetailCategory = styled.div`
   height: 100%;
   padding-top: 30px;
   font-size: 0.8rem;
-  background-color: lightgray;
+  border-right: 1px solid lightgray;
 `;
 
 const DetailCategoryItem = styled.div`
@@ -56,11 +56,9 @@ const MainBanner = styled.div`
 
 const MainBannerImgBox = styled.div`
   height: 100%;
-  background-color: lightblue;
 `;
 const MainBannerImgButton = styled.div`
   height: 20%;
-  background-color: lightpink;
 `;
 
 const detailCategories = {
