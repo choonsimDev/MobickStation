@@ -38,10 +38,10 @@ export default function Home() {
         <Banner />
         <TodayItem />
         <NowBooks />
+        <Youtube />
         <PopularBooks />
         <MultiSection />
         <MultiSectionOTC />
-        <Youtube />
         <Market />
         <NewsSection />
         <AdArea />

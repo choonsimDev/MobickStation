@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import YouTubeVideo from "./YoutubeVideo";
 
 const StyledTopMidWraper = styled.div`
     width: 1200px;
@@ -24,14 +25,43 @@ const StyledYoutubeContents = styled.div`
     background-color: lightyellow;
 `;
 
+const StyledProductBox = styled.div`
+    width: 500px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+
+`;
+const StyledProductPic = styled.div`
+width: 500px;
+height: 270px;
+`;
+const StyledProductVideos = styled.div`
+width: 500px;
+height: 100px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+`;
+
 
 export default function Youtube() {
     return (
         <StyledTopMidWraper>
             <StyledYoutubeTitle>Youtube</StyledYoutubeTitle>
             <StyledYoutubeContentsWraper>
-                <StyledYoutubeContents>youtube</StyledYoutubeContents>
-                <div>관련상품</div>
+                <StyledYoutubeContents>
+                    <YouTubeVideo width={700} height={370} src="https://www.youtube.com/embed/gqW0GELqDk4" />
+                </StyledYoutubeContents>
+                <StyledProductBox>
+                    <StyledProductPic></StyledProductPic>
+                    <StyledProductVideos>
+                        <YouTubeVideo width={120} height={80} src="https://www.youtube.com/embed/GC15P3b29GY" />
+                        <YouTubeVideo width={120} height={80} src="https://www.youtube.com/embed/GC15P3b29GY" />
+                        <YouTubeVideo width={120} height={80} src="https://www.youtube.com/embed/GC15P3b29GY" />
+                    </StyledProductVideos>
+                </StyledProductBox>
             </StyledYoutubeContentsWraper>
         </StyledTopMidWraper>
     );
