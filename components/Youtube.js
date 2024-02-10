@@ -5,7 +5,7 @@ const StyledTopMidWraper = styled.div`
     width: 1200px;
     height : 400px;
     margin-top: 20px;
-    background-color: lightgray;
+    border: 1px solid lightgray;
 `;
 const StyledYoutubeTitle = styled.div`
     height: 30px;
@@ -13,7 +13,7 @@ const StyledYoutubeTitle = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: lightpink;
+    border-bottom: 1px solid lightgray;
 `;
 const StyledYoutubeContentsWraper = styled.div`
     display: flex;
@@ -22,6 +22,9 @@ const StyledYoutubeContentsWraper = styled.div`
 const StyledYoutubeContents = styled.div`
     width: 700px;
     height: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: lightyellow;
 `;
 

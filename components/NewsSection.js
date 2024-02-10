@@ -6,7 +6,7 @@ const StyledTopMidWraper = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    background-color: gray;
+    border: 1px solid lightgray;
 `;
 const StyledNewsSection = styled.div`
     width: 400px;
@@ -15,7 +15,7 @@ const StyledNewsSection = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: lightpink;
+    border-right: 1px solid lightgray;
 `;
 const StyledNewsContents = styled.div`
     width: 800px;
@@ -27,10 +27,9 @@ const StyledNewsContents = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: lightyellow;
     }
     & > div:nth-child(2) {
-       background-color: lightblue;
+        border-top: 1px solid lightgray;
     }
 `;
 

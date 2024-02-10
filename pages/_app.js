@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import "../styles/styles.css";
+
 // import Swiper core and required modules
 
 const GlobalStyle = createGlobalStyle`

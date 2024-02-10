@@ -7,15 +7,14 @@ const StyledTopMidWraper = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    background-color: lightgray;
+    border: 1px solid lightgray;
 `;
 
 const StyledNowBook = styled.div`
     width: 959px;
-    height: 400px;
+    height: 398px;
     display: flex;
     flex-direction: column;
-    background-color: lightgreen;
 `;
 const StyledNowBookTitle = styled.div`
     width: 959px;
@@ -24,7 +23,6 @@ const StyledNowBookTitle = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: lightblue;
 `;
 const StyledNowBookList = styled.div`
     width: 959px;
@@ -34,6 +32,27 @@ const StyledNowBookList = styled.div`
 const StyledPubBook = styled.div`
     width: 238px;
     height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 1px solid lightgray;
+`;
+const StyledPubBookTitle = styled.div`
+    width: 238px;
+    height: 30px;
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`;
+const StyledPubBookImage = styled.div`
+    width: 200px;
+    height: 340px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: lightgray;
 `;
 
@@ -41,7 +60,10 @@ const StyledPubBook = styled.div`
 export default function PopularBooks() {
     return (
         <StyledTopMidWraper>
-            <StyledPubBook>PopBook</StyledPubBook>
+            <StyledPubBook>
+                <StyledPubBookTitle>PopBooks</StyledPubBookTitle>
+                <StyledPubBookImage>이미지</StyledPubBookImage>
+            </StyledPubBook>
             <StyledNowBook>
                 <StyledNowBookTitle>PopularBooks</StyledNowBookTitle>
                 <StyledNowBookList>

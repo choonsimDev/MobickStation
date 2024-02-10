@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import SwiperBanner from "./Swiper";
 
 const StyledTopMidWraper = styled.div`
     width: 1200px;
     height : 600px;
     margin-top: 20px;
-    background-color: gray;
+    border: 1px solid lightgray;
 `;
 const StyledMarketTitle = styled.div`
     height: 30px;
@@ -12,9 +13,13 @@ const StyledMarketTitle = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: lightpink;
+    border-bottom: 1px solid lightgray;
 `;
-
+const StyledMarketSwiper = styled.div`
+    width: 100%;
+    height: 568px;
+    background-color: lightgray;
+`;
 
 export default function Market() {
     return (
@@ -22,6 +27,9 @@ export default function Market() {
             <StyledMarketTitle>
                 Market
             </StyledMarketTitle>
+            <StyledMarketSwiper>
+                <SwiperBanner />
+            </StyledMarketSwiper>
         </StyledTopMidWraper>
     );
 }

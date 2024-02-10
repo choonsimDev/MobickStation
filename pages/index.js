@@ -40,7 +40,7 @@ export default function Home() {
         <NowBooks />
         <Youtube />
         <PopularBooks />
-        <MultiSection />
+        {/* <MultiSection /> */}
         <MultiSectionOTC />
         <Market />
         <NewsSection />
