@@ -1,4 +1,5 @@
 import Styled from "styled-components";
+import { IoSearchOutline } from "react-icons/io5";
 
 const StyledLogoSearchWrapper = Styled.div`
     width: 1200px;
@@ -19,8 +20,23 @@ const StyledLogo = Styled.div`
     gap: 6rem;  
     background-color: lightyellow;
 `;
-const StyledInput = Styled.input`
+const StyledSearchWrapper = Styled.div`
     width: 40%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    & div {
+      position: relative;
+      left: -50px;
+      top: 2px;
+      font-size: 1.2rem;  
+    }
+`;
+const StyledInput = Styled.input`
+    width: 100%;
     height: 40px;
     border: 1px solid black;
     border-radius: 5px;
@@ -28,6 +44,8 @@ const StyledInput = Styled.input`
     margin-left: 10px;
     padding: 5px;
 `;
+
+
 const StyledNavigation = Styled.div`
     height: 40px;
     width: 100%;
@@ -39,7 +57,7 @@ const StyledNavigation = Styled.div`
     background-color: lightblue;
     & div {
         display: flex;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 `;
 const StyledLink = Styled.a`
@@ -52,7 +70,12 @@ export default function LogoAndSearch() {
     <StyledLogoSearchWrapper>
       <StyledLogo>
         <img src="/images/logo.png" alt="logo" />
-        <StyledInput placeholder="비트모빅 종이지갑"></StyledInput>
+        <StyledSearchWrapper>
+          <StyledInput placeholder="비트모빅 종이지갑"></StyledInput>
+          <div>
+            <IoSearchOutline />
+          </div>
+        </StyledSearchWrapper>
       </StyledLogo>
       <StyledNavigation>
         <div>
