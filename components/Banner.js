@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import React, { useState } from "react";
+import styled from "styled-components";
+import SwiperBanner from "./Swiper";
 
 const StyledBannerWrapper = styled.div`
   width: 1200px;
@@ -48,13 +49,13 @@ const DetailCategoryItem = styled.div`
 `;
 
 const MainBanner = styled.div`
-  background-color: blue;
-  width: 80%;
+  width: 960px;
   height: 100%;
+  background-color: blue;
 `;
 
 const MainBannerImgBox = styled.div`
-  height: 80%;
+  height: 100%;
   background-color: lightblue;
 `;
 const MainBannerImgButton = styled.div`
@@ -126,8 +127,10 @@ export default function Banner() {
           ))}
       </DetailCategory>
       <MainBanner>
-        <MainBannerImgBox></MainBannerImgBox>
-        <MainBannerImgButton></MainBannerImgButton>
+        <MainBannerImgBox>
+          <SwiperBanner />
+        </MainBannerImgBox>
+        {/* <MainBannerImgButton></MainBannerImgButton> */}
       </MainBanner>
     </StyledBannerWrapper>
   );
