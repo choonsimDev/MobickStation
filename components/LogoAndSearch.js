@@ -10,7 +10,7 @@ const StyledLogoSearchWrapper = Styled.div`
     text-align: center;
 
 `;
-const StyledLogo = Styled.div`
+const StyledLogoBox = Styled.div`
     height: 100px;
     width: 100%;
     display: flex;
@@ -18,7 +18,21 @@ const StyledLogo = Styled.div`
     justify-content: center;
     align-items: center;
     gap: 6rem;  
-    background-color: lightyellow;
+`;
+const StyledLogo = Styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    & img {
+      width: 50px;
+    }
+    & div {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #999999;
+    }
 `;
 const StyledSearchWrapper = Styled.div`
     width: 40%;
@@ -57,7 +71,14 @@ const StyledNavigation = Styled.div`
     background-color: lightblue;
     & div {
         display: flex;
-        gap: 1.5rem;
+        gap: 2rem;
+    }
+    & div:first-child {
+        font-size: 0.9rem;
+    }
+    & div:last-child {
+        font-size: 0.8rem;
+        font-weight: 200;
     }
 `;
 const StyledLink = Styled.a`
@@ -65,18 +86,22 @@ const StyledLink = Styled.a`
     color: black;
 `;
 
+
 export default function LogoAndSearch() {
   return (
     <StyledLogoSearchWrapper>
-      <StyledLogo>
-        <img src="/images/logo.png" alt="logo" />
+      <StyledLogoBox>
+        <StyledLogo>
+          <img src="/images/btcmobicklogo.png" alt="logo" width={50} />
+          <div>BTCmobick</div>
+        </StyledLogo>
         <StyledSearchWrapper>
           <StyledInput placeholder="비트모빅 종이지갑"></StyledInput>
           <div>
             <IoSearchOutline />
           </div>
         </StyledSearchWrapper>
-      </StyledLogo>
+      </StyledLogoBox>
       <StyledNavigation>
         <div>
           <StyledLink href="#">베스트</StyledLink>
