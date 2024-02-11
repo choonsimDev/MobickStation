@@ -59,7 +59,6 @@ const StyledInput = Styled.input`
     padding: 5px;
 `;
 
-
 const StyledNavigation = Styled.div`
     height: 40px;
     width: 100%;
@@ -73,19 +72,36 @@ const StyledNavigation = Styled.div`
         display: flex;
         gap: 2rem;
     }
-    & div:first-child {
+    /* & div:first-child {
         font-size: 0.9rem;
     }
     & div:last-child {
         font-size: 0.8rem;
         font-weight: 200;
-    }
+    } */
 `;
 const StyledLink = Styled.a`
     text-decoration: none;
     color: black;
-`;
+    position: relative;
 
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0; // 왼쪽 끝에서 시작
+        bottom: -7px;
+        width: 100%;
+        height: 2px;
+        background-color: blue;
+        transform: scaleX(0);
+        transform-origin: 50%; // 확대/축소의 기준점을 가로축의 중앙으로 설정
+        transition: transform 0.3s ease;
+    }
+
+    &:hover:after {
+        transform: scaleX(1); // 호버 시 양쪽으로 펼쳐지도록 설정
+    }
+`;
 
 export default function LogoAndSearch() {
   return (

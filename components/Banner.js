@@ -112,7 +112,7 @@ export default function Banner() {
           <MainCategoryItem
             key={idx}
             onMouseEnter={() => setSelectedCategory(category)}
-          // onMouseLeave={() => setSelectedCategory(null)}
+            // onMouseLeave={() => setSelectedCategory(null)}
           >
             {category}
           </MainCategoryItem>
