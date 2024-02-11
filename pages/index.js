@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import LogoAndSearch from "@/components/LogoAndSearch";
 import Banner from "@/components/Banner";
 import TodayItem from "@/components/TodayItem";
-import NowBooks from "@/components/NowBooks";
+import Products from "@/components/Products";
 
 import MultiSection from "@/components/MultiSection";
 import Youtube from "@/components/Youtube";
@@ -37,7 +37,7 @@ export default function Home() {
         <LogoAndSearch />
         <Banner />
         <TodayItem />
-        <NowBooks />
+        <Products />
         <Youtube />
         <PopularBooks />
         {/* <MultiSection /> */}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SwiperBanner from "./Swiper";
+import SwiperBanner from "./SwiperProducts";
 
 const StyledTopMidWraper = styled.div`
     width: 1200px;
@@ -9,7 +9,6 @@ const StyledTopMidWraper = styled.div`
     flex-direction: row;
     border: 1px solid lightgray;
 `;
-
 const StyledNowBook = styled.div`
     width: 959px;
     height: 398px;
@@ -60,8 +59,7 @@ const StyledPubBookImage = styled.div`
     background-color: lightgray;
 `;
 
-
-export default function NowBooks() {
+export default function Products() {
     return (
         <StyledTopMidWraper>
             <StyledNowBook>
@@ -74,7 +72,6 @@ export default function NowBooks() {
                     <StyledPubBookImage>이미지</StyledPubBookImage>
                     <StyledPubBookImage>이미지</StyledPubBookImage>
                 </StyledPubBookImageBox>
-
             </StyledPubBook>
         </StyledTopMidWraper>
     );
