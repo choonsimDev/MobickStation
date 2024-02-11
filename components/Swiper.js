@@ -21,15 +21,30 @@ export default function SwiperBanner() {
                 modules={[Pagination, Navigation, Autoplay]}
                 className="mySwiper"// 모듈 스타일 적용
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/1stWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/3rdWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/4thWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/5thWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/1stWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/3rdWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/4thWallet.png" alt="4thWallet" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/images/5thWallet.png" alt="4thWallet" />
+                </SwiperSlide>
             </Swiper>
         </>
     );
