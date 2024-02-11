@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const StyledRecommendWrapper = styled.header`
@@ -128,27 +129,34 @@ const RecommendFourthNavi = styled.div`
     flex: row;
     justify-content: space-around;
     align-items: center;
-    & > li {
+    & > div {
         width: 50%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    & > li:first-child {
+    & > div:first-child {
         border-right: 1px solid lightgray;
+        ${({ activeTab }) => activeTab === '인기검색어' && 'border-bottom: 1px solid lightgray;'}
        
     }
-    & > li:nth-child(2) {
-        border-bottom: 1px solid lightgray;
+    & > div:nth-child(2) {
+        /* border-bottom: 1px solid lightgray; */
+        ${({ activeTab }) => activeTab === '인기상품' && 'border-bottom: 1px solid lightgray;'}
     }
 `;
-const RecommendThirdList = styled.div`
+const RecommendThirdListA = styled.div`
+    width: 100%;
+    height: 90%;
+`;
+const RecommendThirdListB = styled.div`
     width: 100%;
     height: 90%;
 `;
 
 export default function TodayItem() {
+    const [activeTab, setActiveTab] = useState("인기상품");
     return (
         <StyledRecommendWrapper>
             <RecommendFirst>
@@ -180,11 +188,11 @@ export default function TodayItem() {
                 </RecommendThirdMenu>
             </RecommendThird>
             <RecommendFourth>
-                <RecommendFourthNavi>
-                    <li>인기상품</li>
-                    <li>인기검색어</li>
+                <RecommendFourthNavi activeTab={activeTab}>
+                    <div onClick={() => setActiveTab("인기상품")}>인기상품</div>
+                    <div onClick={() => setActiveTab("인기검색어")}>인기검색어</div>
                 </RecommendFourthNavi>
-                <RecommendThirdList></RecommendThirdList>
+                {activeTab === "인기상품" ? <RecommendThirdListA>인기상품</RecommendThirdListA> : <RecommendThirdListB>인기검색어</RecommendThirdListB>}
             </RecommendFourth>
         </StyledRecommendWrapper>
     );
