@@ -15,7 +15,7 @@ export default function SwiperBanner() {
                 }}
                 navigation={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 10000,
                     disableOnInteraction: false,
                 }}
                 modules={[Pagination, Navigation, Autoplay]}
