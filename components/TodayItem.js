@@ -142,7 +142,6 @@ const RecommendFourthNavi = styled.div`
        
     }
     & > div:nth-child(2) {
-        /* border-bottom: 1px solid lightgray; */
         ${({ activeTab }) => activeTab === '인기상품' && 'border-bottom: 1px solid lightgray;'}
     }
 `;
@@ -163,6 +162,7 @@ const RecommendThirdListB = styled.div`
 
 export default function TodayItem() {
     const [activeTab, setActiveTab] = useState("인기상품");
+
     return (
         <StyledRecommendWrapper>
             <RecommendFirst>
@@ -198,7 +198,9 @@ export default function TodayItem() {
                     <div onClick={() => setActiveTab("인기상품")}>인기상품</div>
                     <div onClick={() => setActiveTab("인기검색어")}>인기검색어</div>
                 </RecommendFourthNavi>
-                {activeTab === "인기상품" ? <RecommendThirdListA>인기상품</RecommendThirdListA> : <RecommendThirdListB>인기검색어</RecommendThirdListB>}
+                {activeTab === "인기상품"
+                    ? <RecommendThirdListA>인기상품</RecommendThirdListA>
+                    : <RecommendThirdListB>인기검색어</RecommendThirdListB>}
             </RecommendFourth>
         </StyledRecommendWrapper>
     );
