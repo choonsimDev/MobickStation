@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SwiperBanner from "./SwiperProducts";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
@@ -27,15 +26,19 @@ const StyledNowBookTitle = styled.div`
   border-bottom: 1px solid lightgray;
 `;
 const StyledNowBookList = styled.div`
-  padding: 14px 0px 0px 70px;
-  //  background-color: lightyellow;
+    width: 959px;
+    height: 368px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 const StyledNowBookListBox = styled.div`
   width: 885px;
   height: 340px;
-  justify-content: right;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 1.6rem;
 `;
 const StyledPubBook = styled.div`
   width: 238px;
@@ -77,15 +80,12 @@ const StyledPubBookLine = styled.div`
 // 추가 코드
 
 const StyledProductBox = styled.div`
-  flex: 1;
-  margin: 20px; // 오른쪽 마진을 10px로 설정
-
-  /* border: 1px solid lightgray; */
+  width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  border: 1px solid lightgray;  
 `;
-
 const StyledProductImage = styled.div`
   height: 65%;
   background-color: skyblue; // 임시 배경색
@@ -95,83 +95,88 @@ const StyledProductImage = styled.div`
   background-size: cover;
   background-position: center;
 `;
-
 const StyledProductName = styled.div`
-  padding: 10px;
+  margin-top: 1.2rem;
+  padding: 0rem 1rem;
   font-size: 13px;
   font-weight: bold;
 `;
-
 const StyledProductDescription = styled.div`
-  padding: 10px;
+  padding: 0rem 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
   font-size: 12px;
   color: gray;
   flex-grow: 1;
 `;
-
 const StyledProductPrice = styled.div`
-  padding: 10px;
-  font-weight: bold;
+    margin-bottom: 1.2rem;
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
 `;
 
 export default function Products() {
-  // 상품 데이터
-  const products = [
-    {
-      imageUrl: "상품1이미지URL",
-      name: "비트코인 필승 투자 스터디",
-      description: "오태민 작가와 함께하는 비트코인 투자 스터디",
-      price: "₩99,000",
-    },
-    {
-      imageUrl: "상품2이미지URL",
-      name: "비트모빅 로고 동판 - 몬트빌",
-      description: "2023.07.18 몬트빌 에어드랍 기념 동판",
-      price: "₩5,000,000",
-    },
-    {
-      imageUrl: "상품3이미지URL",
-      name: "비트코인 투자 바이블",
-      description: "대한민국 비트코인 최고 권위자 오태민 작가",
-      price: "₩270,000",
-    },
-    {
-      imageUrl: "상품4이미지URL",
-      name: "모빌렛 - 5차",
-      description: "당신의 암호화폐를 안전하게 보관하세요.",
-      price: "₩40,000",
-    },
-  ];
+    // 상품 데이터
+    const products = [
+        {
+            imageUrl: "상품1이미지URL",
+            name: "비트코인 필승 투자 스터디",
+            description: "오태민 작가와 함께하는 비트코인 투자 스터디",
+            price: "₩99,000",
+        },
+        {
+            imageUrl: "상품2이미지URL",
+            name: "비트모빅 로고 동판 - 몬트빌",
+            description: "2023년 7월 18일 몬트빌 에어드랍 기념 동판",
+            price: "₩5,000,000",
+        },
+        {
+            imageUrl: "상품3이미지URL",
+            name: "비트코인 투자 바이블",
+            description: "대한민국 비트코인 국내최고 권위자 오태민 작가",
+            price: "₩270,000",
+        },
+        {
+            imageUrl: "상품4이미지URL",
+            name: "모빌렛 - 5차",
+            description: "당신의 암호화폐를 안전하게 보관하세요.",
+            price: "₩40,000",
+        },
+    ];
 
-  return (
-    <StyledTopMidWraper>
-      <StyledNowBook>
-        <StyledNowBookTitle>카테고리별 판매량 1위</StyledNowBookTitle>
-        <StyledNowBookList>
-          <StyledNowBookListBox>
-            {products.map((product, index) => (
-              <StyledProductBox key={index}>
-                <StyledProductImage
-                  style={{ backgroundImage: `url(${product.imageUrl})` }}
-                />
-                <StyledProductName>{product.name}</StyledProductName>
-                <StyledProductDescription>
-                  {product.description}
-                </StyledProductDescription>
-                <StyledProductPrice>{product.price}</StyledProductPrice>
-              </StyledProductBox>
-            ))}
-          </StyledNowBookListBox>
-        </StyledNowBookList>{" "}
-      </StyledNowBook>
-      <StyledPubBook>
-        <StyledPubBookTitle>오독클 추천 서적</StyledPubBookTitle>
-        <StyledPubBookImageBox>
-          <StyledPubBookImage>이미지</StyledPubBookImage>
-          <StyledPubBookLine></StyledPubBookLine>
-          <StyledPubBookImage>이미지</StyledPubBookImage>
-        </StyledPubBookImageBox>
-      </StyledPubBook>
-    </StyledTopMidWraper>
-  );
+    return (
+        <StyledTopMidWraper>
+            <StyledNowBook>
+                <StyledNowBookTitle>카테고리별 판매량 1위</StyledNowBookTitle>
+                <StyledNowBookList>
+                    <StyledNowBookListBox>
+                        {products.map((product, index) => (
+                            <StyledProductBox key={index}>
+                                <StyledProductImage
+                                    style={{ backgroundImage: `url(${product.imageUrl})` }}
+                                />
+                                <StyledProductName>{product.name}</StyledProductName>
+                                <StyledProductDescription>
+                                    {product.description}
+                                </StyledProductDescription>
+                                <StyledProductPrice>{product.price}</StyledProductPrice>
+                            </StyledProductBox>
+                        ))}
+                    </StyledNowBookListBox>
+                </StyledNowBookList>
+            </StyledNowBook>
+            <StyledPubBook>
+                <StyledPubBookTitle>오독클 추천 서적</StyledPubBookTitle>
+                <StyledPubBookImageBox>
+                    <StyledPubBookImage>이미지</StyledPubBookImage>
+                    <StyledPubBookLine></StyledPubBookLine>
+                    <StyledPubBookImage>이미지</StyledPubBookImage>
+                </StyledPubBookImageBox>
+            </StyledPubBook>
+        </StyledTopMidWraper>
+    );
 }
