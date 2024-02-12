@@ -165,7 +165,7 @@ export default function Products() {
         </StyledNowBookList>{" "}
       </StyledNowBook>
       <StyledPubBook>
-        <StyledPubBookTitle>추천</StyledPubBookTitle>
+        <StyledPubBookTitle>오독클 추천 서적</StyledPubBookTitle>
         <StyledPubBookImageBox>
           <StyledPubBookImage>이미지</StyledPubBookImage>
           <StyledPubBookLine></StyledPubBookLine>
