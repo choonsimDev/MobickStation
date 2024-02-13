@@ -118,14 +118,8 @@ export default function LogoAndSearch() {
     <StyledLogoSearchWrapper>
       <StyledLogoBox>
         <StyledLogo>
-          <div>
-            <Image
-              src={"/images/btcmobicklogoSmall.png"}
-              alt="logo"
-              width={60}
-              height={60}
-            />
-          </div>
+          <img src="/images/wallet_genesis.png" alt="wallet" />
+
           <div>BTCmobick</div>
         </StyledLogo>
         <StyledSearchWrapper>
