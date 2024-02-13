@@ -1,6 +1,6 @@
 import Styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
-import Image from 'next/image';
+import Image from "next/image";
 
 const StyledLogoSearchWrapper = Styled.div`
     width: 1200px;
@@ -119,7 +119,12 @@ export default function LogoAndSearch() {
       <StyledLogoBox>
         <StyledLogo>
           <div>
-            <Image src={"/images/btcmobicklogoSmall.png"} alt="logo" width={60} height={60} />
+            <Image
+              src={"/images/btcmobicklogoSmall.png"}
+              alt="logo"
+              width={60}
+              height={60}
+            />
           </div>
           <div>BTCmobick</div>
         </StyledLogo>
