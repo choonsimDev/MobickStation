@@ -178,17 +178,17 @@ const RecommendThirdItemDescription = styled.div`
   }
 `;
 const RecommendThirdItemImageBox = styled.div`
-  width: 400px;
+  width: 420px;
   height: 120px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  gap: 0.6rem;
   align-items: center;
 `;
 const RecommendThirdItemImage = styled.div`
-  width: 70px;
+  width: 74px;
   height: 90%;
-  margin-left: 10px;
   margin-bottom: 2px;
   overflow: hidden;
   background-color: lightgray;
