@@ -64,17 +64,17 @@ export default function Youtube() {
           <StyledProductVideos>
             <YouTubeVideo
               width={120}
-              height={80}
+              height={70}
               src="https://www.youtube.com/embed/GC15P3b29GY"
             />
             <YouTubeVideo
               width={120}
-              height={80}
+              height={70}
               src="https://www.youtube.com/embed/GC15P3b29GY"
             />
             <YouTubeVideo
               width={120}
-              height={80}
+              height={70}
               src="https://www.youtube.com/embed/GC15P3b29GY"
             />
           </StyledProductVideos>
