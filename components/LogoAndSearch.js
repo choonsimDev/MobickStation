@@ -34,13 +34,13 @@ const StyledLogo = Styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: lightpink;
+      /* background-color: lightpink; */
     }
     & div:last-child {
       font-size: 1rem;
       font-weight: 600;
       color: #999999;
-      background-color: lightblue;
+      /* background-color: lightblue; */
     }
 `;
 const StyledSearchWrapper = Styled.div`

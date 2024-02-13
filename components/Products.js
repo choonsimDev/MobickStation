@@ -33,12 +33,14 @@ const StyledNowBookList = styled.div`
   align-items: center;
 `;
 const StyledNowBookListBox = styled.div`
-  width: 885px;
+  width: 959px;
   height: 340px;
+  margin-left: 5px;
+  margin-right: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 1.6rem;
+  justify-content: space-around;
+  gap: 2rem;
 `;
 const StyledPubBook = styled.div`
   width: 238px;

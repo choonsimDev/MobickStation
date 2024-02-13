@@ -3,7 +3,7 @@ import YouTubeVideo from "./YoutubeVideo";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
-  height: 400px;
+  height: 392px;
   margin-top: 20px;
   border: 1px solid lightgray;
 `;
@@ -23,16 +23,18 @@ const StyledYoutubeContents = styled.div`
   width: 700px;
   height: 370px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 12px;
   /* background-color: lightyellow; */
 `;
 
 const StyledYoutubeBox = styled.div`
-  width: 500px;
+  width: 598px;
   height: 370px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 const StyledProductPic = styled.div`
   width: 500px;
@@ -44,11 +46,13 @@ const StyledProductPic = styled.div`
 
 const StyledProductPicTitle = styled.div`
   width: 100%;
-  height: 50px;
+  height: 30px;
   font-size: 14px;
+  margin-left: 5px;
+  margin-top: 5px;
   font-weight: bold;
-  padding-top: 20px;
-  padding-left: 5px;
+  display: flex;
+  align-items: center;
 `;
 
 const SyledProductPicBox = styled.div`
@@ -68,6 +72,7 @@ const StyledProductPicImage = styled.div`
 const StyledProductPicText = styled.div`
   width: 340px;
   height: 230px;
+  margin-top: 0.5rem;
 
   & > div {
     margin-bottom: 0.9rem;
@@ -99,12 +104,19 @@ const StyledProductPicText = styled.div`
 `;
 
 const StyledProductVideos = styled.div`
-  width: 500px;
-  height: 100px;
+  width: 480px;
+  height: 92px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  gap: 2.5rem;
+  align-items: end;
+`;
+
+const StyledProductLine = styled.div`
+  width: 500px;
+  height: 1px;
+  background-color: whitesmoke;
 `;
 
 export default function Youtube() {
@@ -122,6 +134,7 @@ export default function Youtube() {
         <StyledYoutubeBox>
           <StyledProductPic>
             <StyledProductPicTitle>관련 상품</StyledProductPicTitle>
+
             <SyledProductPicBox>
               <StyledProductPicImage>
                 <img src="/images/wallet_genesis.png" alt="wallet" />
@@ -136,6 +149,7 @@ export default function Youtube() {
               </StyledProductPicText>
             </SyledProductPicBox>
           </StyledProductPic>
+          <StyledProductLine></StyledProductLine>
           <StyledProductVideos>
             <YouTubeVideo
               width={140}
