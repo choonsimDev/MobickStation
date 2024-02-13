@@ -26,13 +26,17 @@ const StyledLogo = Styled.div`
     align-items: center;
     gap: 0.2rem;
     cursor: pointer;
+   
     & img {
-      width: 50px;
+      width: 60px;
+      height: 60px;
+      background-color: lightpink;
     }
     & div {
       font-size: 1rem;
       font-weight: 600;
       color: #999999;
+      background-color: lightblue;
     }
 `;
 const StyledSearchWrapper = Styled.div`
@@ -110,7 +114,7 @@ export default function LogoAndSearch() {
     <StyledLogoSearchWrapper>
       <StyledLogoBox>
         <StyledLogo>
-          <img src="/images/btcmobicklogo.png" alt="logo" width={50} height={50} />
+          <img src="/images/btcmobicklogo.png" alt="logo" />
           <div>BTCmobick</div>
         </StyledLogo>
         <StyledSearchWrapper>
