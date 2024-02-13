@@ -31,8 +31,10 @@ const RecommendSecondImage = styled.div`
   align-items: center;
   overflow: hidden;
   border-right: 1px solid lightgray;
+
   img {
     width: 240px;
+    cursor: pointer;
   }
 `;
 const RecommendThird = styled.div`
@@ -76,6 +78,7 @@ const RecommendFirstImage = styled.div`
   background-color: lightgray;
   img {
     height: 110%;
+    cursor: pointer;
   }
 `;
 const RecommendFirstDescription = styled.div`
@@ -92,8 +95,10 @@ const RecommendDescriptionBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
   & > div {
     margin-bottom: 0.3rem;
+    cursor: pointer;
   }
   & > div:first-child {
     margin-top: 0.3rem;
@@ -145,6 +150,7 @@ const RecommendThirdItemDescription = styled.div`
     font-size: 1rem;
     font-weight: bold;
     color: dodgerblue;
+    cursor: pointer;
   }
   & > div:nth-child(2) {
     display: flex;
@@ -153,15 +159,17 @@ const RecommendThirdItemDescription = styled.div`
     align-items: flex-start;
     font-size: 0.9rem;
     color: gray;
+    cursor: pointer;
   }
   & > div:nth-child(3) {
     font-size: 0.8rem;
     text-align: justify;
     font-weight: bold;
+    cursor: pointer;
   }
   & > div:nth-child(4) {
     font-size: 0.9rem;
-    color: dodgerblue;
+    color: gray;
   }
   & > div:nth-child(5) {
     font-size: 0.8rem;
@@ -186,6 +194,7 @@ const RecommendThirdItemImage = styled.div`
   background-color: lightgray;
   img {
     height: 100%;
+    cursor: pointer;
   }
 `;
 
@@ -201,6 +210,7 @@ const RecommendFourthNavi = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   & > div:first-child {
     border-right: 1px solid lightgray;
@@ -235,6 +245,7 @@ const StyledSearchWrapper = styled.div`
     left: -30px;
     top: 2px;
     font-size: 1.2rem;
+    cursor: pointer;
   }
 `;
 const StyledInput = styled.input`
@@ -255,6 +266,7 @@ const StyledFourthRanking = styled.div`
   align-items: center;
   font-size: 0.8rem;
   color: gray;
+  cursor: pointer;
 `;
 const StyledFourthRankItem = styled.div`
   width: 80%;
@@ -264,6 +276,8 @@ const StyledFourthRankItem = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
+
   /* border: 1px solid lightgray; */
 `;
 
@@ -275,6 +289,10 @@ const RecommendThirdListB = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+`;
+
+const Cursor = styled.div`
+  cursor: pointer;
 `;
 
 export default function TodayItem() {

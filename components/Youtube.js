@@ -61,8 +61,8 @@ const StyledProductPicImage = styled.div`
   width: 160px;
   height: 220px;
   display: flex;
-
   align-items: center;
+  cursor: pointer;
 `;
 
 const StyledProductPicText = styled.div`
@@ -78,6 +78,7 @@ const StyledProductPicText = styled.div`
     margin-top: 1rem;
     font-size: 1rem;
     color: dodgerblue;
+    cursor: pointer;
   }
   & > div:nth-child(2) {
     display: flex;
@@ -87,6 +88,7 @@ const StyledProductPicText = styled.div`
     font-size: 1rem;
     font-weight: bold;
     color: black;
+    cursor: pointer;
   }
   & > div:nth-child(3) {
     font-size: 0.8rem;

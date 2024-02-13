@@ -32,6 +32,7 @@ const MainCategoryItem = styled.div`
   margin: 2px 0;
   margin-left: 10px;
   text-align: left;
+  cursor: pointer;
 `;
 
 const DetailCategory = styled.div`
@@ -46,6 +47,7 @@ const DetailCategoryItem = styled.div`
   margin-bottom: 20px;
   margin-left: 20px;
   text-align: left;
+  cursor: pointer;
 `;
 
 const MainBanner = styled.div`
@@ -56,6 +58,7 @@ const MainBanner = styled.div`
 
 const MainBannerImgBox = styled.div`
   height: 100%;
+  cursor: pointer;
 `;
 const MainBannerImgButton = styled.div`
   height: 20%;

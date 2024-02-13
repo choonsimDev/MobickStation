@@ -70,6 +70,7 @@ const StyledPubBookImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 const StyledPubBookLine = styled.div`
   width: 100px;
@@ -95,12 +96,14 @@ const StyledProductImage = styled.div`
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
 `;
 const StyledProductName = styled.div`
   margin-top: 1.2rem;
   padding: 0rem 1rem;
   font-size: 13px;
   font-weight: bold;
+  cursor: pointer;
 `;
 const StyledProductDescription = styled.div`
   padding: 0rem 1rem;
@@ -109,6 +112,7 @@ const StyledProductDescription = styled.div`
   font-size: 12px;
   color: gray;
   flex-grow: 1;
+  cursor: pointer;
 `;
 const StyledProductPrice = styled.div`
   margin-bottom: 1.2rem;

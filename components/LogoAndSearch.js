@@ -25,6 +25,7 @@ const StyledLogo = Styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
+    cursor: pointer;
     & img {
       width: 50px;
     }
@@ -57,6 +58,7 @@ const StyledInput = Styled.input`
     border-color: lightblue;
     margin-left: 10px;
     padding: 5px;
+    
 `;
 
 const StyledNavigation = Styled.div`
