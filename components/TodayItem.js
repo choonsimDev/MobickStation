@@ -52,8 +52,11 @@ const RecommendFourth = styled.div`
 const RecommendFirstTitle = styled.div`
   width: 100%;
   height: 10%;
+  font-size: 16px;
+  font-weight: bold;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 30px;
   align-items: center;
 `;
 const RecommendProduct = styled.div`

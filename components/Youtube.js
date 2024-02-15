@@ -10,6 +10,8 @@ const StyledTopMidWraper = styled.div`
 const StyledYoutubeTitle = styled.div`
   height: 30px;
   padding-left: 30px;
+  font-size: 16px;
+  font-weight: bold;
   display: flex;
   justify-content: flex-start;
   align-items: center;

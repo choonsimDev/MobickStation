@@ -14,6 +14,7 @@ import AdArea from "@/components/AdArea";
 import PopularBooks from "@/components/PopularBooks";
 import MultiSectionOTC from "@/components/MultiSectionOTC";
 import Market from "@/components/Market";
+import MobiletOtc from "@/components/MobiletOtc";
 import NewsSection from "@/components/NewsSection";
 import VerificationSection from "@/components/VerificationSection";
 
@@ -42,7 +43,8 @@ export default function Home() {
         <PopularBooks />
         {/* <MultiSection /> */}
         <MultiSectionOTC />
-        <Market />
+        <MobiletOtc />
+        {/* <Market /> */}
         <NewsSection />
         <AdArea />
         <VerificationSection />
