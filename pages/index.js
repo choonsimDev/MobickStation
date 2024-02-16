@@ -15,6 +15,8 @@ import PopularBooks from "@/components/PopularBooks";
 import MultiSectionOTC from "@/components/MultiSectionOTC";
 import Market from "@/components/Market";
 import MobiletOtc from "@/components/MobiletOtc";
+import WinwinMarket from "@/components/WinwinMarket";
+import TodakAndNews from "@/components/TodakAndNews";
 import NewsSection from "@/components/NewsSection";
 import VerificationSection from "@/components/VerificationSection";
 
@@ -44,6 +46,8 @@ export default function Home() {
         {/* <MultiSection /> */}
         <MultiSectionOTC />
         <MobiletOtc />
+        <WinwinMarket />
+        <TodakAndNews />
         {/* <Market /> */}
         <NewsSection />
         <AdArea />
