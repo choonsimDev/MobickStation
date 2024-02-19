@@ -1,5 +1,4 @@
 import React from "react";
-
 import styled from "styled-components";
 
 const StyledOtcWrapper = styled.div`
@@ -166,7 +165,7 @@ const sellProducts = [
     price: "₩1,000,000",
   },
   {
-    imageUrl: "/images/wallet_Glenfiddich.png",
+    imageUrl: "/images/wallet_1.png", // 변경된 부분: 절대 경로로 변경
     name: "모빌렛 [Genesis Edition - 1차] - 0.1 Mo",
     id: "domino",
     location: "위치 | 수원시 팔달구",
