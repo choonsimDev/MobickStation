@@ -21,22 +21,22 @@ export default function SWinwinMarketSwiper() {
         className="mySwiper" // 모듈 스타일 적용
       >
         <SwiperSlide>
-          <img src="/images/WinwinMarket01.png" alt="4thWallet" />
+          <img src="/images/WinWinMarket01.png" alt="Market" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/WinwinMarket02.png" alt="4thWallet" />
+          <img src="/images/WinWinMarket02.png" alt="Market" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/WinwinMarket03.png" alt="4thWallet" />
+          <img src="/images/WinWinMarket03.png" alt="Market" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/WinwinMarket04.png" alt="4thWallet" />
+          <img src="/images/WinWinMarket04.png" alt="Market" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/WinwinMarket05.png" alt="4thWallet" />
+          <img src="/images/WinWinMarket05.png" alt="Market" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/WinwinMarket06.png" alt="4thWallet" />
+          <img src="/images/WinWinMarket06.png" alt="Market" />
         </SwiperSlide>
       </Swiper>
     </>

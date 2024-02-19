@@ -35,7 +35,6 @@ export default function WinwinMarket() {
     <StyledWinwinMarket>
       <StyledWinwinMarketTitle>BTCMobick 상생마켓</StyledWinwinMarketTitle>
       <StyledWinwinMarketSlideBox>
-        {" "}
         <WinwinMarketSwiper />
       </StyledWinwinMarketSlideBox>
     </StyledWinwinMarket>
