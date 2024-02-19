@@ -8,11 +8,10 @@ import Banner from "@/components/Banner";
 import TodayItem from "@/components/TodayItem";
 import Products from "@/components/Products";
 
-import MultiSection from "@/components/MultiSection";
+import Community from "@/components/Community";
 import Youtube from "@/components/Youtube";
 import AdArea from "@/components/AdArea";
 import PopularBooks from "@/components/PopularBooks";
-import MultiSectionOTC from "@/components/MultiSectionOTC";
 import Market from "@/components/Market";
 import MobiletOtc from "@/components/MobiletOtc";
 import WinwinMarket from "@/components/WinwinMarket";
@@ -44,7 +43,7 @@ export default function Home() {
         <Youtube />
         <PopularBooks />
         {/* <MultiSection /> */}
-        <MultiSectionOTC />
+        <Community />
         <MobiletOtc />
         <WinwinMarket />
         <TodakAndNews />

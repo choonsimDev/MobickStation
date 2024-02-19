@@ -81,14 +81,20 @@ const OtcBuySellProductBox = styled.div`
   height: 200px;
   display: flex;
   flex-direction: row;
+  /* border: 1px solid lightgray; */
+`;
+const OtcBuySellProductBoxLine = styled.div`
+  width: 80%;
+  height: 1px;
   border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
 `;
 
 const OtcBuySellProductImageBox = styled.div`
   width: 200px;
   height: 200px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
 `;
@@ -100,7 +106,7 @@ const OtcBuySellProductTextBox = styled.div`
   & > div {
     width: 100%;
     display: flex;
-    padding-left: 22px;
+    /* padding-left: 22px; */
   }
   & > div:first-child {
     margin-top: 1rem;

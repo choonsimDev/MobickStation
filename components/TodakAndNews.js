@@ -38,6 +38,8 @@ const StyledTodakImageBox = styled.div`
   justify-content: center;
   padding: 12px;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+
   & > div {
     border: 1px solid lightgray;
   }
@@ -79,6 +81,7 @@ const StyledNewsImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const StyledNewsText = styled.div`
@@ -95,11 +98,13 @@ const StyledNewsText = styled.div`
     font-size: 16px;
     color: black;
     font-weight: bold;
+    cursor: pointer;
   }
   & > div:nth-child(2) {
     height: 20%;
     font-size: 14px;
     color: gray;
+    cursor: pointer;
   }
 `;
 const newsDetail1 = [
