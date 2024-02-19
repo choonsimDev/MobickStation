@@ -1,8 +1,8 @@
 import Head from "next/head";
+import Header from "@/components/Header";
 import Center from "@/components/Center";
 import styled from "styled-components";
 
-import Header from "@/components/Header";
 import LogoAndSearch from "@/components/LogoAndSearch";
 import Banner from "@/components/Banner";
 import TodayItem from "@/components/TodayItem";
@@ -12,12 +12,16 @@ import Community from "@/components/Community";
 import Youtube from "@/components/Youtube";
 import AdArea from "@/components/AdArea";
 import PopularBooks from "@/components/PopularBooks";
-import Market from "@/components/Market";
+// import Market from "@/components/Market";
 import MobiletOtc from "@/components/MobiletOtc";
 import WinwinMarket from "@/components/WinwinMarket";
 import TodakAndNews from "@/components/TodakAndNews";
-import NewsSection from "@/components/NewsSection";
-import VerificationSection from "@/components/VerificationSection";
+import AdAndInterview from "@/components/AdAndInterview";
+import Linktree from "@/components/MobickLinktree";
+
+import Footer from "@/components/Footer";
+// import NewsSection from "@/components/NewsSection";
+// import VerificationSection from "@/components/VerificationSection";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -47,10 +51,13 @@ export default function Home() {
         <MobiletOtc />
         <WinwinMarket />
         <TodakAndNews />
+        <AdAndInterview />
         {/* <Market /> */}
-        <NewsSection />
+        {/* <NewsSection /> */}
         <AdArea />
-        <VerificationSection />
+        <Linktree />
+        {/* <VerificationSection /> */}
+        <Footer />
       </Center>
     </>
   );
