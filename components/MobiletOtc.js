@@ -166,7 +166,7 @@ const sellProducts = [
     price: "₩1,000,000",
   },
   {
-    imageUrl: "/images/Wallet_1.png",
+    imageUrl: "/images/wallet_Glenfiddich.png",
     name: "모빌렛 [Genesis Edition - 1차] - 0.1 Mo",
     id: "domino",
     location: "위치 | 수원시 팔달구",
