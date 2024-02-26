@@ -33,6 +33,9 @@ const MainCategoryItem = styled.div`
   margin-left: 10px;
   text-align: left;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const DetailCategory = styled.div`
@@ -48,6 +51,9 @@ const DetailCategoryItem = styled.div`
   margin-left: 20px;
   text-align: left;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const MainBanner = styled.div`

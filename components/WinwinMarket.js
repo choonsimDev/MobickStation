@@ -20,14 +20,19 @@ const StyledWinwinMarketTitle = styled.div`
   align-items: center;
   padding-left: 30px;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledWinwinMarketSlideBox = styled.div`
   width: 1200px;
-  height: 676px;
+  height: 668px;
   display: flex;
   align-items: center;
   padding: 12px;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
 `;
 
 export default function WinwinMarket() {

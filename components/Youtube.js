@@ -16,6 +16,10 @@ const StyledYoutubeTitle = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledYoutubeContentsWraper = styled.div`
   display: flex;
@@ -55,6 +59,10 @@ const StyledProductPicTitle = styled.div`
   font-weight: bold;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const SyledProductPicBox = styled.div`
@@ -80,12 +88,15 @@ const StyledProductPicText = styled.div`
     margin-bottom: 0.9rem;
     padding: 0px 20px;
     margin-top: 1.5rem;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:first-child {
     margin-top: 1rem;
     font-size: 1rem;
     color: dodgerblue;
-    cursor: pointer;
   }
   & > div:nth-child(2) {
     display: flex;
@@ -95,7 +106,6 @@ const StyledProductPicText = styled.div`
     font-size: 1rem;
     font-weight: bold;
     color: black;
-    cursor: pointer;
   }
   & > div:nth-child(3) {
     font-size: 0.8rem;

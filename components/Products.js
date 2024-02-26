@@ -24,6 +24,10 @@ const StyledNowBookTitle = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledNowBookList = styled.div`
   width: 959px;
@@ -57,6 +61,10 @@ const StyledPubBookTitle = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledPubBookImageBox = styled.div`
   width: 238px;
@@ -73,7 +81,11 @@ const StyledPubBookImage = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  & :hover {
+    border: 1px solid lightgray;
+  }
 `;
+
 const StyledPubBookLine = styled.div`
   width: 100px;
   height: 1px;
@@ -106,6 +118,9 @@ const StyledProductName = styled.div`
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledProductDescription = styled.div`
   padding: 0rem 1rem;
@@ -115,6 +130,9 @@ const StyledProductDescription = styled.div`
   color: gray;
   flex-grow: 1;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledProductPrice = styled.div`
   margin-bottom: 1.2rem;

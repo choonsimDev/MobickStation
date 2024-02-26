@@ -58,6 +58,10 @@ const RecommendFirstTitle = styled.div`
   justify-content: flex-start;
   padding-left: 30px;
   align-items: center;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const RecommendProduct = styled.div`
   width: 90%;
@@ -107,14 +111,26 @@ const RecommendDescriptionBox = styled.div`
     margin-top: 0.3rem;
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(2) {
     font-size: 0.9rem;
     color: dodgerblue;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(3) {
     font-size: 0.8rem;
     text-align: justify;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
 `;
 
@@ -135,6 +151,10 @@ const RecommendThirdTitle = styled.div`
   border-bottom: 1px solid lightgray;
   font-size: 0.9rem;
   font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const RecommendThirdItemDescription = styled.div`
   width: 100%;
@@ -154,6 +174,9 @@ const RecommendThirdItemDescription = styled.div`
     font-weight: bold;
     color: dodgerblue;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(2) {
     display: flex;
@@ -163,16 +186,26 @@ const RecommendThirdItemDescription = styled.div`
     font-size: 0.9rem;
     color: gray;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(3) {
     font-size: 0.8rem;
     text-align: justify;
     font-weight: bold;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(4) {
     font-size: 0.9rem;
     color: gray;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(5) {
     font-size: 0.8rem;
@@ -219,10 +252,18 @@ const RecommendFourthNavi = styled.div`
     border-right: 1px solid lightgray;
     ${({ activeTab }) =>
       activeTab === "인기검색어" && "border-bottom: 1px solid lightgray;"}
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(2) {
     ${({ activeTab }) =>
       activeTab === "베스트셀러" && "border-bottom: 1px solid lightgray;"}
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
 `;
 const RecommendThirdListA = styled.div`
@@ -249,6 +290,9 @@ const StyledSearchWrapper = styled.div`
     top: 2px;
     font-size: 1.2rem;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
 `;
 const StyledInput = styled.input`
@@ -260,6 +304,14 @@ const StyledInput = styled.input`
   margin-left: 10px;
   padding: 5px;
 `;
+const StyledFourthRankingWrapper = styled.div`
+  width: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 52px;
+`;
+
 const StyledFourthRanking = styled.div`
   width: 100%;
   margin-top: 10px;
@@ -270,6 +322,9 @@ const StyledFourthRanking = styled.div`
   font-size: 0.8rem;
   color: gray;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const StyledFourthRankItem = styled.div`
   width: 80%;
@@ -280,6 +335,9 @@ const StyledFourthRankItem = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 
   /* border: 1px solid lightgray; */
 `;
@@ -364,7 +422,10 @@ export default function TodayItem() {
                 <IoSearchOutline />
               </div>
             </StyledSearchWrapper>
-            <StyledFourthRanking>1 ~ 5위 | 6 ~ 10위</StyledFourthRanking>
+            <StyledFourthRankingWrapper>
+              <StyledFourthRanking>1 ~ 5위</StyledFourthRanking>
+              <StyledFourthRanking>6 ~ 10위</StyledFourthRanking>
+            </StyledFourthRankingWrapper>
             {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
               return (
                 <StyledFourthRankItem key={index}>
@@ -381,7 +442,11 @@ export default function TodayItem() {
                 <IoSearchOutline />
               </div>
             </StyledSearchWrapper>
-            <StyledFourthRanking>1 ~ 5위 | 6 ~ 10위</StyledFourthRanking>
+            <StyledFourthRankingWrapper>
+              <StyledFourthRanking>1 ~ 5위</StyledFourthRanking>
+              <StyledFourthRanking>6 ~ 10위</StyledFourthRanking>
+            </StyledFourthRankingWrapper>
+
             {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
               return (
                 <StyledFourthRankItem key={index}>

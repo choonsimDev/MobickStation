@@ -15,6 +15,10 @@ const CommunityTitleBox = styled.div`
   padding-left: 30px;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const CommunityNoticeBox = styled.div`
@@ -73,6 +77,10 @@ const CommunityOtaverseTitle = styled.div`
   border-bottom: 1px solid lightgray;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const CommunityOtaverseBoxWrapper = styled.div`
@@ -114,12 +122,18 @@ const CommunityOtaverseBoxText = styled.div`
     flex-direction: row;
     justify-content: space-around;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:nth-child(2) {
     font-size: 13px;
     margin-top: 0.5rem;
     color: darkgray;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
 `;
 const CommunityOtaverseBoxTextTitle = styled.div`
@@ -149,6 +163,9 @@ const CommunityOtaeminColumnTitle = styled.div`
   font-weight: bold;
   border-bottom: 1px solid lightgray;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const CommunityOtaeminColumnBoxDetail = styled.div`
@@ -183,6 +200,9 @@ const CommunityOtaeminColumnBoxTitle = styled.div`
   width: 128px;
   height: 37px;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 const CommunityOtaeminColummBoxDescription = styled.div`
   width: 128px;
@@ -192,6 +212,10 @@ const CommunityOtaeminColummBoxDescription = styled.div`
 const CommunityOtaeminColumnBoxDate = styled.div`
   width: 128px;
   color: darkgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const OtaverseDetails1 = [
@@ -283,6 +307,10 @@ const MobickCommunityTitleBox = styled.div`
   font-size: 16px;
   font-weight: bold;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const MobickCommunityDetail = styled.div`
@@ -302,6 +330,9 @@ const MobickCommunityDetailBox = styled.div`
   font-size: 14px;
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   background-color: ${(props) => (props.isBold ? "whitesmoke" : "transparent")};
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 
   border-bottom: 1px solid lightgray;
   & > div:nth-child(1) {

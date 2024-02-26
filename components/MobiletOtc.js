@@ -18,6 +18,10 @@ const OtcTitleBox = styled.div`
   display: flex;
   align-items: center;
   padding-left: 30px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const OtcBuySellWrapper = styled.div`
@@ -49,6 +53,9 @@ const OtcBuySellText = styled.div`
 
   & > div {
     cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
   }
   & > div:first-child {
     font-size: 16px;
@@ -105,6 +112,10 @@ const OtcBuySellProductTextBox = styled.div`
   & > div {
     width: 100%;
     display: flex;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
     /* padding-left: 22px; */
   }
   & > div:first-child {

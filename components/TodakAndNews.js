@@ -27,6 +27,10 @@ const StyledTodakAndNewsTitleBox = styled.div`
   align-items: center;
   padding-left: 30px;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const StyledTodakImageBox = styled.div`
@@ -93,18 +97,23 @@ const StyledNewsText = styled.div`
   gap: 1.5rem;
   padding-top: 10px;
 
+  & > div {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
+  }
+
   & > div:nth-child(1) {
     height: 20%;
     font-size: 16px;
     color: black;
     font-weight: bold;
-    cursor: pointer;
   }
   & > div:nth-child(2) {
     height: 20%;
     font-size: 14px;
     color: gray;
-    cursor: pointer;
   }
 `;
 const newsDetail1 = [
