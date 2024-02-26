@@ -6,7 +6,6 @@ const StyledAdandInterviewWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-  background-color: pink;
 `;
 
 const AdWrapper = styled.div`
@@ -16,10 +15,7 @@ const AdWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
   border: 1px solid lightgray;
-  border-bottom: none;
-  background-color: antiquewhite;
 `;
 
 const InterviewWrapper = styled.div`
@@ -102,7 +98,9 @@ const InterviewContentBoxText = styled.div`
 export default function AdAndInterview() {
   return (
     <StyledAdandInterviewWrapper>
-      <AdWrapper>AD Wrapper</AdWrapper>
+      <AdWrapper>
+        <img src="/images/AdAndInterview03.png" alt="wallet" width={593} />
+      </AdWrapper>
       <InterviewWrapper>
         <InterviewTitle>InterviewTitle</InterviewTitle>
         <InterviewContent>

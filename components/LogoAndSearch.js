@@ -135,7 +135,7 @@ export default function LogoAndSearch() {
           <StyledLink href="#">신상품</StyledLink>
           <StyledLink href="#">이벤트</StyledLink>
           <StyledLink href="#">커뮤니티</StyledLink>
-          <StyledLink href="#">모빅당근</StyledLink>
+          <StyledLink href="#">OTC</StyledLink>
         </div>
         <div>
           <StyledLink href="#">한정상품</StyledLink>
