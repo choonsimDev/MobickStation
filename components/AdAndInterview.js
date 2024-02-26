@@ -9,7 +9,7 @@ const StyledAdandInterviewWrapper = styled.div`
 `;
 
 const AdWrapper = styled.div`
-  width: 617px;
+  width: 601px;
   height: 380px;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@ const AdWrapper = styled.div`
 `;
 
 const InterviewWrapper = styled.div`
-  width: 583px;
+  width: 599px;
   height: 380px;
   display: flex;
   flex-direction: column;
@@ -50,6 +50,10 @@ const InterviewTitle = styled.div`
   align-items: center;
   padding-left: 30px;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const InterviewContent = styled.div`
@@ -71,7 +75,6 @@ const InterviewContentBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightgreen;
 `;
 
 const InterviewContentBoxImage = styled.div`
@@ -80,7 +83,7 @@ const InterviewContentBoxImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightpink;
+  cursor: pointer;
 `;
 
 const InterviewContentBoxTitle = styled.div`
@@ -91,10 +94,13 @@ const InterviewContentBoxTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: lightcoral;
   overflow: hidden; // 넘치는 내용 숨기기
   white-space: nowrap; // 텍스트를 한 줄로 만들기
   text-overflow: ellipsis; // 넘치는 텍스트를 ... 으로 대체
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const InterviewContentBoxText = styled.div`
@@ -105,39 +111,52 @@ const InterviewContentBoxText = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: lightblue;
   color: darkgray;
   overflow: hidden; // 넘치는 내용 숨기기
   white-space: nowrap; // 텍스트를 한 줄로 만들기
   text-overflow: ellipsis; // 넘치는 텍스트를 ... 으로 대체
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const InterviewDetail1 = [
   {
-    imageUrl: "/images/News01.png",
-    title: "좋은소식과 나쁜소식이 있습니다.",
-    detail:
-      "좋은소식은 모비커스가 아래 주식을 단기바닥에서 잘샀습니다. 나쁜소식은 얼마안샀다는",
+    imageUrl: "/images/Interview01.png",
+    title:
+      "리플의 새로운 흐름, 스위프트 대체할 수 있을까? [토크라운지]ㅣ오태민 교수 2부",
+    detail: "박작가의크립토연구소",
   },
   {
-    imageUrl: "/images/News02.png",
-    title: "퀸스산부인과, 모비커스 ‘토닥토닥 프로젝트’ 참여",
-    detail:
-      "충남 천안시 소재 퀸스산부인과가 올해 태어나는 모든 신생아에게 암호화폐 비트모빅을 증정하는 모비커스의 ‘토닥토닥 프로젝트’에 참여한다.",
+    imageUrl: "/images/Interview02.png",
+    title: "비트코인을 만든 사토시의 정체를 말씀드립니다 (ft. 오태민 작가)",
+    detail: "전인구경제연구소",
+  },
+  {
+    imageUrl: "/images/Interview03.png",
+    title:
+      "비트코인 못가도 2억, 미국 대선 이후 최고 5억원까지 봅니다! (오태민 작가 1편)",
+    detail: "이유TV, 모든 투자에는 이유가 있다",
   },
 ];
 const InterviewDetail2 = [
   {
-    imageUrl: "/images/News01.png",
-    title: "좋은소식과 나쁜소식이 있습니다.",
-    detail:
-      "좋은소식은 모비커스가 아래 주식을 단기바닥에서 잘샀습니다. 나쁜소식은 얼마안샀다는",
+    imageUrl: "/images/Interview04.png",
+    title:
+      "1182. 비트코인 반감기 폭등 시나리오 전격 공개 [오태민 작가님 합방 1부]",
+    detail: "할 수 있다! 알고 투자",
   },
   {
-    imageUrl: "/images/News02.png",
-    title: "퀸스산부인과, 모비커스 ‘토닥토닥 프로젝트’ 참여",
-    detail:
-      "충남 천안시 소재 퀸스산부인과가 올해 태어나는 모든 신생아에게 암호화폐 비트모빅을 증정하는 모비커스의 ‘토닥토닥 프로젝트’에 참여한다.",
+    imageUrl: "/images/Interview05.png",
+    title:
+      "[최경영의 경제오도독] 100만원 넣고는 인생역전 안돼요~ 시청자들 위한 오태민 교수의 친절한 코인 관련 '정밀분석'",
+    detail: "오마이TV",
+  },
+  {
+    imageUrl: "/images/Interview06.png",
+    title: "비트코인 2024년 반드시 주목해야 할 2가지 이유",
+    detail: "오태민의 지혜의족보",
   },
 ];
 
@@ -146,7 +165,7 @@ export default function AdAndInterview() {
     <StyledAdandInterviewWrapper>
       <AdWrapper>
         <AdLabel>AD</AdLabel>
-        <img src="/images/AdAndInterview03.png" alt="wallet" width={593} />
+        <img src="/images/AdAndInterview03.png" alt="wallet" width={575} />
       </AdWrapper>
       <InterviewWrapper>
         <InterviewTitle>InterviewTitle</InterviewTitle>
@@ -158,7 +177,7 @@ export default function AdAndInterview() {
                   <img
                     src={InterviewDetail1.imageUrl}
                     alt="Interview"
-                    width={60}
+                    width={180}
                   />
                 </InterviewContentBoxImage>
                 <InterviewContentBoxTitle>
@@ -170,33 +189,27 @@ export default function AdAndInterview() {
               </InterviewContentBox>
             );
           })}
-          <InterviewContentBox>
-            <InterviewContentBoxImage />
-            <InterviewContentBoxTitle />
-            <InterviewContentBoxText />
-          </InterviewContentBox>
-          <InterviewContentBox>
-            <InterviewContentBoxImage />
-            <InterviewContentBoxTitle />
-            <InterviewContentBoxText />
-          </InterviewContentBox>
         </InterviewContent>
         <InterviewContent>
-          <InterviewContentBox>
-            <InterviewContentBoxImage />
-            <InterviewContentBoxTitle />
-            <InterviewContentBoxText />
-          </InterviewContentBox>
-          <InterviewContentBox>
-            <InterviewContentBoxImage />
-            <InterviewContentBoxTitle />
-            <InterviewContentBoxText />
-          </InterviewContentBox>
-          <InterviewContentBox>
-            <InterviewContentBoxImage />
-            <InterviewContentBoxTitle />
-            <InterviewContentBoxText />
-          </InterviewContentBox>
+          {InterviewDetail2.map((InterviewDetail2, index) => {
+            return (
+              <InterviewContentBox key={index}>
+                <InterviewContentBoxImage>
+                  <img
+                    src={InterviewDetail2.imageUrl}
+                    alt="Interview"
+                    width={180}
+                  />
+                </InterviewContentBoxImage>
+                <InterviewContentBoxTitle>
+                  {InterviewDetail2.title}
+                </InterviewContentBoxTitle>
+                <InterviewContentBoxText>
+                  {InterviewDetail2.detail}
+                </InterviewContentBoxText>
+              </InterviewContentBox>
+            );
+          })}
         </InterviewContent>
       </InterviewWrapper>
     </StyledAdandInterviewWrapper>

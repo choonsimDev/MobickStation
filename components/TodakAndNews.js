@@ -20,7 +20,7 @@ const StyledTodakAndNewsBox = styled.div`
 
 const StyledTodakAndNewsTitleBox = styled.div`
   width: 100%;
-  height: 30px;
+  height: 33px;
   font-size: 16px;
   font-weight: bold;
   display: flex;
@@ -41,12 +41,7 @@ const StyledTodakImageBox = styled.div`
   align-items: center;
   justify-content: center;
   padding: 12px;
-  border-bottom: 1px solid lightgray;
   cursor: pointer;
-
-  & > div {
-    border: 1px solid lightgray;
-  }
 `;
 
 const StyledNewsBoxWrapper0 = styled.div`
@@ -153,7 +148,12 @@ export default function TodakAndNews() {
         <StyledTodakAndNewsTitleBox>토닥토닥</StyledTodakAndNewsTitleBox>
         <StyledTodakImageBox>
           <div>
-            <img src="/images/Todaktodak.png" alt="Todaktodak" />
+            <img
+              src="/images/Todaktodak.png"
+              alt="Todaktodak"
+              width={576}
+              height={576}
+            />
           </div>
         </StyledTodakImageBox>
       </StyledTodakAndNewsBox>
