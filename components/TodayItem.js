@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
+import { products, tabs } from "../DataBase/TodayItemDB";
 
 const StyledRecommendWrapper = styled.header`
   width: 1200px;
@@ -314,7 +315,7 @@ const StyledFourthRankingWrapper = styled.div`
 
 const StyledFourthRanking = styled.div`
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 0px;
   display: flex;
   justify-content: center;
@@ -329,10 +330,11 @@ const StyledFourthRanking = styled.div`
 const StyledFourthRankItem = styled.div`
   width: 80%;
   height: 36px;
-  margin-left: 14px;
-  margin-bottom: 6px;
+  margin-top: 5px;
+  margin-left: 15px;
+  padding: 25px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   &:hover {
@@ -352,12 +354,14 @@ const RecommendThirdListB = styled.div`
   align-items: flex-start;
 `;
 
-const Cursor = styled.div`
-  cursor: pointer;
-`;
-
 export default function TodayItem() {
-  const [activeTab, setActiveTab] = useState("베스트셀러");
+  const [activeTab, setActiveTab] = useState(tabs[0].id); // 첫 번째 탭을 기본값으로 설정
+  const [rankRange, setRankRange] = useState("1-5"); // '1-5' 또는 '6-10'을 나타내는 상태
+
+  const filterItemsByRank = (items) => {
+    const start = rankRange === "1-5" ? 0 : 5; // '1-5'이면 0에서 시작, '6-10'이면 5에서 시작
+    return items.slice(start, start + 5); // 시작점부터 다섯 항목을 선택
+  };
 
   return (
     <StyledRecommendWrapper>
@@ -365,25 +369,30 @@ export default function TodayItem() {
         <RecommendFirstTitle>category</RecommendFirstTitle>
         <RecommendProduct>
           <RecommendFirstImage>
-            <img src="/images/Choonsim.png" alt="choonsim" />
+            <img src={products[0].image} alt={products[0].title} />
           </RecommendFirstImage>
           <RecommendFirstDescription>
             <RecommendDescriptionBox>
-              <div>춘심이 겜블칩</div>
-              <div>Joy4 제작 | 춘심소프트</div>
-              <div>춘심이가 겜블칩을 주문제작해 드립니다.</div>
+              <div>{products[0].title}</div>
+              <div>{products[0].maker}</div>
+              <div>{products[0].description}</div>
             </RecommendDescriptionBox>
           </RecommendFirstDescription>
         </RecommendProduct>
       </RecommendFirst>
       <RecommendSecondImage>
-        <img src="/images/Tama_Puzzle1.png" alt="tamaPuzzle" />
+        <img src={products[1].image} alt={products[1].title} />
       </RecommendSecondImage>
       <RecommendThird>
         <RecommendThirdMenu>
           <RecommendThirdTitle>오늘의 상품</RecommendThirdTitle>
           <RecommendThirdItemDescription>
-            <div>"타마의 야심작 "관악산 어드벤처 퍼즐"</div>
+            <div>{products[1].title}</div>
+            <div>{products[1].description}</div>
+            <div>{products[1].series}</div>
+            <div>{products[1].maker}</div>
+            <div>{products[1].price}</div>
+            {/* <div>"타마의 야심작 "관악산 어드벤처 퍼즐"</div>
             <div>
               <p>초판 종이지갑 디자이너 타마의 독특한 아이디어 상품.</p>
               <p>퍼즐을 통해 우리 모두 관악산으로 돌아가보자</p>
@@ -391,7 +400,7 @@ export default function TodayItem() {
             </div>
             <div>마운틴 어드벤처 퍼즐</div>
             <div>테마 그림 | 모비커스</div>
-            <div>13,500원</div>
+            <div>13,500원</div> */}
           </RecommendThirdItemDescription>
           <RecommendThirdItemImageBox>
             <RecommendThirdItemImage>
@@ -411,51 +420,31 @@ export default function TodayItem() {
       </RecommendThird>
       <RecommendFourth>
         <RecommendFourthNavi activeTab={activeTab}>
-          <div onClick={() => setActiveTab("베스트셀러")}>베스트셀러</div>
-          <div onClick={() => setActiveTab("인기검색어")}>인기검색어</div>
+          {tabs.map((tab) => (
+            <div key={tab.id} onClick={() => setActiveTab(tab.id)}>
+              {tab.title}
+            </div>
+          ))}
         </RecommendFourthNavi>
-        {activeTab === "베스트셀러" ? (
-          <RecommendThirdListA>
-            <StyledSearchWrapper>
-              <StyledInput placeholder="통합"></StyledInput>
-              <div>
-                <IoSearchOutline />
-              </div>
-            </StyledSearchWrapper>
-            <StyledFourthRankingWrapper>
-              <StyledFourthRanking>1 ~ 5위</StyledFourthRanking>
-              <StyledFourthRanking>6 ~ 10위</StyledFourthRanking>
-            </StyledFourthRankingWrapper>
-            {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
-              return (
-                <StyledFourthRankItem key={index}>
-                  {item}. 베스트 셀러 종이지갑
-                </StyledFourthRankItem>
-              );
-            })}
-          </RecommendThirdListA>
-        ) : (
-          <RecommendThirdListB>
-            <StyledSearchWrapper>
-              <StyledInput placeholder="통합"></StyledInput>
-              <div>
-                <IoSearchOutline />
-              </div>
-            </StyledSearchWrapper>
-            <StyledFourthRankingWrapper>
-              <StyledFourthRanking>1 ~ 5위</StyledFourthRanking>
-              <StyledFourthRanking>6 ~ 10위</StyledFourthRanking>
-            </StyledFourthRankingWrapper>
-
-            {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
-              return (
-                <StyledFourthRankItem key={index}>
-                  {item}. 인기 검색어 입니다
-                </StyledFourthRankItem>
-              );
-            })}
-          </RecommendThirdListB>
-        )}
+        <StyledSearchWrapper>
+          <StyledInput placeholder="Search..."></StyledInput>
+          <div>
+            <IoSearchOutline />
+          </div>
+        </StyledSearchWrapper>
+        <StyledFourthRankingWrapper>
+          <StyledFourthRanking onClick={() => setRankRange("1-5")}>
+            1 ~ 5위
+          </StyledFourthRanking>
+          <StyledFourthRanking onClick={() => setRankRange("6-10")}>
+            6 ~ 10위
+          </StyledFourthRanking>
+        </StyledFourthRankingWrapper>
+        {filterItemsByRank(
+          tabs.find((tab) => tab.id === activeTab)?.items || []
+        ).map((item, index) => (
+          <StyledFourthRankItem key={index}>{item}</StyledFourthRankItem>
+        ))}
       </RecommendFourth>
     </StyledRecommendWrapper>
   );
