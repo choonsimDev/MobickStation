@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import YouTubeVideo from "./YoutubeVideo";
+import { products, videos } from "../DataBase/YoutubeDB"; // 데이터 파일에서 상품 데이터 가져오기
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
@@ -140,7 +141,7 @@ export default function Youtube() {
           <YouTubeVideo
             width={640}
             height={360}
-            src="https://www.youtube.com/embed/QW8f4y0RGew"
+            src={videos[0]} // 첫 번째 비디오 링크 사용
           />
         </StyledYoutubeContents>
         <StyledYoutubeBox>
@@ -149,35 +150,25 @@ export default function Youtube() {
 
             <SyledProductPicBox>
               <StyledProductPicImage>
-                <img src="/images/wallet_genesis.png" alt="wallet" />
+                <img src={products[0].image} alt="wallet" />
               </StyledProductPicImage>
               <StyledProductPicText>
-                <div>
-                  <p>누구나 쉽게 사용할 수 있는 비트코인 종이지갑,</p>
-                  <p>당신의 암호화폐를 안전하게 보관하세요.</p>
-                </div>
-                <div>모빌렛 - Genesis Edition</div>
-                <div>판매 | 모비커스</div>
+                <div>{products[0].description}</div>
+                <div>{products[0].title}</div>
+                <div>{products[0].seller}</div>
               </StyledProductPicText>
             </SyledProductPicBox>
           </StyledProductPic>
           <StyledProductLine></StyledProductLine>
           <StyledProductVideos>
-            <YouTubeVideo
-              width={140}
-              height={80}
-              src="https://www.youtube.com/embed/GC15P3b29GY"
-            />
-            <YouTubeVideo
-              width={140}
-              height={80}
-              src="https://www.youtube.com/embed/PEUaW9K087U"
-            />
-            <YouTubeVideo
-              width={140}
-              height={80}
-              src="https://www.youtube.com/embed/YtaERuB_yCA"
-            />
+            {videos.slice(1).map(
+              (
+                src,
+                index // 첫 번째를 제외한 나머지 비디오 링크들 사용
+              ) => (
+                <YouTubeVideo key={index} width={140} height={80} src={src} />
+              )
+            )}
           </StyledProductVideos>
         </StyledYoutubeBox>
       </StyledYoutubeContentsWraper>

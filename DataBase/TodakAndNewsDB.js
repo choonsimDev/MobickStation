@@ -1,3 +1,9 @@
+export const todakImage = [
+  {
+    imageUrl: "/images/Todaktodak.png",
+  },
+];
+
 export const newsDetail1 = [
   {
     imageUrl: "/images/News01.png",

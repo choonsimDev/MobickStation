@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
-import { products, tabs } from "../DataBase/TodayItemDB";
+import { products, recommendImages, tabs } from "@/DataBase/TodayItemDB";
 
 const StyledRecommendWrapper = styled.header`
   width: 1200px;
@@ -241,44 +241,28 @@ const RecommendFourthNavi = styled.div`
   flex: row;
   justify-content: space-around;
   align-items: center;
-  & > div {
-    width: 50%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  & > div:first-child {
-    border-right: 1px solid lightgray;
-    ${({ activeTab }) =>
-      activeTab === "인기검색어" && "border-bottom: 1px solid lightgray;"}
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline; /* Underline on hover */
-    }
-  }
-  & > div:nth-child(2) {
-    ${({ activeTab }) =>
-      activeTab === "베스트셀러" && "border-bottom: 1px solid lightgray;"}
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline; /* Underline on hover */
-    }
-  }
 `;
-const RecommendThirdListA = styled.div`
-  width: 240px;
-  height: 90%;
-  padding-left: 0.6rem;
+const TabTitle = styled.div`
+  flex-grow: 1;
+  height: 40px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 0; // 또는 필요에 따라 조정
+  cursor: pointer;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  &:not(:last-child) {
+    border-right: 1px solid lightgray;
+  }
+  // 현재 활성화된 탭의 하단 테두리를 제거합니다.
+  ${({ isActive }) => isActive && `border-bottom: none;`}
 `;
+
 const StyledSearchWrapper = styled.div`
   width: 230px;
   margin-top: 10px;
+  margin-left: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -330,9 +314,9 @@ const StyledFourthRanking = styled.div`
 const StyledFourthRankItem = styled.div`
   width: 80%;
   height: 36px;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-left: 15px;
-  padding: 25px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -340,18 +324,6 @@ const StyledFourthRankItem = styled.div`
   &:hover {
     text-decoration: underline; /* Underline on hover */
   }
-
-  /* border: 1px solid lightgray; */
-`;
-
-const RecommendThirdListB = styled.div`
-  width: 240px;
-  height: 90%;
-  padding-left: 0.6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 `;
 
 export default function TodayItem() {
@@ -392,38 +364,26 @@ export default function TodayItem() {
             <div>{products[1].series}</div>
             <div>{products[1].maker}</div>
             <div>{products[1].price}</div>
-            {/* <div>"타마의 야심작 "관악산 어드벤처 퍼즐"</div>
-            <div>
-              <p>초판 종이지갑 디자이너 타마의 독특한 아이디어 상품.</p>
-              <p>퍼즐을 통해 우리 모두 관악산으로 돌아가보자</p>
-              <p>산을 오르는 마음으로 퍼즐을 맞추면 무슨 일이 일어날까 ..</p>
-            </div>
-            <div>마운틴 어드벤처 퍼즐</div>
-            <div>테마 그림 | 모비커스</div>
-            <div>13,500원</div> */}
           </RecommendThirdItemDescription>
           <RecommendThirdItemImageBox>
-            <RecommendThirdItemImage>
-              <img src="/images/Tama_Puzzle2.png" alt="tamaPuzzle" />
-            </RecommendThirdItemImage>
-            <RecommendThirdItemImage>
-              <img src="/images/Tama_Puzzle3.png" alt="tamaPuzzle" />
-            </RecommendThirdItemImage>
-            <RecommendThirdItemImage>
-              <img src="/images/Tama_Puzzle4.png" alt="tamaPuzzle" />
-            </RecommendThirdItemImage>
-            <RecommendThirdItemImage>
-              <img src="/images/Tama_Puzzle5.png" alt="tamaPuzzle" />
-            </RecommendThirdItemImage>
+            {recommendImages.map((image) => (
+              <RecommendThirdItemImage key={image.id}>
+                <img src={image.src} alt={image.alt} />
+              </RecommendThirdItemImage>
+            ))}
           </RecommendThirdItemImageBox>
         </RecommendThirdMenu>
       </RecommendThird>
       <RecommendFourth>
-        <RecommendFourthNavi activeTab={activeTab}>
+        <RecommendFourthNavi>
           {tabs.map((tab) => (
-            <div key={tab.id} onClick={() => setActiveTab(tab.id)}>
+            <TabTitle
+              key={tab.id}
+              isActive={activeTab === tab.id}
+              onClick={() => setActiveTab(tab.id)}
+            >
               {tab.title}
-            </div>
+            </TabTitle>
           ))}
         </RecommendFourthNavi>
         <StyledSearchWrapper>

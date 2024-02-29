@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { newsDetail1, newsDetail2 } from "../DataBase/TodakAndNewsDB";
+import {
+  todakImage,
+  newsDetail1,
+  newsDetail2,
+} from "../DataBase/TodakAndNewsDB";
 
 const StyledTodakAndNewsWrapper = styled.div`
   width: 1200px;
@@ -121,8 +125,9 @@ export default function TodakAndNews() {
         <StyledTodakImageBox>
           <div>
             <img
-              src="/images/Todaktodak.png"
-              alt="Todaktodak"
+              src={todakImage[0].imageUrl}
+              alt="otc_image"
+              style={{ objectFit: "cover" }}
               width={576}
               height={576}
             />

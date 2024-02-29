@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { swiperSlides } from "../DataBase/WinwinMarketSwiperDB.js";
 
 export default function SWinwinMarketSwiper() {
   return (
@@ -18,26 +19,13 @@ export default function SWinwinMarketSwiper() {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper" // 모듈 스타일 적용
+        className="mySwiper"
       >
-        <SwiperSlide>
-          <img src="/images/WinWinMarket01.png" alt="Market" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/WinWinMarket02.png" alt="Market" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/WinWinMarket03.png" alt="Market" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/WinWinMarket04.png" alt="Market" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/WinWinMarket05.png" alt="Market" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/WinWinMarket06.png" alt="Market" />
-        </SwiperSlide>
+        {swiperSlides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <img src={slide.src} alt={slide.alt} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

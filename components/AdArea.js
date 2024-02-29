@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { adInfo } from "../DataBase/AdAreaDB"; // 경로는 실제 상황에 맞게 조정해야 합니다.
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
@@ -23,7 +24,7 @@ export default function AdArea() {
   return (
     <StyledTopMidWraper>
       <AdLabel>AD</AdLabel>
-      <img src="/images/AdTodakTodak.png" alt="wallet" width={1200} />
+      <img src={adInfo.src} alt={adInfo.alt} width={1200} />
     </StyledTopMidWraper>
   );
 }

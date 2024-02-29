@@ -24,3 +24,16 @@ export const products = [
     price: "₩40,000",
   },
 ];
+
+export const pubBookImg = [
+  {
+    id: 1,
+    src: "/images/Odocl_1.png",
+    alt: "Odocl_1",
+  },
+  {
+    id: 2,
+    src: "/images/Odocl_2.png",
+    alt: "Odocl_2",
+  },
+];

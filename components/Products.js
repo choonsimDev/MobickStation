@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { products } from "../DataBase/ProductsDB";
+import React from "react";
+
+import { products, pubBookImg } from "../DataBase/ProductsDB";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
@@ -174,13 +176,15 @@ export default function Products() {
       <StyledPubBook>
         <StyledPubBookTitle>오독클 추천 서적</StyledPubBookTitle>
         <StyledPubBookImageBox>
-          <StyledPubBookImage>
-            <img src="/images/Odocl_1.png" alt="Odocl_1" />
-          </StyledPubBookImage>
-          <StyledPubBookLine></StyledPubBookLine>
-          <StyledPubBookImage>
-            <img src="/images/Odocl_2.png" alt="Odocl_2" />
-          </StyledPubBookImage>
+          {pubBookImg.map((image, index) => (
+            <React.Fragment key={image.id}>
+              <StyledPubBookImage
+                style={{ backgroundImage: `url(${image.src})` }}
+                alt={image.alt}
+              />
+              {index !== pubBookImg.length - 1 && <StyledPubBookLine />}
+            </React.Fragment>
+          ))}
         </StyledPubBookImageBox>
       </StyledPubBook>
     </StyledTopMidWraper>

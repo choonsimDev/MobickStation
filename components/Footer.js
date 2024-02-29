@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import React from "react";
+import {
+  footerLinks,
+  companyInfo,
+  customerServiceInfo,
+} from "../DataBase/FooterDB";
 
 const StyledFooterWrapper = styled.div`
   width: 1200px;
@@ -122,15 +128,12 @@ export default function Footer() {
   return (
     <StyledFooterWrapper>
       <FooterTop>
-        <FooterLink href="#">회사소개</FooterLink>|
-        <FooterLink href="#">인재채용</FooterLink>|
-        <FooterLink href="#">이용약관</FooterLink>|
-        <FooterLink href="#">개인정보처리방침</FooterLink>|
-        <FooterLink href="#">고객센터</FooterLink>|
-        <FooterLink href="#">사업자정보확인</FooterLink>|
-        <FooterLink href="#">광고안내</FooterLink>|
-        <FooterLink href="#">제휴안내</FooterLink>|
-        <FooterLink href="#">매장안내</FooterLink>
+        {footerLinks.map((link, index) => (
+          <React.Fragment key={index}>
+            <FooterLink href={link.href}>{link.text}</FooterLink>
+            {index < footerLinks.length - 1 && <span>|</span>}
+          </React.Fragment>
+        ))}
       </FooterTop>
       <FooterMiddle>
         <FooterMiddleWrapper>
@@ -138,20 +141,21 @@ export default function Footer() {
             <img src="/images/FooterLogo2.png" alt="Logo" width={100} />
           </MiddleImageBox>
           <MiddleTextBox>
-            <div>회사명 | (주)모비커스</div>
-            <div>주소 | 서울특별시 서초구 사임당로 149-5 </div>
-            <div>사업자번호 | 618-81-28642</div>
-            <div>통신판매업번호 | 2023-서울서초-2512</div>
-            <div>대표자 | 전형민</div>
+            <div>{companyInfo.name}</div>
+            <div>{companyInfo.address}</div>
+            <div>{companyInfo.businessNumber}</div>
+            <div>{companyInfo.salesNumber}</div>
+            <div>{companyInfo.representative}</div>
           </MiddleTextBox>
           <MiddleCustomService>
-            <div>고객문의</div>
-            <div>대표번호 | 02-000-0000</div>
-            <div>쇼핑몰 문의 | 02-000-0000</div>
-            <div>OTC 문의 | 02-000-0000</div>
+            <div>{customerServiceInfo.inquiry}</div>
+            <div>{customerServiceInfo.phoneNumber}</div>
+            <div>{customerServiceInfo.mallInquiry}</div>
+            <div>{customerServiceInfo.otcInquiry}</div>
             <MiddleCustomServiceQuestion>
-              <div>1:1 문의하기</div>
-              <div>자주 묻는 질문</div>
+              {customerServiceInfo.questions.map((question, index) => (
+                <div key={index}>{question}</div>
+              ))}
             </MiddleCustomServiceQuestion>
           </MiddleCustomService>
         </FooterMiddleWrapper>

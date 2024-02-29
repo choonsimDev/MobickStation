@@ -27,6 +27,13 @@ export const products = [
 ];
 // Compare this snippet from DataBase/TodayItemDB.js:
 
+export const recommendImages = [
+  { id: 1, src: "/images/Tama_Puzzle2.png", alt: "tamaPuzzle" },
+  { id: 2, src: "/images/Tama_Puzzle3.png", alt: "tamaPuzzle" },
+  { id: 3, src: "/images/Tama_Puzzle4.png", alt: "tamaPuzzle" },
+  { id: 4, src: "/images/Tama_Puzzle5.png", alt: "tamaPuzzle" },
+];
+
 export const tabs = [
   {
     id: "bestsellers",
