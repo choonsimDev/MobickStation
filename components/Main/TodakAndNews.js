@@ -4,7 +4,7 @@ import {
   todakImage,
   newsDetail1,
   newsDetail2,
-} from "../DataBase/TodakAndNewsDB";
+} from "../../DataBase/TodakAndNewsDB";
 
 const StyledTodakAndNewsWrapper = styled.div`
   width: 1200px;

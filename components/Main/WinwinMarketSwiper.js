@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { swiperSlides } from "../DataBase/WinwinMarketSwiperDB.js";
+import { swiperSlides } from "../../DataBase/WinwinMarketSwiperDB.js";
 
 export default function SWinwinMarketSwiper() {
   return (

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { adInfo } from "../DataBase/AdAreaDB"; // 경로는 실제 상황에 맞게 조정해야 합니다.
+import { adInfo } from "../../DataBase/AdAreaDB"; // 경로는 실제 상황에 맞게 조정해야 합니다.
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;

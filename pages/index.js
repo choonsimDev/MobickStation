@@ -1,25 +1,25 @@
 import Head from "next/head";
-import Header from "@/components/Header";
-import Center from "@/components/Center";
+import Header from "@/components/Main/Header";
+import Center from "@/components/Main/Center";
 import styled from "styled-components";
 
-import LogoAndSearch from "@/components/LogoAndSearch";
-import Banner from "@/components/Banner";
-import TodayItem from "@/components/TodayItem";
-import Products from "@/components/Products";
+import LogoAndSearch from "@/components/Main/LogoAndSearch";
+import Banner from "@/components/Main/Banner";
+import TodayItem from "@/components/Main/TodayItem";
+import Products from "@/components/Main/Products";
 
-import Community from "@/components/Community";
-import Youtube from "@/components/Youtube";
-import AdArea from "@/components/AdArea";
-import PopularBooks from "@/components/PopularBooks";
+import CommunityMain from "@/components/Main/CommunityMain";
+import Youtube from "@/components/Main/Youtube";
+import AdArea from "@/components/Main/AdArea";
+import PopularBooks from "@/components/Main/PopularBooks";
 // import Market from "@/components/Market";
-import MobiletOtc from "@/components/MobiletOtc";
-import WinwinMarket from "@/components/WinwinMarket";
-import TodakAndNews from "@/components/TodakAndNews";
-import AdAndInterview from "@/components/AdAndInterview";
-import Linktree from "@/components/MobickLinktree";
+import MobiletOtc from "@/components/Main/MobiletOtc";
+import WinwinMarket from "@/components/Main/WinwinMarket";
+import TodakAndNews from "@/components/Main/TodakAndNews";
+import AdAndInterview from "@/components/Main/AdAndInterview";
+import Linktree from "@/components/Main/MobickLinktree";
 
-import Footer from "@/components/Footer";
+import Footer from "@/components/Main/Footer";
 // import NewsSection from "@/components/NewsSection";
 // import VerificationSection from "@/components/VerificationSection";
 
@@ -47,7 +47,7 @@ export default function Home() {
         <Youtube />
         {/* <PopularBooks /> */}
         {/* <MultiSection /> */}
-        <Community />
+        <CommunityMain />
         <MobiletOtc />
         <WinwinMarket />
         <TodakAndNews />

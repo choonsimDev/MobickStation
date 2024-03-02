@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.a`
+  width: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 26rem;
-  color: #ffffff;
   background-color: dodgerblue;
   text-align: center;
+  text-decoration: none;
   & > div {
+    color: #ffffff;
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -25,7 +27,7 @@ const StyledHeader = styled.header`
 
 export default function Header() {
   return (
-    <StyledHeader>
+    <StyledHeader href="/preparing">
       <div>
         <div>강연및서적</div>
         <div>굿즈</div>

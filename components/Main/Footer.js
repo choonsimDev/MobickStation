@@ -4,7 +4,7 @@ import {
   footerLinks,
   companyInfo,
   customerServiceInfo,
-} from "../DataBase/FooterDB";
+} from "../../DataBase/FooterDB";
 
 const StyledFooterWrapper = styled.div`
   width: 1200px;
@@ -62,6 +62,7 @@ const MiddleImageBox = styled.div`
   justify-content: center;
   align-items: center;
   /* background-color: coral; */
+  background-image: url(${(props) => props.$imageUrl});
 `;
 
 const MiddleTextBox = styled.div`
@@ -110,6 +111,7 @@ const MiddleCustomServiceQuestion = styled.div`
     cursor: pointer;
     &:hover {
       text-decoration: underline; /* Underline on hover */
+      font-weight: ${(props) => (props.$isBold ? "bold" : "normal")};
     }
   }
 `;

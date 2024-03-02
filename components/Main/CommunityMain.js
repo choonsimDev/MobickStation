@@ -3,7 +3,7 @@ import {
   CommunityData,
   OtaverseDetails1,
   OtaverseDetails2,
-} from "../DataBase/CommunityDB";
+} from "../../DataBase/CommunityDB";
 
 const StyledCommunityWrapper = styled.div`
   width: 1200px;
@@ -12,7 +12,7 @@ const StyledCommunityWrapper = styled.div`
   border: 1px solid lightgray;
 `;
 
-const CommunityTitleBox = styled.div`
+const CommunityTitleBox = styled.a`
   width: 1200px;
   height: 30px;
   display: flex;
@@ -20,6 +20,8 @@ const CommunityTitleBox = styled.div`
   padding-left: 30px;
   font-size: 16px;
   font-weight: bold;
+  color: black;
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -35,11 +37,14 @@ const CommunityNoticeBox = styled.div`
   border-top: 1px solid lightgray;
   font-style: italic;
 `;
-const NoticeText = styled.span`
+const NoticeText = styled.a`
   color: dodgerblue;
   font-weight: bold;
-
+  text-decoration: none;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const CommunityBoxWrapper = styled.div`
@@ -71,7 +76,7 @@ const CommunityOtaverse = styled.div`
   justify-content: space-between;
 `;
 
-const CommunityOtaverseTitle = styled.div`
+const CommunityOtaverseTitle = styled.a`
   width: 574px;
   height: 30px;
   padding-top: 4px;
@@ -82,6 +87,8 @@ const CommunityOtaverseTitle = styled.div`
   border-bottom: 1px solid lightgray;
   font-size: 16px;
   font-weight: bold;
+  color: black;
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -97,7 +104,7 @@ const CommunityOtaverseBoxWrapper = styled.div`
   gap: 0.8rem;
 `;
 
-const CommunityOtaverseBoxImage = styled.div`
+const CommunityOtaverseBoxImage = styled.a`
   width: 110px;
   height: 60px;
   margin-top: 5px;
@@ -112,7 +119,7 @@ const CommunityOtaverseBoxImage = styled.div`
   background-position: center;
   cursor: pointer;
 `;
-const CommunityOtaverseBoxText = styled.div`
+const CommunityOtaverseBoxText = styled.a`
   width: 462px;
   height: 60px;
   display: flex;
@@ -120,6 +127,8 @@ const CommunityOtaverseBoxText = styled.div`
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
+  color: black;
+  text-decoration: none;
 
   & > div:nth-child(1) {
     font-size: 14px;
@@ -189,7 +198,7 @@ const CommunityOtaeminColumnBoxWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const CommunityOtaeminColumnBoxImage = styled.div`
+const CommunityOtaeminColumnBoxImage = styled.a`
   width: 127px;
   height: 125px;
   background-color: beige;
@@ -201,15 +210,18 @@ const CommunityOtaeminColumnBoxImage = styled.div`
   background-position: center;
   cursor: pointer;
 `;
-const CommunityOtaeminColumnBoxTitle = styled.div`
+const CommunityOtaeminColumnBoxTitle = styled.a`
   width: 128px;
   height: 37px;
+  display: flex;
+  color: black;
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
   }
 `;
-const CommunityOtaeminColummBoxDescription = styled.div`
+const CommunityOtaeminColummBoxDescription = styled.a`
   width: 128px;
   color: darkgray;
   cursor: pointer;
@@ -244,7 +256,7 @@ const MobickCommunity = styled.div`
   justify-content: flex-start;
 `;
 
-const MobickCommunityTitleBox = styled.div`
+const MobickCommunityTitleBox = styled.a`
   width: 574px;
   height: 30px;
   display: flex;
@@ -252,6 +264,8 @@ const MobickCommunityTitleBox = styled.div`
   align-items: center;
   font-size: 16px;
   font-weight: bold;
+  color: black;
+  text-decoration: none;
   border-bottom: 1px solid lightgray;
   cursor: pointer;
   &:hover {
@@ -266,7 +280,7 @@ const MobickCommunityDetail = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 `;
-const MobickCommunityDetailBox = styled.div`
+const MobickCommunityDetailBox = styled.a`
   width: 574px;
   height: 37px;
   display: flex;
@@ -274,6 +288,8 @@ const MobickCommunityDetailBox = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   font-size: 14px;
+  color: black;
+  text-decoration: none;
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   background-color: ${(props) => (props.isBold ? "whitesmoke" : "transparent")};
   &:hover {
@@ -313,23 +329,28 @@ const MobickCommunityDetailBox = styled.div`
   }
 `;
 
-export default function Community() {
+export default function CommunityMain() {
   return (
     <StyledCommunityWrapper>
-      <CommunityTitleBox>커뮤니티</CommunityTitleBox>
+      <CommunityTitleBox href="/community">커뮤니티</CommunityTitleBox>
       <CommunityNoticeBox>
-        <NoticeText> [공지사항] ‘모빌렛 5차’ - 추가 입고되었습니다.</NoticeText>
+        <NoticeText href="/community">
+          [공지사항] ‘모빌렛 5차’ - 추가 입고되었습니다.
+        </NoticeText>
       </CommunityNoticeBox>
       <CommunityBoxWrapper>
         <CommunityLeftBox>
           <CommunityOtaverse>
-            <CommunityOtaverseTitle>Otaverse 최신글</CommunityOtaverseTitle>
+            <CommunityOtaverseTitle href="/community">
+              Otaverse 최신글
+            </CommunityOtaverseTitle>
             {OtaverseDetails1.map((item, index) => (
               <CommunityOtaverseBoxWrapper key={index}>
                 <CommunityOtaverseBoxImage
+                  href="/community"
                   imageUrl={item.imageUrl}
                 ></CommunityOtaverseBoxImage>
-                <CommunityOtaverseBoxText>
+                <CommunityOtaverseBoxText href="/community">
                   <div>
                     <CommunityOtaverseBoxTextTitle>
                       {item.title}
@@ -344,7 +365,7 @@ export default function Community() {
             ))}
           </CommunityOtaverse>
           <CommunityOtaeminColumn>
-            <CommunityOtaeminColumnTitle>
+            <CommunityOtaeminColumnTitle href="/community">
               오태민 칼럼
             </CommunityOtaeminColumnTitle>
             <CommunityOtaeminColumnBoxDetail>
@@ -352,13 +373,13 @@ export default function Community() {
                 {OtaverseDetails2.map((column, index) => {
                   return (
                     <div key={index}>
-                      <CommunityOtaeminColumnBoxImage>
+                      <CommunityOtaeminColumnBoxImage href="/community">
                         <img src={column.imageUrl} alt="4thWallet" />
                       </CommunityOtaeminColumnBoxImage>
-                      <CommunityOtaeminColumnBoxTitle>
+                      <CommunityOtaeminColumnBoxTitle href="/community">
                         {column.title}
                       </CommunityOtaeminColumnBoxTitle>
-                      <CommunityOtaeminColummBoxDescription>
+                      <CommunityOtaeminColummBoxDescription href="/community">
                         {column.name}
                       </CommunityOtaeminColummBoxDescription>
                       <CommunityOtaeminColumnBoxDate>
@@ -373,12 +394,15 @@ export default function Community() {
         </CommunityLeftBox>
         <CommunityRightBox>
           <MobickCommunity>
-            <MobickCommunityTitleBox>일반 게시판</MobickCommunityTitleBox>
+            <MobickCommunityTitleBox href="/community">
+              일반 게시판
+            </MobickCommunityTitleBox>
             <MobickCommunityDetail>
               {/* 커뮤니티 글제목들 매핑 부분 */}
 
               {CommunityData.map((item, index) => (
                 <MobickCommunityDetailBox
+                  href="/community"
                   key={index}
                   // 처음 세 번째 데이터에 대해서만 isBold를 true로 설정
                   isBold={index < 3}

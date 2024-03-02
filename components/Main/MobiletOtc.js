@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { buyProducts, sellProducts } from "../DataBase/MobiletOtcDB.js";
+import { buyProducts, sellProducts } from "../../DataBase/MobiletOtcDB.js";
 
 const StyledOtcWrapper = styled.div`
   width: 1200px;

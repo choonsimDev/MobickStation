@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 
-import { products, pubBookImg } from "../DataBase/ProductsDB";
+import { products, pubBookImg } from "../../DataBase/ProductsDB";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
@@ -64,6 +64,7 @@ const StyledPubBookTitle = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  border-bottom: 1px solid lightgray;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -74,11 +75,11 @@ const StyledPubBookImageBox = styled.div`
   height: 338px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 `;
 const StyledPubBookImage = styled.div`
-  width: 180px;
+  width: 188px;
   height: 110px;
   display: flex;
   justify-content: center;

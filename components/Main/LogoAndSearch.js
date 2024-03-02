@@ -1,6 +1,7 @@
 import Styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
-import Image from "next/image";
+import Link from "next/link";
+// import Image from "next/image";
 
 const StyledLogoSearchWrapper = Styled.div`
     width: 1200px;
@@ -9,7 +10,6 @@ const StyledLogoSearchWrapper = Styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-
 `;
 const StyledLogoBox = Styled.div`
     height: 100px;
@@ -36,13 +36,17 @@ const StyledLogo = Styled.div`
       align-items: center;
       /* background-color: lightpink; */
     }
-    & div:last-child {
-      font-size: 1rem;
+`;
+
+const StyledLogoLink = Styled.a`
+    text-decoration: none;
+    color: black;
+    position: relative;
+          font-size: 1rem;
       font-weight: 600;
       color: #999999;
-      /* background-color: lightblue; */
-    }
-`;
+    `;
+
 const StyledSearchWrapper = Styled.div`
     width: 40%;
     height: 40px;
@@ -74,6 +78,8 @@ const StyledNavigation = Styled.div`
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+      font-size: 14px;
+  /* font-weight: bold; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,8 +125,7 @@ export default function LogoAndSearch() {
       <StyledLogoBox>
         <StyledLogo>
           <img src="/images/LogoImage.png" alt="wallet" width={60} />
-
-          <div>BTCmobick</div>
+          <StyledLogoLink href="/">BTCmobick</StyledLogoLink>
         </StyledLogo>
         <StyledSearchWrapper>
           <StyledInput placeholder="비트모빅 종이지갑"></StyledInput>
@@ -131,16 +136,16 @@ export default function LogoAndSearch() {
       </StyledLogoBox>
       <StyledNavigation>
         <div>
-          <StyledLink href="#">베스트</StyledLink>
-          <StyledLink href="#">신상품</StyledLink>
-          <StyledLink href="#">이벤트</StyledLink>
-          <StyledLink href="#">커뮤니티</StyledLink>
-          <StyledLink href="#">OTC</StyledLink>
+          <StyledLink href="/bestProducts">베스트</StyledLink>
+          <StyledLink href="/newProducts">신상품</StyledLink>
+          <StyledLink href="/event">이벤트</StyledLink>
+          <StyledLink href="/community">커뮤니티</StyledLink>
+          <StyledLink href="/OTC">OTC</StyledLink>
         </div>
         <div>
-          <StyledLink href="#">한정상품</StyledLink>
-          <StyledLink href="#">특가할인</StyledLink>
-          <StyledLink href="#">대량/법인</StyledLink>
+          <StyledLink href="/limited">한정상품</StyledLink>
+          <StyledLink href="/sales">특가할인</StyledLink>
+          <StyledLink href="/volume">대량/법인</StyledLink>
         </div>
       </StyledNavigation>
     </StyledLogoSearchWrapper>

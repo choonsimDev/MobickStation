@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import YouTubeVideo from "./YoutubeVideo";
-import { products, videos } from "../DataBase/YoutubeDB"; // 데이터 파일에서 상품 데이터 가져오기
+import { products, videos } from "../../DataBase/YoutubeDB"; // 데이터 파일에서 상품 데이터 가져오기
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;

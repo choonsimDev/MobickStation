@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SwiperBanner from "./Swiper";
-import { detailCategories } from "../DataBase/BannerDB";
+import { detailCategories } from "../../DataBase/BannerDB";
 
 const StyledBannerWrapper = styled.div`
   width: 1200px;
@@ -29,10 +29,13 @@ const MainCategory = styled.div`
   border-right: 1px solid lightgray;
 `;
 
-const MainCategoryItem = styled.div`
+const MainCategoryItem = styled.a`
   margin: 2px 0;
   margin-left: 10px;
+  font-size: 14px;
   text-align: left;
+  color: black; /* 링크의 기본 색상 변경 */
+  text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -45,12 +48,18 @@ const DetailCategory = styled.div`
   padding-top: 30px;
   font-size: 0.8rem;
   border-right: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
 `;
 
-const DetailCategoryItem = styled.div`
+const DetailCategoryItem = styled.a`
   margin-bottom: 20px;
   margin-left: 20px;
+  font-size: 14px;
+  /* font-weight: bold; */
   text-align: left;
+  color: black; /* 링크의 기본 색상 변경 */
+  text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -63,7 +72,7 @@ const MainBanner = styled.div`
   background-color: blue;
 `;
 
-const MainBannerImgBox = styled.div`
+const MainBannerImgBox = styled.a`
   height: 100%;
   cursor: pointer;
 `;
@@ -79,6 +88,7 @@ export default function Banner() {
       <MainCategory>
         {Object.keys(detailCategories).map((category, idx) => (
           <MainCategoryItem
+            href="/preparing"
             key={idx}
             onMouseEnter={() => setSelectedCategory(category)}
             // onMouseLeave={() => setSelectedCategory(null)}
@@ -90,11 +100,13 @@ export default function Banner() {
       <DetailCategory>
         {selectedCategory &&
           detailCategories[selectedCategory].map((item) => (
-            <DetailCategoryItem key={item}>{item}</DetailCategoryItem>
+            <DetailCategoryItem href="/preparing" key={item}>
+              {item}
+            </DetailCategoryItem>
           ))}
       </DetailCategory>
       <MainBanner>
-        <MainBannerImgBox>
+        <MainBannerImgBox href="/preparing">
           <SwiperBanner />
         </MainBannerImgBox>
         {/* <MainBannerImgButton></MainBannerImgButton> */}
