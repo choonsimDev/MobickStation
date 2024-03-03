@@ -1,6 +1,6 @@
 import Styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
-import Link from "next/link";
+// import Link from "next/link";
 // import Image from "next/image";
 
 const StyledLogoSearchWrapper = Styled.div`
@@ -26,8 +26,9 @@ const StyledLogo = Styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
+
+
     cursor: pointer;
-   
     & div:first-child {
       width: 60px;
       height: 60px;
@@ -39,12 +40,12 @@ const StyledLogo = Styled.div`
 `;
 
 const StyledLogoLink = Styled.a`
-    text-decoration: none;
-    color: black;
     position: relative;
-          font-size: 1rem;
-      font-weight: 600;
-      color: #999999;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+        text-decoration: none;
+    color: #999999;
     `;
 
 const StyledSearchWrapper = Styled.div`
@@ -124,7 +125,10 @@ export default function LogoAndSearch() {
     <StyledLogoSearchWrapper>
       <StyledLogoBox>
         <StyledLogo>
-          <img src="/images/LogoImage.png" alt="wallet" width={60} />
+          <StyledLogoLink href="/">
+            <img src="/images/LogoImage.png" alt="wallet" width={60} />
+          </StyledLogoLink>
+
           <StyledLogoLink href="/">BTCmobick</StyledLogoLink>
         </StyledLogo>
         <StyledSearchWrapper>

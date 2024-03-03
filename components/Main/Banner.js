@@ -106,7 +106,7 @@ export default function Banner() {
           ))}
       </DetailCategory>
       <MainBanner>
-        <MainBannerImgBox href="/preparing">
+        <MainBannerImgBox href="/productsDetail">
           <SwiperBanner />
         </MainBannerImgBox>
         {/* <MainBannerImgButton></MainBannerImgButton> */}

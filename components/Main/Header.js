@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledHeader = styled.a`
+const StyledHeader = styled.div`
   width: 100%;
   padding: 1rem;
   display: flex;
@@ -25,24 +25,33 @@ const StyledHeader = styled.a`
   }
 `;
 
+const StyledLink = styled.a`
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 export default function Header() {
   return (
-    <StyledHeader href="/preparing">
+    <StyledHeader>
       <div>
-        <div>강연및서적</div>
-        <div>굿즈</div>
-        <div>특별상품</div>
-        <div>종이지갑</div>
-        <div>상생마켓</div>
-        <div>커뮤니티</div>
-        <div>모빅정보</div>
+        <StyledLink href="/preparing">강연및서적</StyledLink>
+        <StyledLink href="/preparing">굿즈</StyledLink>
+        <StyledLink href="/preparing">특별상품</StyledLink>
+        <StyledLink href="/preparing">종이지갑</StyledLink>
+        <StyledLink href="/preparing">상생마켓</StyledLink>
+        <StyledLink href="/community">커뮤니티</StyledLink>
+        <StyledLink href="/preparing">모빅정보</StyledLink>
       </div>
       <div>
-        <div>로그인</div>
-        <div>회원가입</div>
-        <div>장바구니</div>
-        <div>주문조회</div>
-        <div>고객센터</div>
+        <StyledLink href="/preparing">로그인</StyledLink>
+        <StyledLink href="/preparing">회원가입</StyledLink>
+        <StyledLink href="/cart">장바구니</StyledLink>
+        <StyledLink href="/preparing">주문조회</StyledLink>
+        <StyledLink href="/preparing">고객센터</StyledLink>
       </div>
     </StyledHeader>
   );

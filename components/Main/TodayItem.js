@@ -24,7 +24,7 @@ const RecommendFirst = styled.div`
   align-items: center;
   border-right: 1px solid lightgray;
 `;
-const RecommendSecondImage = styled.div`
+const RecommendSecondImage = styled.a`
   width: 300px;
   height: 100%;
   display: flex;
@@ -76,7 +76,7 @@ const RecommendProduct = styled.div`
   border: 1px solid lightgray;
   border-radius: 4px;
 `;
-const RecommendFirstImage = styled.div`
+const RecommendFirstImage = styled.a`
   width: 221px;
   height: 250px;
   display: flex;
@@ -96,13 +96,15 @@ const RecommendFirstDescription = styled.div`
   align-items: center;
 `;
 
-const RecommendDescriptionBox = styled.div`
+const RecommendDescriptionBox = styled.a`
   margin-bottom: 0.6rem;
   padding: 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  color: black;
+  text-decoration: none;
 
   & > div {
     margin-bottom: 0.3rem;
@@ -157,7 +159,7 @@ const RecommendThirdTitle = styled.div`
     text-decoration: underline; /* Underline on hover */
   }
 `;
-const RecommendThirdItemDescription = styled.div`
+const RecommendThirdItemDescription = styled.a`
   width: 100%;
   height: 240px;
   display: flex;
@@ -165,6 +167,9 @@ const RecommendThirdItemDescription = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   border-bottom: 1px solid lightgray;
+  color: black;
+  text-decoration: none;
+
   & > div {
     margin-bottom: 0.9rem;
     padding: 0px 20px;
@@ -182,8 +187,7 @@ const RecommendThirdItemDescription = styled.div`
   & > div:nth-child(2) {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    text-align: left;
     font-size: 0.9rem;
     color: gray;
     cursor: pointer;
@@ -223,7 +227,7 @@ const RecommendThirdItemImageBox = styled.div`
   gap: 0.6rem;
   align-items: center;
 `;
-const RecommendThirdItemImage = styled.div`
+const RecommendThirdItemImage = styled.a`
   width: 74px;
   height: 90%;
   margin-bottom: 2px;
@@ -340,11 +344,11 @@ export default function TodayItem() {
       <RecommendFirst>
         <RecommendFirstTitle>category</RecommendFirstTitle>
         <RecommendProduct>
-          <RecommendFirstImage>
+          <RecommendFirstImage href="/productsDetail">
             <img src={products[0].image} alt={products[0].title} />
           </RecommendFirstImage>
           <RecommendFirstDescription>
-            <RecommendDescriptionBox>
+            <RecommendDescriptionBox href="/productsDetail">
               <div>{products[0].title}</div>
               <div>{products[0].maker}</div>
               <div>{products[0].description}</div>
@@ -352,13 +356,13 @@ export default function TodayItem() {
           </RecommendFirstDescription>
         </RecommendProduct>
       </RecommendFirst>
-      <RecommendSecondImage>
+      <RecommendSecondImage href="/productsDetail">
         <img src={products[1].image} alt={products[1].title} />
       </RecommendSecondImage>
       <RecommendThird>
         <RecommendThirdMenu>
           <RecommendThirdTitle>오늘의 상품</RecommendThirdTitle>
-          <RecommendThirdItemDescription>
+          <RecommendThirdItemDescription href="/productsDetail">
             <div>{products[1].title}</div>
             <div>{products[1].description}</div>
             <div>{products[1].series}</div>
@@ -367,7 +371,7 @@ export default function TodayItem() {
           </RecommendThirdItemDescription>
           <RecommendThirdItemImageBox>
             {recommendImages.map((image) => (
-              <RecommendThirdItemImage key={image.id}>
+              <RecommendThirdItemImage href="/productsDetail" key={image.id}>
                 <img src={image.src} alt={image.alt} />
               </RecommendThirdItemImage>
             ))}

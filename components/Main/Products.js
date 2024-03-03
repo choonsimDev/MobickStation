@@ -78,7 +78,7 @@ const StyledPubBookImageBox = styled.div`
   gap: 2.5rem;
   align-items: center;
 `;
-const StyledPubBookImage = styled.div`
+const StyledPubBookImage = styled.a`
   width: 188px;
   height: 110px;
   display: flex;
@@ -105,7 +105,7 @@ const StyledProductBox = styled.div`
   border: 1px solid lightgray;
   overflow: hidden;
 `;
-const StyledProductImage = styled.div`
+const StyledProductImage = styled.a`
   height: 65%;
   background-color: skyblue; // 임시 배경색
   display: flex;
@@ -116,23 +116,26 @@ const StyledProductImage = styled.div`
   border-bottom: 1px solid lightgray;
   cursor: pointer;
 `;
-const StyledProductName = styled.div`
+const StyledProductName = styled.a`
   margin-top: 1.2rem;
   padding: 0rem 1rem;
   font-size: 13px;
   font-weight: bold;
+  color: black; /* 링크의 기본 색상 변경 */
+  text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
   }
 `;
-const StyledProductDescription = styled.div`
+const StyledProductDescription = styled.a`
   padding: 0rem 1rem;
   margin-top: 0.5rem;
   line-height: 1.4;
   font-size: 12px;
   color: gray;
   flex-grow: 1;
+  text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -160,11 +163,13 @@ export default function Products() {
             {products.map((product, index) => {
               return (
                 <StyledProductBox key={index}>
-                  <StyledProductImage>
+                  <StyledProductImage href="/productsDetail">
                     <img src={product.imageUrl} alt="4thWallet" />
                   </StyledProductImage>
-                  <StyledProductName>{product.name}</StyledProductName>
-                  <StyledProductDescription>
+                  <StyledProductName href="/productsDetail">
+                    {product.name}
+                  </StyledProductName>
+                  <StyledProductDescription href="/productsDetail">
                     {product.description}
                   </StyledProductDescription>
                   <StyledProductPrice>{product.price}</StyledProductPrice>
@@ -180,6 +185,7 @@ export default function Products() {
           {pubBookImg.map((image, index) => (
             <React.Fragment key={image.id}>
               <StyledPubBookImage
+                href="/productsDetail"
                 style={{ backgroundImage: `url(${image.src})` }}
                 alt={image.alt}
               />
