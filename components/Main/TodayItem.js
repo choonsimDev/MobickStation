@@ -13,6 +13,7 @@ const StyledRecommendWrapper = styled.header`
   align-items: center;
   text-align: center;
   border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const RecommendFirst = styled.div`

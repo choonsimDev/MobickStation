@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { useState } from "react";
 
 const StyledAdandInterviewWrapper = styled.div`
   width: 1200px;
@@ -6,6 +7,8 @@ const StyledAdandInterviewWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const AdWrapper = styled.div`
@@ -121,6 +124,28 @@ const InterviewContentBoxText = styled.div`
   }
 `;
 
+const Popup = styled.div`
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // 정확히 중앙에 위치시키기
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000; // 다른 요소들 위에 표시
+  font-size: 20px;
+  gap: 25px;
+`;
+
 const InterviewDetail1 = [
   {
     imageUrl: "/images/Interview01.png",
@@ -161,9 +186,32 @@ const InterviewDetail2 = [
 ];
 
 export default function AdAndInterview() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleAdClick = () => {
+    setShowPopup(true); // 팝업을 보여주는 함수
+  };
+
+  const handleClose = (event) => {
+    event.stopPropagation(); // 버블링 방지
+    setShowPopup(false); // 팝업을 숨기는 함수
+  };
+
   return (
     <StyledAdandInterviewWrapper>
-      <AdWrapper>
+      <AdWrapper onClick={handleAdClick}>
+        {showPopup && (
+          <Popup onClick={(e) => e.stopPropagation()}>
+            {/* 팝업 자체에서의 클릭 이벤트 버블링 방지 */}
+            <img
+              src="/images/popup01.png"
+              alt="Popup"
+              style={{ width: "20%", borderRadius: "5px 5px 0 0" }}
+            />
+            준비중입니다.
+            <button onClick={handleClose}>닫기</button>
+          </Popup>
+        )}
         <AdLabel>AD</AdLabel>
         <img src="/images/AdAndInterview03.png" alt="wallet" width={575} />
       </AdWrapper>

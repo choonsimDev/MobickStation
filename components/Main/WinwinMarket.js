@@ -9,6 +9,7 @@ const StyledWinwinMarket = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const StyledWinwinMarketTitle = styled.div`

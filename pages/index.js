@@ -17,7 +17,6 @@ import MobiletOtc from "@/components/Main/MobiletOtc";
 import WinwinMarket from "@/components/Main/WinwinMarket";
 import TodakAndNews from "@/components/Main/TodakAndNews";
 import AdAndInterview from "@/components/Main/AdAndInterview";
-import Linktree from "@/components/Main/MobickLinktree";
 
 import Footer from "@/components/Main/Footer";
 // import NewsSection from "@/components/NewsSection";
@@ -55,7 +54,6 @@ export default function Home() {
         {/* <Market /> */}
         {/* <NewsSection /> */}
         <AdArea />
-        <Linktree />
         {/* <VerificationSection /> */}
         <Footer />
       </Center>

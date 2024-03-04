@@ -10,6 +10,8 @@ const StyledLogoSearchWrapper = Styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+    
+    
 `;
 const StyledLogoBox = Styled.div`
     height: 100px;
@@ -72,6 +74,7 @@ const StyledInput = Styled.input`
     margin-left: 10px;
     padding: 5px;
     
+    
 `;
 
 const StyledNavigation = Styled.div`
@@ -85,6 +88,8 @@ const StyledNavigation = Styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: lightblue;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
+
     & div {
         display: flex;
         gap: 2rem;

@@ -10,6 +10,7 @@ const StyledTopMidWraper = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 const StyledNowBook = styled.div`
   width: 959px;
@@ -84,6 +85,8 @@ const StyledPubBookImage = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
+
   cursor: pointer;
   & :hover {
     border: 1px solid lightgray;
@@ -107,13 +110,13 @@ const StyledProductBox = styled.div`
 `;
 const StyledProductImage = styled.a`
   height: 65%;
-  background-color: skyblue; // 임시 배경색
   display: flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid lightgray;
+
   cursor: pointer;
 `;
 const StyledProductName = styled.a`

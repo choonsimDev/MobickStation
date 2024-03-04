@@ -20,7 +20,7 @@ const StyledBack = styled.a`
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    text-decoration: underline;
+    color: #333; // 호버 색상 변경
   }
 `;
 
@@ -31,6 +31,8 @@ const ProductsDetailWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: 20px; // 패딩 추가
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const ProductsCategory = styled.div`

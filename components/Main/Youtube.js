@@ -7,6 +7,7 @@ const StyledTopMidWraper = styled.div`
   height: 392px;
   margin-top: 20px;
   border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 const StyledYoutubeTitle = styled.div`
   height: 30px;

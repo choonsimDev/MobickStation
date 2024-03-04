@@ -8,24 +8,30 @@ import {
 
 const StyledTodakAndNewsWrapper = styled.div`
   width: 1200px;
-  height: 630px;
+  height: 640px;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const StyledTodakAndNewsBox = styled.div`
-  width: 620px;
-  height: 630px;
+  flex: 1; // 박스가 부모 컨테이너의 크기에 맞추어 자동으로 조정되도록 변경
+  height: 640px;
   display: flex;
   flex-direction: column;
-  border: 1px solid lightgray;
+  &:first-child {
+    border-right: 1px solid lightgray; // 첫 번째 박스의 오른쪽에만 테두리를 추가
+  }
+  &:last-child {
+    border-left: none; // 마지막 박스의 왼쪽 테두리 제거
+  }
 `;
 
 const StyledTodakAndNewsTitleBox = styled.div`
   width: 100%;
-  height: 33px;
+  height: 30px;
   font-size: 16px;
   font-weight: bold;
   display: flex;
@@ -39,8 +45,8 @@ const StyledTodakAndNewsTitleBox = styled.div`
 `;
 
 const StyledTodakImageBox = styled.div`
-  width: 598px;
-  height: 598px;
+  width: 100%; // 부모의 너비에 맞게 조정
+  flex: 1; // 높이를 유동적으로 조정
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,15 +55,22 @@ const StyledTodakImageBox = styled.div`
   cursor: pointer;
 `;
 
-const StyledNewsBoxWrapper0 = styled.div`
-  width: 574px;
+const StyledTodakImage = styled.div`
+  width: 100%;
   height: 100%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
+`;
+
+const StyledNewsBoxWrapper0 = styled.div`
+  width: 100%; // 부모의 너비에 맞게 조정
+  flex: 1; // 높이를 유동적으로 조정
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin: 12px;
+  gap: 26px;
+  padding: 12px; // 내부 패딩으로 인해 자식 컴포넌트들이 경계 밖으로 나가지 않도록 함
 `;
 
 const StyledNewsBoxWrapper = styled.div`
@@ -77,6 +90,7 @@ const StyledNewsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 const StyledNewsImage = styled.div`
   width: 100%;
@@ -123,7 +137,7 @@ export default function TodakAndNews() {
       <StyledTodakAndNewsBox>
         <StyledTodakAndNewsTitleBox>토닥토닥</StyledTodakAndNewsTitleBox>
         <StyledTodakImageBox>
-          <div>
+          <StyledTodakImage>
             <img
               src={todakImage[0].imageUrl}
               alt="otc_image"
@@ -131,7 +145,7 @@ export default function TodakAndNews() {
               width={576}
               height={576}
             />
-          </div>
+          </StyledTodakImage>
         </StyledTodakImageBox>
       </StyledTodakAndNewsBox>
       <StyledTodakAndNewsBox>

@@ -10,6 +10,8 @@ const StyledCommunityWrapper = styled.div`
   height: 660px;
   margin-top: 20px;
   border: 1px solid lightgray;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const CommunityTitleBox = styled.a`
@@ -21,6 +23,7 @@ const CommunityTitleBox = styled.a`
   font-size: 16px;
   font-weight: bold;
   color: black;
+  box-sizing: border-box;
   text-decoration: none;
   cursor: pointer;
   &:hover {
@@ -31,16 +34,19 @@ const CommunityTitleBox = styled.a`
 const CommunityNoticeBox = styled.div`
   width: 1200px;
   height: 50px;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   border-top: 1px solid lightgray;
   font-style: italic;
+  box-sizing: border-box;
 `;
 const NoticeText = styled.a`
   color: dodgerblue;
   font-weight: bold;
   text-decoration: none;
+  box-sizing: border-box;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -53,16 +59,20 @@ const CommunityBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 `;
 
 const CommunityLeftBox = styled.div`
   width: 600px;
   height: 570px;
   border: 1px solid lightgray;
+  border-right: none; // 오른쪽 테두리 제거
+  border-left: none; //  테두리 제거
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
   padding: 12px;
   gap: 12px;
 `;
@@ -74,6 +84,7 @@ const CommunityOtaverse = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 `;
 
 const CommunityOtaverseTitle = styled.a`
@@ -85,6 +96,7 @@ const CommunityOtaverseTitle = styled.a`
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
   font-size: 16px;
   font-weight: bold;
   color: black;
@@ -101,6 +113,7 @@ const CommunityOtaverseBoxWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
   gap: 0.8rem;
 `;
 
@@ -114,6 +127,7 @@ const CommunityOtaverseBoxImage = styled.a`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  box-sizing: border-box;
   background-image: url(${(props) => props.imageUrl});
   background-size: cover;
   background-position: center;
@@ -129,6 +143,7 @@ const CommunityOtaverseBoxText = styled.a`
   overflow: hidden;
   color: black;
   text-decoration: none;
+  box-sizing: border-box;
 
   & > div:nth-child(1) {
     font-size: 14px;
@@ -165,6 +180,7 @@ const CommunityOtaeminColumn = styled.div`
   width: 574px;
   height: 272px;
   border: 1px solid lightgray;
+  box-sizing: border-box;
 `;
 
 const CommunityOtaeminColumnTitle = styled.div`
@@ -196,6 +212,7 @@ const CommunityOtaeminColumnBoxWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
 `;
 
 const CommunityOtaeminColumnBoxImage = styled.a`
@@ -208,6 +225,7 @@ const CommunityOtaeminColumnBoxImage = styled.a`
   overflow: hidden;
   background-size: cover;
   background-position: center;
+
   cursor: pointer;
 `;
 const CommunityOtaeminColumnBoxTitle = styled.a`
@@ -239,13 +257,14 @@ const CommunityRightBox = styled.div`
   width: 600px;
   height: 570px;
   border: 1px solid lightgray;
+  border-right: none; // 왼쪽 테두리 제거
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 12px;
+  box-sizing: border-box;
 `;
-
 const MobickCommunity = styled.div`
   width: 574px;
   height: 546px;
@@ -254,6 +273,7 @@ const MobickCommunity = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  box-sizing: border-box;
 `;
 
 const MobickCommunityTitleBox = styled.a`
@@ -267,6 +287,7 @@ const MobickCommunityTitleBox = styled.a`
   color: black;
   text-decoration: none;
   border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -279,6 +300,7 @@ const MobickCommunityDetail = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+  box-sizing: border-box;
 `;
 const MobickCommunityDetailBox = styled.a`
   width: 574px;
@@ -290,6 +312,7 @@ const MobickCommunityDetailBox = styled.a`
   font-size: 14px;
   color: black;
   text-decoration: none;
+  box-sizing: border-box;
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   background-color: ${(props) => (props.isBold ? "whitesmoke" : "transparent")};
   &:hover {

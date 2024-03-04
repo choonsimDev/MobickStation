@@ -13,6 +13,7 @@ const StyledBannerWrapper = styled.div`
   align-items: center;
   text-align: center;
   border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const MainCategory = styled.div`
@@ -74,6 +75,7 @@ const MainBanner = styled.div`
 
 const MainBannerImgBox = styled.a`
   height: 100%;
+
   cursor: pointer;
 `;
 const MainBannerImgButton = styled.div`
