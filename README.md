@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ```
 > npm i prisma -D
-> npm pirsma init
+> npx prisma init
 프리즈마 폴더가 생기고 .env 파일이 생성됨
 
 > brew install planet-scale/tap/pscale
@@ -17,9 +17,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 > pscale region list
 > pscale database create wallet-verification --region ap-northeast-2
 
-> npm install @prisma/client
 > npx prisma db push
 > npx prisma generate
+
+> npm install @prisma/client
 
 ```
 
