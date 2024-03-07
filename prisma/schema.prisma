@@ -26,165 +26,165 @@ model User {
 }
 
 //AdAreaDB
-model AdAreaDBadinfo {
+model adAreaDbAdInfo {
   id  Int    @id @default(autoincrement())
   src String
   alt String
 }
 
 //BannerDB
-model BannerDBCategory {
-  id   Int    @id @default(autoincrement())
-  name String @unique
-}
+// model BannerDBCategory {
+//   id   Int    @id @default(autoincrement())
+//   name String @unique
+// }
 
-model BannerDBItem {
-  id                 Int    @id @default(autoincrement())
-  name               String
-  bannerDBCategoryId Int // BannerDBCategory의 외래 키를 참조
-}
+// model BannerDBItem {
+//   id                 Int    @id @default(autoincrement())
+//   name               String
+//   bannerDBCategoryId Int // BannerDBCategory의 외래 키를 참조
+// }
 
-//CommunityDB
-model CommunityDBOtaverseDetail {
-  id       Int      @id @default(autoincrement())
-  imageUrl String
-  title    String
-  detail   String?
-  date     DateTime
-  view     Int? // OtaverseDetails2에서 사용되는 'view' 필드
-}
+// //CommunityDB
+// model CommunityDBOtaverseDetail {
+//   id       Int      @id @default(autoincrement())
+//   imageUrl String
+//   title    String
+//   detail   String?
+//   date     DateTime
+//   view     Int? // OtaverseDetails2에서 사용되는 'view' 필드
+// }
 
-model CommunityDBPost {
-  id       Int      @id @default(autoincrement())
-  category String
-  title    String
-  thumb    Int
-  date     DateTime
-}
+// model CommunityDBPost {
+//   id       Int      @id @default(autoincrement())
+//   category String
+//   title    String
+//   thumb    Int
+//   date     DateTime
+// }
 
-//FooterDB
-model FooterDBLink {
-  id   Int    @id @default(autoincrement())
-  text String
-  href String
-}
+// //FooterDB
+// model FooterDBLink {
+//   id   Int    @id @default(autoincrement())
+//   text String
+//   href String
+// }
 
-model FooterDBCompanyInfo {
-  id             Int    @id @default(autoincrement())
-  name           String
-  address        String
-  businessNumber String
-  salesNumber    String
-  representative String
-}
+// model FooterDBCompanyInfo {
+//   id             Int    @id @default(autoincrement())
+//   name           String
+//   address        String
+//   businessNumber String
+//   salesNumber    String
+//   representative String
+// }
 
-model FooterDBCustomerServiceInfo {
-  id          Int    @id @default(autoincrement())
-  inquiry     String
-  phoneNumber String
-  mallInquiry String
-  otcInquiry  String
-  question1   String
-  question2   String
-}
+// model FooterDBCustomerServiceInfo {
+//   id          Int    @id @default(autoincrement())
+//   inquiry     String
+//   phoneNumber String
+//   mallInquiry String
+//   otcInquiry  String
+//   question1   String
+//   question2   String
+// }
 
-//MobiletOtcDB
-model MobiletOtcDBBuyProduct {
-  id       Int    @id @default(autoincrement())
-  nickname String
-  imageUrl String
-  name     String
-  location String
-  price    String
-}
+// //MobiletOtcDB
+// model MobiletOtcDBBuyProduct {
+//   id       Int    @id @default(autoincrement())
+//   nickname String
+//   imageUrl String
+//   name     String
+//   location String
+//   price    String
+// }
 
-model MobiletOtcDBSellProduct {
-  id       Int    @id @default(autoincrement())
-  nickname String
-  imageUrl String
-  name     String
-  location String
-  price    String
-}
+// model MobiletOtcDBSellProduct {
+//   id       Int    @id @default(autoincrement())
+//   nickname String
+//   imageUrl String
+//   name     String
+//   location String
+//   price    String
+// }
 
-//ProductsDB
-model ProductsDBProducts {
-  id          Int    @id @default(autoincrement())
-  imageUrl    String
-  name        String
-  description String
-  price       String // 가격에 문자열이 붙어서 String
-}
+// //ProductsDB
+// model ProductsDBProducts {
+//   id          Int    @id @default(autoincrement())
+//   imageUrl    String
+//   name        String
+//   description String
+//   price       String // 가격에 문자열이 붙어서 String
+// }
 
-model ProductsDBPubBookImg {
-  id  Int    @id @default(autoincrement())
-  src String
-  alt String
-}
+// model ProductsDBPubBookImg {
+//   id  Int    @id @default(autoincrement())
+//   src String
+//   alt String
+// }
 
-//TodakAndNewsDB
-model TodakAndNewsDBTodakImage {
-  id       Int    @id @default(autoincrement())
-  imageUrl String
-}
+// //TodakAndNewsDB
+// model TodakAndNewsDBTodakImage {
+//   id       Int    @id @default(autoincrement())
+//   imageUrl String
+// }
 
-model TodakAndNewsDBnewsDetail {
-  id       Int    @id @default(autoincrement())
-  imageUrl String
-  title    String
-  detail   String
-}
+// model TodakAndNewsDBnewsDetail {
+//   id       Int    @id @default(autoincrement())
+//   imageUrl String
+//   title    String
+//   detail   String
+// }
 
-//TodayItemDB
-model TodayItemDBproducts {
-  id          Int    @id @default(autoincrement())
-  imageUrl    String
-  title       String
-  series      String
-  maker       String
-  description String
-  price       String // 가격에 문자열이 붙어서 String
-}
+// //TodayItemDB
+// model TodayItemDBproducts {
+//   id          Int    @id @default(autoincrement())
+//   imageUrl    String
+//   title       String
+//   series      String
+//   maker       String
+//   description String
+//   price       String // 가격에 문자열이 붙어서 String
+// }
 
-model TodayItemDBRecommendImage {
-  id  Int    @id @default(autoincrement())
-  src String
-  alt String
-}
+// model TodayItemDBRecommendImage {
+//   id  Int    @id @default(autoincrement())
+//   src String
+//   alt String
+// }
 
-model TodayItemDBTabs {
-  id    String                @id
-  title String
-  items TodayItemDBTabsItem[] // 관계 필드
-}
+// model TodayItemDBTabs {
+//   id    String                @id
+//   title String
+//   items TodayItemDBTabsItem[] // 관계 필드
+// }
 
-model TodayItemDBTabsItem {
-  id      Int             @id @default(autoincrement())
-  content String
-  tabId   String
-  tab     TodayItemDBTabs @relation(fields: [tabId], references: [id])
-}
+// model TodayItemDBTabsItem {
+//   id      Int             @id @default(autoincrement())
+//   content String
+//   tabId   String
+//   tab     TodayItemDBTabs @relation(fields: [tabId], references: [id])
+// }
 
-//WinWinMarketSwiperDB
-model WinWinMarketSwiperDBswiper {
-  id  Int    @id @default(autoincrement())
-  src String
-  alt String
-}
+// //WinWinMarketSwiperDB
+// model WinWinMarketSwiperDBswiper {
+//   id  Int    @id @default(autoincrement())
+//   src String
+//   alt String
+// }
 
-//YoutubeDB
-model YoutubeDBProduct {
-  id          Int    @id @default(autoincrement())
-  series      String
-  title       String
-  description String
-  image       String
-  seller      String
-}
+// //YoutubeDB
+// model YoutubeDBProduct {
+//   id          Int    @id @default(autoincrement())
+//   series      String
+//   title       String
+//   description String
+//   image       String
+//   seller      String
+// }
 
-model YoutubeDBvideos {
-  id          Int    @id @default(autoincrement())
-  src         String
-  title       String
-  description String
-}
+// model YoutubeDBvideos {
+//   id          Int    @id @default(autoincrement())
+//   src         String
+//   title       String
+//   description String
+// }
