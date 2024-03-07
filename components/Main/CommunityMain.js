@@ -425,7 +425,7 @@ export default function CommunityMain() {
 
               {CommunityData.map((item, index) => (
                 <MobickCommunityDetailBox
-                  href="/community"
+                  href="/communityPost"
                   key={index}
                   // 처음 세 번째 데이터에 대해서만 isBold를 true로 설정
                   isBold={index < 3}
