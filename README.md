@@ -11,7 +11,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 > brew install planet-scale/tap/pscale
 // > brew install mysql-client
-> brew upgrade pscale
 > pscale
 > pscale auth login
 > pscale region list
@@ -28,7 +27,7 @@ First, run the development server:
 
 ```
 > pscale auth login
-> pscale connect wallet-verification
+> pscale connect mobick-public-market
 > npx prisma studio
 ```
 
