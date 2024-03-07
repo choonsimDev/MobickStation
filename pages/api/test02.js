@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"; 
+import { PrismaClient } from "@prisma/client";
 
 const client = new PrismaClient();
 
@@ -7,4 +7,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const data = await client.adAreaDbAdInfo.findMany();
     console.log('data', data);
-    res.status(200).json(data);}}
+    res.status(200).json(data);
+  }
+}
