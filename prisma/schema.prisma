@@ -26,41 +26,41 @@ model User {
 }
 
 //AdAreaDB
-model adAreaDbAdInfo {
+model dbAdArea {
   id  Int    @id @default(autoincrement())
   src String
   alt String
 }
 
 //BannerDB
-// model BannerDBCategory {
-//   id   Int    @id @default(autoincrement())
-//   name String @unique
-// }
+model dbBannerCategory {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+}
 
-// model BannerDBItem {
-//   id                 Int    @id @default(autoincrement())
-//   name               String
-//   bannerDBCategoryId Int // BannerDBCategory의 외래 키를 참조
-// }
+model dbBannerItem {
+  id                 Int    @id @default(autoincrement())
+  name               String
+  bannerDBCategoryId Int 
+}
 
 // //CommunityDB
-// model CommunityDBOtaverseDetail {
-//   id       Int      @id @default(autoincrement())
-//   imageUrl String
-//   title    String
-//   detail   String?
-//   date     DateTime
-//   view     Int? // OtaverseDetails2에서 사용되는 'view' 필드
-// }
+model dbCommunityOtaverseDetail{
+  id       Int      @id @default(autoincrement())
+  imageUrl String
+  title    String
+  detail   String?
+  date     DateTime
+  view     Int? // OtaverseDetails2에서 사용되는 'view' 필드
+}
 
-// model CommunityDBPost {
-//   id       Int      @id @default(autoincrement())
-//   category String
-//   title    String
-//   thumb    Int
-//   date     DateTime
-// }
+model dbCommunityPost {
+  id       Int      @id @default(autoincrement())
+  category String
+  title    String
+  thumb    Int
+  date     DateTime
+}
 
 // //FooterDB
 // model FooterDBLink {

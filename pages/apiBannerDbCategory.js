@@ -5,7 +5,7 @@ const Test02api = () => {
 
     const dataFetch = async () => {
         try {
-            const response = await fetch('/api/test02/', {
+            const response = await fetch('/api/dbBannerCategory/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,14 +28,13 @@ const Test02api = () => {
     }, []); //The empty array [] means that the useEffect function will only run once, after the initial render
     return (
         <div>
-            <h1>Test02api</h1>
+            <h1>apiBannerDbCategory</h1>
             {console.log('testData', testData)}
             {testData.map((item, index) => {
                 return (
                     <div key={index}>
                         <h1>{item.id}</h1>
-                        <h1>{item.email}</h1>
-                        <h1>{item.phone}</h1>
+                        <h1>{item.name}</h1>
                     </div>
                 )
 

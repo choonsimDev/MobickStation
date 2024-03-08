@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
@@ -207,6 +208,8 @@ const StyledBack = styled.a`
 `;
 
 export default function Community() {
+
+    
   return (
     <StyledDiv>
       <Header />

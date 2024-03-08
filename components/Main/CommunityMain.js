@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import {
   CommunityData,
@@ -353,6 +354,27 @@ const MobickCommunityDetailBox = styled.a`
 `;
 
 export default function CommunityMain() {
+
+  const [posts, setPosts] = useState([]); // 상태를 추가
+
+  useEffect(() => { // 데이터를 가져오는 로직
+    async function fetchPosts() {
+      const response = await fetch('/api/dbCommunityPost/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: 'POST'
+        })
+      });
+      const data = await response.json();
+      setPosts(data);
+    }
+    fetchPosts();
+  }, []);
+
+
   return (
     <StyledCommunityWrapper>
       <CommunityTitleBox href="/community">커뮤니티</CommunityTitleBox>
@@ -421,11 +443,17 @@ export default function CommunityMain() {
               일반 게시판
             </MobickCommunityTitleBox>
             <MobickCommunityDetail>
-              {/* 커뮤니티 글제목들 매핑 부분 */}
-
+            {posts.map((post, index) => ( // API에서 가져온 데이터를 매핑하여 표시
+            <MobickCommunityDetailBox href="/community" key={index} isBold={index < 3}>
+              <div>{post.category}</div>
+              <div>{post.title}</div>
+              <div>{post.thumb}</div>
+              <div>{post.date}</div>
+            </MobickCommunityDetailBox>
+          ))}
               {CommunityData.map((item, index) => (
                 <MobickCommunityDetailBox
-                  href="/communityPost"
+                  href="/community"
                   key={index}
                   // 처음 세 번째 데이터에 대해서만 isBold를 true로 설정
                   isBold={index < 3}
