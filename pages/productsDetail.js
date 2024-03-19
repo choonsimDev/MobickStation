@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useState } from "react";
+import React from "react";
 import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
@@ -196,6 +198,7 @@ const ProductNaviDetail = styled.div`
 `;
 
 export default function productsDetail() {
+  let [수량, 수량변경] = useState(1);
   return (
     <StyledDiv>
       <Header />
@@ -217,7 +220,27 @@ export default function productsDetail() {
             <ProductQuantitylBox>
               <div>수량</div>
               <div>
-                <div>- 10 +</div>
+                <button
+                  onClick={() => {
+                    let copy = [수량];
+                    if (copy > 0) {
+                      copy--;
+                    }
+                    수량변경(copy);
+                  }}
+                >
+                  -
+                </button>
+                <span>{수량}</span>
+                <button
+                  onClick={() => {
+                    let copy = [수량];
+                    copy++;
+                    수량변경(copy);
+                  }}
+                >
+                  +
+                </button>
                 <div>100,000원</div>
               </div>
             </ProductQuantitylBox>
