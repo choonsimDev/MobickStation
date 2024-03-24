@@ -199,6 +199,7 @@ const ProductNaviDetail = styled.div`
 
 export default function productsDetail() {
   let [수량, 수량변경] = useState(1);
+  let [가격, 가격변경] = useState("100,000");
   return (
     <StyledDiv>
       <Header />
@@ -227,6 +228,7 @@ export default function productsDetail() {
                       copy--;
                     }
                     수량변경(copy);
+                    가격변경(100000 * copy);
                   }}
                 >
                   -
@@ -237,11 +239,12 @@ export default function productsDetail() {
                     let copy = [수량];
                     copy++;
                     수량변경(copy);
+                    가격변경(100000 * copy);
                   }}
                 >
                   +
                 </button>
-                <div>100,000원</div>
+                <div>{가격}원</div>
               </div>
             </ProductQuantitylBox>
             <ProductPriceBox>

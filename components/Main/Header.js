@@ -11,6 +11,7 @@ const StyledHeader = styled.div`
   background-color: dodgerblue;
   text-align: center;
   text-decoration: none;
+  margin-right: 15px;
   & > div {
     color: #ffffff;
     display: flex;

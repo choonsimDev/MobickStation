@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   CommunityData,
@@ -354,26 +354,25 @@ const MobickCommunityDetailBox = styled.a`
 `;
 
 export default function CommunityMain() {
-
   const [posts, setPosts] = useState([]); // 상태를 추가
 
-  useEffect(() => { // 데이터를 가져오는 로직
+  useEffect(() => {
+    // 데이터를 가져오는 로직
     async function fetchPosts() {
-      const response = await fetch('/api/dbCommunityPost/', {
-        method: 'POST',
+      const response = await fetch("/api/dbCommunityPost/", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            name: 'POST'
-        })
+          name: "POST",
+        }),
       });
       const data = await response.json();
       setPosts(data);
     }
     fetchPosts();
   }, []);
-
 
   return (
     <StyledCommunityWrapper>
@@ -440,17 +439,26 @@ export default function CommunityMain() {
         <CommunityRightBox>
           <MobickCommunity>
             <MobickCommunityTitleBox href="/community">
-              일반 게시판
+              토론 게시판
             </MobickCommunityTitleBox>
             <MobickCommunityDetail>
-            {posts.map((post, index) => ( // API에서 가져온 데이터를 매핑하여 표시
-            <MobickCommunityDetailBox href="/community" key={index} isBold={index < 3}>
-              <div>{post.category}</div>
-              <div>{post.title}</div>
-              <div>{post.thumb}</div>
-              <div>{post.date}</div>
-            </MobickCommunityDetailBox>
-          ))}
+              {posts.map(
+                (
+                  post,
+                  index // API에서 가져온 데이터를 매핑하여 표시
+                ) => (
+                  <MobickCommunityDetailBox
+                    href="/community"
+                    key={index}
+                    isBold={index < 3}
+                  >
+                    <div>{post.category}</div>
+                    <div>{post.title}</div>
+                    <div>{post.thumb}</div>
+                    <div>{post.date}</div>
+                  </MobickCommunityDetailBox>
+                )
+              )}
               {CommunityData.map((item, index) => (
                 <MobickCommunityDetailBox
                   href="/community"

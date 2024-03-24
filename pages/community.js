@@ -23,11 +23,10 @@ const CommunityBar = styled.div`
 
 const MainWrapper = styled.div`
   width: 1200px;
-  height: 2200px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
 `;
 
 const LeftCommunity = styled.div`
@@ -37,7 +36,6 @@ const LeftCommunity = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgreen;
 `;
 
 const LeftCommunityCategory = styled.div`
@@ -45,9 +43,13 @@ const LeftCommunityCategory = styled.div`
   height: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background-color: lightblue;
+  padding-left: 20px;
+  border-bottom: 1px solid lightblue;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
 `;
 
 const LeftCommunityHotContent = styled.div`
@@ -55,9 +57,46 @@ const LeftCommunityHotContent = styled.div`
   height: 170px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px 10px 0px;
+`;
+
+const HotContentItem = styled.div`
+  width: 200px;
+  height: 170px;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightyellow;
+  border: 1px solid lightgray;
+  position: relative;
+  cursor: pointer;
+`;
+
+const HotContentItemImage = styled.div`
+  width: 200px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  position: absolute;
+  cursor: pointer;
+`;
+
+const HotContentItemTitle = styled.div`
+  width: 200px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0px;
+  & > div {
+    color: white;
+  }
 `;
 
 const LeftCommunityContentWrapper = styled.div`
@@ -67,17 +106,72 @@ const LeftCommunityContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: pink;
+  /* background-color: pink; */
 `;
 
 const LeftCommunityContents = styled.div`
   width: 900px;
-  height: 54px;
+  height: 52px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  & > div:nth-child(1) {
+    width: 750px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    & > div:nth-child(1) {
+      width: 100px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid lightgray;
+      cursor: pointer;
+    }
+    & > div:nth-child(2) {
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 10px;
+      cursor: pointer;
+    }
+    & > div:nth-child(3) {
+      width: 50px;
+      height: 50px;
+      color: red;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 10px;
+      cursor: pointer;
+    }
+  }
+  & > div:nth-child(2) {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & > div:nth-child(1) {
+      width: 75px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & > div:nth-child(2) {
+      width: 75px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
 
 const LeftCommunityContentsPageButton = styled.div`
@@ -87,7 +181,29 @@ const LeftCommunityContentsPageButton = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+  border-top: 1px solid lightgray;
+  & > span {
+    margin: 0 5px; /* 페이지 번호 사이의 간격 */
+    padding: 5px 10px; /* 페이지 번호의 패딩 */
+    cursor: pointer;
+    user-select: none; /* 텍스트 선택 방지 */
+  }
+
+  & > span:hover {
+    background-color: #ddd; /* 호버 시 배경색 변경 */
+  }
+  & > .next {
+    display: inline-block;
+    width: 30px; /* 다음 버튼의 너비 */
+    height: 30px; /* 다음 버튼의 높이 */
+    line-height: 30px; /* 세로 정렬을 위해 높이와 동일하게 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    cursor: pointer;
+    user-select: none;
+  }
+  & > .next:hover {
+    background-color: #ddd;
+  }
 `;
 const LeftCommunityAD = styled.div`
   width: 900px;
@@ -98,43 +214,41 @@ const LeftCommunityAD = styled.div`
   align-items: center;
   background-color: lightseagreen;
 `;
-const LeftCommunityNews = styled.div`
-  width: 900px;
-  height: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: lightslategray;
-`;
-const LeftCommunityTempWrapper = styled.div`
-  width: 900px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-color: lightskyblue;
-`;
+// const LeftCommunityNews = styled.div`
+//   width: 900px;
+//   height: 200px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: lightslategray;
+// `;
+// const LeftCommunityTempWrapper = styled.div`
+//   width: 900px;
+//   height: 400px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+//   background-color: lightskyblue;
+// `;
 
-const LeftCommunityTempBox = styled.div`
-  width: 900px;
-  height: 190px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid lightgray;
-`;
+// const LeftCommunityTempBox = styled.div`
+//   width: 900px;
+//   height: 190px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   border: 1px solid lightgray;
+// `;
 
 const RightCommunity = styled.div`
   width: 300px;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: lightcoral;
 `;
 
 const RightCommunityRealTimeBest = styled.div`
@@ -154,6 +268,7 @@ const RightCommunityAD = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
   background-color: lightgray;
 `;
 
@@ -164,6 +279,7 @@ const RightCommunityCategory1Best = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
   background-color: lightgray;
 `;
 
@@ -174,16 +290,7 @@ const RightCommunityCategory2Best = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
-`;
-
-const RightCommunityTempBox = styled.div`
-  width: 300px;
-  height: 330px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin-top: 10px;
   background-color: lightgray;
 `;
 
@@ -208,8 +315,6 @@ const StyledBack = styled.a`
 `;
 
 export default function Community() {
-
-    
   return (
     <StyledDiv>
       <Header />
@@ -217,39 +322,281 @@ export default function Community() {
       <CommunityBar>Community Bar</CommunityBar>
       <MainWrapper>
         <LeftCommunity>
-          <LeftCommunityCategory>CommunityCategory</LeftCommunityCategory>
-          <LeftCommunityHotContent>CommunityHotContent</LeftCommunityHotContent>
+          <LeftCommunityCategory>토론 게시판</LeftCommunityCategory>
+          <LeftCommunityHotContent>
+            <HotContentItem>
+              <HotContentItemImage>
+                인기 게시글 이미지
+                <HotContentItemTitle>
+                  <div>인기 게시글 4개</div>
+                </HotContentItemTitle>
+              </HotContentItemImage>
+            </HotContentItem>
+            <HotContentItem>
+              <HotContentItemImage>
+                인기 게시글 이미지
+                <HotContentItemTitle>
+                  <div>인기 게시글 4개</div>
+                </HotContentItemTitle>
+              </HotContentItemImage>
+            </HotContentItem>
+            <HotContentItem>
+              <HotContentItemImage>
+                인기 게시글 이미지
+                <HotContentItemTitle>
+                  <div>인기 게시글 4개</div>
+                </HotContentItemTitle>
+              </HotContentItemImage>
+            </HotContentItem>
+            <HotContentItem>
+              <HotContentItemImage>
+                인기 게시글 이미지
+                <HotContentItemTitle>
+                  <div>인기 게시글 4개</div>
+                </HotContentItemTitle>
+              </HotContentItemImage>
+            </HotContentItem>
+          </LeftCommunityHotContent>
           <LeftCommunityContentWrapper>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
-            <LeftCommunityContents>Contents</LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
+            <LeftCommunityContents>
+              <div>
+                <div>Image</div>
+                <div>Title</div>
+                <div>[Comment]</div>
+              </div>
+              <div>
+                <div>ID</div>
+                <div>Date</div>
+              </div>
+            </LeftCommunityContents>
           </LeftCommunityContentWrapper>
           <LeftCommunityContentsPageButton>
-            PageButton
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>10</span>
+            <span className="next">▶</span>
           </LeftCommunityContentsPageButton>
           <LeftCommunityAD>AD</LeftCommunityAD>
-          <LeftCommunityNews>News</LeftCommunityNews>
-          <LeftCommunityTempWrapper>
+          {/* <LeftCommunityNews>News</LeftCommunityNews> */}
+          {/* <LeftCommunityTempWrapper>
             <LeftCommunityTempBox>TempBox1</LeftCommunityTempBox>
             <LeftCommunityTempBox>TempBox2</LeftCommunityTempBox>
-          </LeftCommunityTempWrapper>
+          </LeftCommunityTempWrapper> */}
         </LeftCommunity>
         <RightCommunity>
           <RightCommunityRealTimeBest>RealTimeBest</RightCommunityRealTimeBest>
@@ -260,8 +607,6 @@ export default function Community() {
           <RightCommunityCategory2Best>
             Category2 Best
           </RightCommunityCategory2Best>
-          <RightCommunityTempBox>Temp1</RightCommunityTempBox>
-          <RightCommunityTempBox>Temp2</RightCommunityTempBox>
         </RightCommunity>
       </MainWrapper>
       <StyledDiv2>

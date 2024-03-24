@@ -43,11 +43,11 @@ const StyledLogo = Styled.div`
 
 const StyledLogoLink = Styled.a`
     position: relative;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: bold;
     text-decoration: none;
         text-decoration: none;
-    color: #999999;
+        color: black;
     `;
 
 const StyledSearchWrapper = Styled.div`
@@ -130,11 +130,7 @@ export default function LogoAndSearch() {
     <StyledLogoSearchWrapper>
       <StyledLogoBox>
         <StyledLogo>
-          <StyledLogoLink href="/">
-            <img src="/images/LogoImage.png" alt="wallet" width={60} />
-          </StyledLogoLink>
-
-          <StyledLogoLink href="/">BTCmobick</StyledLogoLink>
+          <StyledLogoLink href="/">모빅 스테이션</StyledLogoLink>
         </StyledLogo>
         <StyledSearchWrapper>
           <StyledInput placeholder="비트모빅 종이지갑"></StyledInput>
