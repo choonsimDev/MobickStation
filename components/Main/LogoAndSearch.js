@@ -63,9 +63,9 @@ const StyledSearchWrapper = Styled.div`
 const StyledInput = Styled.input`
     width: 100%;
     height: 40px;
-    border: 1px solid black;
+    border: 3px solid #f6931a;
     border-radius: 5px;
-    border-color: lightgray;
+    border-color: #f6931a;
     margin-left: 10px;
     padding: 5px;
 `;
