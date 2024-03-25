@@ -44,13 +44,14 @@ export default function Home() {
         <CommunityMain />
         <TodayItem />
         <Products />
-        <Youtube />
+
+        {/* <Youtube /> */}
         {/* <PopularBooks /> */}
         {/* <MultiSection /> */}
-        <MobiletOtc />
-        <WinwinMarket />
-        <TodakAndNews />
-        <AdAndInterview />
+        {/* <MobiletOtc /> */}
+        {/* <WinwinMarket /> */}
+        {/* <TodakAndNews />
+        <AdAndInterview /> */}
         {/* <Market /> */}
         {/* <NewsSection /> */}
         <AdArea />
