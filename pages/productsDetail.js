@@ -198,8 +198,8 @@ const ProductNaviDetail = styled.div`
 `;
 
 export default function productsDetail() {
-  let [수량, 수량변경] = useState(1);
-  let [가격, 가격변경] = useState("100,000");
+  let [quantity, setQuantity] = useState(1);
+  let [price, setPrice] = useState("100,000");
   return (
     <StyledDiv>
       <Header />
@@ -207,7 +207,6 @@ export default function productsDetail() {
       <ProductsDetailWrapper>
         <ProductsCategory></ProductsCategory>
         <ProductsDetailBox>
-          {" "}
           <ProductDetailLeftBox>
             <ProductImageBox>Product Image</ProductImageBox>
           </ProductDetailLeftBox>
@@ -219,32 +218,32 @@ export default function productsDetail() {
               <div>배송비 | 2,500원(50,000원 이상 무료배송)</div>
             </ProductDetailBox>
             <ProductQuantitylBox>
-              <div>수량</div>
+              <div>quantity</div>
               <div>
                 <button
                   onClick={() => {
-                    let copy = [수량];
+                    let copy = [quantity];
                     if (copy > 0) {
                       copy--;
                     }
-                    수량변경(copy);
-                    가격변경(100000 * copy);
+                    setQuantity(copy);
+                    setPrice(100000 * copy);
                   }}
                 >
                   -
                 </button>
-                <span>{수량}</span>
+                <span>{quantity}</span>
                 <button
                   onClick={() => {
-                    let copy = [수량];
+                    let copy = [quantity];
                     copy++;
-                    수량변경(copy);
-                    가격변경(100000 * copy);
+                    setQuantity(copy);
+                    setPrice(100000 * copy);
                   }}
                 >
                   +
                 </button>
-                <div>{가격}원</div>
+                <div>{price}원</div>
               </div>
             </ProductQuantitylBox>
             <ProductPriceBox>
