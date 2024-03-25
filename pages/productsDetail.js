@@ -197,7 +197,7 @@ const ProductNaviDetail = styled.div`
   border: 1px solid lightgray;
 `;
 
-export default function productsDetail() {
+export default function ProductsDetail() {
   let [quantity, setQuantity] = useState(1);
   let [price, setPrice] = useState("100,000");
   return (
