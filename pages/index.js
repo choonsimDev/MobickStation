@@ -1,7 +1,8 @@
+import styled from "styled-components";
+
 import Head from "next/head";
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
-import styled from "styled-components";
 
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Banner from "@/components/Main/Banner";
@@ -11,7 +12,7 @@ import Products from "@/components/Main/Products";
 import CommunityMain from "@/components/Main/CommunityMain";
 import Youtube from "@/components/Main/Youtube";
 import AdArea from "@/components/Main/AdArea";
-import PopularBooks from "@/components/Main/PopularBooks";
+// import PopularBooks from "@/components/Main/PopularBooks";
 // import Market from "@/components/Market";
 import MobiletOtc from "@/components/Main/MobiletOtc";
 import WinwinMarket from "@/components/Main/WinwinMarket";
@@ -19,6 +20,7 @@ import TodakAndNews from "@/components/Main/TodakAndNews";
 import AdAndInterview from "@/components/Main/AdAndInterview";
 
 import Footer from "@/components/Main/Footer";
+
 // import NewsSection from "@/components/NewsSection";
 // import VerificationSection from "@/components/VerificationSection";
 

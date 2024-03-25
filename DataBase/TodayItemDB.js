@@ -1,10 +1,10 @@
 export const products = [
   {
     id: 1,
-    image: "/images/Choonsim.png",
-    title: "춘심이 겜블칩",
-    maker: "Joy4 제작 | 춘심소프트",
-    description: "춘심이가 겜블칩을 주문제작해 드립니다.",
+    image: "/images/Tama_Puzzle3.png",
+    title: "춘심 겜블칩",
+    maker: "Maker Name",
+    description: "Item Detail Description",
   },
   {
     id: 2,

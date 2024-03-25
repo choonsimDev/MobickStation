@@ -44,7 +44,7 @@ const CommunityNoticeBox = styled.div`
   box-sizing: border-box;
 `;
 const NoticeText = styled.a`
-  color: dodgerblue;
+  color: gray;
   font-weight: bold;
   text-decoration: none;
   box-sizing: border-box;

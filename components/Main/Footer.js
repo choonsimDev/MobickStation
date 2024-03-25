@@ -10,7 +10,6 @@ const StyledFooterWrapper = styled.div`
   width: 1200px;
   height: 290px;
   margin-top: 20px;
-  background-color: lightgray;
 `;
 
 const FooterTop = styled.div`

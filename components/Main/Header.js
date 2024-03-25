@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import AuthButtons from "@/components/Main/AuthButtons";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -8,10 +9,11 @@ const StyledHeader = styled.div`
   justify-content: center;
   align-items: center;
   gap: 26rem;
-  background-color: dodgerblue;
+  background-color: #f6931a;
   text-align: center;
   text-decoration: none;
   margin-right: 15px;
+
   & > div {
     color: #ffffff;
     display: flex;
@@ -48,7 +50,8 @@ export default function Header() {
         <StyledLink href="/preparing">모빅정보</StyledLink>
       </div>
       <div>
-        <StyledLink href="/preparing">로그인</StyledLink>
+        <AuthButtons>로그인</AuthButtons>
+
         <StyledLink href="/preparing">회원가입</StyledLink>
         <StyledLink href="/cart">장바구니</StyledLink>
         <StyledLink href="/preparing">주문조회</StyledLink>

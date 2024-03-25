@@ -10,8 +10,6 @@ const StyledLogoSearchWrapper = Styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    
 `;
 const StyledLogoBox = Styled.div`
     height: 100px;
@@ -28,8 +26,6 @@ const StyledLogo = Styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
-
-
     cursor: pointer;
     & div:first-child {
       width: 60px;
@@ -37,7 +33,6 @@ const StyledLogo = Styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      /* background-color: lightpink; */
     }
 `;
 
@@ -70,37 +65,26 @@ const StyledInput = Styled.input`
     height: 40px;
     border: 1px solid black;
     border-radius: 5px;
-    border-color: lightblue;
+    border-color: lightgray;
     margin-left: 10px;
     padding: 5px;
-    
-    
 `;
 
 const StyledNavigation = Styled.div`
     height: 40px;
     width: 100%;
     padding-left: 1rem;
-    padding-right: 1rem;
-      font-size: 14px;
-  /* font-weight: bold; */
+    padding-right: 1rem; 
+    font-size: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightblue;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
-
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
     & div {
         display: flex;
         gap: 2rem;
     }
-    /* & div:first-child {
-        font-size: 0.9rem;
-    }
-    & div:last-child {
-        font-size: 0.8rem;
-        font-weight: 200;
-    } */
 `;
 const StyledLink = Styled.a`
     text-decoration: none;
@@ -113,8 +97,8 @@ const StyledLink = Styled.a`
         left: 0; // 왼쪽 끝에서 시작
         bottom: -7px;
         width: 100%;
-        height: 2px;
-        background-color: blue;
+        height: 1px;
+        background-color: gray;
         transform: scaleX(0);
         transform-origin: 50%; // 확대/축소의 기준점을 가로축의 중앙으로 설정
         transition: transform 0.3s ease;
@@ -145,9 +129,7 @@ export default function LogoAndSearch() {
           <StyledLink href="/newProducts">신상품</StyledLink>
           <StyledLink href="/event">이벤트</StyledLink>
           <StyledLink href="/community">커뮤니티</StyledLink>
-          <StyledLink href="/OTC">OTC</StyledLink>
-        </div>
-        <div>
+          <StyledLink href="/trade">중고거래</StyledLink>
           <StyledLink href="/limited">한정상품</StyledLink>
           <StyledLink href="/sales">특가할인</StyledLink>
           <StyledLink href="/volume">대량/법인</StyledLink>

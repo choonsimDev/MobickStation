@@ -26,21 +26,21 @@ const StyledBack = styled.a`
   left: 20px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #999999;
   text-decoration: none;
+  color: #999999;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
 `;
 
-export default function otc() {
+export default function trade() {
   return (
     <StyledDiv>
       <Header />
       <LogoAndSearch />
       <StyledDiv2>
-        <h1>otc.js</h1>
+        <h1>trade.js</h1>
         <StyledBack href="/">돌아가기</StyledBack>
       </StyledDiv2>
       <Footer />

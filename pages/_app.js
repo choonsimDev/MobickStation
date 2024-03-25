@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import { createGlobalStyle } from "styled-components";
 
 // Import Swiper styles
@@ -5,8 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/styles.css";
-
-// import Swiper core and required modules
 
 const GlobalStyle = createGlobalStyle`
   * { 
@@ -28,9 +27,9 @@ const GlobalStyle = createGlobalStyle`
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <SessionProvider session={pageProps.session}>
       <GlobalStyle />
       <Component {...pageProps} />
-    </>
+    </SessionProvider>
   );
 }
