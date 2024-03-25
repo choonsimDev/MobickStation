@@ -198,8 +198,9 @@ const ProductNaviDetail = styled.div`
 `;
 
 export default function ProductsDetail() {
-  let [quantity, setQuantity] = useState(1);
-  let [price, setPrice] = useState("100,000");
+  const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState("100,000");
+
   return (
     <StyledDiv>
       <Header />
