@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
+
+import 'react-quill/dist/quill.snow.css';
+import dynamic from 'next/dynamic'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -315,11 +318,24 @@ const StyledBack = styled.a`
 `;
 
 export default function Community() {
+  const [value, setValue] = useState('');
+
+  useEffect(() => {
+    console.log(value);
+  }, [value]);
+
+  const QuillWrapper = dynamic(() => import('react-quill'), {
+    ssr: false,
+    loading: () => <p>Loading ...</p>,
+  })
+
   return (
     <StyledDiv>
       <Header />
       <LogoAndSearch />
       <CommunityBar>Community Bar</CommunityBar>
+      <QuillWrapper theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} />
+
       <MainWrapper>
         <LeftCommunity>
           <LeftCommunityCategory>토론 게시판</LeftCommunityCategory>
@@ -610,7 +626,6 @@ export default function Community() {
         </RightCommunity>
       </MainWrapper>
       <StyledDiv2>
-        {" "}
         <StyledBack href="/">돌아가기</StyledBack>
       </StyledDiv2>
       <Footer />
