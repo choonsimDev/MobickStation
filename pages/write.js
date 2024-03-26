@@ -3,24 +3,39 @@ import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
-import dynamic from "next/dynamic";
+import Center from "@/components/Main/Center";
 
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledDiv2 = styled.div`
-  width: 1200px;
+const EditorWrapper = styled.div`
   height: 800px;
   display: flex;
-  margin-top: 30px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 30px;
+`;
+const ButtonWrapper = styled.div`
+  width: 100%;
+  margin-right: 450px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+`;
+const SaveButton = styled.div`
+  width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6931a;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  &:hover {
+    background-color: #e5821a;
+  }
 `;
 const StyledBack = styled.a`
   margin-top: 30px;
@@ -33,17 +48,21 @@ const StyledBack = styled.a`
     text-decoration: underline;
   }
 `;
+
+
 export default function write() {
   return (
-    <StyledDiv>
+    <Center>
       <Header />
       <LogoAndSearch />
-      <StyledDiv2>
-        <h1>write.js</h1>
+      <EditorWrapper>
         <TextEditor />
+        <ButtonWrapper>
+          <SaveButton>save</SaveButton>
+        </ButtonWrapper>
         <StyledBack href="/">돌아가기</StyledBack>
-      </StyledDiv2>
+      </EditorWrapper>
       <Footer />
-    </StyledDiv>
+    </Center>
   );
 }
