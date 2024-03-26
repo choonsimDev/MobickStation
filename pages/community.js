@@ -6,6 +6,7 @@ import Footer from "@/components/Main/Footer";
 
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic'
+import QuillEditor from '@/components/QuillEditor';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -320,22 +321,14 @@ const StyledBack = styled.a`
 export default function Community() {
   const [value, setValue] = useState('');
 
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
 
-  const QuillWrapper = dynamic(() => import('react-quill'), {
-    ssr: false,
-    loading: () => <p>Loading ...</p>,
-  })
 
   return (
     <StyledDiv>
       <Header />
       <LogoAndSearch />
       <CommunityBar>Community Bar</CommunityBar>
-      <QuillWrapper theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} />
-
+      {/* <QuillWrapper modules={modules} formats={formats} theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} /> */}
       <MainWrapper>
         <LeftCommunity>
           <LeftCommunityCategory>토론 게시판</LeftCommunityCategory>
@@ -629,6 +622,6 @@ export default function Community() {
         <StyledBack href="/">돌아가기</StyledBack>
       </StyledDiv2>
       <Footer />
-    </StyledDiv>
+    </StyledDiv >
   );
 }

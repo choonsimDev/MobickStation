@@ -7,7 +7,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/styles.css";
 
-// import Swiper core and required modules
+// quill editor
+import 'react-quill/dist/quill.snow.css'
 
 const GlobalStyle = createGlobalStyle`
   * { 
