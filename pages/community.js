@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
-
-import 'react-quill/dist/quill.snow.css';
-import dynamic from 'next/dynamic'
-import QuillEditor from '@/components/QuillEditor';
+import Link from "next/link";
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+import QuillEditor from "@/components/QuillEditor";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -54,6 +54,23 @@ const LeftCommunityCategory = styled.div`
   font-size: 18px;
   font-weight: bold;
   color: black;
+`;
+
+const WriteButton = styled.a`
+  margin-left: auto;
+  margin-right: 12px;
+  padding: 10px 20px;
+  background-color: #f6931a;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #e5821a;
+  }
 `;
 
 const LeftCommunityHotContent = styled.div`
@@ -319,9 +336,7 @@ const StyledBack = styled.a`
 `;
 
 export default function Community() {
-  const [value, setValue] = useState('');
-
-
+  const [value, setValue] = useState("");
 
   return (
     <StyledDiv>
@@ -331,7 +346,10 @@ export default function Community() {
       {/* <QuillWrapper modules={modules} formats={formats} theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} /> */}
       <MainWrapper>
         <LeftCommunity>
-          <LeftCommunityCategory>토론 게시판</LeftCommunityCategory>
+          <LeftCommunityCategory>
+            토론 게시판
+            <WriteButton href="/write">글쓰기</WriteButton>
+          </LeftCommunityCategory>
           <LeftCommunityHotContent>
             <HotContentItem>
               <HotContentItemImage>
@@ -622,6 +640,6 @@ export default function Community() {
         <StyledBack href="/">돌아가기</StyledBack>
       </StyledDiv2>
       <Footer />
-    </StyledDiv >
+    </StyledDiv>
   );
 }
