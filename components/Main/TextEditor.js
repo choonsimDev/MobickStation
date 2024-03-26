@@ -1,7 +1,8 @@
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
-export default function TextEditor() {
+export default function TextEditor({ GetContent }) {
   const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
   const modules = {
     toolbar: [
@@ -38,12 +39,22 @@ export default function TextEditor() {
     "image",
     "video",
   ];
+
+  const [value, setValue] = useState("");
+  const SaveContent = (value) => {
+    setValue(value);
+    GetContent(value);
+    console.log(value);
+  }
+
   return (
     <ReactQuill
       modules={modules}
       formats={formats}
       theme="snow"
       placeholder="내용을 입력해주세요"
+      value={value}
+      onChange={SaveContent}
     />
   );
 }

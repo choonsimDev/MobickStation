@@ -4,6 +4,7 @@ import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
+import { useState } from "react";
 
 const EditorWrapper = styled.div`
   height: 800px;
@@ -48,17 +49,90 @@ const StyledBack = styled.a`
     text-decoration: underline;
   }
 `;
+const AuthorInfoBox = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+const AuthorInfo = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  input {
+    width: 300px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333333;
+
+  }
+`;
+const Title = styled.div`
+  width: 600px;   
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: #333333;
+  }
+`;
 
 
 export default function write() {
+  const [title, setTitle] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [secret, setSecret] = useState("");
+  const [content, setContent] = useState("");
+
+  const ChangeTitle = (e) => {
+    setTitle(e.target.value);
+    console.log(title);
+  };
+  const ChangeNickname = (e) => {
+    setNickname(e.target.value);
+    console.log(nickname);
+  };
+  const ChangeSecret = (e) => {
+    setSecret(e.target.value);
+    console.log(secret);
+  };
+  const GetContent = (e) => { };
+
+  const SaveToDB = () => {
+    console.log(title, nickname, secret, content);
+  };
+
+
   return (
     <Center>
       <Header />
       <LogoAndSearch />
+      <AuthorInfoBox>
+        <AuthorInfo>
+          <input placeholder="닉네임" value={nickname} onChange={ChangeNickname}></input>
+          <input placeholder="비밀번호" value={secret} onChange={ChangeSecret}></input>
+        </AuthorInfo>
+        <Title>
+          <input placeholder="제목을 입력하세요" value={title} onChange={ChangeTitle}></input>
+        </Title>
+      </AuthorInfoBox>
       <EditorWrapper>
-        <TextEditor />
+        <TextEditor GetContent={GetContent} />
         <ButtonWrapper>
-          <SaveButton>save</SaveButton>
+          <SaveButton onClick={SaveToDB}>save</SaveButton>
         </ButtonWrapper>
         <StyledBack href="/">돌아가기</StyledBack>
       </EditorWrapper>
