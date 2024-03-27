@@ -112,7 +112,7 @@ export default function Write() {
   const SaveToDB = async () => {
     console.log(title, nickname, secret, content);
     try {
-      await fetch("/api/setCommunityPost", {
+      const response = await fetch("/api/setCommunityPost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -124,6 +124,9 @@ export default function Write() {
           content: content,
         }),
       });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
     }
     catch (e) {
       console.log(e);
