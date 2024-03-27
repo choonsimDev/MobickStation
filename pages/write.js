@@ -132,6 +132,7 @@ export default function Write() {
     setNickname("");
     setSecret("");
     setContent("");
+    alert("게시글이 등록되었습니다.");
   };
 
 
