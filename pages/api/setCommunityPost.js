@@ -7,7 +7,6 @@ export default async function handler(req, res) {
         console.log('req.body', req.body);
         const { title, nickname, password, content } = req.body;
 
-
         const data = await client.dbCommunityPost.create({
             data: {
                 title: title,

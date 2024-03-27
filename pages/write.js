@@ -116,6 +116,7 @@ export default function Write() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*", // CORS 문제 해결
         },
         body: JSON.stringify({
           title: title,
