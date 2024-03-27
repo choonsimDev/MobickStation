@@ -111,6 +111,27 @@ export default function Write() {
   };
   const SaveToDB = () => {
     console.log(title, nickname, secret, content);
+    try {
+      fetch("/api/setCommunityPost", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: title,
+          nickname: nickname,
+          password: secret,
+          content: content,
+        }),
+      });
+    }
+    catch (e) {
+      console.log(e);
+    }
+    setTitle("");
+    setNickname("");
+    setSecret("");
+    setContent("");
   };
 
 

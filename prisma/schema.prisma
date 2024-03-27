@@ -55,13 +55,13 @@ model dbCommunityOtaverseDetail {
 }
 
 model dbCommunityPost {
-  id       Int      @id @default(autoincrement())
-  category String?
-  title    String
-  password String?
-  content  String
-  thumb    Int      @default(0)
-  date     DateTime
+  id        Int      @id @default(autoincrement())
+  title     String
+  nickname  String
+  password  String
+  content   String
+  thumb     Int      @default(0)
+  createdAt DateTime @default(now())
 }
 
 // //FooterDB
