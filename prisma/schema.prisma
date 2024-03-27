@@ -41,11 +41,11 @@ model dbBannerCategory {
 model dbBannerItem {
   id                 Int    @id @default(autoincrement())
   name               String
-  bannerDBCategoryId Int 
+  bannerDBCategoryId Int
 }
 
 // //CommunityDB
-model dbCommunityOtaverseDetail{
+model dbCommunityOtaverseDetail {
   id       Int      @id @default(autoincrement())
   imageUrl String
   title    String
@@ -56,9 +56,11 @@ model dbCommunityOtaverseDetail{
 
 model dbCommunityPost {
   id       Int      @id @default(autoincrement())
-  category String
+  category String?
   title    String
-  thumb    Int
+  password String?
+  content  String
+  thumb    Int      @default(0)
   date     DateTime
 }
 

@@ -67,7 +67,6 @@ const WriteButton = styled.a`
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
-
   &:hover {
     background-color: #e5821a;
   }
