@@ -357,19 +357,22 @@ export default function CommunityMain() {
   const [posts, setPosts] = useState([]); // 상태를 추가
 
   useEffect(() => {
-    // 데이터를 가져오는 로직
     async function fetchPosts() {
       const response = await fetch("/api/dbCommunityPost/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: "POST",
-        }),
+        body: JSON.stringify({ name: "POST" }),
       });
       const data = await response.json();
-      setPosts(data);
+
+      // 날짜를 기준으로 내림차순 정렬
+      const sortedData = data.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      // 최대 14개의 게시글만 선택
+      setPosts(sortedData.slice(0, 14));
     }
     fetchPosts();
   }, []);
@@ -452,14 +455,15 @@ export default function CommunityMain() {
                     key={index}
                     isBold={index < 3}
                   >
-                    <div>{post.category}</div>
+                    <div>{post.id}</div>
                     <div>{post.title}</div>
+                    <div>{post.nickname}</div>
                     <div>{post.thumb}</div>
-                    <div>{post.date}</div>
+                    <div>{post.createdAt}</div>
                   </MobickCommunityDetailBox>
                 )
               )}
-              {CommunityData.map((item, index) => (
+              {/* {CommunityData.map((item, index) => (
                 <MobickCommunityDetailBox
                   href="/community"
                   key={index}
@@ -471,7 +475,7 @@ export default function CommunityMain() {
                   <div>{item.thumb}</div>
                   <div>{item.date}</div>
                 </MobickCommunityDetailBox>
-              ))}
+              ))} */}
             </MobickCommunityDetail>
           </MobickCommunity>
         </CommunityRightBox>
