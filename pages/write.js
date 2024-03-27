@@ -112,7 +112,7 @@ export default function Write() {
   const SaveToDB = async () => {
     console.log(title, nickname, secret, content);
     try {
-      const response = await fetch("https://www.mobickstation.com/api/setCommunityPost", {
+      const response = await fetch("/api/setCommunityPost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
