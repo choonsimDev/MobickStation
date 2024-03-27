@@ -4,8 +4,9 @@ const client = new PrismaClient();
 
 export default async function handler(req, res) {
     try {
-        console.log('req', req.method, req.url);
+        console.log('req', req.url);
         const { title, nickname, password, content } = req.body;
+        console.log("req.method", req.method);
         if (req.method !== 'POST') {
             res.status(405).json({ message: 'Method Not Allowed' });
             return;
