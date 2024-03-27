@@ -91,7 +91,7 @@ const Title = styled.div`
 `;
 
 
-export default function write() {
+export default function Write() {
   const [title, setTitle] = useState("");
   const [nickname, setNickname] = useState("");
   const [secret, setSecret] = useState("");
