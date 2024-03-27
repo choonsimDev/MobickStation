@@ -1,4 +1,4 @@
-import TextEditor from "../components/Main/TextEditor";
+// import TextEditor from "../components/Main/TextEditor";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
@@ -109,8 +109,6 @@ export default function Write() {
     setSecret(e.target.value);
     console.log(secret);
   };
-  const GetContent = (e) => { };
-
   const SaveToDB = () => {
     console.log(title, nickname, secret, content);
   };
@@ -130,7 +128,20 @@ export default function Write() {
         </Title>
       </AuthorInfoBox>
       <EditorWrapper>
-        <TextEditor GetContent={GetContent} />
+        {/* <TextEditor GetContent={GetContent} /> */}
+        <textarea
+          style={{
+            width: "600px",
+            height: "600px",
+            padding: "10px",
+            border: "1px solid #999999",
+            borderRadius: "5px",
+            fontSize: "1rem",
+            color: "#333333",
+          }}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        ></textarea>
         <ButtonWrapper>
           <SaveButton onClick={SaveToDB}>save</SaveButton>
         </ButtonWrapper>
