@@ -109,10 +109,10 @@ export default function Write() {
     setSecret(e.target.value);
     console.log(secret);
   };
-  const SaveToDB = () => {
+  const SaveToDB = async () => {
     console.log(title, nickname, secret, content);
     try {
-      fetch("/api/setCommunityPost", {
+      await fetch("/api/setCommunityPost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
