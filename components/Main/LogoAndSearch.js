@@ -47,7 +47,7 @@ const StyledLogoLink = Styled.a`
     `;
 
 const StyledSearchWrapper = Styled.div`
-    width: 500px;
+    width: 600px;
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -81,22 +81,47 @@ const StyledNavigation = Styled.div`
     justify-content: space-between;
     align-items: center;
     border-bottom: 3px solid #f6931a;
+    & div {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    position: relative;
+
+  cursor: pointer;
+}
+
 
 `;
-const StyledLink = Styled.a`
-  display: flex;
-  gap: 3rem;
-  position: relative;
-  cursor: pointer;
-  
-  & div:first-child {
+const StyledLinkFirst = Styled.a`
     color: #f6931a;
     font-weight: bold;
-  }
+    text-decoration: none;
+    position: relative;
 
-  & div {
+
+    &:after { // 기본 :after 스타일 정의
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1px;
+      background-color: #f6931a;
+      transform: scaleX(0); // 초기 상태에서는 가로 길이 0으로 설정
+      transform-origin: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover:after { // div에 마우스를 올렸을 때 :after 스타일 변경
+      transform: scaleX(1); // 호버 시 scaleX를 1로 설정하여 전체 너비로 확장
+    }
+
+`;
+
+const StyledLink = Styled.a`
     color: black;
-    position: relative; // 각 div에 대해 position을 relative로 설정
+    position: relative;
+    text-decoration: none;
 
     &:after { // 기본 :after 스타일 정의
       content: '';
@@ -114,8 +139,7 @@ const StyledLink = Styled.a`
     &:hover:after { // div에 마우스를 올렸을 때 :after 스타일 변경
       transform: scaleX(1); // 호버 시 scaleX를 1로 설정하여 전체 너비로 확장
     }
-  }
-`;
+    `;
 
 export default function LogoAndSearch() {
   return (
@@ -135,16 +159,16 @@ export default function LogoAndSearch() {
         </StyledSearchWrapper>
       </StyledLogoBox>
       <StyledNavigation>
-        <StyledLink>
-          <div href="/community">커뮤니티</div>
-          <div href="/bestProducts">베스트</div>
-          <div href="/newProducts">신상품</div>
-          <div href="/event">이벤트</div>
+        <div>
+          <StyledLinkFirst href="/community">커뮤니티</StyledLinkFirst>
+          <StyledLink href="/bestProducts">베스트</StyledLink>
+          <StyledLink href="/newProducts">신상품</StyledLink>
+          <StyledLink href="/event">이벤트</StyledLink>
           {/* <StyledLink href="/trade">중고거래</StyledLink>
           <StyledLink href="/limited">한정상품</StyledLink>
           <StyledLink href="/sales">특가할인</StyledLink>
           <StyledLink href="/volume">대량/법인</StyledLink> */}
-        </StyledLink>
+        </div>
       </StyledNavigation>
     </StyledLogoSearchWrapper>
   );
