@@ -1,24 +1,23 @@
 export const products = [
   {
     id: 1,
-    image: "/images/Tama_Puzzle3.png",
-    title: "춘심 겜블칩",
-    maker: "Maker Name",
+    image: "/images/preparition_01.png",
+    title: "Product Name",
+    maker: "Seller Name",
     description: "Item Detail Description",
   },
   {
     id: 2,
-    image: "/images/Tama_Puzzle1.png",
-    title: "타마의 야심작 '관악산 어드벤처 퍼즐'",
-    series: "마운틴 어드벤처 퍼즐",
-    maker: "테마 그림 | 모비커스",
-    description:
-      "초판 종이지갑 디자이너 타마의 독특한 아이디어 상품. 퍼즐을 통해 우리 모두 관악산으로 돌아가보자. 산을 오르는 마음으로 퍼즐을 맞추면 무슨 일이 일어날까...",
-    price: "13,500원",
+    image: "/images/preparition_01.png",
+    title: "Product Name",
+    series: "Product Category",
+    maker: "Seller Name",
+    description: "Product Description",
+    price: "Product Price",
   },
   {
     id: 3,
-    image: "/images/Tama_Puzzle2.png",
+    image: "/images/preparition_01.png",
     title: "추가 제품",
     maker: "제작자 정보",
     description: "제품 설명",
@@ -28,10 +27,10 @@ export const products = [
 // Compare this snippet from DataBase/TodayItemDB.js:
 
 export const recommendImages = [
-  { id: 1, src: "/images/Tama_Puzzle2.png", alt: "tamaPuzzle" },
-  { id: 2, src: "/images/Tama_Puzzle3.png", alt: "tamaPuzzle" },
-  { id: 3, src: "/images/Tama_Puzzle4.png", alt: "tamaPuzzle" },
-  { id: 4, src: "/images/Tama_Puzzle5.png", alt: "tamaPuzzle" },
+  { id: 1, src: "/images/preparition_01.png" },
+  { id: 2, src: "/images/preparition_01.png" },
+  { id: 3, src: "/images/preparition_01.png" },
+  { id: 4, src: "/images/preparition_01.png" },
 ];
 
 export const tabs = [

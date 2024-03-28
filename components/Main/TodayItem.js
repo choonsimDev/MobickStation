@@ -58,7 +58,7 @@ const RecommendFirstTitle = styled.div`
   font-weight: bold;
   display: flex;
   justify-content: flex-start;
-  padding-left: 30px;
+  padding-left: 20px;
   align-items: center;
   cursor: pointer;
   &:hover {
@@ -84,9 +84,12 @@ const RecommendFirstImage = styled.a`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: lightgray;
   img {
-    height: 110%;
+    width: 100%; // 이미지의 너비를 컨테이너의 너비와 동일하게 설정
+    height: 100%; // 이미지의 높이를 컨테이너의 높이와 동일하게 설정
+    padding: 10px;
+    object-fit: contain;
+    object-position: center; // 이미지를 가운데 정렬
     cursor: pointer;
   }
 `;
@@ -148,7 +151,7 @@ const RecommendThirdMenu = styled.div`
 const RecommendThirdTitle = styled.div`
   width: 100%;
   height: 40px;
-  padding-left: 1.5rem;
+  padding-left: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -176,8 +179,9 @@ const RecommendThirdItemDescription = styled.a`
     padding: 0px 20px;
   }
   & > div:first-child {
-    margin-top: 2rem;
-    font-size: 1rem;
+    height: 30px;
+    margin-top: 15px;
+    font-size: 16px;
     font-weight: bold;
     color: dodgerblue;
     cursor: pointer;
@@ -186,10 +190,11 @@ const RecommendThirdItemDescription = styled.a`
     }
   }
   & > div:nth-child(2) {
+    height: 100px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 14px;
     color: gray;
     cursor: pointer;
     &:hover {
@@ -197,7 +202,8 @@ const RecommendThirdItemDescription = styled.a`
     }
   }
   & > div:nth-child(3) {
-    font-size: 0.8rem;
+    height: 30px;
+    font-size: 14px;
     text-align: justify;
     font-weight: bold;
     cursor: pointer;
@@ -206,7 +212,8 @@ const RecommendThirdItemDescription = styled.a`
     }
   }
   & > div:nth-child(4) {
-    font-size: 0.9rem;
+    height: 30px;
+    font-size: 14px;
     color: gray;
     cursor: pointer;
     &:hover {
@@ -214,8 +221,9 @@ const RecommendThirdItemDescription = styled.a`
     }
   }
   & > div:nth-child(5) {
-    font-size: 0.8rem;
-    text-align: justify;
+    height: 30px;
+    font-size: 14px;
+    text-align: flex-start;
     font-weight: bold;
   }
 `;
@@ -227,13 +235,20 @@ const RecommendThirdItemImageBox = styled.div`
   justify-content: space-around;
   gap: 0.6rem;
   align-items: center;
+  img {
+    width: 100%; // 이미지의 너비를 컨테이너의 너비와 동일하게 설정
+    height: 100%; // 이미지의 높이를 컨테이너의 높이와 동일하게 설정
+    object-fit: contain;
+    object-position: center; // 이미지를 가운데 정렬
+    cursor: pointer;
+  }
 `;
 const RecommendThirdItemImage = styled.a`
   width: 74px;
   height: 90%;
   margin-bottom: 2px;
   overflow: hidden;
-  background-color: lightgray;
+  border: 1px solid lightgray;
   img {
     height: 100%;
     cursor: pointer;

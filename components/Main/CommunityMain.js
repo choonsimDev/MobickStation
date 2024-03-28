@@ -10,21 +10,20 @@ const StyledCommunityWrapper = styled.div`
   width: 1200px;
   height: 660px;
   margin-top: 20px;
-  border: 1px solid lightgray;
   box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
 
 const CommunityTitleBox = styled.a`
   width: 1200px;
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
-  padding-left: 30px;
-  font-size: 16px;
+  padding-left: 20px;
+  font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: #f6931a;
   box-sizing: border-box;
+  border-bottom: 1px solid lightgray;
   text-decoration: none;
   cursor: pointer;
   &:hover {
@@ -39,7 +38,6 @@ const CommunityNoticeBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid lightgray;
   font-style: italic;
   box-sizing: border-box;
 `;
@@ -66,13 +64,12 @@ const CommunityBoxWrapper = styled.div`
 const CommunityLeftBox = styled.div`
   width: 600px;
   height: 570px;
-  border: 1px solid lightgray;
   border-right: none; // 오른쪽 테두리 제거
   border-left: none; //  테두리 제거
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex;
   box-sizing: border-box;
   padding: 12px;
   gap: 12px;
@@ -81,7 +78,6 @@ const CommunityLeftBox = styled.div`
 const CommunityOtaverse = styled.div`
   width: 575px;
   height: 312px;
-  border: 1px solid lightgray;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -91,13 +87,14 @@ const CommunityOtaverse = styled.div`
 const CommunityOtaverseTitle = styled.a`
   width: 574px;
   height: 30px;
-  padding-top: 4px;
-  padding-bottom: 4px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid lightgray;
   box-sizing: border-box;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   font-size: 16px;
   font-weight: bold;
   color: black;
@@ -180,7 +177,6 @@ const CommunityOtaverseBoxTextDate = styled.div`
 const CommunityOtaeminColumn = styled.div`
   width: 574px;
   height: 272px;
-  border: 1px solid lightgray;
   box-sizing: border-box;
 `;
 
@@ -188,8 +184,9 @@ const CommunityOtaeminColumnTitle = styled.div`
   width: 574px;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 8px;
   font-size: 16px;
   font-weight: bold;
   border-bottom: 1px solid lightgray;
@@ -257,35 +254,35 @@ const CommunityOtaeminColumnBoxDate = styled.div`
 const CommunityRightBox = styled.div`
   width: 600px;
   height: 570px;
-  border: 1px solid lightgray;
   border-right: none; // 왼쪽 테두리 제거
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  padding-left: 12px;
   box-sizing: border-box;
 `;
 const MobickCommunity = styled.div`
-  width: 574px;
-  height: 546px;
-  border: 1px solid lightgray;
+  width: 588px;
+  height: 570px;
   border-bottom: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   box-sizing: border-box;
+  margin-top: 10px;
 `;
 
 const MobickCommunityTitleBox = styled.a`
   width: 574px;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 16px;
   font-weight: bold;
   color: black;
+  padding-left: 8px;
   text-decoration: none;
   border-bottom: 1px solid lightgray;
   box-sizing: border-box;
@@ -296,7 +293,7 @@ const MobickCommunityTitleBox = styled.a`
 `;
 
 const MobickCommunityDetail = styled.div`
-  width: 573px;
+  width: 588px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -304,7 +301,7 @@ const MobickCommunityDetail = styled.div`
   box-sizing: border-box;
 `;
 const MobickCommunityDetailBox = styled.a`
-  width: 574px;
+  width: 588px;
   height: 37px;
   display: flex;
   align-items: flex-start;
@@ -380,11 +377,11 @@ export default function CommunityMain() {
   return (
     <StyledCommunityWrapper>
       <CommunityTitleBox href="/community">커뮤니티</CommunityTitleBox>
-      <CommunityNoticeBox>
+      {/* <CommunityNoticeBox>
         <NoticeText href="/community">
           [공지사항] ‘모빌렛 5차’ - 추가 입고되었습니다.
         </NoticeText>
-      </CommunityNoticeBox>
+      </CommunityNoticeBox> */}
       <CommunityBoxWrapper>
         <CommunityLeftBox>
           <CommunityOtaverse>

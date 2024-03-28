@@ -8,8 +8,8 @@ import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Banner from "@/components/Main/Banner";
 import TodayItem from "@/components/Main/TodayItem";
 import Products from "@/components/Main/Products";
-
 import CommunityMain from "@/components/Main/CommunityMain";
+
 // import Youtube from "@/components/Main/Youtube";
 import AdArea from "@/components/Main/AdArea";
 // import PopularBooks from "@/components/Main/PopularBooks";
@@ -41,9 +41,9 @@ export default function Home() {
       <Center>
         <LogoAndSearch />
         <Banner />
-        <CommunityMain />
         <TodayItem />
         <Products />
+        <CommunityMain />
 
         {/* <Youtube /> */}
         {/* <PopularBooks /> */}

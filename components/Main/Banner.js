@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import SwiperBanner from "./Swiper";
+// import SwiperBanner from "./Swiper";
 import { detailCategories } from "../../DataBase/BannerDB";
 
 const StyledBannerWrapper = styled.div`
@@ -70,7 +70,7 @@ const DetailCategoryItem = styled.a`
 const MainBanner = styled.div`
   width: 960px;
   height: 100%;
-  background-color: blue;
+  background-color: lightgray;
 `;
 
 const MainBannerImgBox = styled.a`
@@ -84,6 +84,7 @@ const MainBannerImgButton = styled.div`
 
 export default function Banner() {
   const [selectedCategory, setSelectedCategory] = useState("강연 및 서적");
+  const [selectedDetail, setSelectedDetail] = useState(""); // 상세 카테고리 설명 상태 추가
 
   return (
     <StyledBannerWrapper>
@@ -109,7 +110,7 @@ export default function Banner() {
       </DetailCategory>
       <MainBanner>
         <MainBannerImgBox href="/productsDetail">
-          <SwiperBanner />
+          {/* <SwiperBanner /> */}
         </MainBannerImgBox>
         {/* <MainBannerImgButton></MainBannerImgButton> */}
       </MainBanner>

@@ -21,7 +21,7 @@ const StyledNowBook = styled.div`
 const StyledNowBookTitle = styled.div`
   width: 959px;
   height: 30px;
-  padding-left: 30px;
+  padding-left: 20px;
   font-size: 16px;
   font-weight: bold;
   display: flex;
@@ -60,7 +60,7 @@ const StyledPubBookTitle = styled.div`
   height: 30px;
   font-size: 16px;
   font-weight: bold;
-  padding-left: 30px;
+  padding-left: 20px;
   margin-bottom: 30px;
   display: flex;
   justify-content: flex-start;
@@ -85,11 +85,21 @@ const StyledPubBookImage = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  border: 1px solid lightgray;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
-
   cursor: pointer;
-  & :hover {
-    border: 1px solid lightgray;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10px;
+    object-fit: contain;
+    object-position: center;
+    cursor: pointer;
+  }
+
+  &:hover {
+    text-decoration: underline; // Underline on hover
   }
 `;
 
@@ -116,8 +126,15 @@ const StyledProductImage = styled.a`
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid lightgray;
-
   cursor: pointer;
+  img {
+    width: 100%; // 이미지의 너비를 컨테이너의 너비와 동일하게 설정
+    height: 100%; // 이미지의 높이를 컨테이너의 높이와 동일하게 설정
+    padding: 10px;
+    object-fit: contain;
+    object-position: center; // 이미지를 가운데 정렬
+    cursor: pointer;
+  }
 `;
 const StyledProductName = styled.a`
   margin-top: 1.2rem;
@@ -187,11 +204,9 @@ export default function Products() {
         <StyledPubBookImageBox>
           {pubBookImg.map((image, index) => (
             <React.Fragment key={image.id}>
-              <StyledPubBookImage
-                href="/productsDetail"
-                style={{ backgroundImage: `url(${image.src})` }}
-                alt={image.alt}
-              />
+              <StyledPubBookImage href="/productsDetail">
+                <img src={image.src} />
+              </StyledPubBookImage>
               {index !== pubBookImg.length - 1 && <StyledPubBookLine />}
             </React.Fragment>
           ))}
