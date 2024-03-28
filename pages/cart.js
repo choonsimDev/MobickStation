@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
+import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 
@@ -14,7 +15,6 @@ const StyledDiv2 = styled.div`
   width: 1200px;
   height: 800px;
   display: flex;
-  margin-top: 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -38,11 +38,13 @@ export default function cart() {
   return (
     <StyledDiv>
       <Header />
-      <LogoAndSearch />
-      <StyledDiv2>
-        <h1>cart.js</h1>
-        <StyledBack href="/">돌아가기</StyledBack>
-      </StyledDiv2>
+      <Center>
+        <LogoAndSearch />
+        <StyledDiv2>
+          <h1>cart.js</h1>
+          <StyledBack href="/">돌아가기</StyledBack>
+        </StyledDiv2>
+      </Center>
       <Footer />
     </StyledDiv>
   );

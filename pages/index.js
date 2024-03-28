@@ -25,7 +25,10 @@ import Footer from "@/components/Main/Footer";
 // import VerificationSection from "@/components/VerificationSection";
 
 const StyledDiv = styled.div`
-  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function Home() {
