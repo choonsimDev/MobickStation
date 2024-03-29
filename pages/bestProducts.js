@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
+import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 
@@ -38,12 +39,14 @@ export default function bestProducts() {
   return (
     <StyledDiv>
       <Header />
-      <LogoAndSearch />
-      <StyledDiv2>
-        <h1>bestProducts.js</h1>
-        <StyledBack href="/">돌아가기</StyledBack>
-      </StyledDiv2>
-      <Footer />
+      <Center>
+        <LogoAndSearch />
+        <StyledDiv2>
+          <h1>bestProducts.js</h1>
+          <StyledBack href="/">돌아가기</StyledBack>
+        </StyledDiv2>
+        <Footer />
+      </Center>
     </StyledDiv>
   );
 }

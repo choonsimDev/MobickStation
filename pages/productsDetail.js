@@ -2,15 +2,9 @@ import styled from "styled-components";
 import { useState } from "react";
 import React from "react";
 import Header from "@/components/Main/Header";
+import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 const StyledBack = styled.a`
   top: 20px;
@@ -202,69 +196,71 @@ export default function ProductsDetail() {
   const [price, setPrice] = useState("100,000");
 
   return (
-    <StyledDiv>
+    <div>
       <Header />
-      <LogoAndSearch />
-      <ProductsDetailWrapper>
-        <ProductsCategory></ProductsCategory>
-        <ProductsDetailBox>
-          <ProductDetailLeftBox>
-            <ProductImageBox>Product Image</ProductImageBox>
-          </ProductDetailLeftBox>
-          <ProductDetailRightBox>
-            <ProductTitleBox>Product Title</ProductTitleBox>
-            <ProductDescriptionBox>Product Description</ProductDescriptionBox>
-            <ProductDetailBox>
-              <div>배송 방법</div>
-              <div>배송비 | 2,500원(50,000원 이상 무료배송)</div>
-            </ProductDetailBox>
-            <ProductQuantitylBox>
-              <div>quantity</div>
-              <div>
-                <button
-                  onClick={() => {
-                    let copy = [quantity];
-                    if (copy > 0) {
-                      copy--;
-                    }
-                    setQuantity(copy);
-                    setPrice(100000 * copy);
-                  }}
-                >
-                  -
-                </button>
-                <span>{quantity}</span>
-                <button
-                  onClick={() => {
-                    let copy = [quantity];
-                    copy++;
-                    setQuantity(copy);
-                    setPrice(100000 * copy);
-                  }}
-                >
-                  +
-                </button>
-                <div>{price}원</div>
-              </div>
-            </ProductQuantitylBox>
-            <ProductPriceBox>
-              <div>총 상품금액 (10개)</div>
-              <div>100,000원</div>
-            </ProductPriceBox>
-            <ProductBuyCartLike>
-              <div>구매하기</div>
-              <div>장바구니</div>
-              <div>♥</div>
-            </ProductBuyCartLike>
-          </ProductDetailRightBox>
-        </ProductsDetailBox>
-        <ProductsNavi>
-          <div>상품정보</div>/<div>리뷰</div>/<div>Q&A</div>
-        </ProductsNavi>
-        <ProductNaviDetail></ProductNaviDetail>
-        <StyledBack href="/">돌아가기</StyledBack>
-      </ProductsDetailWrapper>
-      <Footer />
-    </StyledDiv>
+      <Center>
+        <LogoAndSearch />
+        <ProductsDetailWrapper>
+          <ProductsCategory></ProductsCategory>
+          <ProductsDetailBox>
+            <ProductDetailLeftBox>
+              <ProductImageBox>Product Image</ProductImageBox>
+            </ProductDetailLeftBox>
+            <ProductDetailRightBox>
+              <ProductTitleBox>Product Title</ProductTitleBox>
+              <ProductDescriptionBox>Product Description</ProductDescriptionBox>
+              <ProductDetailBox>
+                <div>배송 방법</div>
+                <div>배송비 | 2,500원(50,000원 이상 무료배송)</div>
+              </ProductDetailBox>
+              <ProductQuantitylBox>
+                <div>quantity</div>
+                <div>
+                  <button
+                    onClick={() => {
+                      let copy = [quantity];
+                      if (copy > 0) {
+                        copy--;
+                      }
+                      setQuantity(copy);
+                      setPrice(100000 * copy);
+                    }}
+                  >
+                    -
+                  </button>
+                  <span>{quantity}</span>
+                  <button
+                    onClick={() => {
+                      let copy = [quantity];
+                      copy++;
+                      setQuantity(copy);
+                      setPrice(100000 * copy);
+                    }}
+                  >
+                    +
+                  </button>
+                  <div>{price}원</div>
+                </div>
+              </ProductQuantitylBox>
+              <ProductPriceBox>
+                <div>총 상품금액 (10개)</div>
+                <div>100,000원</div>
+              </ProductPriceBox>
+              <ProductBuyCartLike>
+                <div>구매하기</div>
+                <div>장바구니</div>
+                <div>♥</div>
+              </ProductBuyCartLike>
+            </ProductDetailRightBox>
+          </ProductsDetailBox>
+          <ProductsNavi>
+            <div>상품정보</div>/<div>리뷰</div>/<div>Q&A</div>
+          </ProductsNavi>
+          <ProductNaviDetail></ProductNaviDetail>
+          <StyledBack href="/">돌아가기</StyledBack>
+        </ProductsDetailWrapper>
+        <Footer />
+      </Center>
+    </div>
   );
 }
