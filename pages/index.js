@@ -47,7 +47,6 @@ export default function Home() {
         <TodayItem />
         <Products />
         <CommunityMain />
-
         {/* <Youtube /> */}
         {/* <PopularBooks /> */}
         {/* <MultiSection /> */}

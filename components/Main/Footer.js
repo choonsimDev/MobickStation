@@ -10,6 +10,8 @@ const StyledFooterWrapper = styled.div`
   width: 1200px;
   height: 290px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const FooterTop = styled.div`

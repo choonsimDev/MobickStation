@@ -4,12 +4,9 @@ import { IoSearchOutline } from "react-icons/io5";
 // import Image from "next/image";
 
 const StyledLogoSearchWrapper = Styled.div`
-    width: 1200px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 `;
 const StyledLogoBox = Styled.div`
     height: 100px;

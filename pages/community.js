@@ -45,14 +45,14 @@ const LeftCommunity = styled.div`
 
 const LeftCommunityCategory = styled.div`
   width: 900px;
-  height: 50px;
+  height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   padding-left: 20px;
   border-bottom: 1px solid lightblue;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   color: black;
 `;
