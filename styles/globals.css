@@ -1,9 +1,7 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-base: "AppleSDGothicNeo", sans-serif;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -121,3 +119,59 @@ a {
   transition: 0.3s;
   margin: 5px;
 }
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoUL.ttf") format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoL.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoR.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoM.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoB.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoEB.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoH.ttf") format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  src: url("/fonts/AppleSDGothicNeoT.ttf") format("truetype");
+  font-weight: 200;
+}
+
+/* 이하 동일한 방식으로 다른 폰트 가중치에 대해 규칙 추가 */

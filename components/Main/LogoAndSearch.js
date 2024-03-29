@@ -8,6 +8,7 @@ const StyledLogoSearchWrapper = Styled.div`
     display: flex;
     flex-direction: column;
 `;
+
 const StyledLogoBox = Styled.div`
     height: 100px;
     width: 100%;
