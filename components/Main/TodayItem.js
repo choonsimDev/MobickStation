@@ -13,7 +13,23 @@ const StyledRecommendWrapper = styled.header`
   align-items: center;
   text-align: center;
   border: 1px solid lightgray;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가 */
+`;
+
+const StyledShopTitle = styled.div`
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #f6931a;
+  padding-left: 20px;
+  border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const RecommendFirst = styled.div`
@@ -356,76 +372,80 @@ export default function TodayItem() {
   };
 
   return (
-    <StyledRecommendWrapper>
-      <RecommendFirst>
-        <RecommendFirstTitle>category</RecommendFirstTitle>
-        <RecommendProduct>
-          <RecommendFirstImage href="/productsDetail">
-            <img src={products[0].image} alt={products[0].title} />
-          </RecommendFirstImage>
-          <RecommendFirstDescription>
-            <RecommendDescriptionBox href="/productsDetail">
-              <div>{products[0].title}</div>
-              <div>{products[0].maker}</div>
-              <div>{products[0].description}</div>
-            </RecommendDescriptionBox>
-          </RecommendFirstDescription>
-        </RecommendProduct>
-      </RecommendFirst>
-      <RecommendSecondImage href="/productsDetail">
-        <img src={products[1].image} alt={products[1].title} />
-      </RecommendSecondImage>
-      <RecommendThird>
-        <RecommendThirdMenu>
-          <RecommendThirdTitle>오늘의 상품</RecommendThirdTitle>
-          <RecommendThirdItemDescription href="/productsDetail">
-            <div>{products[1].title}</div>
-            <div>{products[1].description}</div>
-            <div>{products[1].series}</div>
-            <div>{products[1].maker}</div>
-            <div>{products[1].price}</div>
-          </RecommendThirdItemDescription>
-          <RecommendThirdItemImageBox>
-            {recommendImages.map((image) => (
-              <RecommendThirdItemImage href="/productsDetail" key={image.id}>
-                <img src={image.src} alt={image.alt} />
-              </RecommendThirdItemImage>
+    <div>
+      <StyledShopTitle>굿즈 몰</StyledShopTitle>
+
+      <StyledRecommendWrapper>
+        <RecommendFirst>
+          <RecommendFirstTitle>category</RecommendFirstTitle>
+          <RecommendProduct>
+            <RecommendFirstImage href="/productsDetail">
+              <img src={products[0].image} alt={products[0].title} />
+            </RecommendFirstImage>
+            <RecommendFirstDescription>
+              <RecommendDescriptionBox href="/productsDetail">
+                <div>{products[0].title}</div>
+                <div>{products[0].maker}</div>
+                <div>{products[0].description}</div>
+              </RecommendDescriptionBox>
+            </RecommendFirstDescription>
+          </RecommendProduct>
+        </RecommendFirst>
+        <RecommendSecondImage href="/productsDetail">
+          <img src={products[1].image} alt={products[1].title} />
+        </RecommendSecondImage>
+        <RecommendThird>
+          <RecommendThirdMenu>
+            <RecommendThirdTitle>오늘의 상품</RecommendThirdTitle>
+            <RecommendThirdItemDescription href="/productsDetail">
+              <div>{products[1].title}</div>
+              <div>{products[1].description}</div>
+              <div>{products[1].series}</div>
+              <div>{products[1].maker}</div>
+              <div>{products[1].price}</div>
+            </RecommendThirdItemDescription>
+            <RecommendThirdItemImageBox>
+              {recommendImages.map((image) => (
+                <RecommendThirdItemImage href="/productsDetail" key={image.id}>
+                  <img src={image.src} alt={image.alt} />
+                </RecommendThirdItemImage>
+              ))}
+            </RecommendThirdItemImageBox>
+          </RecommendThirdMenu>
+        </RecommendThird>
+        <RecommendFourth>
+          <RecommendFourthNavi>
+            {tabs.map((tab) => (
+              <TabTitle
+                key={tab.id}
+                isActive={activeTab === tab.id}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.title}
+              </TabTitle>
             ))}
-          </RecommendThirdItemImageBox>
-        </RecommendThirdMenu>
-      </RecommendThird>
-      <RecommendFourth>
-        <RecommendFourthNavi>
-          {tabs.map((tab) => (
-            <TabTitle
-              key={tab.id}
-              isActive={activeTab === tab.id}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.title}
-            </TabTitle>
+          </RecommendFourthNavi>
+          <StyledSearchWrapper>
+            <StyledInput placeholder="Search..."></StyledInput>
+            <div>
+              <IoSearchOutline />
+            </div>
+          </StyledSearchWrapper>
+          <StyledFourthRankingWrapper>
+            <StyledFourthRanking onClick={() => setRankRange("1-5")}>
+              1 ~ 5위
+            </StyledFourthRanking>
+            <StyledFourthRanking onClick={() => setRankRange("6-10")}>
+              6 ~ 10위
+            </StyledFourthRanking>
+          </StyledFourthRankingWrapper>
+          {filterItemsByRank(
+            tabs.find((tab) => tab.id === activeTab)?.items || []
+          ).map((item, index) => (
+            <StyledFourthRankItem key={index}>{item}</StyledFourthRankItem>
           ))}
-        </RecommendFourthNavi>
-        <StyledSearchWrapper>
-          <StyledInput placeholder="Search..."></StyledInput>
-          <div>
-            <IoSearchOutline />
-          </div>
-        </StyledSearchWrapper>
-        <StyledFourthRankingWrapper>
-          <StyledFourthRanking onClick={() => setRankRange("1-5")}>
-            1 ~ 5위
-          </StyledFourthRanking>
-          <StyledFourthRanking onClick={() => setRankRange("6-10")}>
-            6 ~ 10위
-          </StyledFourthRanking>
-        </StyledFourthRankingWrapper>
-        {filterItemsByRank(
-          tabs.find((tab) => tab.id === activeTab)?.items || []
-        ).map((item, index) => (
-          <StyledFourthRankItem key={index}>{item}</StyledFourthRankItem>
-        ))}
-      </RecommendFourth>
-    </StyledRecommendWrapper>
+        </RecommendFourth>
+      </StyledRecommendWrapper>
+    </div>
   );
 }

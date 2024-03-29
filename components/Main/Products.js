@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import React from "react";
-
 import { products, pubBookImg } from "../../DataBase/ProductsDB";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
   height: 400px;
   margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   border: 1px solid lightgray;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
 `;
+
 const StyledNowBook = styled.div`
   width: 959px;
   height: 398px;

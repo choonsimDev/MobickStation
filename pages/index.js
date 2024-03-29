@@ -44,9 +44,10 @@ export default function Home() {
       <Center>
         <LogoAndSearch />
         <Banner />
+        <CommunityMain />
+
         <TodayItem />
         <Products />
-        <CommunityMain />
         {/* <Youtube /> */}
         {/* <PopularBooks /> */}
         {/* <MultiSection /> */}

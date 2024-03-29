@@ -11,6 +11,7 @@ const StyledCommunityWrapper = styled.div`
   height: 660px;
   margin-top: 20px;
   box-sizing: border-box;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가 */
 `;
 
 const CommunityTitleBox = styled.a`
@@ -205,11 +206,13 @@ const CommunityOtaeminColumnBoxDetail = styled.div`
 
 const CommunityOtaeminColumnBoxWrapper = styled.div`
   width: 574px;
+  height: 192px;
   font-size: 14px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid lightgray;
   box-sizing: border-box;
 `;
 
@@ -221,10 +224,11 @@ const CommunityOtaeminColumnBoxImage = styled.a`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
-
-  cursor: pointer;
+  img {
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+  }
 `;
 const CommunityOtaeminColumnBoxTitle = styled.a`
   width: 128px;

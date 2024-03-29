@@ -5,8 +5,8 @@ import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 
-// import Link from "next/link";
 import "react-quill/dist/quill.snow.css";
+// import Link from "next/link";
 // import dynamic from "next/dynamic";
 // import QuillEditor from "@/components/QuillEditor";
 

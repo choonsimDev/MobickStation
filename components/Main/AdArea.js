@@ -4,10 +4,9 @@ import { adInfo } from "../../DataBase/AdAreaDB"; // 경로는 실제 상황에 
 const StyledTopMidWrapper = styled.a`
   width: 1200px;
   height: 80px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
-
   cursor: pointer;
   position: relative; /* 상대 위치 지정 */
+  margin-top: 20px;
 `;
 
 const AdLabel = styled.span`
