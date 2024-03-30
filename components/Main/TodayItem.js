@@ -6,7 +6,7 @@ import { products, recommendImages, tabs } from "@/DataBase/TodayItemDB";
 const StyledRecommendWrapper = styled.header`
   width: 1200px;
   height: 400px;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,16 +16,18 @@ const StyledRecommendWrapper = styled.header`
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가 */
 `;
 
-const StyledShopTitle = styled.div`
+const StyledShopTitle = styled.a`
   height: 40px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-  color: #f6931a;
+  color: gray;
   padding-left: 20px;
+  margin-top: 10px;
   border-bottom: 1px solid lightgray;
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -76,10 +78,6 @@ const RecommendFirstTitle = styled.div`
   justify-content: flex-start;
   padding-left: 20px;
   align-items: center;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
 `;
 const RecommendProduct = styled.div`
   width: 90%;
@@ -172,7 +170,7 @@ const RecommendThirdTitle = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid lightgray;
-  font-size: 0.9rem;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   &:hover {
@@ -373,11 +371,11 @@ export default function TodayItem() {
 
   return (
     <div>
-      <StyledShopTitle>굿즈 몰</StyledShopTitle>
+      <StyledShopTitle href="/store">굿즈 몰</StyledShopTitle>
 
       <StyledRecommendWrapper>
         <RecommendFirst>
-          <RecommendFirstTitle>category</RecommendFirstTitle>
+          <RecommendFirstTitle>Store Name</RecommendFirstTitle>
           <RecommendProduct>
             <RecommendFirstImage href="/productsDetail">
               <img src={products[0].image} alt={products[0].title} />

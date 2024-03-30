@@ -6,189 +6,153 @@ import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 
-const StyledBack = styled.a`
-  top: 20px;
-  left: 20px;
-  margin-top: 50px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #999999;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    color: #333; // 호버 색상 변경
-  }
-`;
-
 const ProductsDetailWrapper = styled.div`
-  width: 1200px;
-  height: 2000px;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: 20px; // 패딩 추가
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가
+  background: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
+
+const ProductsCategoryWrapper = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const ProductsCategory = styled.div`
-  width: 1200px;
   height: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: left;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-  border: 1px solid lightgray;
-`;
-const ProductsDetailBox = styled.div`
-  width: 1200px;
-  height: 600px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: left;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-  border: 1px solid lightgray;
-`;
-
-const ProductDetailLeftBox = styled.div`
-  width: 600px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
+  color: #666;
+  border-bottom: 1px lightgray solid;
+`;
+
+const StyledBack = styled.a`
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: #333;
+  }
 `;
 
 const ProductImageBox = styled.div`
   width: 550px;
   height: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: lightgray;
+  border: 1px solid lightgray;
+  margin-right: 20px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `;
 
 const ProductDetailRightBox = styled.div`
-  width: 600px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex: 1;
 `;
 
 const ProductTitleBox = styled.div`
-  width: 600px;
+  width: 100%;
   height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
-  border-bottom: 1px solid lightgray;
+  color: #333;
 `;
+
 const ProductDescriptionBox = styled.div`
-  width: 600px;
-  height: 250px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 14px;
+  width: 100%;
+  height: 200px;
+  font-size: 16px;
   color: gray;
+  line-height: 1.5;
   border-bottom: 1px solid lightgray;
 `;
+
 const ProductDetailBox = styled.div`
-  width: 600px;
+  width: 100%;
   height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  font-size: 14px;
+  font-size: 16px;
   color: gray;
-  border-bottom: 1px solid lightgray;
 `;
+
 const ProductQuantitylBox = styled.div`
-  width: 600px;
-  height: 110px;
+  height: 60px;
+  background-color: whitesmoke;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: 14px;
-  font-weight: bold;
-  gap: 1rem;
-  background-color: lightgray;
-  border-bottom: 1px solid lightgray;
-  & > div:nth-child(2) {
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  gap: 30px;
+  & div {
+    gap: 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 50px;
-    font-size: 14px;
+  }
+  button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+  span {
+    font-weight: bold;
+    font-size: 16px;
   }
 `;
 
 const ProductPriceBox = styled.div`
-  width: 600px;
-  height: 80px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  color: gray;
-  border-bottom: 1px solid lightgray;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
 `;
 
 const ProductBuyCartLike = styled.div`
-  width: 600px;
-  height: 80px;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  align-items: center;
-  & > div {
-    font-size: 14px;
+  width: 100%;
+  button {
+    background: #e5821a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
     font-weight: bold;
-    width: 150px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    border: 1px solid lightgray;
+    &:hover {
+      background: #f6931a;
+    }
   }
-`;
-
-const ProductsNavi = styled.div`
-  width: 1200px;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-  border-bottom: 1px solid lightgray;
-`;
-
-const ProductNaviDetail = styled.div`
-  width: 1200px;
-  height: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: left;
-  gap: 1.5rem;
-  font-size: 14px;
-  border: 1px solid lightgray;
 `;
 
 export default function ProductsDetail() {
@@ -201,23 +165,30 @@ export default function ProductsDetail() {
       <Center>
         <LogoAndSearch />
         <ProductsDetailWrapper>
-          <ProductsCategory></ProductsCategory>
-          <ProductsDetailBox>
-            <ProductDetailLeftBox>
-              <ProductImageBox>Product Image</ProductImageBox>
-            </ProductDetailLeftBox>
+          <ProductsCategoryWrapper>
+            <ProductsCategory>Home / Category / Product Name</ProductsCategory>{" "}
+            <StyledBack href="/">돌아가기</StyledBack>
+          </ProductsCategoryWrapper>
+          <div style={{ display: "flex", width: "100%" }}>
+            <ProductImageBox>
+              <img src="/path/to/product/image.jpg" alt="Product Image" />
+            </ProductImageBox>
             <ProductDetailRightBox>
               <ProductTitleBox>Product Title</ProductTitleBox>
-              <ProductDescriptionBox>Product Description</ProductDescriptionBox>
+              <ProductDescriptionBox>
+                This is the product description. Here you can add more details
+                about the product.
+              </ProductDescriptionBox>
               <ProductDetailBox>
                 <div>배송 방법</div>
-                <div>배송비 | 2,500원(50,000원 이상 무료배송)</div>
+                <div>배송비 | 2,500원(50,000원 이상 무료 배송)</div>
               </ProductDetailBox>
               <ProductQuantitylBox>
-                <div>quantity</div>
+                구매 수량
                 <div>
                   <button
                     onClick={() => {
+                      setQuantity(quantity > 1 ? quantity - 1 : 1);
                       let copy = [quantity];
                       if (copy > 0) {
                         copy--;
@@ -231,33 +202,27 @@ export default function ProductsDetail() {
                   <span>{quantity}</span>
                   <button
                     onClick={() => {
+                      setQuantity(quantity > 1 ? quantity + 1 : 1);
                       let copy = [quantity];
-                      copy++;
+                      if (copy > 0) {
+                        copy++;
+                      }
                       setQuantity(copy);
                       setPrice(100000 * copy);
                     }}
                   >
                     +
                   </button>
-                  <div>{price}원</div>
                 </div>
               </ProductQuantitylBox>
-              <ProductPriceBox>
-                <div>총 상품금액 (10개)</div>
-                <div>100,000원</div>
-              </ProductPriceBox>
+              <ProductPriceBox>Total Price: {price}원</ProductPriceBox>
               <ProductBuyCartLike>
-                <div>구매하기</div>
-                <div>장바구니</div>
-                <div>♥</div>
+                <button>Buy Now</button>
+                <button>Add to Cart</button>
+                <button>♥</button>
               </ProductBuyCartLike>
             </ProductDetailRightBox>
-          </ProductsDetailBox>
-          <ProductsNavi>
-            <div>상품정보</div>/<div>리뷰</div>/<div>Q&A</div>
-          </ProductsNavi>
-          <ProductNaviDetail></ProductNaviDetail>
-          <StyledBack href="/">돌아가기</StyledBack>
+          </div>
         </ProductsDetailWrapper>
         <Footer />
       </Center>

@@ -1,4 +1,3 @@
-// components/BestProductsSection.js
 import React from "react";
 import styled from "styled-components";
 
@@ -11,7 +10,7 @@ const SectionContainer = styled.div`
   align-items: center;
 `;
 
-const BestProductsTitle = styled.div`
+const AllProductsTitle = styled.div`
   width: 1200px;
   height: 60px;
   display: flex;
@@ -28,10 +27,10 @@ const BestProductsTitle = styled.div`
 const ProductsBoxWrapper = styled.div`
   width: 1200px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: space-around; /* 각 상품 박스 사이와 컨테이너 좌우 끝 간의 간격을 균등하게 분배 */
+  align-items: flex-start; /* 상품 박스를 상단 정렬 */
+  gap: 50px; /* 상품 박스 사이의 수직 간격 */
 `;
 
 const ProductBox = styled.div`
@@ -55,12 +54,6 @@ const ProductInfo = styled.div`
   & div:nth-child(3) {
     font-size: 16px;
   }
-`;
-
-const ProductsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
 `;
 
 export default function BestProductsSection() {
@@ -95,25 +88,53 @@ export default function BestProductsSection() {
       description: "Description 5",
       price: "$500",
     },
+    {
+      imageUrl: "/path/to/product6.jpg",
+      title: "Product 6",
+      description: "Description 6",
+      price: "$600",
+    },
+    {
+      imageUrl: "/path/to/product7.jpg",
+      title: "Product 7",
+      description: "Description 7",
+      price: "$700",
+    },
+    {
+      imageUrl: "/path/to/product8.jpg",
+      title: "Product 8",
+      description: "Description 8",
+      price: "$800",
+    },
+    {
+      imageUrl: "/path/to/product9.jpg",
+      title: "Product 9",
+      description: "Description 9",
+      price: "$900",
+    },
+    {
+      imageUrl: "/path/to/product10.jpg",
+      title: "Product 10",
+      description: "Description 10",
+      price: "$1000",
+    },
   ];
 
   return (
     <SectionContainer>
-      <BestProductsTitle>베스트 상품</BestProductsTitle>
-      <ProductsContainer>
-        <ProductsBoxWrapper>
-          {products.map((product, index) => (
-            <div key={index}>
-              <ProductBox imageUrl={product.imageUrl} />
-              <ProductInfo>
-                <div>{product.title}</div>
-                <div>{product.description}</div>
-                <div>{product.price}</div>
-              </ProductInfo>
-            </div>
-          ))}
-        </ProductsBoxWrapper>
-      </ProductsContainer>
+      <AllProductsTitle>전체 상품</AllProductsTitle>
+      <ProductsBoxWrapper>
+        {products.map((product, index) => (
+          <div key={index}>
+            <ProductBox imageUrl={product.imageUrl} />
+            <ProductInfo>
+              <div>{product.title}</div>
+              <div>{product.description}</div>
+              <div>{product.price}</div>
+            </ProductInfo>
+          </div>
+        ))}
+      </ProductsBoxWrapper>
     </SectionContainer>
   );
 }

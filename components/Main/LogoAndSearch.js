@@ -1,5 +1,7 @@
 import Styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
+import React, { useState } from "react";
+import ModalReady from "./ModalReady";
 // import Link from "next/link";
 // import Image from "next/image";
 
@@ -74,7 +76,7 @@ const StyledNavigation = Styled.div`
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem; 
-    font-size: 16px;
+    font-size: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -140,6 +142,14 @@ const StyledLink = Styled.a`
     `;
 
 export default function LogoAndSearch() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const hideModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <StyledLogoSearchWrapper>
       <StyledLogoBox>
@@ -159,15 +169,16 @@ export default function LogoAndSearch() {
       <StyledNavigation>
         <div>
           <StyledLinkFirst href="/community">커뮤니티</StyledLinkFirst>
-          <StyledLink href="/bestProducts">베스트</StyledLink>
-          <StyledLink href="/newProducts">신상품</StyledLink>
-          <StyledLink href="/event">이벤트</StyledLink>
+          <StyledLink onClick={showModal}>베스트</StyledLink>
+          <StyledLink onClick={showModal}>신상품</StyledLink>
+          <StyledLink onClick={showModal}>이벤트</StyledLink>
           {/* <StyledLink href="/trade">중고거래</StyledLink>
           <StyledLink href="/limited">한정상품</StyledLink>
           <StyledLink href="/sales">특가할인</StyledLink>
           <StyledLink href="/volume">대량/법인</StyledLink> */}
         </div>
       </StyledNavigation>
+      {isModalVisible && <ModalReady onClose={hideModal} />}
     </StyledLogoSearchWrapper>
   );
 }

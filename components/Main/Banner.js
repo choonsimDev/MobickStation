@@ -6,14 +6,33 @@ import { detailCategories } from "../../DataBase/BannerDB";
 const StyledBannerWrapper = styled.div`
   width: 1200px;
   height: 421px;
-  margin-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   text-align: center;
   border: 1px solid lightgray;
+  margin-top: 10px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가 */
+`;
+
+const BannerTitle = styled.a`
+  width: 1200px;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  padding-left: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
 `;
 
 const MainCategory = styled.div`
@@ -38,9 +57,6 @@ const MainCategoryItem = styled.a`
   color: black; /* 링크의 기본 색상 변경 */
   text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
-  &:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
 `;
 
 const DetailCategory = styled.div`
@@ -87,33 +103,35 @@ export default function Banner() {
   const [selectedDetail, setSelectedDetail] = useState(""); // 상세 카테고리 설명 상태 추가
 
   return (
-    <StyledBannerWrapper>
-      <MainCategory>
-        {Object.keys(detailCategories).map((category, idx) => (
-          <MainCategoryItem
-            href="/preparing"
-            key={idx}
-            onMouseEnter={() => setSelectedCategory(category)}
-            // onMouseLeave={() => setSelectedCategory(null)}
-          >
-            {category}
-          </MainCategoryItem>
-        ))}
-      </MainCategory>
-      <DetailCategory>
-        {selectedCategory &&
-          detailCategories[selectedCategory].map((item) => (
-            <DetailCategoryItem href="/store" key={item}>
-              {item}
-            </DetailCategoryItem>
+    <div>
+      <BannerTitle href="/store">입점 마켓</BannerTitle>
+      <StyledBannerWrapper>
+        <MainCategory>
+          {Object.keys(detailCategories).map((category, idx) => (
+            <MainCategoryItem
+              key={idx}
+              onMouseEnter={() => setSelectedCategory(category)}
+              // onMouseLeave={() => setSelectedCategory(null)}
+            >
+              {category}
+            </MainCategoryItem>
           ))}
-      </DetailCategory>
-      <MainBanner>
-        <MainBannerImgBox href="/store">
-          {/* <SwiperBanner /> */}
-        </MainBannerImgBox>
-        {/* <MainBannerImgButton></MainBannerImgButton> */}
-      </MainBanner>
-    </StyledBannerWrapper>
+        </MainCategory>
+        <DetailCategory>
+          {selectedCategory &&
+            detailCategories[selectedCategory].map((item) => (
+              <DetailCategoryItem href="/store" key={item}>
+                {item}
+              </DetailCategoryItem>
+            ))}
+        </DetailCategory>
+        <MainBanner>
+          <MainBannerImgBox href="/store">
+            {/* <SwiperBanner /> */}
+          </MainBannerImgBox>
+          {/* <MainBannerImgButton></MainBannerImgButton> */}
+        </MainBanner>
+      </StyledBannerWrapper>
+    </div>
   );
 }

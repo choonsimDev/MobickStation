@@ -22,7 +22,7 @@ const CommunityTitleBox = styled.a`
   padding-left: 20px;
   font-size: 20px;
   font-weight: bold;
-  color: #f6931a;
+  color: gray;
   box-sizing: border-box;
   border-bottom: 1px solid lightgray;
   text-decoration: none;

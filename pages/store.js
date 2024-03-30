@@ -3,8 +3,9 @@ import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Banner from "@/components/Main/Banner";
-import CategorySection from "./storeCategorySection";
-import BestProductsSection from "./storeBestProductsSection";
+import CategorySection from "@/components/Main/storeCategorySection";
+import BestProductsSection from "@/components/Main/storeBestProductsSection";
+import AllProductsSection from "../components/Main/storeAllProductsSection";
 import Footer from "@/components/Main/Footer";
 
 const StyledDiv = styled.div`
@@ -59,6 +60,7 @@ export default function bestProducts() {
           <Banner />
           <CategorySection />
           <BestProductsSection />
+          <AllProductsSection />
           <StyledBack href="/">돌아가기</StyledBack>
         </StyledDiv2>
         <Footer />

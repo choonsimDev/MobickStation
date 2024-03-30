@@ -5,8 +5,8 @@ import { products, pubBookImg } from "../../DataBase/ProductsDB";
 const StyledTopMidWraper = styled.div`
   width: 1200px;
   height: 400px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   border: 1px solid lightgray;
@@ -28,10 +28,6 @@ const StyledNowBookTitle = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid lightgray;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
 `;
 const StyledNowBookList = styled.div`
   width: 959px;
@@ -66,10 +62,6 @@ const StyledPubBookTitle = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid lightgray;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
 `;
 const StyledPubBookImageBox = styled.div`
   width: 238px;
@@ -200,7 +192,7 @@ export default function Products() {
         </StyledNowBookList>
       </StyledNowBook>
       <StyledPubBook>
-        <StyledPubBookTitle>오독클 추천 서적</StyledPubBookTitle>
+        <StyledPubBookTitle>할인 상품</StyledPubBookTitle>
         <StyledPubBookImageBox>
           {pubBookImg.map((image, index) => (
             <React.Fragment key={image.id}>
