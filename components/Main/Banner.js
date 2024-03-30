@@ -103,13 +103,13 @@ export default function Banner() {
       <DetailCategory>
         {selectedCategory &&
           detailCategories[selectedCategory].map((item) => (
-            <DetailCategoryItem href="/preparing" key={item}>
+            <DetailCategoryItem href="/store" key={item}>
               {item}
             </DetailCategoryItem>
           ))}
       </DetailCategory>
       <MainBanner>
-        <MainBannerImgBox href="/productsDetail">
+        <MainBannerImgBox href="/store">
           {/* <SwiperBanner /> */}
         </MainBannerImgBox>
         {/* <MainBannerImgButton></MainBannerImgButton> */}
