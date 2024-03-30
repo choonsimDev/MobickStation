@@ -1,4 +1,6 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Modal from "@/components/Main/Modal";
 
 import Head from "next/head";
 import Header from "@/components/Main/Header";
@@ -10,19 +12,13 @@ import TodayItem from "@/components/Main/TodayItem";
 import Products from "@/components/Main/Products";
 import CommunityMain from "@/components/Main/CommunityMain";
 
-// import Youtube from "@/components/Main/Youtube";
 import AdArea from "@/components/Main/AdArea";
-// import PopularBooks from "@/components/Main/PopularBooks";
-// import Market from "@/components/Market";
 import MobiletOtc from "@/components/Main/MobiletOtc";
 import WinwinMarket from "@/components/Main/WinwinMarket";
 import TodakAndNews from "@/components/Main/TodakAndNews";
 import AdAndInterview from "@/components/Main/AdAndInterview";
 
 import Footer from "@/components/Main/Footer";
-
-// import NewsSection from "@/components/NewsSection";
-// import VerificationSection from "@/components/VerificationSection";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -31,7 +27,24 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 
-export default function Home() {
+const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const hideModalDate = localStorage.getItem("hideModal");
+    if (hideModalDate) {
+      const currentDate = new Date();
+      const nextDay = new Date(hideModalDate);
+      nextDay.setDate(nextDay.getDate() + 1);
+
+      if (currentDate < nextDay) {
+        return;
+      }
+    }
+
+    setShowModal(true);
+  }, []);
+
   return (
     <StyledDiv>
       <Head>
@@ -42,25 +55,17 @@ export default function Home() {
       </Head>
       <Header />
       <Center>
+        {showModal && <Modal onClose={() => setShowModal(false)} />}
         <LogoAndSearch />
         <Banner />
-        <CommunityMain />
-
         <TodayItem />
         <Products />
-        {/* <Youtube /> */}
-        {/* <PopularBooks /> */}
-        {/* <MultiSection /> */}
-        {/* <MobiletOtc /> */}
-        {/* <WinwinMarket /> */}
-        {/* <TodakAndNews />
-        <AdAndInterview /> */}
-        {/* <Market /> */}
-        {/* <NewsSection /> */}
+        <CommunityMain />
         <AdArea />
-        {/* <VerificationSection /> */}
         <Footer />
       </Center>
     </StyledDiv>
   );
-}
+};
+
+export default Home;
