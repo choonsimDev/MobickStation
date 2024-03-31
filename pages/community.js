@@ -359,10 +359,10 @@ export default function Community() {
 
     // 개별 구성요소를 추출
     const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // getMonth()는 0부터 시작하므로 +1 필요
-    const day = date.getDate().toString().padStart(2, '0');
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // getMonth()는 0부터 시작하므로 +1 필요
+    const day = date.getDate().toString().padStart(2, "0");
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
 
     // 포맷에 맞게 조합
     return `${year}-${month}-${day} ${hours}:${minutes}`;
@@ -443,7 +443,6 @@ export default function Community() {
                   index // API에서 가져온 데이터를 매핑하여 표시
                 ) => (
                   <LeftCommunityContents href="/community" key={index}>
-
                     <div>
                       <div>{post.id}</div>
                       <div>image</div>
@@ -456,7 +455,6 @@ export default function Community() {
                       <div>{post.thumb}</div>
                       <div>{formatDateTime(post.createdAt)}</div>
                     </div>
-
                   </LeftCommunityContents>
                 )
               )}
@@ -508,6 +506,6 @@ export default function Community() {
         </StyledDiv2>
       </Center>
       <Footer />
-    </StyledDiv >
+    </StyledDiv>
   );
 }
