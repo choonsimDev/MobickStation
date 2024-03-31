@@ -4,6 +4,7 @@ import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
+import Link from "next/link";
 
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
@@ -442,16 +443,20 @@ export default function Community() {
                   index // API에서 가져온 데이터를 매핑하여 표시
                 ) => (
                   <LeftCommunityContents href="/community" key={index}>
+
                     <div>
                       <div>{post.id}</div>
                       <div>image</div>
-                      <div>{post.title}</div>
+                      <Link href={`/writing/${post.id}`}>
+                        <div>{post.title}</div>
+                      </Link>
                     </div>
                     <div>
                       <div>{post.nickname}</div>
                       <div>{post.thumb}</div>
                       <div>{formatDateTime(post.createdAt)}</div>
                     </div>
+
                   </LeftCommunityContents>
                 )
               )}
@@ -503,6 +508,6 @@ export default function Community() {
         </StyledDiv2>
       </Center>
       <Footer />
-    </StyledDiv>
+    </StyledDiv >
   );
 }
