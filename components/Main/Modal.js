@@ -12,6 +12,7 @@ const ModalDesign = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* 모달창이 다른 요소들 위에 오도록 z-index 값을 높게 설정 */
 `;
 
 const ModalBox = styled.div`

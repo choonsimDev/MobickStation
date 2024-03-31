@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-// import SwiperBanner from "./Swiper";
+import SwiperBanner from "./Swiper";
 import { detailCategories } from "../../DataBase/BannerDB";
 
 const StyledBannerWrapper = styled.div`
@@ -14,6 +14,7 @@ const StyledBannerWrapper = styled.div`
   border: 1px solid lightgray;
   margin-top: 10px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가 */
+  z-index: 1; /* 배너의 z-index 값을 낮게 설정 */
 `;
 
 const BannerTitle = styled.a`
@@ -127,7 +128,7 @@ export default function Banner() {
         </DetailCategory>
         <MainBanner>
           <MainBannerImgBox href="/store">
-            {/* <SwiperBanner /> */}
+            <SwiperBanner />
           </MainBannerImgBox>
           {/* <MainBannerImgButton></MainBannerImgButton> */}
         </MainBanner>
