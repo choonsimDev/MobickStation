@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import ModalReady from "./ModalReady";
 import AuthButtons from "@/components/Main/AuthButtons";
+import Center from "./Center";
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -12,22 +13,25 @@ const HeaderWrapper = styled.div`
 `;
 
 const StyledHeader = styled.div`
-  width: 1200px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-
+    width: 1200px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
   & > div {
+    height: 20px;
     color: #ffffff;
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
     cursor: pointer;
+  }
+  @media screen and (min-width: 768px) {
+  
   }
 `;
 
