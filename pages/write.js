@@ -70,11 +70,10 @@ const AuthorInfo = styled.div`
     border-radius: 5px;
     font-size: 1rem;
     color: #333333;
-
   }
 `;
 const Title = styled.div`
-  width: 600px;   
+  width: 610px;
   height: 40px;
   font-size: 1.5rem;
   font-weight: bold;
@@ -89,7 +88,6 @@ const Title = styled.div`
     color: #333333;
   }
 `;
-
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -125,10 +123,9 @@ export default function Write() {
         }),
       });
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
     }
     setTitle("");
@@ -138,26 +135,38 @@ export default function Write() {
     alert("게시글이 등록되었습니다.");
   };
 
-
   return (
     <Center>
       <Header />
       <LogoAndSearch />
       <AuthorInfoBox>
         <AuthorInfo>
-          <input placeholder="닉네임" value={nickname} onChange={ChangeNickname}></input>
-          <input placeholder="비밀번호" value={secret} onChange={ChangeSecret}></input>
+          <input
+            placeholder="닉네임"
+            value={nickname}
+            onChange={ChangeNickname}
+          ></input>
+          <input
+            placeholder="비밀번호"
+            value={secret}
+            onChange={ChangeSecret}
+          ></input>
         </AuthorInfo>
         <Title>
-          <input placeholder="제목을 입력하세요" value={title} onChange={ChangeTitle}></input>
+          <input
+            placeholder="제목을 입력하세요"
+            value={title}
+            onChange={ChangeTitle}
+          ></input>
         </Title>
       </AuthorInfoBox>
       <EditorWrapper>
         {/* <TextEditor GetContent={GetContent} /> */}
         <textarea
+          placeholder="내용을 입력해주세요."
           style={{
-            width: "600px",
-            height: "600px",
+            width: "610px",
+            height: "610px",
             padding: "10px",
             border: "1px solid #999999",
             borderRadius: "5px",
