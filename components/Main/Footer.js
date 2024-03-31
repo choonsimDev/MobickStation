@@ -57,7 +57,6 @@ const FooterMiddleWrapper = styled.div`
 `;
 
 const MiddleImageBox = styled.div`
-  width: 150px;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -69,16 +68,14 @@ const MiddleImageBox = styled.div`
 const MiddleTextBox = styled.div`
   width: 300px;
   height: 150px;
-  margin-left: 30px;
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
-  & > :nth-child(1) {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  /* background-color: lightblue; */
+  justify-content: center;
 `;
 
 const MiddleCustomService = styled.div`
@@ -92,9 +89,19 @@ const MiddleCustomService = styled.div`
   & > :nth-child(1) {
     font-size: 16px;
     font-weight: bold;
+    color: #666;
   }
   & > :nth-child(2) {
     font-size: 14px;
+    color: gray;
+  }
+  & > :nth-child(3) {
+    font-size: 14px;
+    color: gray;
+  }
+  & > :nth-child(4) {
+    font-size: 14px;
+    color: gray;
   }
   /* background-color: lightgreen; */
 `;
@@ -108,7 +115,9 @@ const MiddleCustomServiceQuestion = styled.div`
   gap: 10px;
 
   & > div {
-    color: gray;
+    color: #666;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
     &:hover {
       text-decoration: underline; /* Underline on hover */
@@ -141,15 +150,9 @@ export default function Footer() {
       <FooterMiddle>
         <FooterMiddleWrapper>
           <MiddleImageBox>
-            <img src="/images/FooterLogo2.png" alt="Logo" width={100} />
+            <img src="/images/BTCMobickLogo.png" alt="Logo" width={100} />
           </MiddleImageBox>
-          <MiddleTextBox>
-            <div>{companyInfo.name}</div>
-            <div>{companyInfo.address}</div>
-            <div>{companyInfo.businessNumber}</div>
-            <div>{companyInfo.salesNumber}</div>
-            <div>{companyInfo.representative}</div>
-          </MiddleTextBox>
+          <MiddleTextBox>MOBICK STATION</MiddleTextBox>
           <MiddleCustomService>
             <div>{customerServiceInfo.inquiry}</div>
             <div>{customerServiceInfo.phoneNumber}</div>
@@ -163,11 +166,11 @@ export default function Footer() {
           </MiddleCustomService>
         </FooterMiddleWrapper>
       </FooterMiddle>
-      <FooterBottom>
+      {/* <FooterBottom>
         <div>
           <p>Copyright 2024. Mobickers inc. all rights reserved.</p>
         </div>
-      </FooterBottom>
+      </FooterBottom> */}
     </StyledFooterWrapper>
   );
 }

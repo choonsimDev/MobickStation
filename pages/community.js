@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
+import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import Link from "next/link";
 
@@ -106,6 +107,9 @@ const HotContentItemImage = styled.div`
   border: 1px solid black;
   position: absolute;
   cursor: pointer;
+  &:hover {
+    background-color: #f5f5f5;
+  }
 `;
 
 const HotContentItemTitle = styled.div`
@@ -129,10 +133,13 @@ const LeftCommunityContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  & :hover {
+    background-color: #f5f5f5;
+  }
   /* background-color: pink; */
 `;
 
-const LeftCommunityContents = styled.div`
+const LeftCommunityContents = styled.a`
   width: 900px;
   height: 52px;
   display: flex;
@@ -140,12 +147,16 @@ const LeftCommunityContents = styled.div`
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid lightgray;
+  color: black;
+  text-decoration: none;
+
   & > div:nth-child(1) {
     width: 800px;
     height: 50px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
     & > div:nth-child(1) {
       width: 50px;
       height: 50px;
@@ -285,57 +296,58 @@ const RightCommunity = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 const RightCommunityRealTimeBest = styled.div`
-  width: 300px;
+  width: 280px;
   height: 430px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+  border: 1px solid lightgray;
 `;
 
 const RightCommunityAD = styled.div`
-  width: 300px;
+  width: 280px;
   height: 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  background-color: lightgray;
+  border: 1px solid lightgray;
 `;
 
 const RightCommunityCategory1Best = styled.div`
-  width: 300px;
+  width: 280px;
   height: 430px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  background-color: lightgray;
+  border: 1px solid lightgray;
 `;
 
 const RightCommunityCategory2Best = styled.div`
-  width: 300px;
+  width: 280px;
   height: 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  background-color: lightgray;
+  border: 1px solid lightgray;
 `;
 
-const StyledDiv2 = styled.div`
+const ADWrapper = styled.div`
   display: flex;
-  margin-top: 30px;
+  width: 900px;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 const StyledBack = styled.a`
@@ -405,33 +417,33 @@ export default function Community() {
             <LeftCommunityHotContent>
               <HotContentItem>
                 <HotContentItemImage>
-                  인기 게시글 이미지
+                  Contents Image
                   <HotContentItemTitle>
-                    <div>인기 게시글 4개</div>
+                    <div>인기 게시글</div>
                   </HotContentItemTitle>
                 </HotContentItemImage>
               </HotContentItem>
               <HotContentItem>
                 <HotContentItemImage>
-                  인기 게시글 이미지
+                  Contents Image
                   <HotContentItemTitle>
-                    <div>인기 게시글 4개</div>
+                    <div>인기 게시글</div>
                   </HotContentItemTitle>
                 </HotContentItemImage>
               </HotContentItem>
               <HotContentItem>
                 <HotContentItemImage>
-                  인기 게시글 이미지
+                  Contents Image
                   <HotContentItemTitle>
-                    <div>인기 게시글 4개</div>
+                    <div>인기 게시글</div>
                   </HotContentItemTitle>
                 </HotContentItemImage>
               </HotContentItem>
               <HotContentItem>
                 <HotContentItemImage>
-                  인기 게시글 이미지
+                  Contents Image
                   <HotContentItemTitle>
-                    <div>인기 게시글 4개</div>
+                    <div>인기 게시글</div>
                   </HotContentItemTitle>
                 </HotContentItemImage>
               </HotContentItem>
@@ -442,13 +454,14 @@ export default function Community() {
                   post,
                   index // API에서 가져온 데이터를 매핑하여 표시
                 ) => (
-                  <LeftCommunityContents href="/community" key={index}>
+                  <LeftCommunityContents
+                    href={`/writing/${post.id}`}
+                    key={index}
+                  >
                     <div>
                       <div>{post.id}</div>
                       <div>image</div>
-                      <Link href={`/writing/${post.id}`}>
-                        <div>{post.title}</div>
-                      </Link>
+                      <div>{post.title}</div>
                     </div>
                     <div>
                       <div>{post.nickname}</div>
@@ -481,7 +494,9 @@ export default function Community() {
               <span>10</span>
               <span className="next">▶</span>
             </LeftCommunityContentsPageButton>
-            <LeftCommunityAD>AD</LeftCommunityAD>
+            <ADWrapper>
+              <AdArea />
+            </ADWrapper>
             {/* <LeftCommunityNews>News</LeftCommunityNews> */}
             {/* <LeftCommunityTempWrapper>
             <LeftCommunityTempBox>TempBox1</LeftCommunityTempBox>
@@ -492,19 +507,14 @@ export default function Community() {
             <RightCommunityRealTimeBest>
               RealTimeBest
             </RightCommunityRealTimeBest>
-            <RightCommunityAD>AD</RightCommunityAD>
             <RightCommunityCategory1Best>
-              Category1 Best
+              토론게시판 Best
             </RightCommunityCategory1Best>
-            <RightCommunityCategory2Best>
-              Category2 Best
-            </RightCommunityCategory2Best>
+            <RightCommunityAD>AD</RightCommunityAD>
           </RightCommunity>
         </MainWrapper>
-        <StyledDiv2>
-          <StyledBack href="/">돌아가기</StyledBack>
-        </StyledDiv2>
       </Center>
+
       <Footer />
     </StyledDiv>
   );

@@ -5,7 +5,7 @@ const StyledTopMidWrapper = styled.a`
   width: 1200px;
   height: 80px;
   cursor: pointer;
-  position: relative; /* 상대 위치 지정 */
+  /* position: relative; 상대 위치 지정 */
   margin-top: 20px;
 `;
 
@@ -27,7 +27,7 @@ export default function AdArea() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <AdLabel>AD</AdLabel>
+      {/* <AdLabel>AD</AdLabel> */}
       <img src={adInfo.src} alt={adInfo.alt} width="1200" />
     </StyledTopMidWrapper>
   );
