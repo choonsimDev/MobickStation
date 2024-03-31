@@ -411,7 +411,7 @@ export default function Community() {
         <MainWrapper>
           <LeftCommunity>
             <LeftCommunityCategory>
-              토론 게시판
+              모비커 게시판
               <WriteButton href="/write">글쓰기</WriteButton>
             </LeftCommunityCategory>
             <LeftCommunityHotContent>

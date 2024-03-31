@@ -21,7 +21,6 @@ import AdAndInterview from "@/components/Main/AdAndInterview";
 import Footer from "@/components/Main/Footer";
 
 const StyledDiv = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,15 +53,14 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header />
       <Center>
-        <Header />
         {showModal && <Modal onClose={() => setShowModal(false)} />}
         <LogoAndSearch />
         <Banner />
+        <CommunityMain />
         <TodayItem />
         <Products />
-        <CommunityMain />
         <AdArea />
         <Footer />
       </Center>

@@ -8,7 +8,6 @@ import {
 
 const StyledCommunityWrapper = styled.div`
   width: 1200px;
-  height: 660px;
   margin-top: 20px;
   box-sizing: border-box;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가 */
@@ -442,7 +441,7 @@ export default function CommunityMain() {
           <CommunityOtaverse>
             <CommunityOtaverseTitleWrapper>
               <CommunityOtaverseTitle href="/community">
-                Otaverse 최신글
+                오태버스 최신글
               </CommunityOtaverseTitle>
             </CommunityOtaverseTitleWrapper>
             {OtaverseDetails1.map((item, index) => (
@@ -497,7 +496,7 @@ export default function CommunityMain() {
           <MobickCommunity>
             <MobickCommunityTitleBoxWrapper>
               <MobickCommunityTitleBox href="/community">
-                토론 게시판
+                모비커 게시판
               </MobickCommunityTitleBox>
               <MobickCommunityLinkButton href="/community">
                 더보기
