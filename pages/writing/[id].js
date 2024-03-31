@@ -61,7 +61,7 @@ export default function Writing() {
                     <hr />
                     <br />
                     <h4>글내용</h4>
-                    <div>{post.content}</div> {/* 내용 */}
+                    <div style={{ whiteSpace: "pre-wrap" }}>{post.content}</div> {/* 내용 */}
                     {/* 추가적으로, 작성자, 날짜 등의 정보가 있다면 여기에 표시할 수 있습니다. */}
                 </div>
                 <button onClick={() => router.back()}>뒤로가기</button>
