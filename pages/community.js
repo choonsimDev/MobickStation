@@ -353,6 +353,20 @@ const StyledBack = styled.a`
 export default function Community() {
   const [posts, setPosts] = useState([]); // 상태를 추가
 
+  function formatDateTime(dateTimeStr) {
+    const date = new Date(dateTimeStr);
+
+    // 개별 구성요소를 추출
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // getMonth()는 0부터 시작하므로 +1 필요
+    const day = date.getDate().toString().padStart(2, '0');
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+
+    // 포맷에 맞게 조합
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+  }
+
   useEffect(() => {
     async function fetchPosts() {
       const response = await fetch("/api/dbCommunityPost/", {
@@ -436,7 +450,7 @@ export default function Community() {
                     <div>
                       <div>{post.nickname}</div>
                       <div>{post.thumb}</div>
-                      <div>{post.createdAt}</div>
+                      <div>{formatDateTime(post.createdAt)}</div>
                     </div>
                   </LeftCommunityContents>
                 )
