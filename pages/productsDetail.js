@@ -6,6 +6,13 @@ import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ProductsDetailWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -160,7 +167,7 @@ export default function ProductsDetail() {
   const [price, setPrice] = useState("100,000");
 
   return (
-    <div>
+    <StyledDiv>
       <Header />
       <Center>
         <LogoAndSearch />
@@ -226,6 +233,6 @@ export default function ProductsDetail() {
         </ProductsDetailWrapper>
         <Footer />
       </Center>
-    </div>
+    </StyledDiv>
   );
 }

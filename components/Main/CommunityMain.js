@@ -71,12 +71,12 @@ const CommunityLeftBox = styled.div`
   justify-content: flex-start;
   align-items: flex;
   box-sizing: border-box;
-  padding: 12px;
+  padding-top: 12px;
   gap: 12px;
 `;
 
 const CommunityOtaverse = styled.div`
-  width: 575px;
+  width: 588px;
   height: 312px;
   display: flex;
   flex-direction: column;
@@ -85,10 +85,10 @@ const CommunityOtaverse = styled.div`
 `;
 
 const CommunityOtaverseTitleWrapper = styled.div`
-  width: 574px;
+  width: 588px;
   height: 30px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid lightgray;
   box-sizing: border-box;
@@ -98,7 +98,7 @@ const CommunityOtaverseTitle = styled.a`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 8px;
+  padding-left: 20px;
   padding-top: 4px;
   padding-bottom: 4px;
   font-size: 16px;
@@ -181,21 +181,25 @@ const CommunityOtaverseBoxTextDate = styled.div`
 `;
 
 const CommunityOtaeminColumn = styled.div`
-  width: 574px;
+  width: 588px;
   height: 272px;
   box-sizing: border-box;
 `;
 
-const CommunityOtaeminColumnTitle = styled.div`
-  width: 574px;
+const ComuunityOtaeminColumnTitleWrapper = styled.div`
+  width: 588px;
   height: 30px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 8px;
+  border-bottom: 1px solid lightgray;
+`;
+
+const CommunityOtaeminColumnTitle = styled.div`
+  padding-left: 20px;
   font-size: 16px;
   font-weight: bold;
-  border-bottom: 1px solid lightgray;
+  height: 30px;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -299,7 +303,7 @@ const MobickCommunityTitleBox = styled.a`
   font-size: 16px;
   font-weight: bold;
   color: black;
-  padding-left: 8px;
+  padding-left: 20px;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -335,7 +339,7 @@ const MobickCommunityDetailBox = styled.a`
 
   border-bottom: 1px solid lightgray;
   & > div:nth-child(1) {
-    width: 15%;
+    width: 70px;
     height: 37px;
     display: flex;
     align-items: center;
@@ -343,22 +347,30 @@ const MobickCommunityDetailBox = styled.a`
     cursor: pointer;
   }
   & > div:nth-child(2) {
-    width: 70%;
+    width: 300px;
     height: 37px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 10px;
     cursor: pointer;
   }
   & > div:nth-child(3) {
-    width: 10%;
+    width: 100px;
     height: 37px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   & > div:nth-child(4) {
-    width: 20%;
+    width: 50px;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & > div:nth-child(5) {
+    width: 100px;
     height: 37px;
     display: flex;
     align-items: center;
@@ -376,7 +388,6 @@ const MobickCommunityTitleButtonWrapper = styled.div`
 `;
 
 const MobickCommunityLinkButton = styled.a`
-  width: 100px;
   height: 30px;
   display: flex;
   justify-content: center;
@@ -384,6 +395,7 @@ const MobickCommunityLinkButton = styled.a`
   color: #666;
   font-size: 14px;
   font-weight: bold;
+  margin-right: 20px;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -443,6 +455,9 @@ export default function CommunityMain() {
               <CommunityOtaverseTitle href="/community">
                 오태버스 최신글
               </CommunityOtaverseTitle>
+              <MobickCommunityLinkButton href="/community">
+                더보기
+              </MobickCommunityLinkButton>
             </CommunityOtaverseTitleWrapper>
             {OtaverseDetails1.map((item, index) => (
               <CommunityOtaverseBoxWrapper key={index}>
@@ -465,9 +480,14 @@ export default function CommunityMain() {
             ))}
           </CommunityOtaverse>
           <CommunityOtaeminColumn>
-            <CommunityOtaeminColumnTitle href="/community">
-              오태민 칼럼
-            </CommunityOtaeminColumnTitle>
+            <ComuunityOtaeminColumnTitleWrapper>
+              <CommunityOtaeminColumnTitle href="/community">
+                오태민 칼럼
+              </CommunityOtaeminColumnTitle>
+              <MobickCommunityLinkButton href="/community">
+                더보기
+              </MobickCommunityLinkButton>
+            </ComuunityOtaeminColumnTitleWrapper>
             <CommunityOtaeminColumnBoxDetail>
               <CommunityOtaeminColumnBoxWrapper>
                 {OtaverseDetails2.map((column, index) => {

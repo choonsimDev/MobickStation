@@ -9,6 +9,13 @@ const StyledLogoSearchWrapper = Styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
+    @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const StyledLogoBox = Styled.div`
