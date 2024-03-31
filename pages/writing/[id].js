@@ -29,6 +29,20 @@ export default function Writing() {
         }
     };
 
+    function formatDateTime(dateTimeStr) {
+        const date = new Date(dateTimeStr);
+
+        // 개별 구성요소를 추출
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0'); // getMonth()는 0부터 시작하므로 +1 필요
+        const day = date.getDate().toString().padStart(2, '0');
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+
+        // 포맷에 맞게 조합
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
+    }
+
     useEffect(() => {
         readPost();
     }, [id]); // id 값의 변화를 감지하여 변할 때마다 readPost 함수를 실행합니다.
@@ -39,14 +53,18 @@ export default function Writing() {
     return (
         <>
             <Center>
-                <h1>Writing</h1>
-                <p>Post ID: {id}</p>
                 <div>
                     {/* 포스트 데이터를 화면에 표시합니다. */}
-                    <h2>{post.title}</h2> {/* 제목 */}
-                    <p>{post.content}</p> {/* 내용 */}
+                    <h2>제목 : {post.title}</h2> {/* 제목 */}
+                    <h4>작성자 : {post.nickname}</h4> {/* 작성자 */}
+                    <h4>날짜 : {formatDateTime(post.createdAt)}</h4> {/* 날짜 */}
+                    <hr />
+                    <br />
+                    <h4>글내용</h4>
+                    <div>{post.content}</div> {/* 내용 */}
                     {/* 추가적으로, 작성자, 날짜 등의 정보가 있다면 여기에 표시할 수 있습니다. */}
                 </div>
+                <button onClick={() => router.back()}>뒤로가기</button>
             </Center>
         </>
     );
