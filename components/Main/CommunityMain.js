@@ -85,7 +85,7 @@ const CommunityOtaverse = styled.div`
   box-sizing: border-box;
 `;
 
-const CommunityOtaverseTitle = styled.a`
+const CommunityOtaverseTitleWrapper = styled.div`
   width: 574px;
   height: 30px;
   display: flex;
@@ -93,6 +93,12 @@ const CommunityOtaverseTitle = styled.a`
   align-items: center;
   border-bottom: 1px solid lightgray;
   box-sizing: border-box;
+`;
+const CommunityOtaverseTitle = styled.a`
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding-left: 8px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -277,19 +283,24 @@ const MobickCommunity = styled.div`
   margin-top: 10px;
 `;
 
-const MobickCommunityTitleBox = styled.a`
-  width: 574px;
+const MobickCommunityTitleBoxWrapper = styled.div`
+  width: 588px;
   height: 30px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
+`;
+
+const MobickCommunityTitleBox = styled.a`
+  text-decoration: none;
   justify-content: flex-start;
   align-items: center;
   font-size: 16px;
   font-weight: bold;
   color: black;
   padding-left: 8px;
-  text-decoration: none;
-  border-bottom: 1px solid lightgray;
-  box-sizing: border-box;
   cursor: pointer;
   &:hover {
     text-decoration: underline; /* Underline on hover */
@@ -302,6 +313,8 @@ const MobickCommunityDetail = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+  text-align: center;
+  align-items: flex-start;
   box-sizing: border-box;
 `;
 const MobickCommunityDetailBox = styled.a`
@@ -354,6 +367,30 @@ const MobickCommunityDetailBox = styled.a`
   }
 `;
 
+const MobickCommunityTitleButtonWrapper = styled.div`
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
+`;
+
+const MobickCommunityLinkButton = styled.a`
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+`;
+
 export default function CommunityMain() {
   const [posts, setPosts] = useState([]); // 상태를 추가
 
@@ -403,9 +440,11 @@ export default function CommunityMain() {
       <CommunityBoxWrapper>
         <CommunityLeftBox>
           <CommunityOtaverse>
-            <CommunityOtaverseTitle href="/community">
-              Otaverse 최신글
-            </CommunityOtaverseTitle>
+            <CommunityOtaverseTitleWrapper>
+              <CommunityOtaverseTitle href="/community">
+                Otaverse 최신글
+              </CommunityOtaverseTitle>
+            </CommunityOtaverseTitleWrapper>
             {OtaverseDetails1.map((item, index) => (
               <CommunityOtaverseBoxWrapper key={index}>
                 <CommunityOtaverseBoxImage
@@ -456,9 +495,14 @@ export default function CommunityMain() {
         </CommunityLeftBox>
         <CommunityRightBox>
           <MobickCommunity>
-            <MobickCommunityTitleBox href="/community">
-              토론 게시판
-            </MobickCommunityTitleBox>
+            <MobickCommunityTitleBoxWrapper>
+              <MobickCommunityTitleBox href="/community">
+                토론 게시판
+              </MobickCommunityTitleBox>
+              <MobickCommunityLinkButton href="/community">
+                더보기
+              </MobickCommunityLinkButton>
+            </MobickCommunityTitleBoxWrapper>
             <MobickCommunityDetail>
               {posts.map(
                 (
