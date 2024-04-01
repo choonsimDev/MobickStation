@@ -79,7 +79,7 @@ const MiddleTextBox = styled.div`
 `;
 
 const MiddleCustomService = styled.div`
-  width: 200px;
+  width: 230px;
   height: 150px;
   display: flex;
   flex-direction: column;

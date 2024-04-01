@@ -10,8 +10,7 @@ export const footerLinks = [
 
 export const customerServiceInfo = {
   inquiry: "CONTACT US",
-  phoneNumber: "대표번호 | 02-000-0000",
-  mallInquiry: "입점 문의 | 02-000-0000",
-  otcInquiry: "OTC 문의 | 02-000-0000",
+  phoneNumber: "대표번호 | choonsim.dev@gmail.com",
+  mallInquiry: "입점 문의 | choonsim.dev@gmail.com",
   questions: ["1:1 문의하기", "자주 묻는 질문"],
 };
