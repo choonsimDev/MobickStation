@@ -53,8 +53,9 @@ const StyledBack = styled.a`
 export default function bestProducts() {
   return (
     <StyledDiv>
-      <Header />
       <Center>
+        <Header />
+
         <LogoAndSearch />
         <StyledDiv2>
           <Banner />

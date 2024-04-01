@@ -403,8 +403,8 @@ export default function Community() {
 
   return (
     <StyledDiv>
-      <Header />
       <Center>
+        <Header />
         <LogoAndSearch />
         <CommunityBar>Community Bar</CommunityBar>
         {/* <QuillWrapper modules={modules} formats={formats} theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} /> */}

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
+import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
 
@@ -37,13 +38,15 @@ const StyledBack = styled.a`
 export default function trade() {
   return (
     <StyledDiv>
-      <Header />
-      <LogoAndSearch />
-      <StyledDiv2>
-        <h1>trade.js</h1>
-        <StyledBack href="/">돌아가기</StyledBack>
-      </StyledDiv2>
-      <Footer />
+      <Center>
+        <Header />
+        <LogoAndSearch />
+        <StyledDiv2>
+          <h1>trade page</h1>
+          <StyledBack href="/">돌아가기</StyledBack>
+        </StyledDiv2>
+        <Footer />
+      </Center>
     </StyledDiv>
   );
 }
