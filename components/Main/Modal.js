@@ -23,14 +23,15 @@ const ModalBox = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background: white;
   background-image: url(/images/wellcomeImage_01.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
   align-content: center;
   border-radius: 10px;
   border: 7px solid lightgray;
+
   & > div:nth-child(1) {
     font-size: 24px;
     font-weight: bold;
