@@ -26,7 +26,7 @@ const ModalBox = styled.div`
   background-image: url(/images/wellcomeImage_01.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left;
 
   align-content: center;
   border-radius: 10px;
