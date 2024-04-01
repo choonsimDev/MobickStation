@@ -16,25 +16,39 @@ const ModalDesign = styled.div`
 `;
 
 const ModalBox = styled.div`
-  background: white;
   padding: 20px;
-  border-radius: 10px;
   width: 500px;
   height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background: white;
+  background-image: url(/images/wellcomeImage_01.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   align-content: center;
+  border-radius: 10px;
   border: 7px solid lightgray;
   & > div:nth-child(1) {
     font-size: 24px;
     font-weight: bold;
     color: #e5821a;
+    text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff; 
   }
   & > div:nth-child(2) {
     margin-top: 30px;
     font-size: 20px;
+    text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
     line-height: 1.5;
     text-align: justify;
 
