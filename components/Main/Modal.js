@@ -42,24 +42,29 @@ const ModalBox = styled.div`
   & > div:nth-child(2) {
     margin-top: 30px;
     font-size: 20px;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
-      1px 1px 0 #fff;
+
     line-height: 1.5;
-    text-align: justify;
+    text-align: center;
   }
   & > div:nth-child(3) {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+      1px 1px 0 #fff;
   }
   & > div:nth-child(4) {
     margin-top: 6px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
   }
   & > div:nth-child(5) {
     margin-top: 20px;
     font-size: 16px;
     line-height: 1.5;
-    text-align: justify;
+    text-align: center;
   }
   & > div:nth-child(6) {
     margin-top: 30px;
