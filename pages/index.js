@@ -50,10 +50,7 @@ const Home = () => {
       <Head>
         <title>MOBICK STATION</title>
         <meta name="BTC Mobick Community" content="-" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=0.345"
-        />
+        <meta name="viewport" content="width=1200, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Center>
