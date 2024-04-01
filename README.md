@@ -9,13 +9,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 > npx prisma init
 프리즈마 폴더가 생기고 .env 파일이 생성됨
 
-> brew install planet-scale/tap/pscale
-// > brew install mysql-client
-> pscale
-> pscale auth login
-> pscale region list
-> pscale database create wallet-verification --region ap-northeast-2
-
 > npx prisma db push
 > npx prisma generate
 
