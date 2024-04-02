@@ -55,13 +55,24 @@ model dbCommunityOtaverseDetail {
 }
 
 model dbCommunityPost {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   nickname  String
   password  String
   content   String
-  thumb     Int      @default(0)
-  createdAt DateTime @default(now())
+  thumb     Int       @default(0)
+  createdAt DateTime  @default(now())
+  Comment   Comment[]
+}
+
+model Comment {
+  id        Int             @id @default(autoincrement())
+  content   String
+  nickname  String
+  password  String
+  createdAt DateTime        @default(now())
+  postId    Int
+  post      dbCommunityPost @relation(fields: [postId], references: [id])
 }
 
 // //FooterDB
