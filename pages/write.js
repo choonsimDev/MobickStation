@@ -6,6 +6,14 @@ import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
 import { useState } from "react";
 
+
+const WriteWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const EditorWrapper = styled.div`
   height: 800px;
   display: flex;
@@ -136,52 +144,54 @@ export default function Write() {
   };
 
   return (
-    <Center>
-      <Header />
-      <LogoAndSearch />
-      <AuthorInfoBox>
-        <AuthorInfo>
-          <input
-            placeholder="닉네임"
-            value={nickname}
-            onChange={ChangeNickname}
-          ></input>
-          <input
-            placeholder="비밀번호"
-            value={secret}
-            onChange={ChangeSecret}
-          ></input>
-        </AuthorInfo>
-        <Title>
-          <input
-            placeholder="제목을 입력하세요"
-            value={title}
-            onChange={ChangeTitle}
-          ></input>
-        </Title>
-      </AuthorInfoBox>
-      <EditorWrapper>
-        {/* <TextEditor GetContent={GetContent} /> */}
-        <textarea
-          placeholder="내용을 입력해주세요."
-          style={{
-            width: "610px",
-            height: "610px",
-            padding: "10px",
-            border: "1px solid #999999",
-            borderRadius: "5px",
-            fontSize: "1rem",
-            color: "#333333",
-          }}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        ></textarea>
-        <ButtonWrapper>
-          <SaveButton onClick={SaveToDB}>save</SaveButton>
-        </ButtonWrapper>
-        <StyledBack href="/">돌아가기</StyledBack>
-      </EditorWrapper>
-      <Footer />
-    </Center>
+    <WriteWrapper>
+      <Center>
+        <Header />
+        <LogoAndSearch />
+        <AuthorInfoBox>
+          <AuthorInfo>
+            <input
+              placeholder="닉네임"
+              value={nickname}
+              onChange={ChangeNickname}
+            ></input>
+            <input
+              placeholder="비밀번호"
+              value={secret}
+              onChange={ChangeSecret}
+            ></input>
+          </AuthorInfo>
+          <Title>
+            <input
+              placeholder="제목을 입력하세요"
+              value={title}
+              onChange={ChangeTitle}
+            ></input>
+          </Title>
+        </AuthorInfoBox>
+        <EditorWrapper>
+          {/* <TextEditor GetContent={GetContent} /> */}
+          <textarea
+            placeholder="내용을 입력해주세요."
+            style={{
+              width: "610px",
+              height: "610px",
+              padding: "10px",
+              border: "1px solid #999999",
+              borderRadius: "5px",
+              fontSize: "1rem",
+              color: "#333333",
+            }}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
+          <ButtonWrapper>
+            <SaveButton onClick={SaveToDB}>save</SaveButton>
+          </ButtonWrapper>
+          <StyledBack href="/">돌아가기</StyledBack>
+        </EditorWrapper>
+        <Footer />
+      </Center>
+    </WriteWrapper>
   );
 }
