@@ -6,7 +6,6 @@ import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
 import { useState } from "react";
 
-
 const WriteWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -97,7 +96,7 @@ const Title = styled.div`
   }
 `;
 
-export default function Write() {
+export default function WriteAnonymous() {
   const [title, setTitle] = useState("");
   const [nickname, setNickname] = useState("");
   const [secret, setSecret] = useState("");
@@ -118,7 +117,7 @@ export default function Write() {
   const SaveToDB = async () => {
     console.log(title, nickname, secret, content);
     try {
-      const response = await fetch("/api/setCommunityPost", {
+      const response = await fetch("/api/setAnonymousPost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -143,7 +143,7 @@ const Modal = ({ onClose }) => {
         <div>Contact : choonsim.dev@gmail.com</div>
 
         <ModalButtonWrapper>
-          {/* <button onClick={onClose}>닫기</button>
+          <button onClick={onClose}>닫기</button>
           <button
             onClick={() => {
               localStorage.setItem("hideModal", new Date().toISOString());
@@ -151,7 +151,7 @@ const Modal = ({ onClose }) => {
             }}
           >
             오늘 하루 보지 않기
-          </button> */}
+          </button>
         </ModalButtonWrapper>
       </ModalBox>
     </ModalDesign>

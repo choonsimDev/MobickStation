@@ -6,7 +6,6 @@ import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import CommunityList from "@/components/Community/CommunityList";
-
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
@@ -262,34 +261,6 @@ const LeftCommunityAD = styled.div`
   align-items: center;
   background-color: lightseagreen;
 `;
-// const LeftCommunityNews = styled.div`
-//   width: 900px;
-//   height: 200px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: lightslategray;
-// `;
-// const LeftCommunityTempWrapper = styled.div`
-//   width: 900px;
-//   height: 400px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   align-items: center;
-//   background-color: lightskyblue;
-// `;
-
-// const LeftCommunityTempBox = styled.div`
-//   width: 900px;
-//   height: 190px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   border: 1px solid lightgray;
-// `;
 
 const RightCommunity = styled.div`
   width: 300px;
@@ -331,36 +302,12 @@ const RightCommunityCategory1Best = styled.div`
   border: 1px solid lightgray;
 `;
 
-const RightCommunityCategory2Best = styled.div`
-  width: 280px;
-  height: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  border: 1px solid lightgray;
-`;
-
 const ADWrapper = styled.div`
   display: flex;
   width: 900px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-`;
-
-const StyledBack = styled.a`
-  top: 20px;
-  left: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #999999;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 export default function Community() {
@@ -382,7 +329,7 @@ export default function Community() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch("/api/dbCommunityPost/", {
+      const response = await fetch("/api/dbAnonymousPost/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -411,8 +358,8 @@ export default function Community() {
         <MainWrapper>
           <LeftCommunity>
             <LeftCommunityCategory>
-              모비커 게시판
-              <WriteButton href="/write">글쓰기</WriteButton>
+              익명 게시판
+              <WriteButton href="/write-anonymous">글쓰기</WriteButton>
             </LeftCommunityCategory>
             <LeftCommunityHotContent>
               <HotContentItem>
@@ -508,7 +455,7 @@ export default function Community() {
               RealTimeBest
             </RightCommunityRealTimeBest>
             <RightCommunityCategory1Best>
-              토론게시판 Best
+              모비커 게시판 Best
             </RightCommunityCategory1Best>
             <RightCommunityAD>AD</RightCommunityAD>
           </RightCommunity>
