@@ -28,8 +28,6 @@ const ProductsCategoryWrapper = styled.div`
   width: 100%;
   height: 50px;
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
@@ -38,8 +36,11 @@ const ProductsCategoryWrapper = styled.div`
 const ProductsCategory = styled.div`
   height: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
   font-size: 16px;
   color: #666;
   border-bottom: 1px lightgray solid;
@@ -52,6 +53,7 @@ const StyledBack = styled.a`
   align-items: center;
   font-size: 16px;
   font-weight: bold;
+  padding-right: 20px;
   color: gray;
   text-decoration: none;
   cursor: pointer;
@@ -63,7 +65,10 @@ const StyledBack = styled.a`
 const ProductImageBox = styled.div`
   width: 550px;
   height: 550px;
-  border: 1px solid lightgray;
+  margin-top: 20px;
+  display: flex;
+
+  /* border: 1px solid lightgray; */
   margin-right: 20px;
   img {
     width: 100%;
@@ -74,6 +79,7 @@ const ProductImageBox = styled.div`
 
 const ProductDetailRightBox = styled.div`
   flex: 1;
+  margin-top: 20px;
 `;
 
 const ProductTitleBox = styled.div`
@@ -174,11 +180,11 @@ export default function ProductsDetail() {
         <ProductsDetailWrapper>
           <ProductsCategoryWrapper>
             <ProductsCategory>Home / Category / Product Name</ProductsCategory>{" "}
-            <StyledBack href="/">돌아가기</StyledBack>
+            <StyledBack href="/store">돌아가기</StyledBack>
           </ProductsCategoryWrapper>
           <div style={{ display: "flex", width: "100%" }}>
             <ProductImageBox>
-              <img src="/path/to/product/image.jpg" alt="Product Image" />
+              <img src="./images/mobilet01-1.png" alt="Product Image" />
             </ProductImageBox>
             <ProductDetailRightBox>
               <ProductTitleBox>Product Title</ProductTitleBox>

@@ -120,7 +120,6 @@ const Modal = ({ onClose }) => {
       <ModalBox>
         <div> MOBICK STATION에 초대합니다. </div>
         <div>
-          {" "}
           " 봄바람이 소곤소곤 전하는 벚꽃의 속삭임처럼, 우리의 모임도 그 시작을
           알립니다. 이곳은 비트모빅 커뮤니티의 중심지, 관악산의 생기와 봄날의
           따스함이 가득한 MOBICK STATION으로 여러분을 초대합니다."
@@ -143,7 +142,7 @@ const Modal = ({ onClose }) => {
         <div>Contact : choonsim.dev@gmail.com</div>
 
         <ModalButtonWrapper>
-          {/* <button onClick={onClose}>닫기</button>
+          <button onClick={onClose}>닫기</button>
           <button
             onClick={() => {
               localStorage.setItem("hideModal", new Date().toISOString());
@@ -151,7 +150,7 @@ const Modal = ({ onClose }) => {
             }}
           >
             오늘 하루 보지 않기
-          </button> */}
+          </button>
         </ModalButtonWrapper>
       </ModalBox>
     </ModalDesign>

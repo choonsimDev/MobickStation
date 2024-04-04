@@ -3,9 +3,9 @@ import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Banner from "@/components/Main/Banner";
-import CategorySection from "@/components/Main/storeCategorySection";
-import BestProductsSection from "@/components/Main/storeBestProductsSection";
-import AllProductsSection from "../components/Main/storeAllProductsSection";
+import CategorySection from "@/components/Store/storeCategorySection";
+import BestProductsSection from "@/components/Store/storeBestProductsSection";
+import AllProductsSection from "../components/Store/storeAllProductsSection";
 import Footer from "@/components/Main/Footer";
 
 const StyledDiv = styled.div`
