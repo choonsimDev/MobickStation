@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -98,7 +99,7 @@ const MobickCommunityTitleBox = styled.div`
   }
 `;
 
-const CommunityTitleButton = styled.a`
+const CommunityTitleButton = styled.div`
   color: black;
   cursor: pointer;
   text-decoration: none;
