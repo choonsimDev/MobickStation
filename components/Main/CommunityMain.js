@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import styled from "styled-components";
 
 const StyledCommunityWrapper = styled.div`
@@ -96,11 +97,7 @@ const MobickCommunityTitleBox = styled.div`
 `;
 
 const CommunityTitleButton = styled.div`
-  cursor: pointer;
   text-decoration: none;
-  &:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
 `;
 
 const MobickCommunityDetail = styled.div`
@@ -225,17 +222,19 @@ export default function CommunityMain() {
   return (
     <StyledCommunityWrapper>
       <CommunityTitleBox>
-        <CommunityTitleButton href="/community">커뮤니티</CommunityTitleButton>
+        <CommunityTitleButton href="/community/mobicker">
+          커뮤니티
+        </CommunityTitleButton>
       </CommunityTitleBox>
 
       <CommunityBoxWrapper>
         <CommunityBox>
           <MobickCommunity>
             <MobickCommunityTitleBoxWrapper>
-              <MobickCommunityTitleBox href="/community">
+              <MobickCommunityTitleBox href="/community/mobicker">
                 모비커 게시판
               </MobickCommunityTitleBox>
-              <MobickCommunityLinkButton href="/community">
+              <MobickCommunityLinkButton href="/community/mobicker">
                 더보기
               </MobickCommunityLinkButton>
             </MobickCommunityTitleBoxWrapper>
@@ -263,17 +262,17 @@ export default function CommunityMain() {
         <CommunityBox>
           <MobickCommunity>
             <MobickCommunityTitleBoxWrapper>
-              <MobickCommunityTitleBox href="/anonymous">
+              <MobickCommunityTitleBox href="/community/anonymous">
                 익명 게시판
               </MobickCommunityTitleBox>
-              <MobickCommunityLinkButton href="/anonymous">
+              <MobickCommunityLinkButton href="/community/anonymous">
                 더보기
               </MobickCommunityLinkButton>
             </MobickCommunityTitleBoxWrapper>
             <MobickCommunityDetail>
               {anonymousPosts.map((post) => (
                 <MobickCommunityDetailBox
-                  href={`/writing/anonymous-${post.id}`}
+                  href={`/writeAnony/${post.id}`}
                   key={post.id}
                   isBold={post.isImportant}
                 >

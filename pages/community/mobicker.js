@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useSession } from "next-auth/react";
+
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
@@ -257,6 +259,18 @@ const StyledBack = styled.a`
 
 export default function CommunityMobicker() {
   const [posts, setPosts] = useState([]); // 상태를 추가
+  const { data: session } = useSession(); // 이 줄은 컴포넌트 내부에서 세션 정보를 가져옵니다.
+
+  const handleWriteButtonClick = (e) => {
+    if (!session) {
+      // 로그인 상태가 아니면 경고 메시지를 표시하고 기본 이벤트를 막습니다.
+      e.preventDefault();
+      alert("로그인을 해주세요.");
+    } else {
+      // 로그인 상태면 글쓰기 페이지로 이동합니다.
+      window.location.href = "/write-post";
+    }
+  };
 
   function formatDateTime(dateTimeStr) {
     const date = new Date(dateTimeStr);
@@ -304,7 +318,7 @@ export default function CommunityMobicker() {
           <LeftCommunity>
             <LeftCommunityCategory>
               모비커 게시판
-              <WriteButton href="/write-post">글쓰기</WriteButton>
+              <WriteButton onClick={handleWriteButtonClick}>글쓰기</WriteButton>
             </LeftCommunityCategory>
             <LeftCommunityHotContent></LeftCommunityHotContent>
             <LeftCommunityContentWrapper>

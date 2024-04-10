@@ -62,19 +62,19 @@ const SaveButton = styled.div`
 `;
 const StyledBack = styled.a`
   width: 100px;
-  height: 40px;
+  height: 50px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #999999;
+  background-color: #777777;
   font-size: 14px;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
   &:hover {
-    background-color: #777777;
+    background-color: #888888;
   }
 `;
 

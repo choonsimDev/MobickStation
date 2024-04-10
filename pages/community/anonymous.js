@@ -253,7 +253,7 @@ const ADWrapper = styled.div`
   overflow: hidden;
 `;
 
-export default function CommunityAnonymous() {
+export default function Community() {
   const [posts, setPosts] = useState([]); // 상태를 추가
 
   function formatDateTime(dateTimeStr) {
@@ -308,7 +308,7 @@ export default function CommunityAnonymous() {
             <LeftCommunityContentWrapper>
               {posts.map((post, index) => (
                 <LeftCommunityContents
-                  href={`/anonymous/${post.id}`}
+                  href={`/writeAnony/${post.id}`}
                   key={index}
                 >
                   <div>
@@ -353,7 +353,6 @@ export default function CommunityAnonymous() {
           </RightCommunity>
         </MainWrapper>
       </Center>
-
       <Footer />
     </StyledDiv>
   );

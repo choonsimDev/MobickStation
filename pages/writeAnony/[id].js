@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
 
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
@@ -156,33 +155,9 @@ const BackButton = styled.button`
   cursor: pointer;
 `;
 
-function UserProfile() {
-  const { data: session } = useSession();
-
-  if (session) {
-    return (
-      <div>
-        <p>Welcome, {session.user.name}!</p>
-        <p>Email: {session.user.email}</p>
-      </div>
-    );
-  }
-
-  return <p>You are not logged in.</p>;
-}
-
 export default function Writing() {
   const router = useRouter();
-  const { id } = router.query; // 'id'를 'useEffect' 호출 전에 선언합니다.
-  const { data: session } = useSession();
-
-  //   useEffect(() => {
-  //     if (!session) {
-  //       alert("로그인이 필요합니다.");
-  //       router.push("/login");
-  //     }
-  //     readPostAndComments();
-  //   }, [session, id]); // 이제 'id'와 'session'은 의존성 배열에서 안전하게 사용됩니다.
+  const { id } = router.query;
 
   // post 상태를 null로 초기화합니다.
   const [post, setPost] = useState(null);
@@ -196,7 +171,7 @@ export default function Writing() {
 
     // 게시물 불러오기
     try {
-      const postResponse = await fetch(`/api/getSinglePost?id=${id}`, {
+      const postResponse = await fetch(`/api/getAnonymousPost?id=${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -281,10 +256,10 @@ export default function Writing() {
         <CommunityTitle>
           <div>[모비커 게시판] : {post.title}</div>
           <div>
-            <div>작성자 : {session?.user?.name || "익명"}</div>{" "}
-            {/* 세션 정보로 작성자 표시 */}
-            <div>날짜 : {formatDateTime(post.createdAt)}</div>
+            <div>작성자 : {post.nickname}</div> {/* 작성자 */}
+            <div>날짜 : {formatDateTime(post.createdAt)}</div> {/* 날짜 */}
           </div>
+          {/* 제목 */}
         </CommunityTitle>
         <PostWrapper>
           <div style={{ whiteSpace: "pre-wrap" }}>{post.content}</div>{" "}
