@@ -6,6 +6,7 @@ import CommunityList from "@/components/Community/CommunityList";
 import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const WriteWrapper = styled.div`
   display: flex;
@@ -83,19 +84,34 @@ const AuthorInforWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 const AuthorInfoBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 10px;
   width: 900px;
 `;
+
+const AuthorName = styled.div`
+  width: 300px;
+  height: 35px;
+  padding: 0 10px;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+`;
+
 const AuthorInfo = styled.div`
   margin-top: 20px;
   display: flex;
@@ -114,7 +130,7 @@ const AuthorInfo = styled.div`
   }
 `;
 const Title = styled.div`
-  width: 800px;
+  width: 900px;
   height: 40px;
   font-size: 16px;
   input {
@@ -132,6 +148,7 @@ export default function Write() {
   const [nickname, setNickname] = useState("");
   const [secret, setSecret] = useState("");
   const [content, setContent] = useState("");
+  const { data: session } = useSession();
 
   const ChangeTitle = (e) => {
     setTitle(e.target.value);
@@ -146,7 +163,9 @@ export default function Write() {
     console.log(secret);
   };
   const SaveToDB = async () => {
-    console.log(title, nickname, secret, content);
+    const nicknameToSave = session?.user?.name || "익명";
+
+    console.log(title, nicknameToSave, secret, content);
     try {
       const response = await fetch("/api/setCommunityPost", {
         method: "POST",
@@ -155,7 +174,7 @@ export default function Write() {
         },
         body: JSON.stringify({
           title: title,
-          nickname: nickname,
+          nickname: nicknameToSave, // 사용자 세션에서 가져온 이름 사용
           password: secret,
           content: content,
         }),
@@ -167,7 +186,7 @@ export default function Write() {
       console.log(e);
     }
     setTitle("");
-    setNickname("");
+    // setNickname(""); // 이제 사용자 입력으로부터 닉네임을 설정하지 않으므로 제거
     setSecret("");
     setContent("");
     alert("게시글이 등록되었습니다.");
@@ -181,19 +200,7 @@ export default function Write() {
         <CommunityList />
         <AuthorInforWrapper>
           <AuthorInfoBox>
-            <AuthorInfo>
-              <input
-                placeholder="닉네임"
-                value={nickname}
-                onChange={ChangeNickname}
-              ></input>
-              <input
-                type="password"
-                placeholder="비밀번호"
-                value={secret}
-                onChange={ChangeSecret}
-              ></input>
-            </AuthorInfo>
+            <AuthorName>닉네임 : {session?.user?.name || "익명"}</AuthorName>
             <Title>
               <input
                 placeholder="제목을 입력하세요"
@@ -207,7 +214,7 @@ export default function Write() {
               <textarea
                 placeholder="내용을 입력해주세요."
                 style={{
-                  width: "800px",
+                  width: "900px",
                   height: "610px",
                   padding: "10px",
                   border: "1px solid #999999",

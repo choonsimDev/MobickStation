@@ -258,8 +258,9 @@ const StyledBack = styled.a`
 `;
 
 export default function CommunityMobicker() {
+  const { data: session } = useSession();
+
   const [posts, setPosts] = useState([]); // 상태를 추가
-  const { data: session } = useSession(); // 이 줄은 컴포넌트 내부에서 세션 정보를 가져옵니다.
 
   const handleWriteButtonClick = (e) => {
     if (!session) {

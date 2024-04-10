@@ -173,16 +173,8 @@ function UserProfile() {
 
 export default function Writing() {
   const router = useRouter();
-  const { id } = router.query; // 'id'를 'useEffect' 호출 전에 선언합니다.
-  const { data: session } = useSession();
 
-  //   useEffect(() => {
-  //     if (!session) {
-  //       alert("로그인이 필요합니다.");
-  //       router.push("/login");
-  //     }
-  //     readPostAndComments();
-  //   }, [session, id]); // 이제 'id'와 'session'은 의존성 배열에서 안전하게 사용됩니다.
+  const { id } = router.query;
 
   // post 상태를 null로 초기화합니다.
   const [post, setPost] = useState(null);
@@ -281,10 +273,10 @@ export default function Writing() {
         <CommunityTitle>
           <div>[모비커 게시판] : {post.title}</div>
           <div>
-            <div>작성자 : {session?.user?.name || "익명"}</div>{" "}
-            {/* 세션 정보로 작성자 표시 */}
-            <div>날짜 : {formatDateTime(post.createdAt)}</div>
+            <div>작성자 : {post.nickname}</div> {/* 작성자 */}
+            <div>날짜 : {formatDateTime(post.createdAt)}</div> {/* 날짜 */}
           </div>
+          {/* 제목 */}
         </CommunityTitle>
         <PostWrapper>
           <div style={{ whiteSpace: "pre-wrap" }}>{post.content}</div>{" "}

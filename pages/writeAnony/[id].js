@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+const { data: session } = useSession();
 
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
