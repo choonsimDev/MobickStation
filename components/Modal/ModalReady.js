@@ -2,8 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 
 const ModalDesign = styled.div`
-  position: absolute;
-  top: -200px;
+  position: fixed;
   left: 0;
   width: 100%;
   height: 100%;
@@ -11,6 +10,7 @@ const ModalDesign = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.1);
 `;
 
 const ModalBox = styled.div`
@@ -24,7 +24,7 @@ const ModalBox = styled.div`
   justify-content: center;
   text-align: center;
   align-content: center;
-  border: 7px solid lightgray;
+  border: 7px solid gray;
 
   & > div:nth-child(1) {
     font-size: 18px;

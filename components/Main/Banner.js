@@ -28,7 +28,6 @@ const BannerTitle = styled.a`
   margin-top: 20px;
   font-size: 20px;
   font-weight: bold;
-  color: gray;
   text-decoration: none;
   cursor: pointer;
   &:hover {
@@ -55,7 +54,6 @@ const MainCategoryItem = styled.a`
   margin-left: 10px;
   font-size: 14px;
   text-align: left;
-  color: black; /* 링크의 기본 색상 변경 */
   text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
 `;
@@ -76,18 +74,19 @@ const DetailCategoryItem = styled.a`
   font-size: 14px;
   /* font-weight: bold; */
   text-align: left;
-  color: black; /* 링크의 기본 색상 변경 */
+  color: #333333; /* 링크의 기본 색상 변경 */
   text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   &:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
+    font-size: border;
   }
 `;
 
 const MainBanner = styled.div`
   width: 960px;
   height: 100%;
-  background-color: lightgray;
+  background-color: #777;
 `;
 
 const MainBannerImgBox = styled.a`
@@ -110,6 +109,7 @@ export default function Banner() {
         <MainCategory>
           {Object.keys(detailCategories).map((category, idx) => (
             <MainCategoryItem
+              href="/store"
               key={idx}
               onMouseEnter={() => setSelectedCategory(category)}
               // onMouseLeave={() => setSelectedCategory(null)}

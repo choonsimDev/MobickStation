@@ -46,7 +46,6 @@ const NoticeText = styled.a`
 
 const CommunityBoxWrapper = styled.div`
   width: 1200px;
-  height: 570px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,7 +54,6 @@ const CommunityBoxWrapper = styled.div`
 
 const CommunityBox = styled.div`
   width: 588px;
-  height: 570px;
   border-right: none; // 왼쪽 테두리 제거
   display: flex;
   flex-direction: column;
@@ -65,7 +63,6 @@ const CommunityBox = styled.div`
 `;
 const MobickCommunity = styled.div`
   width: 588px;
-  height: 570px;
   border-bottom: none;
   display: flex;
   flex-direction: column;
@@ -76,7 +73,7 @@ const MobickCommunity = styled.div`
 
 const MobickCommunityTitleBoxWrapper = styled.div`
   width: 588px;
-  height: 30px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -91,16 +88,14 @@ const MobickCommunityTitleBox = styled.div`
   font-size: 16px;
   font-weight: bold;
   padding-left: 20px;
-  color: black;
   cursor: pointer;
   text-decoration: none;
   &:hover {
-    text-decoration: underline; /* Underline on hover */
+    color: #f6931a;
   }
 `;
 
 const CommunityTitleButton = styled.div`
-  color: black;
   cursor: pointer;
   text-decoration: none;
   &:hover {
@@ -117,23 +112,22 @@ const MobickCommunityDetail = styled.div`
   text-align: center;
   align-items: flex-start;
   box-sizing: border-box;
+  & :hover {
+    background-color: #f5f5f5;
+  }
 `;
 const MobickCommunityDetailBox = styled.a`
   width: 588px;
-  height: 37px;
+  height: 40px;
   display: flex;
   align-items: flex-start;
   flex-direction: row;
   justify-content: flex-start;
   font-size: 14px;
-  color: black;
   text-decoration: none;
   box-sizing: border-box;
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   background-color: ${(props) => (props.isBold ? "whitesmoke" : "transparent")};
-  &:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
 
   border-bottom: 1px solid lightgray;
   & > div:nth-child(1) {
@@ -206,11 +200,10 @@ export default function CommunityMain() {
       });
       const data = await response.json();
 
-      // 날짜를 기준으로 내림차순 정렬
+      // 날짜 내림차순 정렬
       const sortedData = data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-      // 최대 14개의 게시글만 선택
       setPosts(sortedData.slice(0, 14));
     }
 
@@ -255,7 +248,6 @@ export default function CommunityMain() {
                   <MobickCommunityDetailBox
                     href={`/writing/${post.id}`}
                     key={index}
-                    isBold={index < 3}
                   >
                     <div>{post.id}</div>
                     <div>{post.title}</div>
@@ -281,7 +273,7 @@ export default function CommunityMain() {
             <MobickCommunityDetail>
               {anonymousPosts.map((post) => (
                 <MobickCommunityDetailBox
-                  href={`/writing/${post.id}`}
+                  href={`/writing/anonymous-${post.id}`}
                   key={post.id}
                   isBold={post.isImportant}
                 >

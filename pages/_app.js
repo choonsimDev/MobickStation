@@ -26,11 +26,14 @@ const GlobalStyle = createGlobalStyle`
     src: url('/fonts/AppleSDGothicNeoB.ttf') format('truetype');
     font-weight: 700; /* Bold */
   }
+
   
   * { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+      color: black;
+
   }
   *,*::before,*::after {
     box-sizing: border-box;

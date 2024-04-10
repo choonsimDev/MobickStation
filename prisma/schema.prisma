@@ -72,3 +72,11 @@ model CommentAnonymous {
   createdAt DateTime @default(now())
   postId    Int
 }
+
+model dbNotice {
+  id        Int      @id @default(autoincrement())
+  title     String
+  nickname  String
+  content   String
+  createdAt DateTime @default(now())
+}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Modal from "@/components/Main/Modal";
-
+import Modal from "@/components/Modal/Modal";
 import Head from "next/head";
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
@@ -13,10 +12,10 @@ import Products from "@/components/Main/Products";
 import CommunityMain from "@/components/Main/CommunityMain";
 
 import AdArea from "@/components/Main/AdArea";
-import MobiletOtc from "@/components/Main/MobiletOtc";
-import WinwinMarket from "@/components/Main/WinwinMarket";
-import TodakAndNews from "@/components/Main/TodakAndNews";
-import AdAndInterview from "@/components/Main/AdAndInterview";
+import MobiletOtc from "@/components/Unused/MobiletOtc";
+import WinwinMarket from "@/components/Unused/WinwinMarket";
+import TodakAndNews from "@/components/Unused/TodakAndNews";
+import AdAndInterview from "@/components/Unused/AdAndInterview";
 
 import Footer from "@/components/Main/Footer";
 

@@ -5,7 +5,7 @@ import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Banner from "@/components/Main/Banner";
 import CategorySection from "@/components/Store/storeCategorySection";
 import BestProductsSection from "@/components/Store/storeBestProductsSection";
-import AllProductsSection from "../components/Store/storeAllProductsSection";
+import AllProductsSection from "@/components/Store/storeAllProductsSection";
 import Footer from "@/components/Main/Footer";
 
 const StyledDiv = styled.div`

@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
 import React, { useState } from "react";
-import ModalReady from "./ModalReady";
+import ModalReady from "../Modal/ModalReady";
 // import Link from "next/link";
 // import Image from "next/image";
 
@@ -169,13 +169,13 @@ export default function LogoAndSearch() {
         <StyledSearchWrapper>
           <StyledInput placeholder="비트모빅 종이지갑"></StyledInput>
           <div>
-            <IoSearchOutline />
+            <IoSearchOutline onClick={showModal} />
           </div>
         </StyledSearchWrapper>
       </StyledLogoBox>
       <StyledNavigation>
         <div>
-          <StyledLinkFirst href="/community">커뮤니티</StyledLinkFirst>
+          <StyledLinkFirst href="/community/mobicker">커뮤니티</StyledLinkFirst>
           <StyledLink onClick={showModal}>베스트</StyledLink>
           <StyledLink onClick={showModal}>신상품</StyledLink>
           <StyledLink onClick={showModal}>이벤트</StyledLink>

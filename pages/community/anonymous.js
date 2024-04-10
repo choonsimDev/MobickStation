@@ -6,7 +6,6 @@ import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import CommunityList from "@/components/Community/CommunityList";
-
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
@@ -17,16 +16,6 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-const CommunityBar = styled.div`
-  width: 1200px;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f5f5;
 `;
 
 const MainWrapper = styled.div`
@@ -84,59 +73,18 @@ const LeftCommunityHotContent = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 10px 0px 10px 0px;
-`;
-
-const HotContentItem = styled.div`
-  width: 200px;
-  height: 170px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid lightgray;
-  position: relative;
-  cursor: pointer;
-`;
-
-const HotContentItemImage = styled.div`
-  width: 200px;
-  height: 170px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid black;
-  position: absolute;
-  cursor: pointer;
-  &:hover {
-    background-color: #f5f5f5;
-  }
-`;
-
-const HotContentItemTitle = styled.div`
-  width: 200px;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  bottom: 0px;
-  & > div {
-    color: white;
-  }
+  background-color: #f5f5f5;
 `;
 
 const LeftCommunityContentWrapper = styled.div`
   width: 900px;
-  height: 1100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   & :hover {
     background-color: #f5f5f5;
   }
-  /* background-color: pink; */
 `;
 
 const LeftCommunityContents = styled.a`
@@ -144,7 +92,7 @@ const LeftCommunityContents = styled.a`
   height: 52px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border-top: 1px solid lightgray;
   color: black;
@@ -253,43 +201,6 @@ const LeftCommunityContentsPageButton = styled.div`
     background-color: #ddd;
   }
 `;
-const LeftCommunityAD = styled.div`
-  width: 900px;
-  height: 230px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: lightseagreen;
-`;
-// const LeftCommunityNews = styled.div`
-//   width: 900px;
-//   height: 200px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: lightslategray;
-// `;
-// const LeftCommunityTempWrapper = styled.div`
-//   width: 900px;
-//   height: 400px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   align-items: center;
-//   background-color: lightskyblue;
-// `;
-
-// const LeftCommunityTempBox = styled.div`
-//   width: 900px;
-//   height: 190px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   border: 1px solid lightgray;
-// `;
 
 const RightCommunity = styled.div`
   width: 300px;
@@ -307,6 +218,7 @@ const RightCommunityRealTimeBest = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid lightgray;
+  background-color: #f5f5f5;
 `;
 
 const RightCommunityAD = styled.div`
@@ -318,6 +230,7 @@ const RightCommunityAD = styled.div`
   align-items: center;
   margin-top: 10px;
   border: 1px solid lightgray;
+  background-color: #f5f5f5;
 `;
 
 const RightCommunityCategory1Best = styled.div`
@@ -329,17 +242,7 @@ const RightCommunityCategory1Best = styled.div`
   align-items: center;
   margin-top: 10px;
   border: 1px solid lightgray;
-`;
-
-const RightCommunityCategory2Best = styled.div`
-  width: 280px;
-  height: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  border: 1px solid lightgray;
+  background-color: #f5f5f5;
 `;
 
 const ADWrapper = styled.div`
@@ -350,20 +253,7 @@ const ADWrapper = styled.div`
   overflow: hidden;
 `;
 
-const StyledBack = styled.a`
-  top: 20px;
-  left: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #999999;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-export default function Community() {
+export default function CommunityAnonymous() {
   const [posts, setPosts] = useState([]); // 상태를 추가
 
   function formatDateTime(dateTimeStr) {
@@ -382,7 +272,7 @@ export default function Community() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch("/api/dbCommunityPost/", {
+      const response = await fetch("/api/dbAnonymousPost/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -411,76 +301,28 @@ export default function Community() {
         <MainWrapper>
           <LeftCommunity>
             <LeftCommunityCategory>
-              모비커 게시판
-              <WriteButton href="/write">글쓰기</WriteButton>
+              익명 게시판
+              <WriteButton href="/write-anonymous">글쓰기</WriteButton>
             </LeftCommunityCategory>
-            <LeftCommunityHotContent>
-              <HotContentItem>
-                <HotContentItemImage>
-                  Contents Image
-                  <HotContentItemTitle>
-                    <div>인기 게시글</div>
-                  </HotContentItemTitle>
-                </HotContentItemImage>
-              </HotContentItem>
-              <HotContentItem>
-                <HotContentItemImage>
-                  Contents Image
-                  <HotContentItemTitle>
-                    <div>인기 게시글</div>
-                  </HotContentItemTitle>
-                </HotContentItemImage>
-              </HotContentItem>
-              <HotContentItem>
-                <HotContentItemImage>
-                  Contents Image
-                  <HotContentItemTitle>
-                    <div>인기 게시글</div>
-                  </HotContentItemTitle>
-                </HotContentItemImage>
-              </HotContentItem>
-              <HotContentItem>
-                <HotContentItemImage>
-                  Contents Image
-                  <HotContentItemTitle>
-                    <div>인기 게시글</div>
-                  </HotContentItemTitle>
-                </HotContentItemImage>
-              </HotContentItem>
-            </LeftCommunityHotContent>
+            <LeftCommunityHotContent></LeftCommunityHotContent>
             <LeftCommunityContentWrapper>
-              {posts.map(
-                (
-                  post,
-                  index // API에서 가져온 데이터를 매핑하여 표시
-                ) => (
-                  <LeftCommunityContents
-                    href={`/writing/${post.id}`}
-                    key={index}
-                  >
-                    <div>
-                      <div>{post.id}</div>
-                      <div>image</div>
-                      <div>{post.title}</div>
-                    </div>
-                    <div>
-                      <div>{post.nickname}</div>
-                      <div>{post.thumb}</div>
-                      <div>{formatDateTime(post.createdAt)}</div>
-                    </div>
-                  </LeftCommunityContents>
-                )
-              )}
-
-              {/* <div>
-                  <div>Image</div>
-                  <div>Title</div>
-                  <div>[Comment]</div>
-                </div>
-                <div>
-                  <div>ID</div>
-                  <div>Date</div>
-                </div> */}
+              {posts.map((post, index) => (
+                <LeftCommunityContents
+                  href={`/anonymous/${post.id}`}
+                  key={index}
+                >
+                  <div>
+                    <div>{post.id}</div>
+                    <img src="/images/img-none.png" alt="img" width={20} />
+                    <div>{post.title}</div>
+                  </div>
+                  <div>
+                    <div>{post.nickname}</div>
+                    <div>{post.thumb}</div>
+                    <div>{formatDateTime(post.createdAt)}</div>
+                  </div>
+                </LeftCommunityContents>
+              ))}
             </LeftCommunityContentWrapper>
             <LeftCommunityContentsPageButton>
               <span>1</span>
@@ -491,6 +333,7 @@ export default function Community() {
               <span>6</span>
               <span>7</span>
               <span>8</span>
+              <span>9</span>
               <span>10</span>
               <span className="next">▶</span>
             </LeftCommunityContentsPageButton>
@@ -504,13 +347,9 @@ export default function Community() {
           </LeftCommunityTempWrapper> */}
           </LeftCommunity>
           <RightCommunity>
-            <RightCommunityRealTimeBest>
-              RealTimeBest
-            </RightCommunityRealTimeBest>
-            <RightCommunityCategory1Best>
-              토론게시판 Best
-            </RightCommunityCategory1Best>
-            <RightCommunityAD>AD</RightCommunityAD>
+            <RightCommunityRealTimeBest></RightCommunityRealTimeBest>
+
+            <RightCommunityAD>AD Link</RightCommunityAD>
           </RightCommunity>
         </MainWrapper>
       </Center>

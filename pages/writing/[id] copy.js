@@ -5,6 +5,8 @@ import Center from "@/components/Main/Center";
 export default function AnonymousWriting() {
   const router = useRouter();
   const { id } = router.query;
+  // "anonymous-" 접두사를 제거하여 순수한 게시글 ID를 얻습니다.
+  const postId = id.startsWith("anonymous-") ? id.slice(11) : id;
 
   // post 상태를 null로 초기화합니다.
   const [post, setPost] = useState(null);
@@ -14,11 +16,11 @@ export default function AnonymousWriting() {
   const [comments, setComments] = useState([]);
 
   const readPostAndComments = async () => {
-    if (!id) return; // id가 없다면 함수를 실행하지 않습니다.
+    if (!postId) return; // 수정된 postId가 없다면 함수를 실행하지 않습니다.
 
     // 게시물 불러오기
     try {
-      const postResponse = await fetch(`/api/getSinglePost?id=${id}`, {
+      const postResponse = await fetch(`/api/getAnonymousPost?id=${postId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -35,17 +37,20 @@ export default function AnonymousWriting() {
 
     // 댓글 불러오기
     try {
-      const commentsResponse = await fetch(`/api/getComments?postId=${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const commentsResponse = await fetch(
+        `/api/getComments?postId=${postId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!commentsResponse.ok) {
         throw new Error("Network response was not ok");
       }
       const commentsData = await commentsResponse.json();
-      setComments(commentsData); // 받아온 댓글 데이터로 comments 상태를 업데이트합니다.
+      setComments(commentsData);
     } catch (e) {
       console.error("Failed to load comments:", e);
     }
@@ -60,54 +65,34 @@ export default function AnonymousWriting() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ postId: id, content: comment }),
+        body: JSON.stringify({ postId: postId, content: comment }),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       setComment(""); // 댓글 제출 후 입력 필드 초기화
-      // 여기서 댓글 목록을 다시 불러오는 로직을 추가할 수 있습니다.
     } catch (e) {
       console.error(e);
     }
   };
 
-  // 날짜 포맷 함수
-  function formatDateTime(dateTimeStr) {
-    const date = new Date(dateTimeStr);
-
-    // 개별 구성요소를 추출
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // getMonth()는 0부터 시작하므로 +1 필요
-    const day = date.getDate().toString().padStart(2, "0");
-    const hours = date.getHours().toString().padStart(2, "0");
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-
-    // 포맷에 맞게 조합
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
-  }
-
   useEffect(() => {
     readPostAndComments();
-  }, [id]); // id 값의 변화를 감지하여 변할 때마다 readPost 함수를 실행합니다.
+  }, [postId]);
 
-  // 로딩 상태 처리를 위해 post가 null인 경우 로딩 메시지를 표시합니다.
   if (!post) return <div>Loading...</div>;
 
   return (
     <>
       <Center>
         <div>
-          {/* 포스트 데이터를 화면에 표시합니다. */}
-          <h2>제목 : {post.title}</h2> {/* 제목 */}
-          <h4>작성자 : {post.nickname}</h4> {/* 작성자 */}
-          <h4>날짜 : {formatDateTime(post.createdAt)}</h4> {/* 날짜 */}
+          <h2>제목 : {post.title}</h2>
+          <h4>작성자 : {post.nickname}</h4>
+          <h4>날짜 : {formatDateTime(post.createdAt)}</h4>
           <hr />
           <br />
           <h4>글내용</h4>
-          <div style={{ whiteSpace: "pre-wrap" }}>{post.content}</div>{" "}
-          {/* 내용 */}
-          {/* 추가적으로, 작성자, 날짜 등의 정보가 있다면 여기에 표시할 수 있습니다. */}
+          <div style={{ whiteSpace: "pre-wrap" }}>{post.content}</div>
         </div>
         <div>
           <textarea
@@ -118,7 +103,6 @@ export default function AnonymousWriting() {
           ></textarea>
           <button onClick={submitComment}>댓글 작성</button>
         </div>
-        {/* 댓글 목록 표시 */}
         <div>
           <h3>댓글</h3>
           {comments.length > 0 ? (
@@ -139,4 +123,14 @@ export default function AnonymousWriting() {
       </Center>
     </>
   );
+}
+
+function formatDateTime(dateTimeStr) {
+  const date = new Date(dateTimeStr);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  return `${year}-${month}-${day} ${hours}:${minutes}`;
 }

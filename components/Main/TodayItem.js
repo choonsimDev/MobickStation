@@ -23,7 +23,7 @@ const StyledShopTitle = styled.a`
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-  color: gray;
+  color: #333333;
   padding-left: 20px;
   margin-top: 10px;
   border-bottom: 1px solid lightgray;

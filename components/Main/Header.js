@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-import ModalReady from "./ModalReady";
+import ModalReady from "@/components/Modal/ModalReady";
 import AuthButtons from "@/components/Main/AuthButtons";
 
 const HeaderWrapper = styled.div`
@@ -73,7 +73,7 @@ export default function Header() {
             <StyledLink href="/store">굿즈</StyledLink>
             <StyledLink href="/store">식품</StyledLink>
             <StyledLink href="/store">패션</StyledLink>
-            <StyledLink href="/community">커뮤니티</StyledLink>
+            <StyledLink href="/community/mobicker">커뮤니티</StyledLink>
             {/* <StyledLink href="/preparing">모빅정보</StyledLink> */}
           </div>
           <div>
