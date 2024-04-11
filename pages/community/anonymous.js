@@ -345,7 +345,6 @@ export default function Community() {
         <Header />
         <LogoAndSearch />
         <CommunityList />
-        {/* <QuillWrapper modules={modules} formats={formats} theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} /> */}
         <MainWrapper>
           <LeftCommunity>
             <LeftCommunityCategory>
