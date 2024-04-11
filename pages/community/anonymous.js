@@ -321,15 +321,20 @@ export default function Community() {
     fetchPosts();
   }, []);
 
-
   // 현재 페이지에 따라 표시할 게시물 계산
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost); // 수정: 이 부분이 중요합니다.
   // 페이지 변경 이벤트 핸들러
-  const paginate = pageNumber => setCurrentPage(pageNumber);
-  const nextPage = () => setCurrentPage(currentPage < Math.ceil(posts.length / postsPerPage) ? currentPage + 1 : currentPage);
-  const prevPage = () => setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPage = () =>
+    setCurrentPage(
+      currentPage < Math.ceil(posts.length / postsPerPage)
+        ? currentPage + 1
+        : currentPage
+    );
+  const prevPage = () =>
+    setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
   // 페이지 번호 배열 생성
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
@@ -349,7 +354,9 @@ export default function Community() {
           <LeftCommunity>
             <LeftCommunityCategory>
               익명 게시판
-              <WriteButton href="/write-anonymous">글쓰기</WriteButton>
+              <WriteButton href="/community/write-anonymous">
+                글쓰기
+              </WriteButton>
             </LeftCommunityCategory>
             <LeftCommunityHotContent></LeftCommunityHotContent>
             <LeftCommunityContentWrapper>
@@ -372,15 +379,27 @@ export default function Community() {
               ))}
             </LeftCommunityContentWrapper>
             <PaginationWrapper>
-              <span className={currentPage === 1 ? 'disabled' : 'page-item'} onClick={() => prevPage()}>
+              <span
+                className={currentPage === 1 ? "disabled" : "page-item"}
+                onClick={() => prevPage()}
+              >
                 이전
               </span>
-              {pageNumbers.map(number => (
-                <span key={number} className="page-item" onClick={() => paginate(number)}>
+              {pageNumbers.map((number) => (
+                <span
+                  key={number}
+                  className="page-item"
+                  onClick={() => paginate(number)}
+                >
                   {number}
                 </span>
               ))}
-              <span className={currentPage === pageNumbers.length ? 'disabled' : 'page-item'} onClick={() => nextPage()}>
+              <span
+                className={
+                  currentPage === pageNumbers.length ? "disabled" : "page-item"
+                }
+                onClick={() => nextPage()}
+              >
                 다음
               </span>
             </PaginationWrapper>

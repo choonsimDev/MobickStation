@@ -171,7 +171,7 @@ export default function Writing() {
 
     // 게시물 불러오기
     try {
-      const postResponse = await fetch(`/api/getAnonymousPost?id=${id}`, {
+      const postResponse = await fetch(`/api/getNoticePost?id=${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -254,7 +254,7 @@ export default function Writing() {
         <LogoAndSearch />
         <CommunityList />
         <CommunityTitle>
-          <div>[익명 게시판] : {post.title}</div>
+          <div>[공지사항] : {post.title}</div>
           <div>
             <div>작성자 : {post.nickname}</div> {/* 작성자 */}
             <div>날짜 : {formatDateTime(post.createdAt)}</div> {/* 날짜 */}

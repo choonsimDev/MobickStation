@@ -269,7 +269,7 @@ export default function CommunityMobicker() {
       alert("로그인을 해주세요.");
     } else {
       // 로그인 상태면 글쓰기 페이지로 이동합니다.
-      window.location.href = "/write-post";
+      window.location.href = "/community/write-post";
     }
   };
 

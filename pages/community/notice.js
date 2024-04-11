@@ -310,7 +310,7 @@ export default function CommunityNotice() {
                   index // API에서 가져온 데이터를 매핑하여 표시
                 ) => (
                   <LeftCommunityContents
-                    href={`/notice/${post.id}`}
+                    href={`/writeNotice/${post.id}`}
                     key={index}
                   >
                     <div>
