@@ -7,6 +7,8 @@ import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import CommunityList from "@/components/Community/CommunityList";
 
+import Pagination from "@/components/Pagination";
+
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
@@ -257,6 +259,9 @@ const StyledBack = styled.a`
 
 export default function CommunityNotice() {
   const [posts, setPosts] = useState([]); // 상태를 추가
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(20);
+  const [isLoading, setIsLoading] = useState(true);
 
   function formatDateTime(dateTimeStr) {
     const date = new Date(dateTimeStr);
@@ -287,11 +292,45 @@ export default function CommunityNotice() {
       const sortedData = data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-      setPosts(sortedData.slice(0, 20));
+      setPosts(sortedData);
+      setIsLoading(false); // 데이터 로딩 완료
     }
     fetchPosts();
   }, []);
 
+  // 현재 페이지에 따라 표시할 게시물 계산
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost); // 수정: 이 부분이 중요합니다.
+  // 페이지 변경 이벤트 핸들러
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPage = () =>
+    setCurrentPage(
+      currentPage < Math.ceil(posts.length / postsPerPage)
+        ? currentPage + 1
+        : currentPage
+    );
+  const prevPage = () =>
+    setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
+  // 페이지 번호 배열 생성
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  // 페이지 그룹 이동
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const nextPageGroup = () => {
+    const newPage = Math.min(currentPage + 10, totalPages);
+    setCurrentPage(newPage);
+  };
+
+  const prevPageGroup = () => {
+    const newPage = Math.max(currentPage - 10, 1);
+    setCurrentPage(newPage);
+  };
   return (
     <StyledDiv>
       <Center>
@@ -327,19 +366,13 @@ export default function CommunityNotice() {
                 )
               )}
             </LeftCommunityContentWrapper>
-            <LeftCommunityContentsPageButton>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <span>6</span>
-              <span>7</span>
-              <span>8</span>
-              <span>9</span>
-              <span>10</span>
-              <span className="next">▶</span>
-            </LeftCommunityContentsPageButton>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              paginate={paginate}
+              nextPageGroup={nextPageGroup}
+              prevPageGroup={prevPageGroup}
+            />
             <ADWrapper>
               <AdArea />
             </ADWrapper>

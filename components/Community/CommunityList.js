@@ -39,7 +39,7 @@ export default function CommunityList() {
       <StyledLink href="/community/notice">공지사항</StyledLink>
       <StyledLink href="/community/mobicker">모비커 게시판 </StyledLink>
       <StyledLink href="/community/anonymous">익명 게시판</StyledLink>
-      <StyledLink href="/info">정보 게시판</StyledLink>
+      {/* <StyledLink href="/community/trade">거래 게시판</StyledLink> */}
     </ListWrapper>
   );
 }

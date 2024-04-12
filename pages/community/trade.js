@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+// import { useSession } from "next-auth/react";
+
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import CommunityList from "@/components/Community/CommunityList";
+
 import Pagination from "@/components/Pagination";
+
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
@@ -81,11 +85,12 @@ const LeftCommunityContentWrapper = styled.div`
   width: 900px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   & :hover {
     background-color: #f5f5f5;
   }
+  /* background-color: pink; */
 `;
 
 const LeftCommunityContents = styled.a`
@@ -93,7 +98,7 @@ const LeftCommunityContents = styled.a`
   height: 52px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   border-top: 1px solid lightgray;
   color: black;
@@ -127,7 +132,7 @@ const LeftCommunityContents = styled.a`
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding-left: 10px;
+      padding-left: 15px;
       cursor: pointer;
     }
     & > div:nth-child(4) {
@@ -180,10 +185,10 @@ const LeftCommunityContentsPageButton = styled.div`
   align-items: center;
   border-top: 1px solid lightgray;
   & > span {
-    margin: 0 5px; /* 페이지 번호 사이의 간격 */
-    padding: 5px 10px; /* 페이지 번호의 패딩 */
+    margin: 0 5px;
+    padding: 5px 10px;
     cursor: pointer;
-    user-select: none; /* 텍스트 선택 방지 */
+    user-select: none;
   }
 
   & > span:hover {
@@ -202,7 +207,6 @@ const LeftCommunityContentsPageButton = styled.div`
     background-color: #ddd;
   }
 `;
-
 const RightCommunity = styled.div`
   width: 300px;
   display: flex;
@@ -234,18 +238,6 @@ const RightCommunityAD = styled.div`
   background-color: #f5f5f5;
 `;
 
-const RightCommunityCategory1Best = styled.div`
-  width: 280px;
-  height: 430px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  border: 1px solid lightgray;
-  background-color: #f5f5f5;
-`;
-
 const ADWrapper = styled.div`
   display: flex;
   width: 900px;
@@ -253,7 +245,6 @@ const ADWrapper = styled.div`
   align-items: center;
   overflow: hidden;
 `;
-
 const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -279,163 +270,35 @@ const PaginationWrapper = styled.div`
   }
 `;
 
-export default function Community() {
-  const [posts, setPosts] = useState([]); // 상태를 추가
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
-  const [isLoading, setIsLoading] = useState(true);
-
-  function formatDateTime(dateTimeStr) {
-    const date = new Date(dateTimeStr);
-
-    // 개별 구성요소를 추출
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // getMonth()는 0부터 시작하므로 +1 필요
-    const day = date.getDate().toString().padStart(2, "0");
-    const hours = date.getHours().toString().padStart(2, "0");
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-
-    // 포맷에 맞게 조합
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
-  }
-
-  useEffect(() => {
-    async function fetchPosts() {
-      const response = await fetch("/api/dbAnonymousPost/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: "POST" }),
-      });
-      const data = await response.json();
-
-      // 날짜를 기준으로 내림차순 정렬
-      const sortedData = data.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-      setPosts(sortedData);
-      setIsLoading(false); // 데이터 로딩 완료
-    }
-    fetchPosts();
-  }, []);
-
-  // 현재 페이지에 따라 표시할 게시물 계산
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost); // 수정: 이 부분이 중요합니다.
-  // 페이지 변경 이벤트 핸들러
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const nextPage = () =>
-    setCurrentPage(
-      currentPage < Math.ceil(posts.length / postsPerPage)
-        ? currentPage + 1
-        : currentPage
-    );
-  const prevPage = () =>
-    setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
-  // 페이지 번호 배열 생성
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  // 페이지 그룹 이동
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-  const nextPageGroup = () => {
-    const newPage = Math.min(currentPage + 10, totalPages);
-    setCurrentPage(newPage);
-  };
-
-  const prevPageGroup = () => {
-    const newPage = Math.max(currentPage - 10, 1);
-    setCurrentPage(newPage);
-  };
-
+export default function CommunityTrade() {
   return (
     <StyledDiv>
       <Center>
         <Header />
         <LogoAndSearch />
         <CommunityList />
+        {/* <QuillWrapper modules={modules} formats={formats} theme="snow" placeholder='내용을 입력해주세요' value={value} onChange={setValue} /> */}
         <MainWrapper>
           <LeftCommunity>
-            <LeftCommunityCategory>
-              익명 게시판
-              <WriteButton href="/community/write-anonymous">
-                글쓰기
-              </WriteButton>
-            </LeftCommunityCategory>
+            <LeftCommunityCategory>거래 게시판</LeftCommunityCategory>
             <LeftCommunityHotContent></LeftCommunityHotContent>
             <LeftCommunityContentWrapper>
-              {currentPosts.map((post, index) => (
-                <LeftCommunityContents
-                  href={`/writeAnony/${post.id}`}
-                  key={index}
-                >
-                  <div>
-                    <div>{post.id}</div>
-                    <img src="/images/img-none.png" alt="img" width={20} />
-                    <div>{post.title}</div>
-                  </div>
-                  <div>
-                    <div>{post.nickname}</div>
-                    <div>{post.thumb}</div>
-                    <div>{formatDateTime(post.createdAt)}</div>
-                  </div>
-                </LeftCommunityContents>
-              ))}
+              <LeftCommunityContents></LeftCommunityContents>
             </LeftCommunityContentWrapper>
-            {/* <PaginationWrapper>
-              <span
-                className={currentPage === 1 ? "disabled" : "page-item"}
-                onClick={() => prevPage()}
-              >
-                이전
-              </span>
-              {pageNumbers.map((number) => (
-                <span
-                  key={number}
-                  className="page-item"
-                  onClick={() => paginate(number)}
-                >
-                  {number}
-                </span>
-              ))}
-              <span
-                className={
-                  currentPage === pageNumbers.length ? "disabled" : "page-item"
-                }
-                onClick={() => nextPage()}
-              >
-                다음
-              </span>
-            </PaginationWrapper> */}
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              paginate={paginate}
-              nextPageGroup={nextPageGroup}
-              prevPageGroup={prevPageGroup}
-            />
+            <div>페이지 준비중입니다.</div>
             <ADWrapper>
               <AdArea />
             </ADWrapper>
-            {/* <LeftCommunityNews>News</LeftCommunityNews> */}
-            {/* <LeftCommunityTempWrapper>
-            <LeftCommunityTempBox>TempBox1</LeftCommunityTempBox>
-            <LeftCommunityTempBox>TempBox2</LeftCommunityTempBox>
-          </LeftCommunityTempWrapper> */}
           </LeftCommunity>
           <RightCommunity>
-            <RightCommunityRealTimeBest></RightCommunityRealTimeBest>
-
+            <RightCommunityRealTimeBest>
+              실시간 인기글
+            </RightCommunityRealTimeBest>
             <RightCommunityAD>AD Link</RightCommunityAD>
           </RightCommunity>
         </MainWrapper>
       </Center>
+
       <Footer />
     </StyledDiv>
   );

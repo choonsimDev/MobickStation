@@ -9,6 +9,8 @@ import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import CommunityList from "@/components/Community/CommunityList";
 
+import Pagination from "@/components/Pagination";
+
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
@@ -344,6 +346,18 @@ export default function CommunityMobicker() {
     return <div>Loading...</div>;
   }
 
+  // 페이지 그룹 이동
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const nextPageGroup = () => {
+    const newPage = Math.min(currentPage + 10, totalPages);
+    setCurrentPage(newPage);
+  };
+
+  const prevPageGroup = () => {
+    const newPage = Math.max(currentPage - 10, 1);
+    setCurrentPage(newPage);
+  };
+
   return (
     <StyledDiv>
       <Center>
@@ -374,7 +388,7 @@ export default function CommunityMobicker() {
                 </LeftCommunityContents>
               ))}
             </LeftCommunityContentWrapper>
-            <PaginationWrapper>
+            {/* <PaginationWrapper>
               <span
                 className={currentPage === 1 ? "disabled" : "page-item"}
                 onClick={() => paginate(currentPage - 1)}
@@ -398,7 +412,14 @@ export default function CommunityMobicker() {
               >
                 다음
               </span>
-            </PaginationWrapper>
+            </PaginationWrapper> */}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              paginate={paginate}
+              nextPageGroup={nextPageGroup}
+              prevPageGroup={prevPageGroup}
+            />
             <ADWrapper>
               <AdArea />
             </ADWrapper>
