@@ -236,6 +236,7 @@ export default function Writing() {
         throw new Error("Network response was not ok");
       }
       setComment(""); // 댓글 제출 후 입력 필드 초기화
+      location.reload();
       // 여기서 댓글 목록을 다시 불러오는 로직을 추가할 수 있습니다.
     } catch (e) {
       console.error(e);
