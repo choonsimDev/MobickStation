@@ -78,7 +78,7 @@ const Modal = ({ onClose }) => {
     <ModalOverlay>
       <ModalContainer>
         <ModalHeader>모빅스테이션에 오신 것을 환영합니다!</ModalHeader>
-        <ModalContentDetail>
+        {/* <ModalContentDetail>
           아이폰 행사는 잘 보내셨나요? 다음 축제가 기다려집니다.
         </ModalContentDetail>
         <ModalContentDetail>
@@ -104,7 +104,8 @@ const Modal = ({ onClose }) => {
 
         <ModalContentDetail>- 상품 입고 페이지 활성화</ModalContentDetail>
         <div></div>
-        <div></div>
+        <div></div> */}
+        <ModalContentDetail>현재 업데이트 준비중입니다.</ModalContentDetail>
         <ModalContentDetail>감사합니다 ☺️</ModalContentDetail>
         <ModalContentDetail>
           Contact : choonsim.dev@gmail.com

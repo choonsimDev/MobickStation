@@ -173,15 +173,12 @@ function UserProfile() {
 
 export default function Writing() {
   const router = useRouter();
-
   const { id } = router.query;
+  const { data: session, status } = useSession(); // 세션 정보와 로딩 상태를 가져옵니다.
 
-  // post 상태를 null로 초기화합니다.
-  const [post, setPost] = useState(null);
-  // 댓글 내용을 위한 상태 추가
-  const [comment, setComment] = useState("");
-  // 댓글 목록을 위한 상태 추가
-  const [comments, setComments] = useState([]);
+  const [post, setPost] = useState(null); // post 상태를 null로 초기화합니다.
+  const [comment, setComment] = useState(""); // 댓글 내용을 위한 상태 추가
+  const [comments, setComments] = useState([]); // 댓글 목록을 위한 상태 추가
 
   const readPostAndComments = async () => {
     if (!id) return; // id가 없다면 함수를 실행하지 않습니다.
@@ -223,6 +220,10 @@ export default function Writing() {
 
   const submitComment = async () => {
     if (!comment.trim()) return alert("댓글을 입력해주세요.");
+    if (status === "unauthenticated") {
+      alert("로그인을 해주세요.");
+      return; // 로그인하지 않은 상태면 여기서 함수 실행을 중단합니다.
+    }
 
     try {
       const response = await fetch(`/api/setCommentPost`, {
@@ -236,7 +237,6 @@ export default function Writing() {
         throw new Error("Network response was not ok");
       }
       setComment(""); // 댓글 제출 후 입력 필드 초기화
-      location.reload();
       // 여기서 댓글 목록을 다시 불러오는 로직을 추가할 수 있습니다.
     } catch (e) {
       console.error(e);
