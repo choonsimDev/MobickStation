@@ -188,12 +188,15 @@ export default function Writing() {
 
     // 댓글 불러오기
     try {
-      const commentsResponse = await fetch(`/api/getCommentsAnonymous?postId=${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const commentsResponse = await fetch(
+        `/api/getCommentsAnonymous?postId=${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!commentsResponse.ok) {
         throw new Error("Network response was not ok");
       }

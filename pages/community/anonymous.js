@@ -280,9 +280,8 @@ const PaginationWrapper = styled.div`
 
 export default function Community() {
   const [posts, setPosts] = useState([]); // 상태를 추가
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(20);
   const [isLoading, setIsLoading] = useState(true);
 
   function formatDateTime(dateTimeStr) {
@@ -314,7 +313,6 @@ export default function Community() {
       const sortedData = data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-      // 최대 14개의 게시글만 선택
       setPosts(sortedData);
       setIsLoading(false); // 데이터 로딩 완료
     }

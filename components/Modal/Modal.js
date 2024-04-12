@@ -1,9 +1,9 @@
 // components/Modal.js
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
-const ModalDesign = styled.div`
-  background: rgba(0, 0, 0, 0.5);
+const ModalOverlay = styled.div`
+  background: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,148 +12,116 @@ const ModalDesign = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* 모달창이 다른 요소들 위에 오도록 z-index 값을 높게 설정 */
+  z-index: 1000;
 `;
 
-const ModalBox = styled.div`
-  padding: 20px;
-  width: 500px;
-  height: 700px;
+const ModalContainer = styled.div`
+  padding: 40px;
+  background-color: #ffffff;
+  border: 7px solid gray;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  background-image: url(/images/wellcomeImage_01.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-
-  align-content: center;
-  border-radius: 10px;
-  border: 7px solid lightgray;
-
-  & > div:nth-child(1) {
-    font-size: 24px;
-    font-weight: bold;
-    color: #e5821a;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
-      1px 1px 0 #fff;
-  }
-  & > div:nth-child(2) {
-    margin-top: 30px;
-    font-size: 20px;
-
-    line-height: 1.5;
-    text-align: center;
-  }
-  & > div:nth-child(3) {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
-      1px 1px 0 #fff;
-  }
-  & > div:nth-child(4) {
-    margin-top: 6px;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    font-weight: bold;
-  }
-  & > div:nth-child(5) {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  & > div:nth-child(6) {
-    margin-top: 30px;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  & > div:nth-child(7) {
-    margin-top: 10px;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  & > div:nth-child(8) {
-    margin-top: 10px;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  & > div:nth-child(9) {
-    margin-top: 10px;
-
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  & > div:nth-child(10) {
-    margin-top: 40px;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: center;
-  }
+  align-items: center;
+  gap: 10px;
 `;
 
-const ModalButtonWrapper = styled.div`
+const ModalHeader = styled.h2`
+  font-size: 24px;
+  color: #e5821a;
+  margin-bottom: 10px;
+`;
+const ModalContent = styled.h2`
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+`;
+
+const ModalContentDetail = styled.div`
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-top: 5px;
+`;
+
+const ModalActions = styled.div`
   display: flex;
-  justify-content: center;
+  gap: 10px;
   margin-top: 20px;
-  & > button {
-    margin: 0 10px;
-    padding: 5px 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background: white;
-    cursor: pointer;
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:first-child {
+    background-color: #6c757d;
+
+    &:hover {
+      background-color: #545b62;
+    }
   }
 `;
 
 const Modal = ({ onClose }) => {
   return (
-    <ModalDesign>
-      <ModalBox>
-        <div> MOBICK STATION에 초대합니다. </div>
-        <div>
-          " 봄바람이 소곤소곤 전하는 벚꽃의 속삭임처럼, 우리의 모임도 그 시작을
-          알립니다. 이곳은 비트모빅 커뮤니티의 중심지, 관악산의 생기와 봄날의
-          따스함이 가득한 MOBICK STATION으로 여러분을 초대합니다."
-        </div>
-        <div> 오픈 전 단장 중이에요. :)</div>
-        <div> 입점 신청을 위해 공개하였고, 페이지는 매주 업데이트합니다.</div>
-        <div>
-          MOBICK STATION은 비둘기호 선원들인 모비커의 활동과 함께 성장합니다.
-          종이지갑 및 굿즈 등 입점 신청을 받습니다. 입점수요 조사 및 피드백 조율
-          후 홈페이지를 매주 업데이트합니다. 피드백 및 불편한 점 등 더 나은
-          서비스를 위한 의견을 자유롭게 공유해주세요.
-        </div>
-        <div>"함께하는 모든 순간이 축제처럼 기쁘고</div>
-        <div>
-          지나간 시간 속 추억처럼 아름다운 여운을 남길 수 있기를 바랍니다.
-        </div>
-        <div> MOBICK STATION에서 여러분의 활동을 기다리며,</div>
-        <div>여러분이 이곳에서 뜻깊은 시간을 보내시길 기대합니다."</div>
+    <ModalOverlay>
+      <ModalContainer>
+        <ModalHeader>모빅스테이션에 오신 것을 환영합니다!</ModalHeader>
+        <ModalContentDetail>
+          아이폰 행사는 잘 보내셨나요? 다음 축제가 기다려집니다.
+        </ModalContentDetail>
+        <ModalContentDetail>
+          모빅스테이션 첫 입점자 분들 소개와 4월 2주차 업데이트 안내입니다.
+        </ModalContentDetail>
+        <ModalContent>첫 입점자 소개:</ModalContent>
+        <ModalContentDetail>
+          종이지갑 : 알약, 주성원, 모니카, 춘심소프트
+        </ModalContentDetail>
+        <ModalContentDetail>
+          굿즈 : 크리스 최(타마), 롱지노 도마, cj man, 킹글라라, 둘기,
+          오태민사생팬
+        </ModalContentDetail>
+        <ModalContent>4월 2주차 업데이트 내용:</ModalContent>
+        <ModalContentDetail>
+          - 카테고리에 입점하시는 분들의 임시링크가 활성화되었습니다.
+        </ModalContentDetail>
+        <ModalContentDetail>
+          - 게시판 기능이 활성화되었습니다. 다양한 이야기를 나누어 보세요.
+        </ModalContentDetail>
+        <ModalContent>업데이트 예정 사항:</ModalContent>
+        <ModalContentDetail>- 게시판 세분화</ModalContentDetail>
 
-        <div>Contact : choonsim.dev@gmail.com</div>
-
-        <ModalButtonWrapper>
-          {/* <button onClick={onClose}>닫기</button>
-          <button
+        <ModalContentDetail>- 상품 입고 페이지 활성화</ModalContentDetail>
+        <div></div>
+        <div></div>
+        <ModalContentDetail>감사합니다 ☺️</ModalContentDetail>
+        <ModalContentDetail>
+          Contact : choonsim.dev@gmail.com
+        </ModalContentDetail>
+        <ModalActions>
+          {/* <Button onClick={onClose}>닫기</Button>
+          <Button
             onClick={() => {
               localStorage.setItem("hideModal", new Date().toISOString());
               onClose();
             }}
           >
             오늘 하루 보지 않기
-          </button> */}
-        </ModalButtonWrapper>
-      </ModalBox>
-    </ModalDesign>
+          </Button> */}
+        </ModalActions>
+      </ModalContainer>
+    </ModalOverlay>
   );
 };
 

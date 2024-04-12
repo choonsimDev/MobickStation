@@ -243,25 +243,33 @@ const ADWrapper = styled.div`
   align-items: center;
   overflow: hidden;
 `;
+const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 
-const StyledBack = styled.a`
-  top: 20px;
-  left: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #999999;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
+  span {
+    margin: 0 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .page-item {
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  .disabled {
+    color: #ccc;
+    pointer-events: none;
   }
 `;
 
 export default function CommunityMobicker() {
   const { data: session } = useSession();
-
-  const [posts, setPosts] = useState([]); // 상태를 추가
-
   const handleWriteButtonClick = (e) => {
     if (!session) {
       // 로그인 상태가 아니면 경고 메시지를 표시하고 기본 이벤트를 막습니다.
@@ -272,6 +280,11 @@ export default function CommunityMobicker() {
       window.location.href = "/community/write-post";
     }
   };
+
+  const [posts, setPosts] = useState([]); // 상태를 추가
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(20);
+  const [isLoading, setIsLoading] = useState(true);
 
   function formatDateTime(dateTimeStr) {
     const date = new Date(dateTimeStr);
@@ -302,11 +315,34 @@ export default function CommunityMobicker() {
       const sortedData = data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
-      // 최대 14개의 게시글만 선택
-      setPosts(sortedData.slice(0, 20));
+      setPosts(sortedData);
+      setIsLoading(false); // 데이터 로딩 완료
     }
     fetchPosts();
   }, []);
+
+  // 현재 페이지에 따라 표시할 게시물 계산
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost); // 수정: 이 부분이 중요합니다.
+  // 페이지 변경 이벤트 핸들러
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPage = () =>
+    setCurrentPage(
+      currentPage < Math.ceil(posts.length / postsPerPage)
+        ? currentPage + 1
+        : currentPage
+    );
+  const prevPage = () =>
+    setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
+  // 페이지 번호 배열 생성
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <StyledDiv>
@@ -323,42 +359,46 @@ export default function CommunityMobicker() {
             </LeftCommunityCategory>
             <LeftCommunityHotContent></LeftCommunityHotContent>
             <LeftCommunityContentWrapper>
-              {posts.map(
-                (
-                  post,
-                  index // API에서 가져온 데이터를 매핑하여 표시
-                ) => (
-                  <LeftCommunityContents
-                    href={`/writing/${post.id}`}
-                    key={index}
-                  >
-                    <div>
-                      <div>{post.id}</div>
-                      <img src="/images/img-none.png" alt="img" width={20} />
-                      <div>{post.title}</div>
-                    </div>
-                    <div>
-                      <div>{post.nickname}</div>
-                      <div>{post.thumb}</div>
-                      <div>{formatDateTime(post.createdAt)}</div>
-                    </div>
-                  </LeftCommunityContents>
-                )
-              )}
+              {currentPosts.map((post, index) => (
+                <LeftCommunityContents href={`/writing/${post.id}`} key={index}>
+                  <div>
+                    <div>{post.id}</div>
+                    <img src="/images/img-none.png" alt="img" width={20} />
+                    <div>{post.title}</div>
+                  </div>
+                  <div>
+                    <div>{post.nickname}</div>
+                    <div>{post.thumb}</div>
+                    <div>{formatDateTime(post.createdAt)}</div>
+                  </div>
+                </LeftCommunityContents>
+              ))}
             </LeftCommunityContentWrapper>
-            <LeftCommunityContentsPageButton>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <span>6</span>
-              <span>7</span>
-              <span>8</span>
-              <span>9</span>
-              <span>10</span>
-              <span className="next">▶</span>
-            </LeftCommunityContentsPageButton>
+            <PaginationWrapper>
+              <span
+                className={currentPage === 1 ? "disabled" : "page-item"}
+                onClick={() => paginate(currentPage - 1)}
+              >
+                이전
+              </span>
+              {pageNumbers.map((number) => (
+                <span
+                  key={number}
+                  className="page-item"
+                  onClick={() => paginate(number)}
+                >
+                  {number}
+                </span>
+              ))}
+              <span
+                className={
+                  currentPage === pageNumbers.length ? "disabled" : "page-item"
+                }
+                onClick={() => paginate(currentPage + 1)}
+              >
+                다음
+              </span>
+            </PaginationWrapper>
             <ADWrapper>
               <AdArea />
             </ADWrapper>
