@@ -28,6 +28,7 @@ const ContentsCenter = styled.div`
 const PostWrapper = styled.div`
   width: 900px;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -72,6 +73,16 @@ const CommentWrapper = styled.div`
   }
 `;
 
+const CommentId = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+  padding-left: 10px;
+`;
+
 const CommunityTitle = styled.div`
   width: 100%;
   height: 60px;
@@ -102,9 +113,22 @@ const CommunityTitle = styled.div`
   }
 `;
 
+const CommentTitle = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 20px;
+  margin-top: 30px;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+`;
+
 const CommentsSection = styled.div`
   width: 1200px;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 12px;
   border-top: 3px solid #f6931a;
 `;
@@ -231,13 +255,18 @@ export default function Writing() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ postId: id, content: comment }),
+        body: JSON.stringify({
+          postId: id,
+          content: comment,
+          nickname: session.user.name,
+        }),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       setComment(""); // 댓글 제출 후 입력 필드 초기화
       // 여기서 댓글 목록을 다시 불러오는 로직을 추가할 수 있습니다.
+      location.reload();
     } catch (e) {
       console.error(e);
     }
@@ -283,7 +312,10 @@ export default function Writing() {
           <div style={{ whiteSpace: "pre-wrap" }}>{post.content}</div>{" "}
         </PostWrapper>
         {/* 댓글 목록 표시 */}
+
         <div>
+          <CommentTitle>댓글</CommentTitle>
+
           <CommentsSection>
             {comments.length > 0 ? (
               comments.map((comment) => (
@@ -301,7 +333,11 @@ export default function Writing() {
           </CommentsSection>
         </div>
         <CommentWrapper>
-          <h3>댓글</h3>
+          {session ? (
+            <CommentId>작성자 : {session.user.name}</CommentId> // 로그인한 사용자의 이름을 표시합니다.
+          ) : (
+            <CommentId>로그인이 필요합니다.</CommentId>
+          )}
           <textarea
             value={comment}
             onChange={(e) => setComment(e.target.value)}
