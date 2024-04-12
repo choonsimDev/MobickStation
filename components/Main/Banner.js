@@ -99,8 +99,7 @@ const MainBannerImgButton = styled.div`
 `;
 
 export default function Banner() {
-  const [selectedCategory, setSelectedCategory] = useState("강연 및 서적");
-  const [selectedDetail, setSelectedDetail] = useState(""); // 상세 카테고리 설명 상태 추가
+  const [selectedCategory, setSelectedCategory] = useState("종이지갑"); // 예시로 "종이지갑"이 존재하는지 확인하세요
 
   return (
     <div>
@@ -112,7 +111,6 @@ export default function Banner() {
               href="/store"
               key={idx}
               onMouseEnter={() => setSelectedCategory(category)}
-              // onMouseLeave={() => setSelectedCategory(null)}
             >
               {category}
             </MainCategoryItem>
@@ -121,8 +119,8 @@ export default function Banner() {
         <DetailCategory>
           {selectedCategory &&
             detailCategories[selectedCategory].map((item) => (
-              <DetailCategoryItem href="/store" key={item}>
-                {item}
+              <DetailCategoryItem href={item.url} key={item.name}>
+                {item.name}
               </DetailCategoryItem>
             ))}
         </DetailCategory>
@@ -130,7 +128,6 @@ export default function Banner() {
           <MainBannerImgBox href="/store">
             <SwiperBanner />
           </MainBannerImgBox>
-          {/* <MainBannerImgButton></MainBannerImgButton> */}
         </MainBanner>
       </StyledBannerWrapper>
     </div>

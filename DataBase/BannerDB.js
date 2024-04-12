@@ -1,34 +1,12 @@
 export const detailCategories = {
-  "종이지갑 ": ["알약 상점", "주성원 상점", "모니카 상점"],
-
-  "굿즈 ": ["독서 문진_Chris Choi", "망고케이스", "tama", ""],
-
-  "패션 ": ["오태민 사생팬", "GoodMobick"],
-
-  "식품 ": ["건강식품", "음료", "간식", "농수산물", "커피", "주류"],
-
-  "강연 및 서적": ["강연 티켓", "인터넷 강의", "서적"],
-
-  // "특별상품 ": [
-  //   "에어드랍 지갑",
-  //   "비트맥시 에디션",
-  //   "모빅 빌런즈"],
-  // "상생마켓 게시판": [
-  //   "식료품",
-  //   "가전제품",
-  //   "패션",
-  //   "전자기기",
-  //   "카페",
-  //   "종합쇼핑몰",
-  //   "오프라인매장",
-  // ],
-  // "커뮤니티 ": [
-  //   "춘심 OTC",
-  //   "위조검증",
-  //   "공지사항",
-  //   "모빅회관",
-  //   "이벤트",
-  //   "리뷰",
-  // ],
-  // "모빅 정보": ["춘심 퀀트", "지갑 설명", "모빅 앱"],
+  종이지갑: [
+    { name: "알약 상점", url: "https://example.com/alyak" },
+    { name: "주성원 상점", url: "https://example.com/jusungwon" },
+    { name: "모니카 상점", url: "https://example.com/monica" },
+  ],
+  굿즈: [
+    { name: "독서 문진_Chris Choi", url: "https://example.com/chrischoi" },
+    { name: "망고케이스", url: "https://example.com/mangocase" },
+    { name: "tama", url: "https://example.com/tama" },
+  ],
 };
