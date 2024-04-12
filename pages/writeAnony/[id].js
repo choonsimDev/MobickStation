@@ -188,7 +188,7 @@ export default function Writing() {
 
     // 댓글 불러오기
     try {
-      const commentsResponse = await fetch(`/api/getComments?postId=${id}`, {
+      const commentsResponse = await fetch(`/api/getCommentsAnonymous?postId=${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +208,7 @@ export default function Writing() {
     if (!comment.trim()) return alert("댓글을 입력해주세요.");
 
     try {
-      const response = await fetch(`/api/setCommentPost`, {
+      const response = await fetch(`/api/setAnonymousComment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
