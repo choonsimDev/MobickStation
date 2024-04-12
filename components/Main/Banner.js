@@ -70,7 +70,7 @@ const DetailCategory = styled.div`
 
 const DetailCategoryItem = styled.a`
   margin-bottom: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
   font-size: 14px;
   /* font-weight: bold; */
   text-align: left;
@@ -108,8 +108,8 @@ export default function Banner() {
         <MainCategory>
           {Object.keys(detailCategories).map((category, idx) => (
             <MainCategoryItem
-              href="/store"
               key={idx}
+              target="_blank"
               onMouseEnter={() => setSelectedCategory(category)}
             >
               {category}
@@ -119,7 +119,11 @@ export default function Banner() {
         <DetailCategory>
           {selectedCategory &&
             detailCategories[selectedCategory].map((item) => (
-              <DetailCategoryItem href={item.url} key={item.name}>
+              <DetailCategoryItem
+                href={item.url}
+                key={item.name}
+                target="_blank"
+              >
                 {item.name}
               </DetailCategoryItem>
             ))}

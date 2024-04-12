@@ -49,7 +49,7 @@ const CommunityBoxWrapper = styled.div`
   width: 1200px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   box-sizing: border-box;
 `;
 
@@ -68,6 +68,7 @@ const MobickCommunity = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
   box-sizing: border-box;
   margin-top: 10px;
 `;
@@ -77,6 +78,7 @@ const MobickCommunityTitleBoxWrapper = styled.div`
   height: 40px;
   display: flex;
   justify-content: space-between;
+
   align-items: center;
   border-bottom: 1px solid lightgray;
   box-sizing: border-box;

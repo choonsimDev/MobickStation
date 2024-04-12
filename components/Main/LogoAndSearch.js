@@ -175,10 +175,12 @@ export default function LogoAndSearch() {
       </StyledLogoBox>
       <StyledNavigation>
         <div>
-          <StyledLinkFirst href="/community/mobicker">커뮤니티</StyledLinkFirst>
+          <StyledLinkFirst onClick={showModal}>모린이 가이드</StyledLinkFirst>
           <StyledLink onClick={showModal}>베스트</StyledLink>
           <StyledLink onClick={showModal}>신상품</StyledLink>
           <StyledLink onClick={showModal}>이벤트</StyledLink>
+          <StyledLink href="/community/mobicker">커뮤니티</StyledLink>
+
           {/* <StyledLink href="/trade">중고거래</StyledLink>
           <StyledLink href="/limited">한정상품</StyledLink>
           <StyledLink href="/sales">특가할인</StyledLink>

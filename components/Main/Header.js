@@ -69,11 +69,10 @@ export default function Header() {
         <StyledHeader>
           <div>
             <StyledLink href="/store">종이지갑</StyledLink>
-            <StyledLink href="/store">강연 및 서적</StyledLink>
             <StyledLink href="/store">굿즈</StyledLink>
-            <StyledLink href="/store">식품</StyledLink>
-            <StyledLink href="/store">패션</StyledLink>
-            <StyledLink href="/community/mobicker">커뮤니티</StyledLink>
+            <StyledLink href="/store">생활용품</StyledLink>
+            <StyledLink href="/store">상생마켓</StyledLink>
+            {/* <StyledLink href="/community/mobicker">커뮤니티</StyledLink> */}
             {/* <StyledLink href="/preparing">모빅정보</StyledLink> */}
           </div>
           <div>

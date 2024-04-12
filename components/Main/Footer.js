@@ -42,18 +42,25 @@ const FooterMiddle = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px 30px;
   border-bottom: 1px solid darkgray;
 `;
 
 const FooterMiddleWrapper = styled.div`
-  width: 800px;
+  width: 600px;
   height: 150px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 40px;
   align-items: center;
   /* background-color: pink; */
+`;
+
+const CompanyWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const MiddleImageBox = styled.div`
@@ -66,8 +73,6 @@ const MiddleImageBox = styled.div`
 `;
 
 const MiddleTextBox = styled.div`
-  width: 300px;
-  height: 150px;
   margin-left: 10px;
   font-size: 30px;
   font-weight: bold;
@@ -96,10 +101,6 @@ const MiddleCustomService = styled.div`
     color: gray;
   }
   & > :nth-child(3) {
-    font-size: 14px;
-    color: gray;
-  }
-  & > :nth-child(4) {
     font-size: 14px;
     color: gray;
   }
@@ -149,22 +150,30 @@ export default function Footer() {
       </FooterTop>
       <FooterMiddle>
         <FooterMiddleWrapper>
-          <MiddleImageBox>
-            <img src="/images/BTCMobickLogo.png" alt="Logo" width={100} />
-          </MiddleImageBox>
-          <MiddleTextBox>MOBICK STATION</MiddleTextBox>
-          <MiddleCustomService>
-            <div>{customerServiceInfo.inquiry}</div>
-            <div>{customerServiceInfo.phoneNumber}</div>
-            <div>{customerServiceInfo.mallInquiry}</div>
-            <div>{customerServiceInfo.otcInquiry}</div>
-            <MiddleCustomServiceQuestion>
-              {customerServiceInfo.questions.map((question, index) => (
-                <div key={index}>{question}</div>
-              ))}
-            </MiddleCustomServiceQuestion>
-          </MiddleCustomService>
+          <CompanyWrapper>
+            <MiddleImageBox>
+              <img src="/images/BTCMobickLogo.png" alt="Logo" width={80} />
+            </MiddleImageBox>
+            <MiddleTextBox>MOBICK STATION</MiddleTextBox>
+          </CompanyWrapper>
+          <CompanyWrapper>
+            <MiddleImageBox>
+              <img src="/images/Logo_Mobickers.png" alt="Logo" width={80} />
+            </MiddleImageBox>
+            <MiddleTextBox>Mobickers</MiddleTextBox>
+          </CompanyWrapper>
         </FooterMiddleWrapper>
+        <MiddleCustomService>
+          <div>{customerServiceInfo.inquiry}</div>
+          <div>{customerServiceInfo.phoneNumber}</div>
+          <div>{customerServiceInfo.mallInquiry}</div>
+          <div>{customerServiceInfo.otcInquiry}</div>
+          <MiddleCustomServiceQuestion>
+            {customerServiceInfo.questions.map((question, index) => (
+              <div key={index}>{question}</div>
+            ))}
+          </MiddleCustomServiceQuestion>
+        </MiddleCustomService>
       </FooterMiddle>
       {/* <FooterBottom>
         <div>
