@@ -6,6 +6,7 @@ import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import AdArea from "@/components/Main/AdArea";
 import Footer from "@/components/Main/Footer";
 import CommunityList from "@/components/Community/CommunityList";
+import Pagination from "@/components/Pagination";
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
@@ -281,7 +282,7 @@ const PaginationWrapper = styled.div`
 export default function Community() {
   const [posts, setPosts] = useState([]); // 상태를 추가
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
+  const [postsPerPage] = useState(2);
   const [isLoading, setIsLoading] = useState(true);
 
   function formatDateTime(dateTimeStr) {
@@ -341,6 +342,17 @@ export default function Community() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  // 페이지 그룹 이동
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const nextPageGroup = () => {
+    const newPage = Math.min(currentPage + 10, totalPages);
+    setCurrentPage(newPage);
+  };
+
+  const prevPageGroup = () => {
+    const newPage = Math.max(currentPage - 10, 1);
+    setCurrentPage(newPage);
+  };
 
   return (
     <StyledDiv>
@@ -376,7 +388,7 @@ export default function Community() {
                 </LeftCommunityContents>
               ))}
             </LeftCommunityContentWrapper>
-            <PaginationWrapper>
+            {/* <PaginationWrapper>
               <span
                 className={currentPage === 1 ? "disabled" : "page-item"}
                 onClick={() => prevPage()}
@@ -400,7 +412,14 @@ export default function Community() {
               >
                 다음
               </span>
-            </PaginationWrapper>
+            </PaginationWrapper> */}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              paginate={paginate}
+              nextPageGroup={nextPageGroup}
+              prevPageGroup={prevPageGroup}
+            />
             <ADWrapper>
               <AdArea />
             </ADWrapper>
