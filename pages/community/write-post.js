@@ -7,6 +7,7 @@ import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import Router from 'next/router';
 
 const WriteWrapper = styled.div`
   display: flex;
@@ -14,7 +15,6 @@ const WriteWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const RuleTexts = styled.div`
   width: 800px;
   display: flex;
@@ -29,7 +29,6 @@ const RuleTexts = styled.div`
     color: #777;
   }
 `;
-
 const EditorWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -78,7 +77,6 @@ const StyledBack = styled.a`
     background-color: #888888;
   }
 `;
-
 const AuthorInforWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,7 +85,6 @@ const AuthorInforWrapper = styled.div`
   margin-bottom: 30px;
   margin-top: 30px;
 `;
-
 const AuthorInfoBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -96,7 +93,6 @@ const AuthorInfoBox = styled.div`
   gap: 10px;
   width: 900px;
 `;
-
 const AuthorName = styled.div`
   width: 300px;
   height: 35px;
@@ -111,7 +107,6 @@ const AuthorName = styled.div`
   align-items: center;
   gap: 20px;
 `;
-
 const AuthorInfo = styled.div`
   margin-top: 20px;
   display: flex;
@@ -190,6 +185,7 @@ export default function Write() {
     setSecret("");
     setContent("");
     alert("게시글이 등록되었습니다.");
+    Router.push("/community/mobicker");
   };
 
   return (

@@ -6,6 +6,7 @@ import CommunityList from "@/components/Community/CommunityList";
 import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
 import { useState } from "react";
+import Router from "next/router";
 
 const WriteWrapper = styled.div`
   display: flex;
@@ -171,6 +172,7 @@ export default function WriteAnonymous() {
     setSecret("");
     setContent("");
     alert("게시글이 등록되었습니다.");
+    Router.push("/community/anonymous");
   };
 
   return (
