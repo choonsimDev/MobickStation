@@ -117,7 +117,9 @@ const StyledProductImage = styled.a`
   justify-content: center;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
   border-bottom: 1px solid lightgray;
+
   cursor: pointer;
   img {
     width: 100%; // 이미지의 너비를 컨테이너의 너비와 동일하게 설정

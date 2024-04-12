@@ -49,6 +49,8 @@ const RecommendSecondImage = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
   border-right: 1px solid lightgray;
 

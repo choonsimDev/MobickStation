@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SwiperBanner from "./Swiper";
+import SwiperBanner from "../Main/Swiper";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;

@@ -1,36 +1,30 @@
 export const products = [
   {
     id: 1,
-    image: "/images/preparition_01.png",
-    title: "Product Name",
-    maker: "Seller Name",
-    description: "Item Detail Description",
+    image: "/images/o4fan02.png",
+    title: "판매 상품 예시",
+    maker: "오태민사생팬",
+    description: "판매 상품 예시 이미지입니다.",
   },
   {
     id: 2,
-    image: "/images/preparition_01.png",
-    title: "Product Name",
+    image: "/images/chrischoi02.png",
+    title: "판매 상품 예시",
     series: "Product Category",
     maker: "Seller Name",
-    description: "Product Description",
-    price: "Product Price",
+    description: "판매 상품 예시 이미지입니다.",
+    price: "10,000원",
   },
-  {
-    id: 3,
-    image: "/images/preparition_01.png",
-    title: "추가 제품",
-    maker: "제작자 정보",
-    description: "제품 설명",
-  },
+
   // 더 많은 제품 정보를 추가할 수 있습니다.
 ];
 // Compare this snippet from DataBase/TodayItemDB.js:
 
 export const recommendImages = [
-  { id: 1, src: "/images/preparition_01.png" },
-  { id: 2, src: "/images/preparition_01.png" },
-  { id: 3, src: "/images/preparition_01.png" },
-  { id: 4, src: "/images/preparition_01.png" },
+  { id: 1, src: "/images/mobilet04-1.png" },
+  { id: 2, src: "/images/mobilet01-1.png" },
+  { id: 3, src: "/images/mobilet06-1.png" },
+  { id: 4, src: "/images/mobilet07-1.png" },
 ];
 
 export const tabs = [
