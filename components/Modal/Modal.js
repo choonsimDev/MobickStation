@@ -17,7 +17,7 @@ const ModalOverlay = styled.div`
 
 const ModalContainer = styled.div`
   padding: 40px;
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   border: 3px solid gray;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
