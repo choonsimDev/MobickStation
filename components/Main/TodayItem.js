@@ -415,7 +415,7 @@ export default function TodayItem() {
             </RecommendThirdItemDescription>
             <RecommendThirdItemImageBox>
               {recommendImages.map((image, idx) => (
-                <img src={image.src} alt={image.alt} vkey={idx} />
+                <img src={image.src} alt={image.alt} key={idx} />
               ))}
             </RecommendThirdItemImageBox>
           </RecommendThirdMenu>
