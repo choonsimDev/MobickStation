@@ -112,14 +112,14 @@ const Modal = ({ onClose }) => {
         <ModalContentDetail>
           - 게시판 기능이 활성화되었습니다. 다양한 이야기를 나누어 보세요.
         </ModalContentDetail>
-        <ModalCommunityLink href="/commuity/mobicker">
+        <ModalCommunityLink href="/community/mobicker">
           커뮤니티 바로가기
         </ModalCommunityLink>
 
         <ModalContent>업데이트 예정 사항:</ModalContent>
         <ModalContentDetail>- 직거래 게시판 활성화</ModalContentDetail>
         <ModalContentDetail>
-          - 게시판 이미지 첨부 및 수적/삭제 기능 활성화
+          - 게시판 이미지 첨부 및 수정/삭제 기능 활성화
         </ModalContentDetail>
         <ModalContentDetail>- 상품 입고 페이지 활성화</ModalContentDetail>
         <div></div>
