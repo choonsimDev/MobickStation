@@ -44,6 +44,13 @@ const ModalContentDetail = styled.div`
   text-align: center;
   margin-top: 5px;
 `;
+const ModalContentStore = styled.div`
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+`;
 
 const ModalActions = styled.div`
   display: flex;
@@ -78,20 +85,20 @@ const Modal = ({ onClose }) => {
     <ModalOverlay>
       <ModalContainer>
         <ModalHeader>모빅스테이션에 오신 것을 환영합니다!</ModalHeader>
-        {/* <ModalContentDetail>
-          아이폰 행사는 잘 보내셨나요? 다음 축제가 기다려집니다.
+        <ModalContentDetail>
+          아이폰 행사는 잘 보내셨나요? 구매확정 입금을 깜박하시지 않길 바래요.
         </ModalContentDetail>
         <ModalContentDetail>
           모빅스테이션 첫 입점자 분들 소개와 4월 2주차 업데이트 안내입니다.
         </ModalContentDetail>
         <ModalContent>첫 입점자 소개:</ModalContent>
-        <ModalContentDetail>
+        <ModalContentStore>
           종이지갑 : 알약, 주성원, 모니카, 춘심소프트
-        </ModalContentDetail>
-        <ModalContentDetail>
-          굿즈 : 크리스 최(타마), 롱지노 도마, cj man, 킹글라라, 둘기,
+        </ModalContentStore>
+        <ModalContentStore>
+          굿즈 : 크리스 최(타마), 롱지노 도마, cj man, 킴_글라라, dulgi,
           오태민사생팬
-        </ModalContentDetail>
+        </ModalContentStore>
         <ModalContent>4월 2주차 업데이트 내용:</ModalContent>
         <ModalContentDetail>
           - 카테고리에 입점하시는 분들의 임시링크가 활성화되었습니다.
@@ -100,18 +107,18 @@ const Modal = ({ onClose }) => {
           - 게시판 기능이 활성화되었습니다. 다양한 이야기를 나누어 보세요.
         </ModalContentDetail>
         <ModalContent>업데이트 예정 사항:</ModalContent>
-        <ModalContentDetail>- 게시판 세분화</ModalContentDetail>
+        <ModalContentDetail>- 직거래 게시판 활성화</ModalContentDetail>
 
         <ModalContentDetail>- 상품 입고 페이지 활성화</ModalContentDetail>
         <div></div>
-        <div></div> */}
+        <div></div>
         <ModalContentDetail>현재 업데이트 준비중입니다.</ModalContentDetail>
         <ModalContentDetail>감사합니다 ☺️</ModalContentDetail>
         <ModalContentDetail>
           Contact : choonsim.dev@gmail.com
         </ModalContentDetail>
         <ModalActions>
-          {/* <Button onClick={onClose}>닫기</Button>
+          <Button onClick={onClose}>닫기</Button>
           <Button
             onClick={() => {
               localStorage.setItem("hideModal", new Date().toISOString());
@@ -119,7 +126,7 @@ const Modal = ({ onClose }) => {
             }}
           >
             오늘 하루 보지 않기
-          </Button> */}
+          </Button>
         </ModalActions>
       </ModalContainer>
     </ModalOverlay>

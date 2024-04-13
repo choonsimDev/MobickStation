@@ -91,7 +91,7 @@ const StyledNavigation = Styled.div`
     & div {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 1.5rem;
     position: relative;
 
   cursor: pointer;
@@ -103,7 +103,9 @@ const StyledLinkFirst = Styled.a`
     color: #f6931a;
     font-weight: bold;
     text-decoration: none;
+    text-align: flex-end;
     position: relative;
+
 
 
     &:after { // 기본 :after 스타일 정의
@@ -126,9 +128,13 @@ const StyledLinkFirst = Styled.a`
 `;
 
 const StyledLink = Styled.a`
-    color: black;
-    position: relative;
+   color: black;
+    /* font-weight: bold; */
     text-decoration: none;
+    position: relative;
+    text-align: flex-end;
+
+
 
     &:after { // 기본 :after 스타일 정의
       content: '';
@@ -146,6 +152,7 @@ const StyledLink = Styled.a`
     &:hover:after { // div에 마우스를 올렸을 때 :after 스타일 변경
       transform: scaleX(1); // 호버 시 scaleX를 1로 설정하여 전체 너비로 확장
     }
+
     `;
 
 export default function LogoAndSearch() {
@@ -176,10 +183,10 @@ export default function LogoAndSearch() {
       <StyledNavigation>
         <div>
           <StyledLinkFirst onClick={showModal}>모린이 가이드</StyledLinkFirst>
+          <StyledLinkFirst href="/community/mobicker">커뮤니티</StyledLinkFirst>
           <StyledLink onClick={showModal}>베스트</StyledLink>
           <StyledLink onClick={showModal}>신상품</StyledLink>
           <StyledLink onClick={showModal}>이벤트</StyledLink>
-          <StyledLink href="/community/mobicker">커뮤니티</StyledLink>
 
           {/* <StyledLink href="/trade">중고거래</StyledLink>
           <StyledLink href="/limited">한정상품</StyledLink>

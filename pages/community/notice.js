@@ -359,7 +359,7 @@ export default function CommunityNotice() {
                     </div>
                     <div>
                       <div>{post.nickname}</div>
-                      <div>{post.content}</div>
+                      <div>{post.thumb}</div>
                       <div>{formatDateTime(post.createdAt)}</div>
                     </div>
                   </LeftCommunityContents>

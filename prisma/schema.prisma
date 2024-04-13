@@ -18,6 +18,7 @@ model User {
   deletedAt DateTime?
 }
 
+
 model dbAdArea {
   id  Int    @id @default(autoincrement())
   src String
@@ -40,14 +41,14 @@ model dbCommunityPost {
   title     String
   nickname  String
   password  String
-  content   String
+  content   String   @db.Text
   thumb     Int      @default(0)
   createdAt DateTime @default(now())
 }
 
 model Comment {
   id        Int      @id @default(autoincrement())
-  content   String
+  content   String   @db.Text
   nickname  String
   password  String
   createdAt DateTime @default(now())
@@ -59,14 +60,14 @@ model dbAnonymousPost {
   title     String
   nickname  String
   password  String
-  content   String
+  content   String   @db.Text
   thumb     Int      @default(0)
   createdAt DateTime @default(now())
 }
 
 model CommentAnonymous {
   id        Int      @id @default(autoincrement())
-  content   String
+  content   String   @db.Text
   nickname  String
   password  String
   createdAt DateTime @default(now())
@@ -77,6 +78,6 @@ model dbNotice {
   id        Int      @id @default(autoincrement())
   title     String
   nickname  String
-  content   String
+  content   String   @db.Text
   createdAt DateTime @default(now())
 }

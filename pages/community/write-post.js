@@ -7,7 +7,7 @@ import Footer from "@/components/Main/Footer";
 import Center from "@/components/Main/Center";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import Router from 'next/router';
+import Router from "next/router";
 
 const WriteWrapper = styled.div`
   display: flex;
@@ -234,7 +234,6 @@ export default function Write() {
             </ButtonWrapper>
           </AuthorInfoBox>
         </AuthorInforWrapper>
-
         <Footer />
       </Center>
     </WriteWrapper>
