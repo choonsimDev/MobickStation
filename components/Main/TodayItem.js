@@ -13,7 +13,6 @@ const StyledRecommendWrapper = styled.header`
   align-items: center;
   text-align: center;
   border: 1px solid lightgray;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 그림자 추가 */
 `;
 
 const StyledShopTitle = styled.a`
@@ -55,8 +54,13 @@ const RecommendSecondImage = styled.a`
   border-right: 1px solid lightgray;
 
   img {
-    width: 240px;
+    width: 260px;
+    transition: transform 0.3s ease-in-out; // 부드러운 변환 효과 추가
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가
+    &:hover {
+      transform: scale(1.1); // 마우스 호버 시 이미지 10% 확대
+    }
   }
 `;
 const RecommendThird = styled.div`
@@ -101,12 +105,16 @@ const RecommendFirstImage = styled.a`
   align-items: center;
   overflow: hidden;
   img {
-    width: 100%; // 이미지의 너비를 컨테이너의 너비와 동일하게 설정
-    height: 100%; // 이미지의 높이를 컨테이너의 높이와 동일하게 설정
+    width: 100%;
+    height: 100%;
     padding: 10px;
     object-fit: contain;
-    object-position: center; // 이미지를 가운데 정렬
+    object-position: center;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out; // 부드러운 변환 효과 추가
+    &:hover {
+      transform: scale(1.1); // 마우스 호버 시 이미지 10% 확대
+    }
   }
 `;
 const RecommendFirstDescription = styled.div`
@@ -252,22 +260,17 @@ const RecommendThirdItemImageBox = styled.div`
   gap: 0.6rem;
   align-items: center;
   img {
-    width: 100%; // 이미지의 너비를 컨테이너의 너비와 동일하게 설정
-    height: 100%; // 이미지의 높이를 컨테이너의 높이와 동일하게 설정
-    object-fit: contain;
+    padding: 5px;
+    height: 100%;
+    width: 100%; // 이미지 너비를 조정하였습니다.
+    object-fit: contain; // 컨텐츠의 비율을 유지하면서 요소에 완전히 맞도록 크기 조정
     object-position: center; // 이미지를 가운데 정렬
     cursor: pointer;
-  }
-`;
-const RecommendThirdItemImage = styled.a`
-  width: 74px;
-  height: 90%;
-  margin-bottom: 2px;
-  overflow: hidden;
-  border: 1px solid lightgray;
-  img {
-    height: 100%;
-    cursor: pointer;
+    transition: transform 0.3s ease-in-out; // 부드러운 변환 효과 추가
+
+    &:hover {
+      transform: scale(1.2); // 마우스 호버 시 이미지 10% 확대
+    }
   }
 `;
 
@@ -406,9 +409,7 @@ export default function TodayItem() {
             </RecommendThirdItemDescription>
             <RecommendThirdItemImageBox>
               {recommendImages.map((image) => (
-                <RecommendThirdItemImage href="/productsDetail" key={image.id}>
-                  <img src={image.src} alt={image.alt} />
-                </RecommendThirdItemImage>
+                <img src={image.src} alt={image.alt} />
               ))}
             </RecommendThirdItemImageBox>
           </RecommendThirdMenu>

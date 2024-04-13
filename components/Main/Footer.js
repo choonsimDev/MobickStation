@@ -26,12 +26,11 @@ const FooterTop = styled.div`
 `;
 
 const FooterLink = styled.a`
-  color: black; /* Text color */
-  text-decoration: none; /* Remove underlines */
-  margin: 0 10px; /* Add space around the text */
-
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
   &:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
   }
 `;
 
@@ -53,7 +52,6 @@ const FooterMiddleWrapper = styled.div`
   justify-content: center;
   gap: 40px;
   align-items: center;
-  /* background-color: pink; */
 `;
 
 const CompanyWrapper = styled.div`
@@ -76,7 +74,6 @@ const MiddleTextBox = styled.div`
   margin-left: 10px;
   font-size: 30px;
   font-weight: bold;
-  color: black;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -88,21 +85,18 @@ const MiddleCustomService = styled.div`
   height: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   margin-left: 70px;
   & > :nth-child(1) {
     font-size: 16px;
     font-weight: bold;
-    color: #666;
   }
   & > :nth-child(2) {
     font-size: 14px;
-    color: gray;
   }
   & > :nth-child(3) {
     font-size: 14px;
-    color: gray;
   }
   /* background-color: lightgreen; */
 `;
@@ -116,7 +110,6 @@ const MiddleCustomServiceQuestion = styled.div`
   gap: 10px;
 
   & > div {
-    color: #666;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
@@ -125,16 +118,6 @@ const MiddleCustomServiceQuestion = styled.div`
       font-weight: ${(props) => (props.$isBold ? "bold" : "normal")};
     }
   }
-`;
-
-const FooterBottom = styled.div`
-  width: 100%;
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid lightgray;
 `;
 
 export default function Footer() {

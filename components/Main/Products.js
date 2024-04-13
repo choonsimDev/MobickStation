@@ -88,6 +88,11 @@ const StyledPubBookImage = styled.a`
     object-fit: contain;
     object-position: center;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out; // 부드러운 변환 효과 추가
+
+    &:hover {
+      transform: scale(1.1); // 마우스 호버 시 이미지 10% 확대
+    }
   }
 
   &:hover {
@@ -128,6 +133,10 @@ const StyledProductImage = styled.a`
     object-fit: contain;
     object-position: center; // 이미지를 가운데 정렬
     cursor: pointer;
+    transition: transform 0.3s ease-in-out; // 부드러운 변환 효과 추가
+    &:hover {
+      transform: scale(1.1); // 마우스 호버 시 이미지 10% 확대
+    }
   }
 `;
 const StyledProductName = styled.a`

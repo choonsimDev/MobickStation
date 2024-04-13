@@ -3,7 +3,7 @@ export const products = [
     id: 1,
     image: "/images/o4fan02.png",
     title: "판매 상품 예시",
-    maker: "오태민사생팬",
+    maker: "판매자",
     description: "판매 상품 예시 이미지입니다.",
   },
   {

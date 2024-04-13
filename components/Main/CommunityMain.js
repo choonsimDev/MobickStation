@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import styled from "styled-components";
@@ -7,7 +6,6 @@ const StyledCommunityWrapper = styled.div`
   width: 1200px;
   margin-top: 20px;
   box-sizing: border-box;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가 */
 `;
 
 const CommunityTitleBox = styled.a`
@@ -47,7 +45,7 @@ const NoticeText = styled.a`
 
 const CommunityBoxWrapper = styled.div`
   width: 1200px;
-  display: flex;
+  display: flex;w
   justify-content: space-between;
   align-items: flex-start;
   box-sizing: border-box;
