@@ -44,6 +44,12 @@ const ModalContentDetail = styled.div`
   text-align: center;
   margin-top: 5px;
 `;
+const ModalCommunityLink = styled.a`
+  font-size: 16px;
+  color: blue;
+  text-align: center;
+  margin-top: 5px;
+`;
 const ModalContentStore = styled.div`
   font-size: 16px;
   color: #666;
@@ -106,9 +112,15 @@ const Modal = ({ onClose }) => {
         <ModalContentDetail>
           - 게시판 기능이 활성화되었습니다. 다양한 이야기를 나누어 보세요.
         </ModalContentDetail>
+        <ModalCommunityLink href="/commuity/mobicker">
+          커뮤니티 바로가기
+        </ModalCommunityLink>
+
         <ModalContent>업데이트 예정 사항:</ModalContent>
         <ModalContentDetail>- 직거래 게시판 활성화</ModalContentDetail>
-
+        <ModalContentDetail>
+          - 게시판 이미지 첨부 기능 활성화
+        </ModalContentDetail>
         <ModalContentDetail>- 상품 입고 페이지 활성화</ModalContentDetail>
         <div></div>
         <div></div>
