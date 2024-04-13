@@ -49,15 +49,12 @@ const StyledLink = styled.a`
 `;
 
 export default function Header() {
-  // 모달 표시 상태를 관리하는 상태 변수와 setter 함수
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  // 모달을 표시하는 함수
   const showModal = () => {
     setIsModalVisible(true);
   };
 
-  // 모달을 숨기는 함수
   const hideModal = () => {
     setIsModalVisible(false);
   };

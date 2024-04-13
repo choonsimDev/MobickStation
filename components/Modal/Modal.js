@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ModalOverlay = styled.div`
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@ const ModalOverlay = styled.div`
 const ModalContainer = styled.div`
   padding: 40px;
   background-color: #ffffff;
-  border: 7px solid gray;
+  border: 3px solid gray;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -111,7 +111,7 @@ const Modal = ({ onClose }) => {
           Contact : choonsim.dev@gmail.com
         </ModalContentDetail>
         <ModalActions>
-          {/* <Button onClick={onClose}>닫기</Button>
+          <Button onClick={onClose}>닫기</Button>
           <Button
             onClick={() => {
               localStorage.setItem("hideModal", new Date().toISOString());
@@ -119,7 +119,7 @@ const Modal = ({ onClose }) => {
             }}
           >
             오늘 하루 보지 않기
-          </Button> */}
+          </Button>
         </ModalActions>
       </ModalContainer>
     </ModalOverlay>

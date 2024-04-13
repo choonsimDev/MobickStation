@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { useState } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
+import ModalPagePreparing from "@/components/Modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -172,8 +172,20 @@ export default function ProductsDetail() {
   const [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState("100,000");
 
+  //모달
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  useEffect(() => {
+    setIsModalVisible(true);
+  }, []);
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+  // 모달
+
   return (
     <StyledDiv>
+      {isModalVisible && <ModalPagePreparing onClose={closeModal} />}
+
       <Header />
       <Center>
         <LogoAndSearch />

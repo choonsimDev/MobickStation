@@ -46,8 +46,9 @@ const NoticeText = styled.a`
 const CommunityBoxWrapper = styled.div`
   width: 1200px;
   display: flex;w
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
+
   box-sizing: border-box;
 `;
 

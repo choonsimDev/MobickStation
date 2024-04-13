@@ -1,8 +1,10 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
 import Center from "@/components/Main/Center";
 import LogoAndSearch from "@/components/Main/LogoAndSearch";
 import Footer from "@/components/Main/Footer";
+import ModalPagePreparing from "@/components/Modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -235,8 +237,20 @@ const StyledBack = styled.a`
 `;
 
 export default function Cart() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    setIsModalVisible(true); // 페이지 로드 시 모달을 자동으로 열기
+  }, []);
+
+  const closeModal = () => {
+    setIsModalVisible(false); // 모달 닫기 함수
+  };
+
   return (
     <StyledDiv>
+      {isModalVisible && <ModalPagePreparing onClose={closeModal} />}
+
       <Header />
       <Center>
         <LogoAndSearch />

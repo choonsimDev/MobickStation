@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
 import { products, recommendImages, tabs } from "@/DataBase/TodayItemDB";
+import ModalReady from "../Modal/ModalReady";
 
 const StyledRecommendWrapper = styled.header`
   width: 1200px;
@@ -57,7 +58,6 @@ const RecommendSecondImage = styled.a`
     width: 260px;
     transition: transform 0.3s ease-in-out; // 부드러운 변환 효과 추가
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); // 그림자 추가
     &:hover {
       transform: scale(1.1); // 마우스 호버 시 이미지 10% 확대
     }
@@ -366,16 +366,22 @@ const StyledFourthRankItem = styled.div`
 `;
 
 export default function TodayItem() {
-  const [activeTab, setActiveTab] = useState(tabs[0].id); // 첫 번째 탭을 기본값으로 설정
-  const [rankRange, setRankRange] = useState("1-5"); // '1-5' 또는 '6-10'을 나타내는 상태
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [rankRange, setRankRange] = useState("1-5");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => setIsModalVisible(true);
+  const hideModal = () => setIsModalVisible(false);
 
   const filterItemsByRank = (items) => {
-    const start = rankRange === "1-5" ? 0 : 5; // '1-5'이면 0에서 시작, '6-10'이면 5에서 시작
-    return items.slice(start, start + 5); // 시작점부터 다섯 항목을 선택
+    const start = rankRange === "1-5" ? 0 : 5;
+    return items.slice(start, start + 5);
   };
 
   return (
     <div>
+      {isModalVisible && <ModalReady onClose={hideModal} />}
+
       <StyledShopTitle href="/store">굿즈 몰</StyledShopTitle>
 
       <StyledRecommendWrapper>
@@ -433,18 +439,22 @@ export default function TodayItem() {
             </div>
           </StyledSearchWrapper>
           <StyledFourthRankingWrapper>
-            <StyledFourthRanking onClick={() => setRankRange("1-5")}>
+            <StyledFourthRanking
+              StyledFourthRanking
+              onClick={() => setRankRange("1-5")}
+            >
               1 ~ 5위
             </StyledFourthRanking>
-            <StyledFourthRanking onClick={() => setRankRange("6-10")}>
-              6 ~ 10위
-            </StyledFourthRanking>
+            <StyledFourthRanking>6 ~ 10위</StyledFourthRanking>
           </StyledFourthRankingWrapper>
-          {filterItemsByRank(
-            tabs.find((tab) => tab.id === activeTab)?.items || []
-          ).map((item, index) => (
-            <StyledFourthRankItem key={index}>{item}</StyledFourthRankItem>
-          ))}
+          {tabs.find((tab) => tab.id === activeTab)?.items &&
+            filterItemsByRank(
+              tabs.find((tab) => tab.id === activeTab).items
+            ).map((item, index) => (
+              <StyledFourthRankItem key={index} onClick={showModal}>
+                {item}
+              </StyledFourthRankItem>
+            ))}
         </RecommendFourth>
       </StyledRecommendWrapper>
     </div>
