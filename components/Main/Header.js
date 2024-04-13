@@ -49,12 +49,11 @@ const StyledLink = styled.a`
 `;
 
 export default function Header() {
+  //ReadyModal
   const [isModalVisible, setIsModalVisible] = useState(false);
-
   const showModal = () => {
     setIsModalVisible(true);
   };
-
   const hideModal = () => {
     setIsModalVisible(false);
   };
