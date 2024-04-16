@@ -57,7 +57,7 @@ export default function BestProducts() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [store, setStore] = useState(null);
   const [filterCategoryId, setFilterCategoryId] = useState(null); // Allow null for 'View All'
-  const [categoriId, setCategoryId] = useState(null); // Allow null for 'View All'
+  const [categoryId, setCategoryId] = useState(null); // Allow null for 'View All'
 
   const router = useRouter();
   const { id } = router.query;
@@ -78,10 +78,29 @@ export default function BestProducts() {
         }
         // 스토아의 프로덕트에 카테고리 아이디만 추출(중복제거), 어레이
         // useState에 저장 (이름)
+
+        // API에서 전체 카테고리 데이터를 가져옴
+        const categoriesResponse = await fetch('/api/storeCategories/getCategories');
+        const categoriesData = await categoriesResponse.json();
+
+        // 카테고리 데이터를 ID를 키로 사용하는 객체로 변환
+        const categoriesById = categoriesData.reduce((acc, category) => {
+          acc[category.id] = category.name;
+          return acc;
+        }, {});
+
+        // 제품 데이터에서 카테고리 ID 추출 및 고유 ID 필터링
         if (data && data.products) {
           const categoryIds = data.products.map((product) => product.categoryId);
           const uniqueCategoryIds = [...new Set(categoryIds)];
-          setCategoryId(uniqueCategoryIds);
+
+          // 고유 카테고리 ID를 사용하여 카테고리 이름과 함께 배열 생성
+          const categoriesWithNames = uniqueCategoryIds.map(id => ({
+            id: id,
+            name: categoriesById[id] || 'Unknown Category'  // 카테고리 이름이 없는 경우 대비
+          }));
+
+          setCategoryId(categoriesWithNames);  // 상태 설정 함수 호출
         }
       };
 
@@ -102,7 +121,7 @@ export default function BestProducts() {
           <Banner />
           <CategorySection
             onCategoryChange={handleCategoryChange}
-            categoryIds={categoriId}
+            categoryIds={categoryId}
           />
           {store && (
             <div>

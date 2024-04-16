@@ -62,15 +62,15 @@ export default function CategorySection({ onCategoryChange, categoryIds }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    async function fetchCategoryNames() {
-      const response = await fetch("/api/storeCategories/getCategories");
-      const data = await response.json();
-      const categoryNames = data.map(category => category.name); // 'name' 필드에서 카테고리 이름을 추출
-      setCategories(categoryNames); // 카테고리 이름 배열을 상태로 저장
-      console.log("categoryNames", categoryNames);
-    }
+    // async function fetchCategoryNames() {
+    //   const response = await fetch("/api/storeCategories/getCategories");
+    //   const data = await response.json();
+    //   const categoryNames = data.map(category => category.name); // 'name' 필드에서 카테고리 이름을 추출
+    //   setCategories(categoryNames); // 카테고리 이름 배열을 상태로 저장
+    //   console.log("categoryNames", categoryNames);
+    // }
 
-    fetchCategoryNames();
+    // fetchCategoryNames();
     console.log("categoryIds", categoryIds);
   }, []);
 
@@ -86,7 +86,7 @@ export default function CategorySection({ onCategoryChange, categoryIds }) {
               onClick={() => onCategoryChange(category.id)}
             >
               <Circle />
-              <p>{categories && categories[0]}</p>
+              <p>{category.name}</p>
             </CategoryItem>
           ))}
         </CategoryCircleWrapper>
