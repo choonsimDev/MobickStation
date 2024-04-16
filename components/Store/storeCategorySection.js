@@ -1,5 +1,4 @@
-// components/CategorySection.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const SectionContainer = styled.div`
@@ -32,7 +31,7 @@ const CategoryCircleWrapper = styled.div`
   align-items: center;
   gap: 50px;
   cursor: pointer;
-  & :hover {
+  &:hover {
     color: #f6931a;
   }
 `;
@@ -59,23 +58,31 @@ const CategoryItem = styled.div`
   font-size: 20px;
 `;
 
-export default function CategorySection() {
-  // 예시 이미지 URL 및 카테고리명, 실제 사용 시 적절한 값으로 교체 필요
-  const categories = [
-    { imageUrl: "/path/to/image1.jpg", name: "일반형" },
-    { imageUrl: "/path/to/image2.jpg", name: "선물용" },
-    { imageUrl: "/path/to/image3.jpg", name: "주문 제작" },
-    { imageUrl: "/path/to/image4.jpg", name: "기타 상품" },
-  ];
+export default function CategorySection({ onCategoryChange, categoryIds }) {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    async function fetchCategories() {
+      const response = await fetch("/api/storeCategories/getCategories");
+      const data = await response.json();
+      setCategories(data);
+    }
+
+    fetchCategories();
+    console.log("categoryIds", categoryIds);
+  }, []);
 
   return (
     <SectionContainer>
       <CategoryTitle>상품 카테고리</CategoryTitle>
       <CategoryContainer>
         <CategoryCircleWrapper>
-          {categories.map((category, index) => (
-            <CategoryItem key={index}>
-              <Circle imageUrl={category.imageUrl} />
+          {categories.map((category) => (
+            <CategoryItem
+              key={category.id}
+              onClick={() => onCategoryChange(category.id)}
+            >
+              <Circle />
               <p>{category.name}</p>
             </CategoryItem>
           ))}
