@@ -3,10 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-    relationMode = "prisma"
-
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
@@ -83,22 +82,20 @@ model dbNotice {
   createdAt DateTime @default(now())
 }
 
-
-// Store 
 model dbStoreName {
-  id        Int         @id @default(autoincrement())
-  name      String
-  products  dbStoreProduct[]
+  id       Int              @id @default(autoincrement())
+  name     String
+  products dbStoreProduct[]
 }
 
 model dbStoreCategory {
-  id        Int         @id @default(autoincrement())
-  name      String
-  products  dbStoreProduct[]
+  id       Int              @id @default(autoincrement())
+  name     String
+  products dbStoreProduct[]
 }
 
 model dbStoreProduct {
-  id          Int        @id @default(autoincrement())
+  id          Int             @id @default(autoincrement())
   name        String
   price       Float
   imageUrl    String?
@@ -106,8 +103,5 @@ model dbStoreProduct {
   categoryId  Int
   storeId     Int
   category    dbStoreCategory @relation(fields: [categoryId], references: [id])
-  store       dbStoreName    @relation(fields: [storeId], references: [id])
-
-  @@index([categoryId])
-  @@index([storeId])
+  store       dbStoreName     @relation(fields: [storeId], references: [id])
 }

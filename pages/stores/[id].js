@@ -71,13 +71,18 @@ export default function BestProducts() {
         if (data && data.products) {
           const filteredProducts = filterCategoryId
             ? data.products.filter(
-                (product) => product.categoryId === filterCategoryId
-              )
+              (product) => product.categoryId === filterCategoryId
+            )
             : data.products;
           setStore({ ...data, products: filteredProducts });
         }
         // 스토아의 프로덕트에 카테고리 아이디만 추출(중복제거), 어레이
         // useState에 저장 (이름)
+        if (data && data.products) {
+          const categoryIds = data.products.map((product) => product.categoryId);
+          const uniqueCategoryIds = [...new Set(categoryIds)];
+          setCategoryId(uniqueCategoryIds);
+        }
       };
 
       fetchData();
@@ -97,9 +102,7 @@ export default function BestProducts() {
           <Banner />
           <CategorySection
             onCategoryChange={handleCategoryChange}
-            categoryIds={
-              store && store.products.map((product) => product.categoryId)
-            }
+            categoryIds={categoriId}
           />
           {store && (
             <div>
