@@ -91,7 +91,7 @@ const ModalPagePreparing = ({ onClose }) => {
         <div>더 나은 서비스와 경험을 제공하기 위해 열심히 준비 중입니다.</div>
         <div>조금만 기다려주세요!</div>
         <ModalButtonWrapper>
-          <ButtonClose onClick={handleBackdropClick}>닫기</ButtonClose>
+          {/* <ButtonClose onClick={handleBackdropClick}>닫기</ButtonClose> */}
           <Button onClick={handleBack}>돌아가기</Button>
         </ModalButtonWrapper>
       </ModalBox>
