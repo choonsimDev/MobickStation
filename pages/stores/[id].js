@@ -56,6 +56,8 @@ const StyledBack = styled.a`
 export default function BestProducts() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [store, setStore] = useState(null);
+  const [filterCategoryId, setFilterCategoryId] = useState(1); // Default filter category ID
+
   const router = useRouter();
   const { id } = router.query;
 
@@ -65,25 +67,53 @@ export default function BestProducts() {
       const fetchData = async () => {
         const res = await fetch(`http://localhost:3000/api/storeStores/${id}`);
         const data = await res.json();
-        setStore(data);
+        if (data && data.products) {
+          const filteredProducts = data.products.filter(
+            (product) => product.categoryId === filterCategoryId
+          );
+          setStore({ ...data, products: filteredProducts });
+        }
       };
 
       fetchData();
     }
-  }, [id]);
+  }, [id, filterCategoryId]); // Re-fetch when category filter changes
 
   const closeModal = () => {
     setIsModalVisible(false); // 모달 닫기 함수
   };
 
+  // 필터 카테고리 변경하는 핸들러
+  const handleCategoryChange = (newCategoryId) => {
+    setFilterCategoryId(newCategoryId);
+  };
+
   return (
     <StyledDiv>
-      {isModalVisible && <ModalPagePreparing onClose={closeModal} />}
+      {/* {isModalVisible && <ModalPagePreparing onClose={closeModal} />} */}
       <Center>
         <Header />
         <LogoAndSearch />
         <StyledDiv2>
           <Banner />
+          <button onClick={() => handleCategoryChange(null)}>View All</button>
+
+          <button onClick={() => handleCategoryChange(1)}>
+            Category 1 : 일반형 지갑
+          </button>
+          <button onClick={() => handleCategoryChange(2)}>
+            Category 2 : 이벤트 지갑
+          </button>
+          <button onClick={() => handleCategoryChange(3)}>
+            Category 3 : 행사 지갑
+          </button>
+          <button onClick={() => handleCategoryChange(4)}>
+            Category 4 : 제작 지갑
+          </button>
+          <button onClick={() => handleCategoryChange(5)}>
+            Category 5 : 기타 지갑
+          </button>
+
           {store && (
             <div>
               <h1>{store.name}</h1>

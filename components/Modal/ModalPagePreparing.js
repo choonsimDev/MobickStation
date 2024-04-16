@@ -45,6 +45,7 @@ const ModalButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
 `;
 
 const Button = styled.button`
@@ -61,11 +62,26 @@ const Button = styled.button`
   }
 `;
 
-const ModalPagePreparing = () => {
-  const router = useRouter();
+const ButtonClose = styled.button`
+  padding: 10px 20px;
+  border: none;
+  background-color: #666;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
+  &:hover {
+    background-color: #333;
+  }
+`;
+
+const ModalPagePreparing = ({ onClose }) => {
   const handleBack = () => {
     router.back(); // 브라우저의 이전 페이지로 이동
+  };
+  const handleBackdropClick = (event) => {
+    onClose();
   };
 
   return (
@@ -75,6 +91,7 @@ const ModalPagePreparing = () => {
         <div>더 나은 서비스와 경험을 제공하기 위해 열심히 준비 중입니다.</div>
         <div>조금만 기다려주세요!</div>
         <ModalButtonWrapper>
+          <ButtonClose onClick={handleBackdropClick}>닫기</ButtonClose>
           <Button onClick={handleBack}>돌아가기</Button>
         </ModalButtonWrapper>
       </ModalBox>
