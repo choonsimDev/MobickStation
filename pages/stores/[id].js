@@ -8,8 +8,10 @@ import Banner from "@/components/Main/Banner";
 import CategorySection from "@/components/Store/storeCategorySection";
 import BestProductsSection from "@/components/Store/storeBestProductsSection";
 import AllProductsSection from "@/components/Store/storeAllProductsSection";
+import ProductsSection from "@/components/Store/storeProductsSection";
 import Footer from "@/components/Main/Footer";
 import ModalPagePreparing from "@/components/Modal/ModalPagePreparing";
+import Products from "@/components/Main/Products";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -71,8 +73,8 @@ export default function BestProducts() {
         if (data && data.products) {
           const filteredProducts = filterCategoryId
             ? data.products.filter(
-              (product) => product.categoryId === filterCategoryId
-            )
+                (product) => product.categoryId === filterCategoryId
+              )
             : data.products;
           setStore({ ...data, products: filteredProducts });
         }
@@ -80,7 +82,9 @@ export default function BestProducts() {
         // useState에 저장 (이름)
 
         // API에서 전체 카테고리 데이터를 가져옴
-        const categoriesResponse = await fetch('/api/storeCategories/getCategories');
+        const categoriesResponse = await fetch(
+          "/api/storeCategories/getCategories"
+        );
         const categoriesData = await categoriesResponse.json();
 
         // 카테고리 데이터를 ID를 키로 사용하는 객체로 변환
@@ -91,16 +95,18 @@ export default function BestProducts() {
 
         // 제품 데이터에서 카테고리 ID 추출 및 고유 ID 필터링
         if (data && data.products) {
-          const categoryIds = data.products.map((product) => product.categoryId);
+          const categoryIds = data.products.map(
+            (product) => product.categoryId
+          );
           const uniqueCategoryIds = [...new Set(categoryIds)];
 
           // 고유 카테고리 ID를 사용하여 카테고리 이름과 함께 배열 생성
-          const categoriesWithNames = uniqueCategoryIds.map(id => ({
+          const categoriesWithNames = uniqueCategoryIds.map((id) => ({
             id: id,
-            name: categoriesById[id] || 'Unknown Category'  // 카테고리 이름이 없는 경우 대비
+            name: categoriesById[id] || "Unknown Category", // 카테고리 이름이 없는 경우 대비
           }));
 
-          setCategoryId(categoriesWithNames);  // 상태 설정 함수 호출
+          setCategoryId(categoriesWithNames); // 상태 설정 함수 호출
         }
       };
 
@@ -123,7 +129,7 @@ export default function BestProducts() {
             onCategoryChange={handleCategoryChange}
             categoryIds={categoryId}
           />
-          {store && (
+          {/* {store && (
             <div>
               <h1>{store.name}</h1>
               <ul>
@@ -134,9 +140,10 @@ export default function BestProducts() {
                 ))}
               </ul>
             </div>
-          )}
-          <BestProductsSection />
-          <AllProductsSection />
+          )} */}
+          {/* <BestProductsSection />
+          <AllProductsSection /> */}
+          <ProductsSection products={store ? store.products : []} />
           <StyledBack href="/">돌아가기</StyledBack>
         </StyledDiv2>
         <Footer />
