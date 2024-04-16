@@ -1,16 +1,10 @@
 export async function getServerSideProps(context) {
   const { id } = context.params;
   const res = await fetch(`http://localhost:3000/api/storeStores/${id}`);
-  const data = await res.json();
-
-  if (res.status !== 200) {
-    return {
-      notFound: true,
-    };
-  }
+  const store = await res.json();
 
   return {
-    props: { store: data },
+    props: { store }, // 페이지 컴포넌트에 store prop으로 전달
   };
 }
 
