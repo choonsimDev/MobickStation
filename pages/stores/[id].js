@@ -68,13 +68,14 @@ export default function BestProducts() {
     setIsModalVisible(true);
     if (id) {
       const fetchData = async () => {
-        const res = await fetch(`http://localhost:3000/api/storeStores/${id}`);
+        // const res = await fetch(`http://localhost:3000/api/storeStores/${id}`);
+        const res = await fetch(`/api/storeStores/${id}`);
         const data = await res.json();
         if (data && data.products) {
           const filteredProducts = filterCategoryId
             ? data.products.filter(
-                (product) => product.categoryId === filterCategoryId
-              )
+              (product) => product.categoryId === filterCategoryId
+            )
             : data.products;
           setStore({ ...data, products: filteredProducts });
         }
