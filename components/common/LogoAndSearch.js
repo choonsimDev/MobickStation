@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
 import React, { useState } from "react";
-import ModalReady from "../Modal/ModalReady";
+import ModalReady from "../modal/ModalReady";
 // import Link from "next/link";
 // import Image from "next/image";
 

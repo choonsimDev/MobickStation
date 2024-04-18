@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
-import Center from "@/components/Main/Center";
-import LogoAndSearch from "@/components/Main/LogoAndSearch";
-import Footer from "@/components/Main/Footer";
+import Center from "@/components/common/Center";
+import LogoAndSearch from "@/components/common/LogoAndSearch";
+import Footer from "@/components/common/Footer";
 
 const StyledDiv = styled.div`
   display: flex;

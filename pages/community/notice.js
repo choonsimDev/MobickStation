@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
-import Center from "@/components/Main/Center";
-import LogoAndSearch from "@/components/Main/LogoAndSearch";
-import AdArea from "@/components/Main/AdArea";
-import Footer from "@/components/Main/Footer";
-import CommunityList from "@/components/Community/CommunityList";
+import Center from "@/components/common/Center";
+import LogoAndSearch from "@/components/common/LogoAndSearch";
+import AdArea from "@/components/common/AdArea";
+import Footer from "@/components/common/Footer";
+import CommunityList from "@/components/community/CommunityList";
 
-import Pagination from "@/components/Pagination";
+import Pagination from "@/components/common/Pagination";
 
 import "react-quill/dist/quill.snow.css";
 // import Link from "next/link";

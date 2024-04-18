@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-import ModalReady from "@/components/Modal/ModalReady";
-import AuthButtons from "@/components/Main/AuthButtons";
+import ModalReady from "@/components/modal/ModalReady";
+import AuthButtons from "@/components/auth/AuthButtons";
 
 const HeaderWrapper = styled.div`
   width: 100vw; // 화면 너비에 맞게 조정

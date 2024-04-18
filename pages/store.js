@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Header from "@/components/Main/Header";
-import Center from "@/components/Main/Center";
-import LogoAndSearch from "@/components/Main/LogoAndSearch";
-import Banner from "@/components/Main/Banner";
-import CategorySection from "@/components/Store/storeCategorySection";
-import BestProductsSection from "@/components/Store/storeBestProductsSection";
-import AllProductsSection from "@/components/Store/storeAllProductsSection";
-import Footer from "@/components/Main/Footer";
-import ModalPagePreparing from "@/components/Modal/ModalPagePreparing";
+import Header from "@/components/common/Header";
+import Center from "@/components/common/Center";
+import LogoAndSearch from "@/components/common/LogoAndSearch";
+import Banner from "@/components/store/mainpage/Banner";
+import CategorySection from "@/components/store/stores/storeCategorySection";
+import BestProductsSection from "@/components/store/stores/storeBestProductsSection";
+import AllProductsSection from "@/components/store/stores/storeAllProductsSection";
+import Footer from "@/components/common/Footer";
+import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;

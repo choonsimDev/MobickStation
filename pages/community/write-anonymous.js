@@ -1,10 +1,10 @@
 // import TextEditor from "../components/Main/TextEditor";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
-import LogoAndSearch from "@/components/Main/LogoAndSearch";
-import CommunityList from "@/components/Community/CommunityList";
-import Footer from "@/components/Main/Footer";
-import Center from "@/components/Main/Center";
+import LogoAndSearch from "@/components/common/LogoAndSearch";
+import CommunityList from "@/components/community/CommunityList";
+import Footer from "@/components/common/Footer";
+import Center from "@/components/common/Center";
 import { useState } from "react";
 import Router from "next/router";
 

@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Modal from "@/components/Modal/Modal";
+import Modal from "@/components/modal/Modal";
 import Head from "next/head";
-import Header from "@/components/Main/Header";
-import Center from "@/components/Main/Center";
+import Header from "@/components/common/Header";
+import Center from "@/components/common/Center";
 
-import LogoAndSearch from "@/components/Main/LogoAndSearch";
-import Banner from "@/components/Main/Banner";
-import TodayItem from "@/components/Main/TodayItem";
-import Products from "@/components/Main/Products";
-import CommunityMain from "@/components/Main/CommunityMain";
+import LogoAndSearch from "@/components/common/LogoAndSearch";
+import Banner from "@/components/store/mainpage/Banner";
+import TodayItem from "@/components/store/mainpage/TodayItem";
+import Products from "@/components/store/mainpage/Products";
+import CommunityMain from "@/components/community/CommunityMain";
 
-import AdArea from "@/components/Main/AdArea";
-
-import Footer from "@/components/Main/Footer";
+import AdArea from "@/components/common/AdArea";
+import Footer from "@/components/common/Footer";
 
 const StyledDiv = styled.div`
   display: flex;

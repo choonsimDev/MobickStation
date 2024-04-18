@@ -3,7 +3,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Index from "./pages/index.js"; // 경로 수정 필요할 수 있음
-import CommunityMain from "../Community/CommunityMain.js"; // 경로 수정 필요할 수 있음
+import CommunityMain from "../community/CommunityMain.js"; // 경로 수정 필요할 수 있음
 
 const App = () => {
   return (

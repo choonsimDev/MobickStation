@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "@/components/Main/Header";
-import Center from "@/components/Main/Center";
-import LogoAndSearch from "@/components/Main/LogoAndSearch";
-import Footer from "@/components/Main/Footer";
-import ModalPagePreparing from "@/components/Modal/ModalPagePreparing";
+import Center from "@/components/common/Center";
+import LogoAndSearch from "@/components/common/LogoAndSearch";
+import Footer from "@/components/common/Footer";
+import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;

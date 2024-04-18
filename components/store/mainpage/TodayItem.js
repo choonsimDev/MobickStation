@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
-import ModalReady from "../Modal/ModalReady";
+import ModalReady from "@/components/modal/ModalReady";
 
 const StyledRecommendWrapper = styled.header`
   width: 1200px;
