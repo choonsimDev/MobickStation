@@ -12,10 +12,6 @@ import Products from "@/components/Main/Products";
 import CommunityMain from "@/components/Main/CommunityMain";
 
 import AdArea from "@/components/Main/AdArea";
-import MobiletOtc from "@/components/Unused/MobiletOtc";
-import WinwinMarket from "@/components/Unused/WinwinMarket";
-import TodakAndNews from "@/components/Unused/TodakAndNews";
-import AdAndInterview from "@/components/Unused/AdAndInterview";
 
 import Footer from "@/components/Main/Footer";
 

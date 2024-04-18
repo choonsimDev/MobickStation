@@ -10,8 +10,6 @@ import BestProductsSection from "@/components/Store/storeBestProductsSection";
 import AllProductsSection from "@/components/Store/storeAllProductsSection";
 import ProductsSection from "@/components/Store/storeProductsSection";
 import Footer from "@/components/Main/Footer";
-import ModalPagePreparing from "@/components/Modal/ModalPagePreparing";
-import Products from "@/components/Main/Products";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -74,8 +72,8 @@ export default function BestProducts() {
         if (data && data.products) {
           const filteredProducts = filterCategoryId
             ? data.products.filter(
-              (product) => product.categoryId === filterCategoryId
-            )
+                (product) => product.categoryId === filterCategoryId
+              )
             : data.products;
           setStore({ ...data, products: filteredProducts });
         }
@@ -130,20 +128,7 @@ export default function BestProducts() {
             onCategoryChange={handleCategoryChange}
             categoryIds={categoryId}
           />
-          {/* {store && (
-            <div>
-              <h1>{store.name}</h1>
-              <ul>
-                {store.products.map((product) => (
-                  <li key={product.id}>
-                    {product.name} - ${product.price} -{product.categoryId}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )} */}
-          {/* <BestProductsSection />
-          <AllProductsSection /> */}
+
           <ProductsSection products={store ? store.products : []} />
           <StyledBack href="/">돌아가기</StyledBack>
         </StyledDiv2>

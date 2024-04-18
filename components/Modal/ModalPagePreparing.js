@@ -77,6 +77,8 @@ const ButtonClose = styled.button`
 `;
 
 const ModalPagePreparing = ({ onClose }) => {
+  const router = useRouter(); // `useRouter` 훅을 사용하여 `router` 객체를 초기화
+
   const handleBack = () => {
     router.back(); // 브라우저의 이전 페이지로 이동
   };

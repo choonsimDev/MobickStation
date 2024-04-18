@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
-import { products, recommendImages, tabs } from "@/DataBase/TodayItemDB";
 import ModalReady from "../Modal/ModalReady";
 
 const StyledRecommendWrapper = styled.header`
@@ -365,6 +364,69 @@ const StyledFourthRankItem = styled.div`
   }
 `;
 
+const products = [
+  {
+    id: 1,
+    image: "/images/o4fan02.png",
+    title: "판매 상품 예시",
+    maker: "판매자",
+    description: "판매 상품 예시 이미지입니다.",
+  },
+  {
+    id: 2,
+    image: "/images/chrischoi02.png",
+    title: "판매 상품 예시",
+    series: "Product Category",
+    maker: "Seller Name",
+    description: "판매 상품 예시 이미지입니다.",
+    price: "10,000원",
+  },
+];
+
+const recommendImages = [
+  { id: 1, src: "/images/mobilet04-1.png" },
+  { id: 2, src: "/images/mobilet01-1.png" },
+  { id: 3, src: "/images/mobilet06-1.png" },
+  { id: 4, src: "/images/mobilet07-1.png" },
+];
+
+const tabs = [
+  {
+    id: "bestsellers",
+    title: "베스트셀러",
+    items: [
+      "1. 첫 번째 베스트 셀러",
+      "2. 두 번째 베스트 셀러",
+      "3. 세 번째 베스트 셀러",
+      "4. 네 번째 베스트 셀러",
+      "5. 다섯 번째 베스트 셀러",
+      "6. 여섯 번째 베스트 셀러",
+      "7. 일곱 번째 베스트 셀러",
+      "8. 여덟 번째 베스트 셀러",
+      "9. 아홉 번째 베스트 셀러",
+      "10. 열 번째 베스트 셀러",
+    ],
+  },
+  {
+    id: "popularSearches",
+    title: "인기검색어",
+    items: [
+      "1. 첫 번째 인기 검색어",
+      "2. 두 번째 인기 검색어",
+      "3. 세 번째 인기 검색어",
+      "4. 네 번째 인기 검색어",
+      "5. 다섯 번째 인기 검색어",
+      "6. 여섯 번째 인기 검색어",
+      "7. 일곱 번째 인기 검색어",
+      "8. 여덟 번째 인기 검색어",
+      "9. 아홉 번째 인기 검색어",
+      "10. 열 번째 인기 검색어",
+
+      // 추가 항목
+    ],
+  },
+];
+
 export default function TodayItem() {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [rankRange, setRankRange] = useState("1-5");
@@ -388,11 +450,11 @@ export default function TodayItem() {
         <RecommendFirst>
           <RecommendFirstTitle>Store Name</RecommendFirstTitle>
           <RecommendProduct>
-            <RecommendFirstImage href="/productsDetail">
+            <RecommendFirstImage href="/stores/productsDetail">
               <img src={products[0].image} alt={products[0].title} />
             </RecommendFirstImage>
             <RecommendFirstDescription>
-              <RecommendDescriptionBox href="/productsDetail">
+              <RecommendDescriptionBox href="/stores/productsDetail">
                 <div>{products[0].title}</div>
                 <div>{products[0].maker}</div>
                 <div>{products[0].description}</div>
@@ -400,13 +462,13 @@ export default function TodayItem() {
             </RecommendFirstDescription>
           </RecommendProduct>
         </RecommendFirst>
-        <RecommendSecondImage href="/productsDetail">
+        <RecommendSecondImage href="/stores/productsDetail">
           <img src={products[1].image} alt={products[1].title} />
         </RecommendSecondImage>
         <RecommendThird>
           <RecommendThirdMenu>
             <RecommendThirdTitle>오늘의 상품</RecommendThirdTitle>
-            <RecommendThirdItemDescription href="/productsDetail">
+            <RecommendThirdItemDescription href="/stores/productsDetail">
               <div>{products[1].title}</div>
               <div>{products[1].description}</div>
               <div>{products[1].series}</div>

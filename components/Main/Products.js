@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React from "react";
-import { products, pubBookImg } from "../../DataBase/ProductsDB";
 
 const StyledTopMidWraper = styled.div`
   width: 1200px;
@@ -173,6 +172,44 @@ const StyledProductPrice = styled.div`
   font-size: 14px;
   font-weight: bold;
 `;
+
+const products = [
+  {
+    imageUrl: "/images/wallet_1.png",
+    name: "판매 상품 예시",
+    description: "판매 상품 예시 이미지입니다.",
+    price: "₩99,000",
+  },
+  {
+    imageUrl: "/images/o4fan.png",
+    name: "판매 상품 예시",
+    description: "판매 상품 예시 이미지입니다.",
+    price: "₩50,000",
+  },
+  {
+    imageUrl: "/images/cjman.png",
+    name: "판매 상품 예시",
+    description: "판매 상품 예시 이미지입니다.",
+    price: "₩39,800",
+  },
+  {
+    imageUrl: "/images/jufrieden.png",
+    name: "판매 상품 예시",
+    description: "판매 상품 예시 이미지입니다.",
+    price: "₩170,000",
+  },
+];
+
+const pubBookImg = [
+  {
+    id: 1,
+    src: "/images/jufrieden.png",
+  },
+  {
+    id: 2,
+    src: "/images/chrischoi02.png",
+  },
+];
 
 export default function Products() {
   // 상품 데이터
