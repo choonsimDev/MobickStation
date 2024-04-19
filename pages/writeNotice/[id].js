@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import styled from "styled-components";
-import Header from "@/components/Main/Header";
+import Header from "@/components/common/Header";
 import LogoAndSearch from "@/components/common/LogoAndSearch";
 import CommunityList from "@/components/community/CommunityList";
 import Footer from "@/components/common/Footer";
@@ -171,7 +171,7 @@ export default function Writing() {
 
     // 게시물 불러오기
     try {
-      const postResponse = await fetch(`/api/getNoticePost?id=${id}`, {
+      const postResponse = await fetch(`/api/posts/getNoticePost?id=${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -188,12 +188,15 @@ export default function Writing() {
 
     // 댓글 불러오기
     try {
-      const commentsResponse = await fetch(`/api/getComments?postId=${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const commentsResponse = await fetch(
+        `/api/posts/getComments?postId=${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!commentsResponse.ok) {
         throw new Error("Network response was not ok");
       }

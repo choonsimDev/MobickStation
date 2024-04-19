@@ -169,7 +169,7 @@ export default function LogoAndSearch() {
       <StyledLogoBox>
         <StyledLogo>
           <div>
-            <img src="/images/Logo_01.png" alt="Logo" width={60} />
+            <img src="/images/logo/Logo_01.png" alt="Logo" width={60} />
           </div>
           <StyledLogoLink href="/">MOBICK STATION</StyledLogoLink>
         </StyledLogo>

@@ -74,7 +74,7 @@ export default function Header() {
           <div>
             <AuthButtons>로그인</AuthButtons>
             <StyledLink onClick={showModal}>회원가입</StyledLink>
-            <StyledLink href="/cart">장바구니</StyledLink>
+            <StyledLink href="/store/cart">장바구니</StyledLink>
             <StyledLink onClick={showModal}>주문조회</StyledLink>
             <StyledLink onClick={showModal}>고객센터</StyledLink>
           </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import styled from "styled-components";
-import Header from "@/components/Main/Header";
+import Header from "@/components/common/Header";
 import LogoAndSearch from "@/components/common/LogoAndSearch";
 import CommunityList from "@/components/community/CommunityList";
 import Footer from "@/components/common/Footer";
@@ -171,7 +171,7 @@ export default function Writing() {
 
     // 게시물 불러오기
     try {
-      const postResponse = await fetch(`/api/getAnonymousPost?id=${id}`, {
+      const postResponse = await fetch(`/api/posts/getAnonymousPost?id=${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -189,7 +189,7 @@ export default function Writing() {
     // 댓글 불러오기
     try {
       const commentsResponse = await fetch(
-        `/api/getCommentsAnonymous?postId=${id}`,
+        `/api/posts/getAnonymousComments?postId=${id}`,
         {
           method: "GET",
           headers: {
@@ -211,7 +211,7 @@ export default function Writing() {
     if (!comment.trim()) return alert("댓글을 입력해주세요.");
 
     try {
-      const response = await fetch(`/api/setAnonymousComment`, {
+      const response = await fetch(`/api/posts/setAnonymousComment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

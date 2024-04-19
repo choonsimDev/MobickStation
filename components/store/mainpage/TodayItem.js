@@ -367,14 +367,14 @@ const StyledFourthRankItem = styled.div`
 const products = [
   {
     id: 1,
-    image: "/images/o4fan02.png",
+    image: "/images/store/o4fan.png",
     title: "판매 상품 예시",
     maker: "판매자",
     description: "판매 상품 예시 이미지입니다.",
   },
   {
     id: 2,
-    image: "/images/chrischoi02.png",
+    image: "/images/store/chrischoi02.png",
     title: "판매 상품 예시",
     series: "Product Category",
     maker: "Seller Name",
@@ -384,10 +384,10 @@ const products = [
 ];
 
 const recommendImages = [
-  { id: 1, src: "/images/mobilet04-1.png" },
-  { id: 2, src: "/images/mobilet01-1.png" },
-  { id: 3, src: "/images/mobilet06-1.png" },
-  { id: 4, src: "/images/mobilet07-1.png" },
+  { id: 1, src: "/images/store/mobilet04-1.png" },
+  { id: 2, src: "/images/store/mobilet01-1.png" },
+  { id: 3, src: "/images/store/mobilet06-1.png" },
+  { id: 4, src: "/images/store/mobilet07-1.png" },
 ];
 
 const tabs = [
@@ -450,7 +450,7 @@ export default function TodayItem() {
         <RecommendFirst>
           <RecommendFirstTitle>Store Name</RecommendFirstTitle>
           <RecommendProduct>
-            <RecommendFirstImage href="/stores/productsDetail">
+            <RecommendFirstImage href="/store/productsDetail">
               <img src={products[0].image} alt={products[0].title} />
             </RecommendFirstImage>
             <RecommendFirstDescription>

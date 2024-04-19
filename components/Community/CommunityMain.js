@@ -45,7 +45,7 @@ const NoticeText = styled.a`
 
 const CommunityBoxWrapper = styled.div`
   width: 1200px;
-  display: flex;w
+  display: flex;
   align-items: flex-start;
   justify-content: space-between;
 
@@ -183,7 +183,7 @@ const MobickCommunityLinkButton = styled.a`
 `;
 
 export default function CommunityMain() {
-  const [communityPosts, setCommunityPosts] = useState([]);
+  const [mobickerPosts, setMobickerPosts] = useState([]);
   const [anonymousPosts, setAnonymousPosts] = useState([]);
 
   useEffect(() => {
@@ -204,8 +204,8 @@ export default function CommunityMain() {
       setPosts(sortedData.slice(0, 14));
     }
 
-    fetchPosts("/api/dbCommunityPost/", setCommunityPosts);
-    fetchPosts("/api/dbAnonymousPost/", setAnonymousPosts);
+    fetchPosts("/api/posts/dbMobickerPost/", setMobickerPosts);
+    fetchPosts("/api/posts/dbAnonymousPost/", setAnonymousPosts);
   }, []);
 
   // 개별 구성요소를 추출
@@ -239,7 +239,7 @@ export default function CommunityMain() {
               </MobickCommunityLinkButton>
             </MobickCommunityTitleBoxWrapper>
             <MobickCommunityDetail>
-              {communityPosts.map(
+              {mobickerPosts.map(
                 (
                   post,
                   index // API에서 가져온 데이터를 매핑하여 표시

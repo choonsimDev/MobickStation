@@ -147,13 +147,17 @@ export default function Footer() {
         <FooterMiddleWrapper>
           <CompanyWrapper>
             <MiddleImageBox>
-              <img src="/images/BTCMobickLogo.png" alt="Logo" width={80} />
+              <img src="/images/logo/BTCMobickLogo.png" alt="Logo" width={80} />
             </MiddleImageBox>
             <MiddleTextBox>MOBICK STATION</MiddleTextBox>
           </CompanyWrapper>
           <CompanyWrapper>
             <MiddleImageBox>
-              <img src="/images/Logo_Mobickers.png" alt="Logo" width={80} />
+              <img
+                src="/images/logo/Logo_Mobickers.png"
+                alt="Logo"
+                width={80}
+              />
             </MiddleImageBox>
             <MiddleTextBox>Mobickers</MiddleTextBox>
           </CompanyWrapper>

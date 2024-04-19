@@ -21,7 +21,7 @@ const AdLabel = styled.span`
 
 export default function AdArea() {
   const adInfo = {
-    src: "/images/AdTodakTodak.png",
+    src: "/images/ad/AdTodakTodak.png",
     alt: "wallet",
   };
 
