@@ -66,12 +66,20 @@ const ProductImageBox = styled.div`
   width: 530px;
   margin-top: 20px;
   display: flex;
-
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-right: 30px;
+
   img {
+    object-fit: contain;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+  }
+  & div {
+    display: flex;
+    height: 120px;
+    gap: 5px;
   }
 `;
 
@@ -212,6 +220,11 @@ function ProductDetail() {
   if (loading) return <p>Loading...</p>;
   if (!product) return <p>Product not found.</p>;
 
+  // 이미지 URL을 배열로 파싱
+  const imageUrls = product.imageUrl ? product.imageUrl.split(",") : [];
+  const mainImageUrl = imageUrls.length > 0 ? imageUrls[0] : "/placeholder.png";
+  const allImages = imageUrls.slice(0);
+
   return (
     <StyledDiv>
       <Header />
@@ -219,15 +232,28 @@ function ProductDetail() {
         <LogoAndSearch />
         <ProductsDetailWrapper>
           <ProductsCategoryWrapper>
-            <ProductsCategory>Home / Category / Product Name</ProductsCategory>{" "}
+            <ProductsCategory>
+              Home / Category / {product.name}
+            </ProductsCategory>
             <StyledBack href="/store">돌아가기</StyledBack>
           </ProductsCategoryWrapper>
           <ProductDetailBoxWrapper>
             <ProductImageBox>
               <img
-                src={product.imageUrl || "/placeholder.png"}
+                src={mainImageUrl}
                 alt={product.name}
+                style={{ width: "100%" }}
               />
+              <div>
+                {allImages.map((url, index) => (
+                  <img
+                    key={index}
+                    src={url}
+                    alt={product.name}
+                    style={{ height: "100px", marginTop: "10px" }}
+                  />
+                ))}
+              </div>
             </ProductImageBox>
             <ProductDetailRightBox>
               <ProductTitleBox>{product.name}</ProductTitleBox>
@@ -246,7 +272,6 @@ function ProductDetail() {
               <ProductPriceBox>
                 Total Price: ₩{totalPrice.toLocaleString()}
               </ProductPriceBox>
-
               <ProductBuyCartLike>
                 <button>Buy Now</button>
                 <button>Add to Cart</button>
