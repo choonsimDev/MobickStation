@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+
 import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 import LogoAndSearch from "@/components/common/LogoAndSearch";

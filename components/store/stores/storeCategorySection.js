@@ -80,15 +80,16 @@ export default function CategorySection({ onCategoryChange, categoryIds }) {
       <CategoryContainer>
         <CategoryCircleWrapper>
           {console.log("categoryIds", categoryIds)}
-          {categoryIds && categoryIds.map((category) => (
-            <CategoryItem
-              key={category.id}
-              onClick={() => onCategoryChange(category.id)}
-            >
-              <Circle />
-              <p>{category.name}</p>
-            </CategoryItem>
-          ))}
+          {categoryIds &&
+            categoryIds.map((category) => (
+              <CategoryItem
+                key={category.id}
+                onClick={() => onCategoryChange(category.id)}
+              >
+                <Circle />
+                <p>{category.name}</p>
+              </CategoryItem>
+            ))}
         </CategoryCircleWrapper>
       </CategoryContainer>
     </SectionContainer>

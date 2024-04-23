@@ -1,10 +1,10 @@
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import React, { useState, useEffect } from "react";
 import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 import LogoAndSearch from "@/components/common/LogoAndSearch";
 import Footer from "@/components/common/Footer";
-import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -63,18 +63,24 @@ const StyledBack = styled.a`
 `;
 
 const ProductImageBox = styled.div`
-  width: 550px;
-  height: 550px;
+  width: 530px;
   margin-top: 20px;
   display: flex;
 
-  /* border: 1px solid lightgray; */
-  margin-right: 20px;
+  margin-right: 30px;
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
+`;
+
+const ProductDetailBoxWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  /* border: solid 1px lightgray;
+  border-width: 1px 0 1px 0; */
 `;
 
 const ProductDetailRightBox = styled.div`
@@ -168,24 +174,46 @@ const ProductBuyCartLike = styled.div`
   }
 `;
 
-export default function ProductsDetail() {
-  const [quantity, setQuantity] = useState(1);
-  const [price, setPrice] = useState("100,000");
+function ProductDetail() {
+  const router = useRouter();
+  const { id } = router.query;
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [quantity, setQuantity] = useState(1); // Default quantity is 1
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  //모달
-  const [isModalVisible, setIsModalVisible] = useState(false);
   useEffect(() => {
-    setIsModalVisible(true);
-  }, []);
-  const closeModal = () => {
-    setIsModalVisible(false);
+    if (product) {
+      setTotalPrice(product.price * quantity);
+    }
+  }, [product, quantity]);
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
   };
-  // 모달
+  const decreaseQuantity = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1)); // Prevent quantity from going below 1
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetch(`/api/store/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setProduct(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch product", err);
+          setLoading(false);
+        });
+    }
+  }, [id]);
+
+  if (loading) return <p>Loading...</p>;
+  if (!product) return <p>Product not found.</p>;
 
   return (
     <StyledDiv>
-      {/* {isModalVisible && <ModalPagePreparing onClose={closeModal} />} */}
-
       <Header />
       <Center>
         <LogoAndSearch />
@@ -194,63 +222,43 @@ export default function ProductsDetail() {
             <ProductsCategory>Home / Category / Product Name</ProductsCategory>{" "}
             <StyledBack href="/store">돌아가기</StyledBack>
           </ProductsCategoryWrapper>
-          <div style={{ display: "flex", width: "100%" }}>
+          <ProductDetailBoxWrapper>
             <ProductImageBox>
-              <img src="/images/store/cjman.png" alt="product" />
+              <img
+                src={product.imageUrl || "/placeholder.png"}
+                alt={product.name}
+              />
             </ProductImageBox>
             <ProductDetailRightBox>
-              <ProductTitleBox>Product Title</ProductTitleBox>
+              <ProductTitleBox>{product.name}</ProductTitleBox>
               <ProductDescriptionBox>
-                This is the product description. Here you can add more details
-                about the product.
+                {product.description}
               </ProductDescriptionBox>
               <ProductDetailBox>
                 <div>배송 방법</div>
                 <div>배송비 | 2,500원(50,000원 이상 무료 배송)</div>
               </ProductDetailBox>
               <ProductQuantitylBox>
-                구매 수량
-                <div>
-                  <button
-                    onClick={() => {
-                      setQuantity(quantity > 1 ? quantity - 1 : 1);
-                      let copy = [quantity];
-                      if (copy > 0) {
-                        copy--;
-                      }
-                      setQuantity(copy);
-                      setPrice(100000 * copy);
-                    }}
-                  >
-                    -
-                  </button>
-                  <span>{quantity}</span>
-                  <button
-                    onClick={() => {
-                      setQuantity(quantity > 1 ? quantity + 1 : 1);
-                      let copy = [quantity];
-                      if (copy > 0) {
-                        copy++;
-                      }
-                      setQuantity(copy);
-                      setPrice(100000 * copy);
-                    }}
-                  >
-                    +
-                  </button>
-                </div>
+                <button onClick={decreaseQuantity}>-</button>
+                <span>{quantity}</span>
+                <button onClick={increaseQuantity}>+</button>
               </ProductQuantitylBox>
-              <ProductPriceBox>Total Price: {price}원</ProductPriceBox>
+              <ProductPriceBox>
+                Total Price: ₩{totalPrice.toLocaleString()}
+              </ProductPriceBox>
+
               <ProductBuyCartLike>
                 <button>Buy Now</button>
                 <button>Add to Cart</button>
                 <button>♥</button>
               </ProductBuyCartLike>
             </ProductDetailRightBox>
-          </div>
+          </ProductDetailBoxWrapper>
         </ProductsDetailWrapper>
         <Footer />
       </Center>
     </StyledDiv>
   );
 }
+
+export default ProductDetail;
