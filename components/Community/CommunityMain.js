@@ -245,7 +245,7 @@ export default function CommunityMain() {
                   index // API에서 가져온 데이터를 매핑하여 표시
                 ) => (
                   <MobickCommunityDetailBox
-                    href={`/writing/${post.id}`}
+                    href={`/writeMobicker/${post.id}`}
                     key={index}
                   >
                     <div>{post.id}</div>

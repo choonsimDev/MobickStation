@@ -454,7 +454,7 @@ export default function TodayItem() {
               <img src={products[0].image} alt={products[0].title} />
             </RecommendFirstImage>
             <RecommendFirstDescription>
-              <RecommendDescriptionBox href="/stores/productsDetail">
+              <RecommendDescriptionBox href="/store/productsDetail">
                 <div>{products[0].title}</div>
                 <div>{products[0].maker}</div>
                 <div>{products[0].description}</div>
@@ -462,13 +462,13 @@ export default function TodayItem() {
             </RecommendFirstDescription>
           </RecommendProduct>
         </RecommendFirst>
-        <RecommendSecondImage href="/stores/productsDetail">
+        <RecommendSecondImage href="/store/productsDetail">
           <img src={products[1].image} alt={products[1].title} />
         </RecommendSecondImage>
         <RecommendThird>
           <RecommendThirdMenu>
             <RecommendThirdTitle>오늘의 상품</RecommendThirdTitle>
-            <RecommendThirdItemDescription href="/stores/productsDetail">
+            <RecommendThirdItemDescription href="/store/productsDetail">
               <div>{products[1].title}</div>
               <div>{products[1].description}</div>
               <div>{products[1].series}</div>

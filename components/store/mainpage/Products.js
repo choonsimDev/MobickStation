@@ -223,13 +223,13 @@ export default function Products() {
             {products.map((product, index) => {
               return (
                 <StyledProductBox key={index}>
-                  <StyledProductImage href="/productsDetail">
+                  <StyledProductImage href="/productDetail">
                     <img src={product.imageUrl} alt="4thWallet" />
                   </StyledProductImage>
-                  <StyledProductName href="/productsDetail">
+                  <StyledProductName href="/productDetail">
                     {product.name}
                   </StyledProductName>
-                  <StyledProductDescription href="/productsDetail">
+                  <StyledProductDescription href="/productDetail">
                     {product.description}
                   </StyledProductDescription>
                   <StyledProductPrice>{product.price}</StyledProductPrice>

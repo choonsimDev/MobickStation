@@ -374,7 +374,10 @@ export default function CommunityMobicker() {
             <LeftCommunityHotContent></LeftCommunityHotContent>
             <LeftCommunityContentWrapper>
               {currentPosts.map((post, index) => (
-                <LeftCommunityContents href={`/writing/${post.id}`} key={index}>
+                <LeftCommunityContents
+                  href={`/writeMobicker/${post.id}`}
+                  key={index}
+                >
                   <div>
                     <div>{post.id}</div>
                     <img
@@ -392,31 +395,6 @@ export default function CommunityMobicker() {
                 </LeftCommunityContents>
               ))}
             </LeftCommunityContentWrapper>
-            {/* <PaginationWrapper>
-              <span
-                className={currentPage === 1 ? "disabled" : "page-item"}
-                onClick={() => paginate(currentPage - 1)}
-              >
-                이전
-              </span>
-              {pageNumbers.map((number) => (
-                <span
-                  key={number}
-                  className="page-item"
-                  onClick={() => paginate(number)}
-                >
-                  {number}
-                </span>
-              ))}
-              <span
-                className={
-                  currentPage === pageNumbers.length ? "disabled" : "page-item"
-                }
-                onClick={() => paginate(currentPage + 1)}
-              >
-                다음
-              </span>
-            </PaginationWrapper> */}
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
