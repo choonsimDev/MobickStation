@@ -184,7 +184,7 @@ export default function ProductsDetail() {
 
   return (
     <StyledDiv>
-      {/* {isModalVisible && <ModalPagePreparing onClose={closeModal} />} */}
+      {isModalVisible && <ModalPagePreparing onClose={closeModal} />}
 
       <Header />
       <Center>

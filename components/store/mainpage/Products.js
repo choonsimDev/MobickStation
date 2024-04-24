@@ -104,8 +104,6 @@ const StyledPubBookLine = styled.div`
   height: 1px;
   background-color: darkgrey;
 `;
-// 추가 코드
-
 const StyledProductBox = styled.div`
   width: 200px;
   display: flex;
@@ -172,7 +170,6 @@ const StyledProductPrice = styled.div`
   font-size: 14px;
   font-weight: bold;
 `;
-
 const products = [
   {
     imageUrl: "/images/store/wallet_1.png",
@@ -223,13 +220,13 @@ export default function Products() {
             {products.map((product, index) => {
               return (
                 <StyledProductBox key={index}>
-                  <StyledProductImage href="/productDetail">
+                  <StyledProductImage href="/store/productsDetail">
                     <img src={product.imageUrl} alt="4thWallet" />
                   </StyledProductImage>
-                  <StyledProductName href="/productDetail">
+                  <StyledProductName href="/store/productsDetail">
                     {product.name}
                   </StyledProductName>
-                  <StyledProductDescription href="/productDetail">
+                  <StyledProductDescription href="/store/productsDetail">
                     {product.description}
                   </StyledProductDescription>
                   <StyledProductPrice>{product.price}</StyledProductPrice>
@@ -244,7 +241,7 @@ export default function Products() {
         <StyledPubBookImageBox>
           {pubBookImg.map((image, index) => (
             <React.Fragment key={image.id}>
-              <StyledPubBookImage href="/productsDetail">
+              <StyledPubBookImage href="/store/products/productsDetail">
                 <img src={image.src} />
               </StyledPubBookImage>
               {index !== pubBookImg.length - 1 && <StyledPubBookLine />}
