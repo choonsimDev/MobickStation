@@ -63,28 +63,41 @@ const StyledBack = styled.a`
 `;
 
 const ProductImageBox = styled.div`
-  width: 530px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   margin-right: 30px;
 
-  img {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-  }
-  & div {
+  & div:nth-child(1) {
     display: flex;
+    margin-top: 20px;
+    padding: 10px;
+    width: 520px;
+    height: 520px;
+    border: 1px solid lightgray;
+    gap: 5px;
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  & div:nth-child(2) {
+    display: flex;
+    width: 120px;
     height: 120px;
     gap: 5px;
+    img {
+      object-fit: contain;
+      height: 120px;
+    }
   }
 `;
 
 const ProductDetailBoxWrapper = styled.div`
   display: flex;
+
   align-items: flex-start;
   width: 100%;
   /* border: solid 1px lightgray;
@@ -187,14 +200,16 @@ function ProductDetail() {
   const { id } = router.query;
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [quantity, setQuantity] = useState(1); // Default quantity is 1
+  const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [currentImage, setCurrentImage] = useState(""); // Initialize the current image state
 
   useEffect(() => {
     if (product) {
       setTotalPrice(product.price * quantity);
     }
   }, [product, quantity]);
+
   const increaseQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -209,6 +224,11 @@ function ProductDetail() {
         .then((data) => {
           setProduct(data);
           setLoading(false);
+          // Set initial image or default placeholder
+          const initialUrls = data.imageUrl ? data.imageUrl.split(",") : [];
+          setCurrentImage(
+            initialUrls.length > 0 ? initialUrls[0] : "/placeholder.png"
+          );
         })
         .catch((err) => {
           console.error("Failed to fetch product", err);
@@ -223,7 +243,7 @@ function ProductDetail() {
   // 이미지 URL을 배열로 파싱
   const imageUrls = product.imageUrl ? product.imageUrl.split(",") : [];
   const mainImageUrl = imageUrls.length > 0 ? imageUrls[0] : "/placeholder.png";
-  const allImages = imageUrls.slice(0);
+  const allImages = imageUrls.slice(0); // Copy all images
 
   return (
     <StyledDiv>
@@ -239,18 +259,25 @@ function ProductDetail() {
           </ProductsCategoryWrapper>
           <ProductDetailBoxWrapper>
             <ProductImageBox>
-              <img
-                src={mainImageUrl}
-                alt={product.name}
-                style={{ width: "100%" }}
-              />
+              <div>
+                <img
+                  src={currentImage || "/placeholder.png"} // Use currentImage or a placeholder
+                  alt={product.name}
+                  style={{ width: "100%" }}
+                />
+              </div>
               <div>
                 {allImages.map((url, index) => (
                   <img
                     key={index}
                     src={url}
-                    alt={product.name}
-                    style={{ height: "100px", marginTop: "10px" }}
+                    alt={`Thumbnail ${index + 1}`}
+                    style={{
+                      height: "100px",
+                      marginTop: "10px",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={() => setCurrentImage(url)}
                   />
                 ))}
               </div>

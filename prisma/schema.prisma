@@ -44,6 +44,8 @@ model dbCommunityPost {
   content   String   @db.Text
   thumb     Int      @default(0)
   createdAt DateTime @default(now())
+    views       Int             @default(0)
+
 }
 
 model Comment {
@@ -63,6 +65,7 @@ model dbAnonymousPost {
   content   String   @db.Text
   thumb     Int      @default(0)
   createdAt DateTime @default(now())
+    views       Int             @default(0)
 }
 
 model CommentAnonymous {
@@ -80,6 +83,8 @@ model dbNotice {
   nickname  String
   content   String   @db.Text
   createdAt DateTime @default(now())
+    views       Int             @default(0)
+
 }
 
 model dbStoreName {
@@ -102,6 +107,7 @@ model dbStoreProduct {
   description String
   categoryId  Int
   storeId     Int
+  views       Int             @default(0)
   category    dbStoreCategory @relation(fields: [categoryId], references: [id])
   store       dbStoreName     @relation(fields: [storeId], references: [id])
 
