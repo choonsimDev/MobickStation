@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import styled from "styled-components";
+
 import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 import LogoAndSearch from "@/components/common/LogoAndSearch";
@@ -300,7 +302,9 @@ function ProductDetail() {
                 Total Price: ₩{totalPrice.toLocaleString()}
               </ProductPriceBox>
               <ProductBuyCartLike>
-                <button>Buy Now</button>
+                <Link href="/store/payment" passHref>
+                  <button>Buy Now</button>
+                </Link>
                 <button>Add to Cart</button>
                 <button>♥</button>
               </ProductBuyCartLike>
