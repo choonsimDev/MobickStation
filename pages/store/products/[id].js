@@ -243,7 +243,7 @@ export default function ProductDetail() {
   if (!product) return <p>Product not found.</p>;
 
   // 결제 페이지로 이동하는 함수
-  const handleBuyNow = () => {
+  const handlePayment = () => {
     router.push({
       pathname: "/store/payment",
       query: {
@@ -315,7 +315,7 @@ export default function ProductDetail() {
               </ProductPriceBox>
               <ProductBuyCartLike>
                 <Link href="/store/payment" passHref>
-                  <button onClick={handleBuyNow}>Buy Now</button>
+                  <button onClick={handlePayment}>Buy Now</button>
                 </Link>
                 <button>Add to Cart</button>
                 <button>♥</button>

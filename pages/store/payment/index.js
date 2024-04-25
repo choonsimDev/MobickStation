@@ -25,6 +25,29 @@ const Form = styled.form`
 const Section = styled.section`
   margin-bottom: 20px;
 `;
+const OrderDetailSection = styled.section`
+  margin-bottom: 20px;
+  & div:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  & div:nth-child(2) {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  & div:nth-child(3) {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  & div:nth-child(4) {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  & div:nth-child(5) {
+    font-size: 16px;
+    font-weight: bold;
+  }
+`;
 const Input = styled.input`
   width: 100%;
   padding: 8px;
@@ -267,14 +290,17 @@ export default function PaymentPage() {
               실시간 계좌이체
             </Button>
           </Section>
-          <Section>
-            <h2>Order Details</h2>
-            <h3>상품명 : {product.name}</h3>
-            <h3>상품 설명 :{product.description}</h3>
-            <h3>가격 : {product.price}</h3>
-            <h3>주문 수량 : {quantity}</h3>
-            <h3>Total Price: {totalPrice}</h3>
-          </Section>
+          <OrderDetailSection>
+            <div>Order Details</div>
+            {product && (
+              <>
+                <div>상품명 : {product.name}</div>
+                <div>가격 : {product.price}</div>
+                <div>주문 수량 : {quantity}</div>
+                <div>Total Price: {totalPrice}</div>
+              </>
+            )}
+          </OrderDetailSection>
           <SubmitButton type="submit">주문하기</SubmitButton>
         </Form>
       </Center>
