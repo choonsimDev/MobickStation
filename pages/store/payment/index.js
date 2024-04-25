@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { loadTossPayments } from "@tosspayments/payment-sdk";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+// import { loadTossPayments } from "@tosspayments/payment-sdk";
 import styled from "styled-components";
 import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
@@ -89,6 +90,7 @@ const SubmitButton = styled(Button)`
   margin-top: 20px;
 `;
 
+// 토스 결제 SDK 로드
 function loadTossPaymentsScript() {
   return new Promise((resolve, reject) => {
     if (typeof window !== "undefined" && !window.TossPayments) {
@@ -103,18 +105,33 @@ function loadTossPaymentsScript() {
   });
 }
 
-export default function OrderPage() {
-  const handleClick = async () => {
+export default function PaymentPage() {
+  const router = useRouter();
+  const { id, quantity, totalPrice } = router.query; // URL 쿼리에서 데이터 수신
+  const [product, setProduct] = useState(null);
+
+  // 상품 정보를 불러오는 useEffect
+  useEffect(() => {
+    fetch(`/api/store/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+      });
+  }, [id]);
+  // 결제 처리 함수
+  const handlePayment = async () => {
+    if (!product) return;
+
     try {
       const TossPayments = await loadTossPaymentsScript();
       const clientKey = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY;
       const tossPayments = TossPayments(clientKey);
 
-      await tossPayments.requestPayment("카드", {
-        amount: 1000,
-        orderId: "123456",
-        orderName: "테스트 주문",
-        successUrl: "https://mobickstation/store/payment/complete",
+      tossPayments.requestPayment("카드", {
+        amount: totalPrice,
+        orderId: `order_${new Date().getTime()}`,
+        orderName: product.name,
+        successUrl: "https://example.com/success",
         failUrl: "https://example.com/fail",
       });
     } catch (error) {
@@ -223,9 +240,8 @@ export default function OrderPage() {
           {/* 결제방법 선택 */}
           <Section>
             <h2>결제 방법 선택</h2>
-            <TossButton type="button" onClick={handleClick}>
-              토스페이
-            </TossButton>{" "}
+            <TossButton onClick={handlePayment}>토스페이</TossButton>
+
             <NaverButton
               type="button"
               onClick={() =>
@@ -253,13 +269,11 @@ export default function OrderPage() {
           </Section>
           <Section>
             <h2>Order Details</h2>
-            <p>Store Name: 스토어 이름</p>
-            <p>
-              Product Details: 상품 이미지, 상품 타이틀, 상품 설명, 가격, 수량
-            </p>
-            <p>Total Product Price: 100,000원</p>
-            <p>Shipping Fee: 3,000원</p>
-            <p>Total Price: 103,000원</p>
+            <h3>상품명 : {product.name}</h3>
+            <h3>상품 설명 :{product.description}</h3>
+            <h3>가격 : {product.price}</h3>
+            <h3>주문 수량 : {quantity}</h3>
+            <h3>Total Price: {totalPrice}</h3>
           </Section>
           <SubmitButton type="submit">주문하기</SubmitButton>
         </Form>

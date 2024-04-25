@@ -14,7 +14,6 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const ProductsDetailWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -25,7 +24,6 @@ const ProductsDetailWrapper = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
 `;
-
 const ProductsCategoryWrapper = styled.div`
   width: 100%;
   height: 50px;
@@ -34,7 +32,6 @@ const ProductsCategoryWrapper = styled.div`
   flex-direction: row;
   align-items: center;
 `;
-
 const ProductsCategory = styled.div`
   height: 50px;
   display: flex;
@@ -47,7 +44,6 @@ const ProductsCategory = styled.div`
   color: #666;
   border-bottom: 1px lightgray solid;
 `;
-
 const StyledBack = styled.a`
   height: 50px;
   display: flex;
@@ -63,7 +59,6 @@ const StyledBack = styled.a`
     color: #333;
   }
 `;
-
 const ProductImageBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -96,7 +91,6 @@ const ProductImageBox = styled.div`
     }
   }
 `;
-
 const ProductDetailBoxWrapper = styled.div`
   display: flex;
 
@@ -105,12 +99,10 @@ const ProductDetailBoxWrapper = styled.div`
   /* border: solid 1px lightgray;
   border-width: 1px 0 1px 0; */
 `;
-
 const ProductDetailRightBox = styled.div`
   flex: 1;
   margin-top: 20px;
 `;
-
 const ProductTitleBox = styled.div`
   width: 100%;
   height: 50px;
@@ -118,7 +110,6 @@ const ProductTitleBox = styled.div`
   font-weight: bold;
   color: #333;
 `;
-
 const ProductDescriptionBox = styled.div`
   width: 100%;
   height: 200px;
@@ -127,7 +118,6 @@ const ProductDescriptionBox = styled.div`
   line-height: 1.5;
   border-bottom: 1px solid lightgray;
 `;
-
 const ProductDetailBox = styled.div`
   width: 100%;
   height: 60px;
@@ -138,7 +128,6 @@ const ProductDetailBox = styled.div`
   font-size: 16px;
   color: gray;
 `;
-
 const ProductQuantitylBox = styled.div`
   height: 60px;
   background-color: whitesmoke;
@@ -169,7 +158,6 @@ const ProductQuantitylBox = styled.div`
     font-size: 16px;
   }
 `;
-
 const ProductPriceBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -179,7 +167,6 @@ const ProductPriceBox = styled.div`
   color: #333;
   margin-bottom: 20px;
 `;
-
 const ProductBuyCartLike = styled.div`
   display: flex;
   justify-content: space-around;
@@ -197,7 +184,7 @@ const ProductBuyCartLike = styled.div`
   }
 `;
 
-function ProductDetail() {
+export default function ProductDetail() {
   const router = useRouter();
   const { id } = router.query;
   const [product, setProduct] = useState(null);
@@ -206,12 +193,24 @@ function ProductDetail() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [currentImage, setCurrentImage] = useState(""); // Initialize the current image state
 
+  // 초기 총 가격 설정
+  useEffect(() => {
+    fetch(`/api/store/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+        setTotalPrice(data.price);
+      });
+  }, [id]);
+
+  // 가격과 수량에 따른 총 가격 계산
   useEffect(() => {
     if (product) {
       setTotalPrice(product.price * quantity);
     }
   }, [product, quantity]);
 
+  // 수량 증가/감소 함수
   const increaseQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -219,6 +218,7 @@ function ProductDetail() {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1)); // Prevent quantity from going below 1
   };
 
+  // 상품 정보 가져오기
   useEffect(() => {
     if (id) {
       fetch(`/api/store/products/${id}`)
@@ -241,6 +241,18 @@ function ProductDetail() {
 
   if (loading) return <p>Loading...</p>;
   if (!product) return <p>Product not found.</p>;
+
+  // 결제 페이지로 이동하는 함수
+  const handleBuyNow = () => {
+    router.push({
+      pathname: "/store/payment",
+      query: {
+        id: id,
+        quantity: quantity,
+        totalPrice: totalPrice,
+      },
+    });
+  };
 
   // 이미지 URL을 배열로 파싱
   const imageUrls = product.imageUrl ? product.imageUrl.split(",") : [];
@@ -303,7 +315,7 @@ function ProductDetail() {
               </ProductPriceBox>
               <ProductBuyCartLike>
                 <Link href="/store/payment" passHref>
-                  <button>Buy Now</button>
+                  <button onClick={handleBuyNow}>Buy Now</button>
                 </Link>
                 <button>Add to Cart</button>
                 <button>♥</button>
@@ -316,5 +328,3 @@ function ProductDetail() {
     </StyledDiv>
   );
 }
-
-export default ProductDetail;
