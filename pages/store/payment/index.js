@@ -132,6 +132,7 @@ export default function PaymentPage() {
   const router = useRouter();
   const { id, quantity, totalPrice } = router.query; // URL 쿼리에서 데이터 수신
   const [product, setProduct] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   // 상품 정보를 불러오는 useEffect
   useEffect(() => {
@@ -157,7 +158,11 @@ export default function PaymentPage() {
         successUrl: "https://example.com/success",
         failUrl: "https://example.com/fail",
       });
+      if (!error) {
+        setSuccess(true);
+      }
     } catch (error) {
+      setSuccess(false);
       console.error("토스 결제 초기화 실패:", error);
       alert("결제 실패: " + error.message);
     }
@@ -184,6 +189,39 @@ export default function PaymentPage() {
     e.preventDefault();
     console.log("주문 데이터:", orderData);
   };
+
+  // 디비에 저장할 데이터 정리
+  // 결제 성공 여부도 디비에 저장해야 함
+  // 결제 성공 시 주문 생성 API 호출
+  // 주문 생성 API 호출 성공 시 결제 완료 페이지로 이동
+  // 결제 실패 시 에러 메시지 출력
+  // 결제 완료 페이지에서 주문 정보 출력
+  // 결제 완료 페이지에서 주문 정보 출력
+
+  const dbOrderData = {
+    orderId: `order_${new Date().getTime()}`,
+    status: success ? "success" : "fail",
+    total: totalPrice,
+    products: product,
+    customerInfo: orderData,
+  };
+
+  fetch("/api/store/orders/create", {
+    method: "POST",
+    body: JSON.stringify(dbOrderData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("주문 생성 결과:", data);
+      if (data.error) {
+        alert("주문 생성 실패: " + data.error);
+      } else {
+        router.push(`/store/payment/complete?orderId=${data.orderId}`);
+      }
+    });
 
   return (
     <StyledDiv>

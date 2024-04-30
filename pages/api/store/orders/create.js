@@ -4,6 +4,7 @@ const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
+    console.log("ORDER req.body ========", req.body);
     const { orderId, status, total, products, customerInfo } = req.body;
 
     try {

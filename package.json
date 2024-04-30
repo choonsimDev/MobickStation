@@ -24,9 +24,9 @@
     "swiper": "^11.0.6"
   },
   "devDependencies": {
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.13.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
-    "prisma": "^5.12.1"
+    "prisma": "^5.13.0"
   }
 }
