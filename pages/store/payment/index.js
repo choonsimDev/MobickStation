@@ -6,7 +6,7 @@ import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 import Logo from "@/components/common/Logo";
 import Footer from "@/components/common/Footer";
-import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
+// import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -164,7 +164,7 @@ export default function PaymentPage() {
     } catch (error) {
       setSuccess(false);
       console.error("토스 결제 초기화 실패:", error);
-      alert("결제 실패: " + error.message);
+      // alert("결제 실패: " + error.message);
     }
   };
 
