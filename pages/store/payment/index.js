@@ -216,11 +216,11 @@ export default function PaymentPage() {
     .then((res) => res.json())
     .then((data) => {
       console.log("주문 생성 결과:", data);
-      if (data.error) {
-        alert("주문 생성 실패: " + data.error);
-      } else {
-        router.push(`/store/payment/complete?orderId=${data.orderId}`);
-      }
+      // if (data.error) {
+      //   alert("주문 생성 실패: " + data.error);
+      // } else {
+      //   router.push(`/store/payment/complete?orderId=${data.orderId}`);
+      // }
     });
 
   return (
