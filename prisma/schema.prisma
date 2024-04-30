@@ -83,8 +83,7 @@ model dbNotice {
   nickname  String
   content   String   @db.Text
   createdAt DateTime @default(now())
-    views       Int             @default(0)
-
+  views       Int             @default(0)
 }
 
 model dbStoreName {
@@ -113,4 +112,15 @@ model dbStoreProduct {
 
   @@index([categoryId])
   @@index([storeId])
+}
+
+model dbOrder {
+  id        Int      @id @default(autoincrement())
+  orderId   String   @unique
+  status    String
+  total     Float
+  products  Json     // Storing product details as JSON
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  customerInfo Json  // Storing customer and shipping info as JSON
 }

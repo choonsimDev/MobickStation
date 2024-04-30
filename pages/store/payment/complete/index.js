@@ -1,29 +1,46 @@
-export default async function Page() {
-  const secretKey = process.env.TOSS_SECRET_KEY || "";
-  const basicToken = Buffer.from(`${secretKey}:`, `utf-8`).toString(base64);
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
-  const url = `https://api.tosspayments.com/v1/payments/orders/${searchParams.orderId}`;
-  const payments = await fetch(url, {
-    headers: {
-      Authorization: `Basic ${basicToken}`,
-      "Content-Type": "application/json",
-    },
-  }).then((res) => res.json());
+export default function PaymentComplete() {
+  const router = useRouter();
+  const { orderId, status } = router.query;
 
-  const { card } = payments;
+  useEffect(() => {
+    if (status === "success") {
+      // Assume you store order details in local storage or manage state
+      const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
+      saveOrderDetails(orderId, orderDetails);
+    }
+  }, [orderId, status]);
+
+  const saveOrderDetails = async (orderId, orderDetails) => {
+    try {
+      const response = await fetch("/api/store/orders/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          orderId,
+          status: "Completed",
+          ...orderDetails,
+        }),
+      });
+      const data = await response.json();
+      console.log("Order saved:", data);
+    } catch (error) {
+      console.error("Failed to save order:", error);
+    }
+  };
+
   return (
     <div>
-      <h1>결제가 완료되었습니다.</h1>
-      <ul>
-        <li>결제 상품: {payments.orderName}</li>
-        <li>주문번호: {payments.orderId}</li>
-        <li>카드사: {payments.company}</li>
-        <li>카드번호: {card.company}</li>
-        <li>결제금액: {card.amount}</li>
-        <li>
-          결제일시: {Intl.DateTimeFormat().format(new Date(payments.approveAt))}
-        </li>
-      </ul>
+      {status === "success" ? (
+        <h1>Payment Successful</h1>
+      ) : (
+        <h1>Payment Failed</h1>
+      )}
+      <button onClick={() => router.push("/")}>Go to Home</button>
     </div>
   );
 }

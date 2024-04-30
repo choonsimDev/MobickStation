@@ -31,6 +31,7 @@ const ProductsCategoryWrapper = styled.div`
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  border-bottom: 1px lightgray solid;
 `;
 const ProductsCategory = styled.div`
   height: 50px;
@@ -42,7 +43,6 @@ const ProductsCategory = styled.div`
 
   font-size: 16px;
   color: #666;
-  border-bottom: 1px lightgray solid;
 `;
 const StyledBack = styled.a`
   height: 50px;
@@ -65,6 +65,7 @@ const ProductImageBox = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-right: 30px;
+  margin-bottom: 20px;
 
   & div:nth-child(1) {
     display: flex;
@@ -73,21 +74,25 @@ const ProductImageBox = styled.div`
     width: 520px;
     height: 520px;
     border: 1px solid lightgray;
+    border-radius: 10px;
+
     gap: 5px;
     img {
       object-fit: contain;
       width: 100%;
       height: 100%;
+      border-radius: 10px;
     }
   }
   & div:nth-child(2) {
     display: flex;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     gap: 5px;
     img {
       object-fit: contain;
-      height: 120px;
+      height: 100%;
+      border-radius: 10px;
     }
   }
 `;
@@ -109,6 +114,13 @@ const ProductTitleBox = styled.div`
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  display: flex;
+  justify-content: space-between;
+  div {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+  }
 `;
 const ProductDescriptionBox = styled.div`
   width: 100%;
@@ -172,12 +184,16 @@ const ProductBuyCartLike = styled.div`
   justify-content: space-around;
   width: 100%;
   button {
-    background: #e5821a;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
+    background: #e5821a;
     &:hover {
       background: #f6931a;
     }
@@ -297,7 +313,40 @@ export default function ProductDetail() {
               </div>
             </ProductImageBox>
             <ProductDetailRightBox>
-              <ProductTitleBox>{product.name}</ProductTitleBox>
+              <ProductTitleBox>
+                {product.name}{" "}
+                <div>
+                  <button
+                    style={{
+                      background: "none",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      src="/images/store/like.png"
+                      alt="Like"
+                      style={{ width: "24px", height: "24px" }}
+                    />
+                  </button>
+                  <button
+                    style={{
+                      background: "none",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      src="/images/store/share.png"
+                      alt="Share"
+                      style={{ width: "24px", height: "24px" }}
+                    />
+                  </button>
+                </div>
+              </ProductTitleBox>
+
               <ProductDescriptionBox>
                 {product.description}
               </ProductDescriptionBox>
@@ -314,11 +363,10 @@ export default function ProductDetail() {
                 Total Price: ₩{totalPrice.toLocaleString()}
               </ProductPriceBox>
               <ProductBuyCartLike>
+                <button>Add to Cart</button>
                 <Link href="/store/payment" passHref>
                   <button onClick={handlePayment}>Buy Now</button>
                 </Link>
-                <button>Add to Cart</button>
-                <button>♥</button>
               </ProductBuyCartLike>
             </ProductDetailRightBox>
           </ProductDetailBoxWrapper>
