@@ -130,44 +130,9 @@ function loadTossPaymentsScript() {
 
 export default function PaymentPage() {
   const router = useRouter();
-  const { id, quantity, totalPrice } = router.query; // URL 쿼리에서 데이터 수신
+  const { id, quantity, totalPrice } = router.query;
   const [product, setProduct] = useState(null);
   const [success, setSuccess] = useState(false);
-
-  // 상품 정보를 불러오는 useEffect
-  useEffect(() => {
-    fetch(`/api/store/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProduct(data);
-      });
-  }, [id]);
-  // 결제 처리 함수
-  const handlePayment = async () => {
-    if (!product) return;
-
-    try {
-      const TossPayments = await loadTossPaymentsScript();
-      const clientKey = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY;
-      const tossPayments = TossPayments(clientKey);
-
-      tossPayments.requestPayment("카드", {
-        amount: totalPrice,
-        orderId: `order_${new Date().getTime()}`,
-        orderName: product.name,
-        successUrl: "https://example.com/success",
-        failUrl: "https://example.com/fail",
-      });
-      if (!error) {
-        setSuccess(true);
-      }
-    } catch (error) {
-      setSuccess(false);
-      console.error("토스 결제 초기화 실패:", error);
-      // alert("결제 실패: " + error.message);
-    }
-  };
-
   const [orderData, setOrderData] = useState({
     name: "",
     phone: "",
@@ -181,47 +146,79 @@ export default function PaymentPage() {
     paymentMethod: "",
   });
 
+  useEffect(() => {
+    if (id) {
+      fetch(`/api/store/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setProduct(data);
+        });
+    }
+  }, [id]);
+
   const handleChange = (e) => {
     setOrderData({ ...orderData, [e.target.name]: e.target.value });
   };
 
+  const handlePayment = async () => {
+    try {
+      const TossPayments = await loadTossPaymentsScript();
+      const clientKey = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY;
+      const tossPayments = TossPayments(clientKey);
+
+      await tossPayments.requestPayment("카드", {
+        amount: totalPrice,
+        orderId: `order_${new Date().getTime()}`,
+        orderName: product.name,
+        successUrl: "https://mobickstation.com/store/payment/complete",
+        failUrl: "https://mobickstation.com/store/payment/fail",
+      });
+      // Assuming the payment process includes a way to catch success/fail within the function
+      // After successful payment
+      submitOrderData();
+    } catch (error) {
+      console.error("토스 결제 초기화 실패:", error);
+    }
+  };
+
+  const submitOrderData = async () => {
+    const dbOrderData = {
+      orderId: `order_${new Date().getTime()}`,
+      orderName: product?.name,
+      status: "success",
+      total: totalPrice,
+      productId: product?.id,
+      customerInfo: orderData,
+    };
+
+    console.log("Submitting order data:", dbOrderData);
+
+    try {
+      const response = await fetch("/api/store/orders/create", {
+        method: "POST",
+        body: JSON.stringify(dbOrderData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log("Response from order create:", data);
+      if (!data.error) {
+        router.push(`/store/payment/complete?orderId=${data.orderId}`);
+      } else {
+        console.error("Order creation failed:", data.error);
+        alert("Order creation failed: " + data.error);
+      }
+    } catch (error) {
+      console.error("Failed to submit order data:", error);
+      alert("Failed to submit order data. Please try again.");
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("주문 데이터:", orderData);
+    handlePayment();
   };
-
-  // 디비에 저장할 데이터 정리
-  // 결제 성공 여부도 디비에 저장해야 함
-  // 결제 성공 시 주문 생성 API 호출
-  // 주문 생성 API 호출 성공 시 결제 완료 페이지로 이동
-  // 결제 실패 시 에러 메시지 출력
-  // 결제 완료 페이지에서 주문 정보 출력
-  // 결제 완료 페이지에서 주문 정보 출력
-
-  const dbOrderData = {
-    orderId: `order_${new Date().getTime()}`,
-    status: success ? "success" : "fail",
-    total: totalPrice,
-    products: product,
-    customerInfo: orderData,
-  };
-
-  fetch("/api/store/orders/create", {
-    method: "POST",
-    body: JSON.stringify(dbOrderData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("주문 생성 결과:", data);
-      // if (data.error) {
-      //   alert("주문 생성 실패: " + data.error);
-      // } else {
-      //   router.push(`/store/payment/complete?orderId=${data.orderId}`);
-      // }
-    });
 
   return (
     <StyledDiv>

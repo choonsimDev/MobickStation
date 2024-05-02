@@ -109,18 +109,36 @@ model dbStoreProduct {
   views       Int             @default(0)
   category    dbStoreCategory @relation(fields: [categoryId], references: [id])
   store       dbStoreName     @relation(fields: [storeId], references: [id])
-
+  orders      dbOrder[]       // 여러 주문에 하나의 상품이 포함될 수 있습니다
   @@index([categoryId])
   @@index([storeId])
 }
 
 model dbOrder {
-  id        Int      @id @default(autoincrement())
-  orderId   String   @unique
-  status    String
-  total     Float
-  products  Json     // Storing product details as JSON
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  customerInfo Json  // Storing customer and shipping info as JSON
+  id            Int             @id @default(autoincrement())
+  orderId       String          @unique
+  orderName     String
+  status        String
+  total         Float
+  createdAt     DateTime        @default(now())
+  productId     Int
+  products      dbStoreProduct  @relation(fields: [productId], references: [id])
+  customerInfo  dbCustomerInfo?  // 이제 이 필드는 선택적입니다.
+  @@index([productId])
+}
+
+model dbCustomerInfo {
+  id            Int            @id @default(autoincrement())
+  name          String
+  phone         String
+  email         String
+  recipient     String
+  contact1      String
+  contact2      String
+  address       String
+  deliveryNote  String?
+  paymentMethod String?
+  orderId       Int @unique
+  order         dbOrder        @relation(fields: [orderId], references: [id])
+  @@index([orderId])
 }
