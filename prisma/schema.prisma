@@ -44,8 +44,7 @@ model dbCommunityPost {
   content   String   @db.Text
   thumb     Int      @default(0)
   createdAt DateTime @default(now())
-    views       Int             @default(0)
-
+  views     Int      @default(0)
 }
 
 model Comment {
@@ -65,7 +64,7 @@ model dbAnonymousPost {
   content   String   @db.Text
   thumb     Int      @default(0)
   createdAt DateTime @default(now())
-    views       Int             @default(0)
+  views     Int      @default(0)
 }
 
 model CommentAnonymous {
@@ -83,7 +82,7 @@ model dbNotice {
   nickname  String
   content   String   @db.Text
   createdAt DateTime @default(now())
-  views       Int             @default(0)
+  views     Int      @default(0)
 }
 
 model dbStoreName {
@@ -101,7 +100,7 @@ model dbStoreCategory {
 model dbStoreProduct {
   id          Int             @id @default(autoincrement())
   name        String
-  price       Float
+  price       String
   imageUrl    String?
   description String
   categoryId  Int
@@ -109,36 +108,40 @@ model dbStoreProduct {
   views       Int             @default(0)
   category    dbStoreCategory @relation(fields: [categoryId], references: [id])
   store       dbStoreName     @relation(fields: [storeId], references: [id])
-  orders      dbOrder[]       // 여러 주문에 하나의 상품이 포함될 수 있습니다
+  orders      dbOrder[] // 여러 주문에 하나의 상품이 포함될 수 있습니다
+
   @@index([categoryId])
   @@index([storeId])
 }
 
 model dbOrder {
-  id            Int             @id @default(autoincrement())
-  orderId       String          @unique
-  orderName     String
-  status        String
-  total         Float
-  createdAt     DateTime        @default(now())
-  productId     Int
-  products      dbStoreProduct  @relation(fields: [productId], references: [id])
-  customerInfo  dbCustomerInfo?  // 이제 이 필드는 선택적입니다.
+  id           Int             @id @default(autoincrement())
+  orderId      String          @unique
+  orderName    String
+  status       String
+  total        String
+  createdAt    DateTime        @default(now())
+  productId    Int
+  products     dbStoreProduct  @relation(fields: [productId], references: [id])
+  customerInfo dbCustomerInfo? // 이제 이 필드는 선택적입니다.
+
   @@index([productId])
 }
 
 model dbCustomerInfo {
-  id            Int            @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   name          String
   phone         String
   email         String
+  password      String
   recipient     String
   contact1      String
   contact2      String
   address       String
   deliveryNote  String?
   paymentMethod String?
-  orderId       Int @unique
-  order         dbOrder        @relation(fields: [orderId], references: [id])
+  orderId       Int     @unique
+  order         dbOrder @relation(fields: [orderId], references: [id])
+
   @@index([orderId])
 }
