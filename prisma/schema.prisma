@@ -108,7 +108,7 @@ model dbStoreProduct {
   views       Int             @default(0)
   category    dbStoreCategory @relation(fields: [categoryId], references: [id])
   store       dbStoreName     @relation(fields: [storeId], references: [id])
-  orders      dbOrder[] // 여러 주문에 하나의 상품이 포함될 수 있습니다
+  orders      dbOrder[]
 
   @@index([categoryId])
   @@index([storeId])
@@ -123,7 +123,7 @@ model dbOrder {
   createdAt    DateTime        @default(now())
   productId    Int
   products     dbStoreProduct  @relation(fields: [productId], references: [id])
-  customerInfo dbCustomerInfo? // 이제 이 필드는 선택적입니다.
+  customerInfo dbCustomerInfo?
 
   @@index([productId])
 }
@@ -133,7 +133,6 @@ model dbCustomerInfo {
   name          String
   phone         String
   email         String
-  password      String
   recipient     String
   contact1      String
   contact2      String
@@ -141,6 +140,7 @@ model dbCustomerInfo {
   deliveryNote  String?
   paymentMethod String?
   orderId       Int     @unique
+  password      String
   order         dbOrder @relation(fields: [orderId], references: [id])
 
   @@index([orderId])

@@ -65,7 +65,7 @@ export default function BestProducts() {
 
   return (
     <StyledDiv>
-      {isModalVisible && <ModalPagePreparing onClose={closeModal} />}
+      {/* {isModalVisible && <ModalPagePreparing onClose={closeModal} />} */}
       <Center>
         <Header />
         <LogoAndSearch />

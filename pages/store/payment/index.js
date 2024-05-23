@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-// import { loadTossPayments } from "@tosspayments/payment-sdk";
 import styled from "styled-components";
 import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 import Logo from "@/components/common/Logo";
 import Footer from "@/components/common/Footer";
-// import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -173,8 +171,7 @@ export default function PaymentPage() {
         successUrl: "https://mobickstation.com/store/payment/complete",
         failUrl: "https://mobickstation.com/store/payment/fail",
       });
-      // Assuming the payment process includes a way to catch success/fail within the function
-      // After successful payment
+
       submitOrderData();
     } catch (error) {
       console.error("토스 결제 초기화 실패:", error);
@@ -203,12 +200,6 @@ export default function PaymentPage() {
       });
       const data = await response.json();
       console.log("Response from order create:", data);
-      if (!data.error) {
-        router.push(`/store/payment/complete?orderId=${data.orderId}`);
-      } else {
-        console.error("Order creation failed:", data.error);
-        alert("Order creation failed: " + data.error);
-      }
     } catch (error) {
       console.error("Failed to submit order data:", error);
       alert("Failed to submit order data. Please try again.");
