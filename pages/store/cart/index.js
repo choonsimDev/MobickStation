@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+import LogoAndSearch from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
@@ -249,9 +248,8 @@ export default function Cart() {
 
   return (
     <StyledDiv>
-      {isModalVisible && <ModalPagePreparing onClose={closeModal} />}
+      {/* {isModalVisible && <ModalPagePreparing onClose={closeModal} />} */}
 
-      <Header />
       <Center>
         <LogoAndSearch />
         <StyledDiv2>

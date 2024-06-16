@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "@/components/modal/Modal";
 import Head from "next/head";
-import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+import LogoAndSearch from "@/components/common/Header";
 import Banner from "@/components/store/mainpage/Banner";
-import TodayItem from "@/components/store/mainpage/TodayItem";
 import Products from "@/components/store/mainpage/Products";
 import CommunityMain from "@/components/community/CommunityMain";
 
@@ -49,11 +47,9 @@ const Home = () => {
       </Head>
       <Center>
         {showModal && <Modal onClose={() => setShowModal(false)} />}
-        <Header />
         <LogoAndSearch />
         <Banner />
-        <CommunityMain />
-        <TodayItem />
+        {/* <CommunityMain /> */}
         <Products />
         <AdArea />
         <Footer />

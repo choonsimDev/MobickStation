@@ -2,10 +2,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-
-import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+import LogoAndSearch from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 
 const StyledDiv = styled.div`
@@ -277,7 +275,6 @@ export default function ProductDetail() {
 
   return (
     <StyledDiv>
-      <Header />
       <Center>
         <LogoAndSearch />
         <ProductsDetailWrapper>

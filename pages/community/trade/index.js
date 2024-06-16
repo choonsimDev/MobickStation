@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Header from "@/components/Main/Header";
 import Center from "@/components/common/Center";
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+import LogoAndSearch from "@/components/common/Header";
 import AdArea from "@/components/common/AdArea";
 import Footer from "@/components/common/Footer";
 import CommunityList from "@/components/community/CommunityList";

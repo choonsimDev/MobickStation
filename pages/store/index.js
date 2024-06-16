@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Header from "@/components/common/Header";
+// import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+// import LogoAndSearch from "@/components/common/LogoAndSearch";
 import Banner from "@/components/store/mainpage/Banner";
 import CategorySection from "@/components/store/stores/storeCategorySection";
 import BestProductsSection from "@/components/store/stores/storeBestProductsSection";
 import AllProductsSection from "@/components/store/stores/storeAllProductsSection";
 import Footer from "@/components/common/Footer";
-import ModalPagePreparing from "@/components/modal/ModalPagePreparing";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -53,22 +52,22 @@ const StyledBack = styled.a`
 `;
 
 export default function BestProducts() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  // const [isModalVisible, setIsModalVisible] = useState(false);
 
-  useEffect(() => {
-    setIsModalVisible(true); // 페이지 로드 시 모달을 자동으로 열기
-  }, []);
+  // useEffect(() => {
+  //   setIsModalVisible(true); // 페이지 로드 시 모달을 자동으로 열기
+  // }, []);
 
-  const closeModal = () => {
-    setIsModalVisible(false); // 모달 닫기 함수
-  };
+  // const closeModal = () => {
+  //   setIsModalVisible(false); // 모달 닫기 함수
+  // };
 
   return (
     <StyledDiv>
       {/* {isModalVisible && <ModalPagePreparing onClose={closeModal} />} */}
       <Center>
-        <Header />
-        <LogoAndSearch />
+        {/* <Header /> */}
+        {/* <LogoAndSearch /> */}
         <StyledDiv2>
           <Banner />
           <CategorySection />

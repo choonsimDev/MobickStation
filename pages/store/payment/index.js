@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
 import Logo from "@/components/common/Logo";
 import Footer from "@/components/common/Footer";
@@ -213,7 +212,6 @@ export default function PaymentPage() {
 
   return (
     <StyledDiv>
-      <Header />
       <Center>
         <Logo />
         <Form onSubmit={handleSubmit}>

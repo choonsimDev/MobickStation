@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 
 import styled from "styled-components";
 import Header from "@/components/common/Header";
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+import LogoAndSearch from "@/components/common/Header";
 import CommunityList from "@/components/community/CommunityList";
 import Footer from "@/components/common/Footer";
 import Center from "@/components/common/Center";

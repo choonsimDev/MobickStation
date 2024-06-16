@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const StyledTopMidWrapper = styled.a`
-  width: 1200px;
-  height: 80px;
   cursor: pointer;
   position: relative; /* 상대 위치 지정 */
   margin-top: 20px;
@@ -21,7 +19,7 @@ const AdLabel = styled.span`
 
 export default function AdArea() {
   const adInfo = {
-    src: "/images/ad/AdTodakTodak.png",
+    src: "/images/ad/AdTodakTodak1920.png",
     alt: "wallet",
   };
 
@@ -31,8 +29,8 @@ export default function AdArea() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <AdLabel>AD</AdLabel>
-      <img src={adInfo.src} alt={adInfo.alt} width="1200" />
+      {/* <AdLabel>AD</AdLabel> */}
+      <img src={adInfo.src} alt={adInfo.alt} width="1920" />
     </StyledTopMidWrapper>
   );
 }

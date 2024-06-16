@@ -24,25 +24,13 @@ export default function SwiperBanner() {
           <img src="/images/banner/1stWallet.png" alt="4thWallet" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/banner/3rdWallet.png" alt="4thWallet" />
-        </SwiperSlide>
-        <SwiperSlide>
           <img src="/images/banner/4thWallet.png" alt="4thWallet" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/banner/5thWallet.png" alt="4thWallet" />
         </SwiperSlide>
         <SwiperSlide>
           <img src="/images/banner/1stWallet.png" alt="4thWallet" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/banner/3rdWallet.png" alt="4thWallet" />
-        </SwiperSlide>
-        <SwiperSlide>
           <img src="/images/banner/4thWallet.png" alt="4thWallet" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/banner/5thWallet.png" alt="4thWallet" />
         </SwiperSlide>
       </Swiper>
     </>

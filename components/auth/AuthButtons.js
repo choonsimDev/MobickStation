@@ -1,16 +1,38 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import styled from "styled-components";
 
-const StyledButton = styled.button`
-  color: white; /* 글자 색상 */
-  border: none; /* 테두리 없음 */
+const LoginWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 아이콘과 글자 사이 간격 */
+  width: 140px; /* 너비 조정 */
+  height: 44px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
   cursor: pointer; /* 마우스 오버 시 커서 변경 */
-  font-size: 16px; /* 글자 크기 */
-  background-color: #f6931a;
-  &:hover {
-    color: white; /* 마우스 오버 시 글자 색상 변경 */
-    text-decoration: underline;
+`;
+
+const StyledButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none; /* 테두리 없음 */
+  background-color: #f2f2f2;
+  padding: 0; /* 패딩 초기화 */
+  cursor: pointer; /* 마우스 오버 시 커서 변경 */
+  & div {
+    color: black; /* 글자 색상 */
+    font-size: 16px; /* 글자 크기 */
   }
+`;
+
+const LoginText = styled.div`
+  color: black; /* 글자 색상 */
+  font-size: 20px; /* 글자 크기 */
+  margin-left: 10px; /* 이미지와 텍스트 사이 간격 */
 `;
 
 export default function Component() {
@@ -24,9 +46,9 @@ export default function Component() {
     );
   }
   return (
-    <>
-      <br />
-      <StyledButton onClick={() => signIn("google")}>로그인</StyledButton>
-    </>
+    <LoginWrapper>
+      <img src="/images/buttons/login.png" alt="Logo" width={24} />
+      <LoginText onClick={() => signIn("google")}>로그인</LoginText>
+    </LoginWrapper>
   );
 }

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-import Header from "@/components/common/Header";
 import Center from "@/components/common/Center";
-import LogoAndSearch from "@/components/common/LogoAndSearch";
+import LogoAndSearch from "@/components/common/Header";
 import Banner from "@/components/store/mainpage/Banner";
 import CategorySection from "@/components/store/stores/storeCategorySection";
 import BestProductsSection from "@/components/store/stores/storeBestProductsSection";
@@ -121,7 +120,6 @@ export default function BestProducts() {
   return (
     <StyledDiv>
       <Center>
-        <Header />
         <LogoAndSearch />
         <StyledDiv2>
           <Banner />

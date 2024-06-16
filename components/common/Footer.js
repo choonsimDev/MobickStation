@@ -1,184 +1,147 @@
-import styled from "styled-components";
 import React from "react";
+import styled from "styled-components";
 
-const StyledFooterWrapper = styled.div`
-  width: 1200px;
-  height: 290px;
-  margin-top: 20px;
+const FooterContainer = styled.footer`
+  width: 100%;
+  background-color: #e5e5e5;
+  padding: 40px 60px;
+  box-sizing: border-box;
+`;
+
+const TopBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+`;
+
+const LeftBox = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 1120px;
 `;
 
-const FooterTop = styled.div`
-  width: 100%;
-  height: 30px;
+const LogoImage = styled.img`
+  width: 300px;
+  margin-bottom: 10px;
+`;
+
+const InfoText = styled.div`
+  font-size: 18px;
+  color: #737373;
+  line-height: 1.6;
+`;
+
+const Separator = styled.span`
+  display: inline-block;
+  margin: 0 10px;
+  color: #ccc;
+`;
+
+const RightBox = styled.div`
+  width: 600px;
+  height: 72px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid darkgray;
+  justify-content: space-between;
 `;
 
-const FooterLink = styled.a`
-  color: black;
+const ContactBox = styled.div`
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #737373;
+`;
+
+const ContactTitle = styled.h4`
+  font-size: 30px;
+  font-weight: bold;
+  color: #737373;
+  margin-bottom: 10px;
+`;
+
+const SocialIconsBox = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const SocialIcon = styled.img`
+  width: 48px;
+  height: 48px;
+`;
+
+const BottomBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const CopyrightText = styled.div`
+  font-size: 18px;
+  color: #a0a0a0;
+`;
+
+const TermsBox = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const TermLink = styled.a`
+  font-size: 14px;
+  color: #0078ff;
   text-decoration: none;
-  margin: 0 10px;
   &:hover {
     text-decoration: underline;
   }
 `;
 
-const FooterMiddle = styled.div`
-  width: 100%;
-  height: 180px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid darkgray;
-`;
-
-const FooterMiddleWrapper = styled.div`
-  width: 600px;
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 40px;
-  align-items: center;
-`;
-
-const CompanyWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
-
-const MiddleImageBox = styled.div`
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: coral; */
-  background-image: url(${(props) => props.$imageUrl});
-`;
-
-const MiddleTextBox = styled.div`
-  margin-left: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-`;
-
-const MiddleCustomService = styled.div`
-  width: 230px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin-left: 70px;
-  & > :nth-child(1) {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  & > :nth-child(2) {
-    font-size: 14px;
-  }
-  & > :nth-child(3) {
-    font-size: 14px;
-  }
-  /* background-color: lightgreen; */
-`;
-
-const MiddleCustomServiceQuestion = styled.div`
-  width: 100%;
-  height: 30px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-
-  & > div {
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline; /* Underline on hover */
-      font-weight: ${(props) => (props.$isBold ? "bold" : "normal")};
-    }
-  }
-`;
-
-export default function Footer() {
-  const footerLinks = [
-    { text: "소개", href: "#" },
-    { text: "이용약관", href: "#" },
-    { text: "개인정보처리방침", href: "#" },
-    { text: "고객센터", href: "#" },
-    { text: "사업자정보확인", href: "#" },
-    { text: "광고안내", href: "#" },
-    { text: "제휴안내", href: "#" },
-  ];
-
-  const customerServiceInfo = {
-    inquiry: "CONTACT US",
-    phoneNumber: "대표번호 | choonsim.dev@gmail.com",
-    mallInquiry: "입점 문의 | choonsim.dev@gmail.com",
-    questions: ["1:1 문의하기", "자주 묻는 질문"],
-  };
-
+const Footer = () => {
   return (
-    <StyledFooterWrapper>
-      <FooterTop>
-        {footerLinks.map((link, index) => (
-          <React.Fragment key={index}>
-            <FooterLink href={link.href}>{link.text}</FooterLink>
-            {index < footerLinks.length - 1 && <span>|</span>}
-          </React.Fragment>
-        ))}
-      </FooterTop>
-      <FooterMiddle>
-        <FooterMiddleWrapper>
-          <CompanyWrapper>
-            <MiddleImageBox>
-              <img src="/images/logo/BTCMobickLogo.png" alt="Logo" width={80} />
-            </MiddleImageBox>
-            <MiddleTextBox>MOBICK STATION</MiddleTextBox>
-          </CompanyWrapper>
-          <CompanyWrapper>
-            <MiddleImageBox>
-              <img
-                src="/images/logo/Logo_Mobickers.png"
-                alt="Logo"
-                width={80}
-              />
-            </MiddleImageBox>
-            <MiddleTextBox>Mobickers</MiddleTextBox>
-          </CompanyWrapper>
-        </FooterMiddleWrapper>
-        <MiddleCustomService>
-          <div>{customerServiceInfo.inquiry}</div>
-          <div>{customerServiceInfo.phoneNumber}</div>
-          <div>{customerServiceInfo.mallInquiry}</div>
-          <div>{customerServiceInfo.otcInquiry}</div>
-          <MiddleCustomServiceQuestion>
-            {customerServiceInfo.questions.map((question, index) => (
-              <div key={index}>{question}</div>
-            ))}
-          </MiddleCustomServiceQuestion>
-        </MiddleCustomService>
-      </FooterMiddle>
-      {/* <FooterBottom>
-        <div>
-          <p>Copyright 2024. Mobickers inc. all rights reserved.</p>
-        </div>
-      </FooterBottom> */}
-    </StyledFooterWrapper>
+    <FooterContainer>
+      <TopBox>
+        <LeftBox>
+          <LogoImage
+            src="/images/logo/Logo_MobickStation_Footer.png"
+            alt="Logo"
+          />
+          <InfoText>
+            상호명 : 모빅스테이션<Separator>|</Separator>
+            대표자 : 조용래
+            <br />
+            주소 : 경기도 성남시 분당구 느티로 69<Separator>|</Separator>
+            사업자 등록번호 : 505-21-96326<Separator>|</Separator>
+            통신 판매업 신고 : 2024-경기성남-1234
+          </InfoText>
+        </LeftBox>
+        <RightBox>
+          <ContactBox>
+            <ContactTitle>Contact Us</ContactTitle>
+            입점문의 : choonsim.dev@gmail.com
+          </ContactBox>
+          <SocialIconsBox>
+            <SocialIcon src="/images/buttons/kakao.png" alt="kakao" />
+            <SocialIcon src="/images/buttons/youtube.png" alt="youtube" />
+            <SocialIcon src="/images/buttons/instagram.png" alt="instagram" />
+            <SocialIcon src="/images/buttons/facebook.png" alt="facebook" />
+            <SocialIcon src="/images/buttons/twitter.png" alt="twitter" />
+          </SocialIconsBox>
+        </RightBox>
+      </TopBox>
+      <BottomBox>
+        <CopyrightText>
+          COPYRIGHT ⓒ MOBICK STATION ALL RIGHTS RESERVED.
+        </CopyrightText>
+        <TermsBox>
+          <TermLink href="/terms">이용 약관</TermLink>
+          <Separator>|</Separator>
+          <TermLink href="/privacy">개인정보 처리방침</TermLink>
+        </TermsBox>
+      </BottomBox>
+    </FooterContainer>
   );
-}
+};
+
+export default Footer;
