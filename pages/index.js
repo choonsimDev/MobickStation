@@ -46,7 +46,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Center>
-        {showModal && <Modal onClose={() => setShowModal(false)} />}
+        {/* {showModal && <Modal onClose={() => setShowModal(false)} />} */}
         <LogoAndSearch />
         <Banner />
         {/* <CommunityMain /> */}
